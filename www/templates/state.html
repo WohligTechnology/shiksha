@@ -1,0 +1,46 @@
+<ion-view view-title="RUSA FUND TRACKER">
+  <ion-content>
+    <ion-tabs class=" tab-button">
+      <ion-tab title="OVERVIEW">
+        <ion-content>
+          <div class="">
+            <div class="">
+              <h4>26 Projects to-date</h4>
+              <h4>10 Active Projects</h4>
+            </div>
+            <div class="">
+              <i class="ion-record"></i>
+              <h4>₹ 19,20,00,000
+                <h4>Total Allocation</h4>
+              </h4>
+              <i class="ion-record"></i>
+              <h4>₹ 10,00,00,000
+                <h4>Total Fund Release</h4>
+              </h4>
+              <i class="ion-record"></i>
+              <h4>₹ 750,00,000
+                <h4>Total Fund tilization</h4>
+              </h4>
+            </div>
+            <img src="img/stats.png" alt="" />
+            <div class="">
+              <h4>Active allocation </h4>
+              <h4>₹ 925,00,000</h4>
+              <h4>Active Utilization </h4>
+              <h4>₹ 300,50,000</h4>
+            </div>
+          </div>
+        </ion-content>
+      </ion-tab>
+      <ion-tab title="INSTITUTIONS">
+        <ion-content>
+          <div class="card" ng-repeat="institue in institution" ui-sref="app.institute">
+            <div class="item item-text-wrap" >
+              {{institue}}
+            </div>
+          </div>
+        </ion-content>
+      </ion-tab>
+    </ion-tabs>
+  </ion-content>
+</ion-view>
