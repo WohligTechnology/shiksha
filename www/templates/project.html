@@ -1,10 +1,23 @@
-<ion-view view-title="RUSA FUND TRACKER">
+<ion-view view-title="Fund Utilization">
     <ion-content>
         <div class="project-overview">
-            <div class="">
-                <h4>
-                    Infrastructure Grant
-                </h4>
+            <div class="card">
+                <div class="item item-text-wrap">
+                    <div class="">
+                        <label for="">Infrastructure Grant</label>
+                    </div>
+                    <div class="">
+                        <label for="">Upgradation of library</label>
+                    </div>
+                    <label class=" item-toggle">
+                        <label class="toggle toggle-assertive">
+                            <input type="checkbox">
+                            <div class="track">
+                            <div class="handle"></div>
+                            </div>
+                        </label>
+                    </label>
+                </div>
             </div>
             <div class="row">
                 <div class="col-66">
@@ -48,11 +61,15 @@
                     </div>
                     <div class="col">
                         <form action="">
-                            <input type="radio" name="project" value="received"> Received
-                            <input type="radio" name="project" value="allocated"> Allocated
+                            <label class="radio-inline"><input type="radio" name="project" value="received"> Received
+                            </label>
+                            <label class="radio-inline"><input type="radio" name="project" value="allocated"> Allocated
+                        </label>
                         </form>
                     </div>
                 </div>
+            </div>
+            <div class="bar-line">
             </div>
         </div>
     </ion-content>
