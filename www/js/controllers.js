@@ -18,7 +18,13 @@ angular.module('starter.controllers', [])
     ];
 })
 
-.controller('InstituteCtrl', function ($scope, $stateParams) {})
+.controller('InstituteCtrl', function ($scope, $stateParams) {
+  $scope.card=false;
+  $scope.cardopen = function(index) {
+    console.log("hi");
+      $scope.card = !$scope.card;
+  };
+})
 
 .controller('ProjectCtrl', function ($scope, $stateParams) {})
 
