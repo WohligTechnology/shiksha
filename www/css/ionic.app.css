@@ -9824,3 +9824,13 @@ a.button {
   font-weight: 400;
   vertical-align: middle;
   cursor: pointer; }
+
+button.button.button-icon.ion-custom-comment:before {
+  content: url("../img/comment.png");
+  height: 20px;
+  width: 30px; }
+
+.ion-custom-clock {
+  content: url("../img/clock.png");
+  height: 30px;
+  width: 30px; }
