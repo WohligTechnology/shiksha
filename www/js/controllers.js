@@ -7,23 +7,27 @@ angular.module('starter.controllers', [])
 .controller('LoginCtrl', function ($scope, $stateParams) {})
 
 .controller('HomeCtrl', function ($scope, $stateParams) {
-  $scope.states=[
-      'Andhra Pradesh','Arunachal Pradesh','Assam' ,'Bihar','Chhattisgarh','Goa','Gujarat'
-    ];
+  $scope.states = [
+    'Andhra Pradesh', 'Arunachal Pradesh', 'Assam', 'Bihar', 'Chhattisgarh', 'Goa', 'Gujarat'
+  ];
+
+  $scope.showtab = false;
 })
 
 .controller('StateCtrl', function ($scope, $stateParams) {
-  $scope.institution=[
-      'Institue of Chemical Technology','Mahatma Phule Krishi Vidyapeeth','Shivaji University' ,'Solapur University','Tata Institue of Social Sciences','Tilal Maharastra University','University of Mumbai','Savitribai Phule Pune University'
-    ];
+  $scope.institution = [
+    'Institue of Chemical Technology', 'Mahatma Phule Krishi Vidyapeeth', 'Shivaji University', 'Solapur University', 'Tata Institue of Social Sciences', 'Tilal Maharastra University', 'University of Mumbai', 'Savitribai Phule Pune University'
+  ];
 })
 
 .controller('InstituteCtrl', function ($scope, $stateParams) {
-  $scope.card=false;
-  $scope.cardopen = function(index) {
+  $scope.card = false;
+  $scope.cardopen = function (index) {
     console.log("hi");
-      $scope.card = !$scope.card;
+    $scope.card = !$scope.card;
   };
+
+  $scope.showtab = true;
 })
 
 .controller('ProjectCtrl', function ($scope, $stateParams) {})

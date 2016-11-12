@@ -38,8 +38,9 @@ button.button.button-icon.ion-custom-comment:before {
 
 .ion-custom-clock {
     content: url('../img/clock.png');
-    height: 30px;
-    width: 30px;
+    height: 16px;
+    width: 16px;
+    vertical-align: text-bottom;
 }
 
 .toggle input:checked+.track .handle {
