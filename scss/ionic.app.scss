@@ -41,3 +41,20 @@ button.button.button-icon.ion-custom-comment:before {
     height: 30px;
     width: 30px;
 }
+
+.toggle input:checked+.track .handle {
+    -webkit-transform: translate3d(15px, 0, 0);
+    transform: translate3d(15px, 0, 0);
+}
+
+.toggle {
+    .handle {
+        width: 15px;
+        height: 15px;
+        top: 5px;
+    }
+    .track {
+        width: 30px;
+        height: 15px;
+    }
+}
