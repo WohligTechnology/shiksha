@@ -6,7 +6,7 @@ For example, you might change some of the default colors:
 */
 $light:                           #fff !default;
 $stable:                          #f8f8f8 !default;
-$positive:                        #387ef5 !default;
+$positive:                        #7a4bff !default;
 $calm:                            #11c1f3 !default;
 $balanced:                        #33cd5f !default;
 $energized:                       #ffc900 !default;
@@ -42,7 +42,12 @@ button.button.button-icon.ion-custom-comment:before {
     width: 16px;
     vertical-align: text-bottom;
 }
-
+.bar-header {
+    border: 0px !important;
+    border-bottom-color: transparent !important;
+    background-image: none !important;
+    border-bottom: none !important;
+}
 .toggle input:checked+.track .handle {
     -webkit-transform: translate3d(15px, 0, 0);
     transform: translate3d(15px, 0, 0);
@@ -116,12 +121,17 @@ button.button.button-icon.ion-custom-comment:before {
   line-height: 0px;
 }
 .side-menu{
-  background-color: #263238!important;
+  background-color: #263238;
   padding-top: 60px;
   ion-list{
     ion-item{
-          background-color: #263238!important;
+          background-color: #263238;
           border: none;
+          border-left: 7px solid #263238;
+    }
+    ion-item.active{
+      border-color: #7a4bff!important;
+      background-color: #263238;
     }
     a{
         background-color: #263238!important;
@@ -129,6 +139,7 @@ button.button.button-icon.ion-custom-comment:before {
     }
   }
 }
+
 .menu-header{
   background-color: #263238!important;
   border: none;
@@ -153,4 +164,26 @@ button.button.button-icon.ion-custom-comment:before {
       margin-right: 5px;
     }
   }
+}
+.tab-header{
+  .tabs{
+    background: #7a4bff;
+    padding-bottom: 1px;
+    .tab-item{
+      color: white;
+      max-width: 100%;
+    }
+    .tab-item.tab-item-active, .tab-item.active {
+    border-bottom: 2px solid white;
+  }
+  }
+}
+.tabs-content{
+  top: 95px;
+}
+.top-div{
+  padding: 10px
+}
+.mid-div{
+  background-color: #f0f5f7;
 }

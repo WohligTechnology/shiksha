@@ -8,8 +8,10 @@
         </button>
       </ion-nav-buttons>
       <ion-nav-buttons side="right">
-        <button class="button button-icon button-clear ion-search">
-           <button class="button button-icon button-clear ion-android-more-vertical">
+        <button class="button button-icon button-clear ">
+          <i class="ion-android-search"></i>
+        </button>
+ <button class="button button-icon button-clear ion-android-more-vertical">
         </button>
       </ion-nav-buttons>
     </ion-nav-bar>
@@ -20,22 +22,21 @@
       <i class="ion ion-ios-close-empty close-button" menu-close ></i>
     </ion-header-bar>
 
-    <ion-content class="side-menu has-header">
-      <!-- <i class="ion ion-close-round close-button"  ></i> -->
+    <ion-content class="side-menu">
       <ion-list>
-        <ion-item menu-close href="#/app/home" >
+        <ion-item menu-close ui-sref=".home" ui-sref-active="active">
           <i class="ion ion-ios-home-outline"></i> Home
         </ion-item>
-        <ion-item menu-close href="#/app/search">
+        <ion-item menu-close ui-sref=".state" ui-sref-active="active">
           <i class="ion ion-ios-paper-outline"></i> Data Inputs
         </ion-item>
-        <ion-item menu-close href="#/app/browse">
+        <ion-item menu-close ui-sref=".institute" ui-sref-active="active">
           <i class="ion ion-ios-bell-outline"></i> Notifications
         </ion-item>
-        <ion-item menu-close href="#/app/playlists">
+        <ion-item menu-close ui-sref=".project" ui-sref-active="active">
           <i class="ion ion-ios-email-outline"></i> Messages <span class="badge badge-assertive msg-badge">2</span>
         </ion-item>
-        <ion-item menu-close href="#/app/playlists">
+        <ion-item menu-close ui-sref="login" ui-sref-active="active">
           <i class="ion ion-ios-gear-outline"></i> Setting
         </ion-item>
 
