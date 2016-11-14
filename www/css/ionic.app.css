@@ -4,16 +4,6 @@ To customize the look and feel of Ionic, you can override the variables
 in ionic's _variables.scss file.
 
 For example, you might change some of the default colors:
-
-$light:                           #fff !default;
-$stable:                          #f8f8f8 !default;
-$positive:                        #387ef5 !default;
-$calm:                            #11c1f3 !default;
-$balanced:                        #33cd5f !default;
-$energized:                       #ffc900 !default;
-$assertive:                       #ef473a !default;
-$royal:                           #886aea !default;
-$dark:                            #444 !default;
 */
 /*!
   Ionicons, v2.0.1
@@ -9848,3 +9838,90 @@ button.button.button-icon.ion-custom-comment:before {
 .toggle .track {
   width: 30px;
   height: 15px; }
+
+.home {
+  color: #595959 !important; }
+
+.login-background {
+  background: #09153d;
+  background: -moz-linear-gradient(top, #09153d 0%, #5932ac 35%, #895edb 100%);
+  background: -webkit-gradient(left top, left bottom, color-stop(0%, #09153d), color-stop(35%, #5932ac), color-stop(100%, #895edb));
+  background: -webkit-linear-gradient(top, #09153d 0%, #5932ac 35%, #895edb 100%);
+  background: -o-linear-gradient(top, #09153d 0%, #5932ac 35%, #895edb 100%);
+  background: -ms-linear-gradient(top, #09153d 0%, #5932ac 35%, #895edb 100%);
+  background: linear-gradient(to bottom, #09153d 0%, #5932ac 35%, #895edb 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#09153d', endColorstr='#895edb', GradientType=0 ); }
+
+.login-form {
+  margin-top: 60px; }
+  .login-form .login {
+    background: transparent;
+    border: none;
+    margin: 5px;
+    padding-left: 0px;
+    margin: 0px 30px; }
+  .login-form .border-login {
+    border-bottom: 1px solid #865dd1; }
+
+.login-text {
+  color: #9175d1; }
+
+.input-text {
+  color: white !important; }
+
+.login-button {
+  color: #a345de !important;
+  background-color: white !important;
+  padding: 0px 60px;
+  border-radius: 35px;
+  font-size: 22px;
+  margin-top: 30px; }
+
+.rusa-title {
+  color: white;
+  margin-top: 90px !important; }
+
+.sign-in {
+  color: white;
+  margin-top: 60px; }
+
+.forget {
+  color: white;
+  margin-top: 30px; }
+
+.fund {
+  color: #a095c5;
+  line-height: 0px; }
+
+.side-menu {
+  background-color: #263238 !important;
+  padding-top: 60px; }
+  .side-menu ion-list ion-item {
+    background-color: #263238 !important;
+    border: none; }
+  .side-menu ion-list a {
+    background-color: #263238 !important;
+    color: white; }
+
+.menu-header {
+  background-color: #263238 !important;
+  border: none;
+  background-image: linear-gradient(0deg, #263238, #263238 50%, transparent 50%) !important; }
+
+.close-button {
+  font-size: 35px;
+  float: right;
+  margin: 10px 0px 0px 230px;
+  color: white; }
+
+.msg-badge {
+  background-color: #6336e1 !important;
+  border-radius: 15px; }
+
+.side-footer {
+  background: #263238 !important; }
+  .side-footer .log-out {
+    margin: 5px 0px 0px 10px;
+    font-size: 16px; }
+    .side-footer .log-out i {
+      margin-right: 5px; }

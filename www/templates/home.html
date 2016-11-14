@@ -1,55 +1,53 @@
 <ion-view view-title="RUSA FUND TRACKER">
-  <ion-content>
-    <ion-tabs class=" tab-button">
-      <ion-tab title="OVERVIEW">
-        <ion-content>
+  <ion-tabs class=" tab-button">
+    <ion-tab title="OVERVIEW">
+      <ion-content>
+        <div class="">
+          <div >
+            <h4 class="home">450 Projects to-date</h4>
+            <h4>76 Active Projects</h4>
+          </div>
           <div class="">
-            <div class="">
-              <h4>450 Projects to-date</h4>
-              <h4>76 Active Projects</h4>
-            </div>
-            <div class="">
-              <i class="ion-record"></i>
-              <h4>₹ 550 Cr
-                <h4>Total Allocation</h4>
-              </h4>
-              <i class="ion-record"></i>
-              <h4>₹ 300 Cr
-                <h4>Total Fund Release</h4>
-              </h4>
-              <i class="ion-record"></i>
-              <h4>₹ 180 Cr
-                <h4>Total Fund tilization</h4>
-              </h4>
-            </div>
-            <img src="img/stats.png" alt="" />
-            <div class="">
-              <h4>Active allocation </h4>
-              <h4>₹ 125 Cr</h4>
-              <h4>Active Utilization </h4>
-              <h4>₹ 78 Cr</h4>
-            </div>
+            <i class="ion-record"></i>
+            <h4>₹ 550 Cr
+              <h4>Total Allocation</h4>
+            </h4>
+            <i class="ion-record"></i>
+            <h4>₹ 300 Cr
+              <h4>Total Fund Release</h4>
+            </h4>
+            <i class="ion-record"></i>
+            <h4>₹ 180 Cr
+              <h4>Total Fund tilization</h4>
+            </h4>
           </div>
-        </ion-content>
-      </ion-tab>
-      <ion-tab title="STATES">
-        <ion-content>
-          <button class="button button-stable text-center">
-            All States
-          </button>
-          <div class="bar bar-header item-input-inset">
-            <label class="item-input-wrapper">
-              <input type="search" placeholder="Search">
-              <i class="icon ion-ios-search placeholder-icon"></i>
-            </label>
+          <img src="img/stats.png" alt="" />
+          <div class="">
+            <h4>Active allocation </h4>
+            <h4>₹ 125 Cr</h4>
+            <h4>Active Utilization </h4>
+            <h4>₹ 78 Cr</h4>
           </div>
-          <div class="card" ng-repeat="state in states" ui-sref="app.state">
-            <div class="item item-text-wrap">
-              {{state}}
-            </div>
+        </div>
+      </ion-content>
+    </ion-tab>
+    <ion-tab title="STATES">
+      <ion-content>
+        <button class="button button-stable text-center">
+          All States
+        </button>
+        <div class="bar bar-header item-input-inset">
+          <label class="item-input-wrapper">
+            <input type="search" placeholder="Search">
+            <i class="icon ion-ios-search placeholder-icon"></i>
+          </label>
+        </div>
+        <div class="card" ng-repeat="state in states" ui-sref="app.state">
+          <div class="item item-text-wrap">
+            {{state}}
           </div>
-        </ion-content>
-      </ion-tab>
-    </ion-tabs>
-  </ion-content>
+        </div>
+      </ion-content>
+    </ion-tab>
+  </ion-tabs>
 </ion-view>
