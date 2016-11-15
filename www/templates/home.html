@@ -29,40 +29,47 @@
             </div>
             </div>
             <img src="img/stats.png" alt=""/>
-            <div id="donutchart" class="col-xs-12 col-sm-6 col-md-4">
+            <!-- <div id="donutchart" class="col-xs-12 col-sm-6 col-md-4">
   <div id="chart"></div>
   <div id="labelOverlay">
     <p class="used-size">41<span>GB</span></p>
     <p class="total-size"> of 50GB</p>
-  </div>
-</div>
+  </div> -->
+          </div>
           </div>
 
+          <div class="home-bottom">
+            <div class="">
+              <label >Active allocation </label>
+              <h5>₹ 125 Cr</h5>
+            </div>
           <div class="">
-            <h4>Active allocation </h4>
-            <h4>₹ 125 Cr</h4>
-            <h4>Active Utilization </h4>
-            <h4>₹ 78 Cr</h4>
+            <label>Active Utilization </label>
+            <h5>₹ 78 Cr</h5>
+          </div>
           </div>
         </div>
       </ion-content>
     </ion-tab>
     <ion-tab title="STATES">
-      <ion-content>
-        <button class="button button-stable text-center">
-          All States
-        </button>
-        <div class="bar bar-header item-input-inset">
-          <label class="item-input-wrapper">
-            <input type="search" placeholder="Search">
-            <i class="icon ion-ios-search placeholder-icon"></i>
-          </label>
-        </div>
-        <div class="card" ng-repeat="state in states" ui-sref="app.state">
-          <div class="item item-text-wrap">
-            {{state}}
+      <ion-content class="tabs-content states-background">
+        <div>
+          <div class=" item-input-inset">
+            <label class="item-input-wrapper">
+              <input type="search" placeholder="Search by State name">
+              <i class="icon ion-ios-search placeholder-icon"></i>
+            </label>
+          </div>
+          <button class="button button-stable text-center">
+            All States
+          </button>
+          <div class="card" ng-repeat="state in states" ui-sref="app.state">
+            <div class="item item-text-wrap">
+              {{state}}
+            </div>
           </div>
         </div>
+
       </ion-content>
     </ion-tab>
   </ion-tabs>

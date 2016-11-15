@@ -11,35 +11,35 @@ angular.module('starter.controllers', [])
   $scope.states = [
     'Andhra Pradesh', 'Arunachal Pradesh', 'Assam', 'Bihar', 'Chhattisgarh', 'Goa', 'Gujarat'
   ];
-  google.charts.load("current", {packages:["corechart"]});
-        google.charts.setOnLoadCallback(drawChart);
-        function drawChart() {
-          var data = google.visualization.arrayToDataTable([
-            ['Task', 'Hours per Day'],
-            ['Work',     60],
-            ['Eat',      15],
-            ['Commute',  25],
-
-          ]);
-
-         	var options = {
-  		title: "",
-  		pieHole: 0.85
-      ,
-  		pieSliceBorderColor: "none",
-       colors: ['#067ab5', '#3aa5dd', '#eaeaea' ],
-  		legend: {
-  			position: "none"
-  		},
-  		pieSliceText: "none",
-  		tooltip: {
-  			trigger: "none"
-  		}
-  	};
-
-          var chart = new google.visualization.PieChart(document.getElementById('donutchart'));
-          chart.draw(data, options);
-        }
+  // google.charts.load("current", {packages:["corechart"]});
+  //       google.charts.setOnLoadCallback(drawChart);
+  //       function drawChart() {
+  //         var data = google.visualization.arrayToDataTable([
+  //           ['Task', 'Hours per Day'],
+  //           ['Work',     60],
+  //           ['Eat',      15],
+  //           ['Commute',  25],
+  //
+  //         ]);
+  //
+  //        	var options = {
+  // 		title: "",
+  // 		pieHole: 0.85
+  //     ,
+  // 		pieSliceBorderColor: "none",
+  //      colors: ['#067ab5', '#3aa5dd', '#eaeaea' ],
+  // 		legend: {
+  // 			position: "none"
+  // 		},
+  // 		pieSliceText: "none",
+  // 		tooltip: {
+  // 			trigger: "none"
+  // 		}
+  // 	};
+  //
+  //         var chart = new google.visualization.PieChart(document.getElementById('donutchart'));
+  //         chart.draw(data, options);
+  //       }
 
 })
 
