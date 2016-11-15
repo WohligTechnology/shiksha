@@ -64,13 +64,10 @@
         </label>
       </div>
       <div class="card state-card" ng-repeat="state in states" >
-        <div class="" ui-sref="app.state">
-          <div class="item item-text-wrap">
-            {{state}}
-          </div>
-        </div>
-
-          </div>
+          <a href="#/app/state" class="item item-icon-left">
+      {{state}}
+    </a>
+</div>
       </div>
 
       </ion-content>
