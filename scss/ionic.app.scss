@@ -4,99 +4,105 @@ in ionic's _variables.scss file.
 
 For example, you might change some of the default colors:
 */
-$light:                           #fff !default;
-$stable:                          #f8f8f8 !default;
-$positive:                        #7a4bff !default;
-$calm:                            #11c1f3 !default;
-$balanced:                        #33cd5f !default;
-$energized:                       #ffc900 !default;
-$assertive:                       #ef473a !default;
-$royal:                           #886aea !default;
-$dark:                            #444 !default;
 
-
+$light: #fff !default;
+$stable: #f8f8f8 !default;
+$positive: #7a4bff !default;
+$calm: #11c1f3 !default;
+$balanced: #33cd5f !default;
+$energized: #ffc900 !default;
+$assertive: #ef473a !default;
+$royal: #886aea !default;
+$dark: #444 !default;
 // The path for our ionicons font files, relative to the built CSS in www/css
 $ionicons-font-path: "../lib/ionic/fonts" !default;
 // Include all of Ionic
 @import "www/lib/ionic/scss/ionic";
 .checkbox-inline,
 .radio-inline {
-    position: relative;
-    display: inline-block;
-    padding-left: 5px;
-    margin-bottom: 0;
-    font-weight: 400;
-    vertical-align: middle;
-    cursor: pointer;
+  position: relative;
+  display: inline-block;
+  padding-left: 5px;
+  margin-bottom: 0;
+  font-weight: 400;
+  vertical-align: middle;
+  cursor: pointer;
 }
 
 button.button.button-icon.ion-custom-comment:before {
-    content: url('../img/comment.png');
-    height: 20px;
-    width: 30px;
+  content: url('../img/comment.png');
+  height: 20px;
+  width: 30px;
 }
 
 .ion-custom-clock {
-    content: url('../img/clock.png');
-    height: 16px;
-    width: 16px;
-    vertical-align: text-bottom;
+  content: url('../img/clock.png');
+  height: 16px;
+  width: 16px;
+  vertical-align: text-bottom;
 }
+
 .bar-header {
-    border: 0px !important;
-    border-bottom-color: transparent !important;
-    background-image: none !important;
-    border-bottom: none !important;
+  border: 0px !important;
+  border-bottom-color: transparent !important;
+  background-image: none !important;
+  border-bottom: none !important;
 }
+
 .toggle input:checked+.track .handle {
-    -webkit-transform: translate3d(15px, 0, 0);
-    transform: translate3d(15px, 0, 0);
+  -webkit-transform: translate3d(15px, 0, 0);
+  transform: translate3d(15px, 0, 0);
 }
 
 .toggle {
-    .handle {
-        width: 15px;
-        height: 15px;
-        top: 5px;
-    }
-    .track {
-        width: 30px;
-        height: 15px;
-    }
+  .handle {
+    width: 15px;
+    height: 15px;
+    top: 5px;
+  }
+  .track {
+    width: 30px;
+    height: 15px;
+  }
 }
-.home{
+
+.home {
   color: #595959!important;
 }
-.login-background{
-  background: rgba(9,21,61,1);
-  background: -moz-linear-gradient(top, rgba(9,21,61,1) 0%, rgba(89,50,172,1) 35%, rgba(137,94,219,1) 100%);
-  background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(9,21,61,1)), color-stop(35%, rgba(89,50,172,1)), color-stop(100%, rgba(137,94,219,1)));
-  background: -webkit-linear-gradient(top, rgba(9,21,61,1) 0%, rgba(89,50,172,1) 35%, rgba(137,94,219,1) 100%);
-  background: -o-linear-gradient(top, rgba(9,21,61,1) 0%, rgba(89,50,172,1) 35%, rgba(137,94,219,1) 100%);
-  background: -ms-linear-gradient(top, rgba(9,21,61,1) 0%, rgba(89,50,172,1) 35%, rgba(137,94,219,1) 100%);
-  background: linear-gradient(to bottom, rgba(9,21,61,1) 0%, rgba(89,50,172,1) 35%, rgba(137,94,219,1) 100%);
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#09153d', endColorstr='#895edb', GradientType=0 );
+
+.login-background {
+  background: rgba(9, 21, 61, 1);
+  background: -moz-linear-gradient(top, rgba(9, 21, 61, 1) 0%, rgba(89, 50, 172, 1) 35%, rgba(137, 94, 219, 1) 100%);
+  background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(9, 21, 61, 1)), color-stop(35%, rgba(89, 50, 172, 1)), color-stop(100%, rgba(137, 94, 219, 1)));
+  background: -webkit-linear-gradient(top, rgba(9, 21, 61, 1) 0%, rgba(89, 50, 172, 1) 35%, rgba(137, 94, 219, 1) 100%);
+  background: -o-linear-gradient(top, rgba(9, 21, 61, 1) 0%, rgba(89, 50, 172, 1) 35%, rgba(137, 94, 219, 1) 100%);
+  background: -ms-linear-gradient(top, rgba(9, 21, 61, 1) 0%, rgba(89, 50, 172, 1) 35%, rgba(137, 94, 219, 1) 100%);
+  background: linear-gradient(to bottom, rgba(9, 21, 61, 1) 0%, rgba(89, 50, 172, 1) 35%, rgba(137, 94, 219, 1) 100%);
 }
-.login-form{
+
+.login-form {
   margin-top: 60px;
-.login{
-  background: transparent;
-  border: none;
-  margin: 5px;
-  padding-left: 0px;
-  margin: 0px 30px;
+  .login {
+    background: transparent;
+    border: none;
+    margin: 5px;
+    padding-left: 0px;
+    margin: 0px 30px;
+  }
+  .border-login {
+    border-bottom: 1px solid #865dd1;
+  }
 }
-.border-login{
-  border-bottom: 1px solid #865dd1;
-}}
-.login-text{
+
+.login-text {
   color: #9175d1;
 }
 
-.input-text{
+.input-text {
   color: white!important;
 }
-.login-button{
+
+.login-button {
   color: #a345de!important;
   background-color: white!important;
   padding: 0px 60px;
@@ -104,115 +110,128 @@ button.button.button-icon.ion-custom-comment:before {
   font-size: 22px;
   margin-top: 30px;
 }
-.rusa-title{
+
+.rusa-title {
   color: white;
   margin-top: 90px!important;
 }
-.sign-in{
+
+.sign-in {
   color: white;
   margin-top: 60px;
 }
-.forget{
+
+.forget {
   color: white;
   margin-top: 30px;
 }
-.fund{
+
+.fund {
   color: #a095c5;
   line-height: 0px;
 }
-.side-menu{
+
+.side-menu {
   background-color: #263238;
   padding-top: 60px;
-  ion-list{
-    ion-item{
-          background-color: #263238;
-          border: none;
-          border-left: 7px solid #263238;
+  ion-list {
+    ion-item {
+      background-color: #263238;
+      border: none;
+      border-left: 7px solid #263238;
     }
-    ion-item.active{
+    ion-item.active {
       border-color: #7a4bff!important;
       background-color: #263238;
     }
-    a{
-        background-color: #263238!important;
-        color: white;
-        img{
-          height: 18px;
-          width: 18px;
-        }
+    a {
+      background-color: #263238!important;
+      color: white;
+      img {
+        height: 18px;
+        width: 18px;
+      }
     }
   }
 }
-.menu-header{
+
+.menu-header {
   background-color: #263238!important;
   border: none;
   background-image: linear-gradient(0deg, #263238, #263238 50%, transparent 50%)!important;
 }
-.close-button{
+
+.close-button {
   font-size: 35px;
   float: right;
   margin: 10px 0px 0px 230px;
   color: white;
 }
-.msg-badge{
+
+.msg-badge {
   background-color: #6336e1!important;
   border-radius: 15px;
 }
-.side-footer{
+
+.side-footer {
   background: #263238!important;
-  .log-out{
+  .log-out {
     margin: 5px 0px 0px 10px;
     font-size: 16px;
-    img{
+    img {
       margin-right: 5px;
       height: 18px;
       width: 18px;
     }
   }
 }
-.tab-header{
-  .tabs{
+
+.tab-header {
+  .tabs {
     background: #7a4bff;
     padding-bottom: 1px;
-    .tab-item{
+    .tab-item {
       color: white;
       max-width: 100%;
     }
-    .tab-item.tab-item-active, .tab-item.active {
-    border-bottom: 2px solid white;
-  }
+    .tab-item.tab-item-active,
+    .tab-item.active {
+      border-bottom: 2px solid white;
+    }
   }
 }
-.tabs-content{
+
+.tabs-content {
   top: 95px;
 }
-.top-div{
+
+.top-div {
   padding: 15px 10px 0px 10px;
-  h5{
+  h5 {
     display: inline-block;
-    padding:  10px;
+    padding: 10px;
     min-width: 48%;
     text-align: center;
     font-size: 16px;
     color: #747474;
-    label{
+    label {
       color: #c1c1c1;
     }
   }
-  .h5-border{
+  .h5-border {
     border-right: 1px solid #c1c1c1;
   }
 }
-.mid-div{
 
+.mid-div {
   background-color: #f0f5f7;
-  .total{
+  .total {
     padding: 20px 10%;
-    i{
+    i {
       font-size: 22px;
       display: inline-block;
     }
-    h5{
+    h5 {
       display: inline-block;
       color: #747474;
       margin-left: 10px;
@@ -220,20 +239,21 @@ button.button.button-icon.ion-custom-comment:before {
       margin-bottom: 5px;
       line-height: 0;
     }
-    label{
+    label {
       color: #c1c1c1;
     }
-    .release{
+    .release {
       color: #d8dcde;
     }
-    .fund{
+    .fund {
       color: #91a4af;
     }
-    .util{
+    .util {
       color: #4b64ff;
     }
   }
 }
+
 #donutchart,
 #chart {
   width: 100%;
@@ -242,20 +262,20 @@ button.button.button-icon.ion-custom-comment:before {
 }
 
 #donutchart {
-    position: relative;
+  position: relative;
 }
 
 #labelOverlay {
-    position: absolute;
-    top: 30px;
-    left: 25px;
-    text-align: center;
-    cursor: default;
+  position: absolute;
+  top: 30px;
+  left: 25px;
+  text-align: center;
+  cursor: default;
 }
 
 #labelOverlay p {
   line-height: 0.3;
-  padding:0;
+  padding: 0;
   margin: 8px;
 }
 
@@ -270,19 +290,21 @@ button.button.button-icon.ion-custom-comment:before {
   font-size: 12pt;
   color: #cdcdcd;
 }
-.home-bottom{
-  margin: 20px ;
-  h5{
+
+.home-bottom {
+  margin: 20px;
+  h5 {
     display: inline-block;
     color: #747474;
   }
-  label{
+  label {
     display: inline-block;
     color: #c1c1c1;
     min-width: 30%;
   }
 }
-.states-background{
+
+.states-background {
   background-color: #f1f1f1;
 }
 .search-bar{
@@ -298,3 +320,5 @@ button.button.button-icon.ion-custom-comment:before {
 
   }
 }
+
+@import main;
