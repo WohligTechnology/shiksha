@@ -1,39 +1,59 @@
 <ion-view view-title="Maharashtra">
-    <ion-tabs class=" tab-button">
+    <ion-tabs class=" tab-button tabs-top tab-header ">
       <ion-tab title="OVERVIEW">
-        <ion-content>
+        <ion-content class="tabs-content">
           <div class="">
-            <div class="">
-              <h4>26 Projects to-date</h4>
-              <h4>10 Active Projects</h4>
+            <div class="top-div">
+              <h5 class="h5-border ">26 <label for="">Projects to-date</label></h5>
+              <h5>10 <label for="">Active Projects</label></h5>
             </div>
-            <div class="">
-              <i class="ion-record"></i>
-              <h4>₹ 19,20,00,000
-                <h4>Total Allocation</h4>
-              </h4>
-              <i class="ion-record"></i>
-              <h4>₹ 10,00,00,000
-                <h4>Total Fund Release</h4>
-              </h4>
-              <i class="ion-record"></i>
-              <h4>₹ 750,00,000
-                <h4>Total Fund tilization</h4>
-              </h4>
+
+            <div class="mid-div">
+              <div class="total">
+                <div class="">
+                  <i class="ion-record release"></i>
+                  <h5>₹ 19,20,00,000
+                    <label>Total Allocation</label>
+                  </h5>
+                </div>
+                <div class="">
+                  <i class="ion-record fund"></i>
+                  <h5>₹ 19,20,00,000
+                    <label>Total Fund Release</label>
+                  </h5>
+                </div>
+              <div class="">
+                <i class="ion-record util"></i>
+                <h5>₹ 750,00,000
+                  <label>Total Fund Utilization</label>
+                </h5>
+              </div>
+              </div>
+              <img src="img/stats.png" alt=""/>
+              <!-- <div id="donutchart" class="col-xs-12 col-sm-6 col-md-4">
+    <div id="chart"></div>
+    <div id="labelOverlay">
+      <p class="used-size">41<span>GB</span></p>
+      <p class="total-size"> of 50GB</p>
+    </div> -->
             </div>
-            <img src="img/stats.png" alt="" />
+
+            <div class="home-bottom">
+              <div class="">
+                <label >Active allocation </label>
+                <h5>₹ 925,00,000</h5>
+              </div>
             <div class="">
-              <h4>Active allocation </h4>
-              <h4>₹ 925,00,000</h4>
-              <h4>Active Utilization </h4>
-              <h4>₹ 300,50,000</h4>
+              <label>Active Utilization </label>
+              <h5>₹ 300,50,000</h5>
+            </div>
             </div>
           </div>
         </ion-content>
       </ion-tab>
       <ion-tab title="INSTITUTIONS">
-        <ion-content>
-          <div class="card" ng-repeat="institue in institution" ui-sref="app.institute">
+        <ion-content class="tabs-content states-background">
+          <div class="card state-card" ng-repeat="institue in institution" ui-sref="app.institute">
             <div class="item item-text-wrap">
               {{institue}}
             </div>
