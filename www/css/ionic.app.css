@@ -9855,8 +9855,7 @@ button.button.button-icon.ion-custom-comment:before {
   background: -webkit-linear-gradient(top, #09153d 0%, #5932ac 35%, #895edb 100%);
   background: -o-linear-gradient(top, #09153d 0%, #5932ac 35%, #895edb 100%);
   background: -ms-linear-gradient(top, #09153d 0%, #5932ac 35%, #895edb 100%);
-  background: linear-gradient(to bottom, #09153d 0%, #5932ac 35%, #895edb 100%);
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#09153d', endColorstr='#895edb', GradientType=0 ); }
+  background: linear-gradient(to bottom, #09153d 0%, #5932ac 35%, #895edb 100%); }
 
 .login-form {
   margin-top: 60px; }
@@ -9947,7 +9946,8 @@ button.button.button-icon.ion-custom-comment:before {
   .tab-header .tabs .tab-item {
     color: white;
     max-width: 100%; }
-  .tab-header .tabs .tab-item.tab-item-active, .tab-header .tabs .tab-item.active {
+  .tab-header .tabs .tab-item.tab-item-active,
+  .tab-header .tabs .tab-item.active {
     border-bottom: 2px solid white; }
 
 .tabs-content {
