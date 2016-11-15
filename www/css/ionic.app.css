@@ -10034,6 +10034,20 @@ button.button.button-icon.ion-custom-comment:before {
 .states-background {
   background-color: #f1f1f1; }
 
+.search-bar {
+  background: transparent; }
+  .search-bar button {
+    padding: 0px 20px !important;
+    background: #f2f4f7 !important;
+    border-color: #dfe3e9 !important;
+    color: #333c48 !important; }
+  .search-bar label {
+    background: white;
+    margin-left: 17px;
+    border-color: #dfe3e9; }
+    .search-bar label i {
+      color: #747474; }
+
 .custom-radio .toggle .track {
   border-radius: 5px;
   width: 44px;
@@ -10056,3 +10070,8 @@ button.button.button-icon.ion-custom-comment:before {
   display: block;
   transform: scale(0.5);
   padding: 1px 4px; }
+
+.state-card {
+  box-shadow: none;
+  margin: 10px 10px;
+  color: #747474; }
