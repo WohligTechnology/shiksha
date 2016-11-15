@@ -182,8 +182,85 @@ button.button.button-icon.ion-custom-comment:before {
   top: 95px;
 }
 .top-div{
-  padding: 10px
+  padding: 25px 10px 10px 10px;
+  h5{
+    display: inline-block;
+    padding:  10px;
+    min-width: 48%;
+    text-align: center;
+    font-size: 16px;
+    color: #747474;
+    label{
+      color: #c1c1c1;
+    }
+  }
+  .h5-border{
+    border-right: 1px solid #c1c1c1;
+  }
 }
 .mid-div{
+
   background-color: #f0f5f7;
+  .total{
+    padding: 20px 10%;
+    i{
+      font-size: 22px;
+      display: inline-block;
+    }
+    h5{
+      display: inline-block;
+      color: #747474;
+      margin-left: 10px;
+    }
+    label{
+      color: #c1c1c1;
+    }
+    .release{
+      color: #d8dcde;
+    }
+    .fund{
+      color: #91a4af;
+    }
+    .util{
+      color: #4b64ff;
+    }
+  }
+}
+#donutchart,
+#chart {
+  width: 500px;
+  height: 500px;
+  font-family: Arial;
+}
+
+#donutchart {
+    position: relative;
+}
+
+#labelOverlay {
+    width: 90px;
+    height: 45px;
+    position: absolute;
+    top: 233px;
+    left: 205px;
+    text-align: center;
+    cursor: default;
+}
+
+#labelOverlay p {
+  line-height: 0.3;
+  padding:0;
+  margin: 8px;
+}
+
+#labelOverlay p.used-size {
+  line-height: 0.5;
+  font-size: 20pt;
+  color: #8e8e8e;
+}
+
+#labelOverlay p.total-size {
+  line-height: 0.5;
+  font-size: 12pt;
+  color: #cdcdcd;
 }
