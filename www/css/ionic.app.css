@@ -10033,3 +10033,26 @@ button.button.button-icon.ion-custom-comment:before {
 
 .states-background {
   background-color: #f1f1f1; }
+
+.custom-radio .toggle .track {
+  border-radius: 5px;
+  width: 44px;
+  height: 30px;
+  background-color: #fff;
+  box-shadow: none;
+  border: 1px solid #ddd; }
+
+.custom-radio .toggle .handle {
+  width: 25px;
+  height: 25px;
+  border-radius: 5px;
+  top: 7px;
+  left: 8px; }
+
+.custom-radio .toggle .icon-lock:after {
+  content: url("../img/lock-icon.png");
+  height: 20px;
+  width: 20px;
+  display: block;
+  transform: scale(0.5);
+  padding: 1px 4px; }
