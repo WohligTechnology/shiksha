@@ -9805,6 +9805,106 @@ a.button {
   -webkit-transition-duration: 0s;
   transition-duration: 0s; }
 
+@font-face {
+  font-family: 'Roboto';
+  src: url("../fonts/Roboto-Light.ttf") format("truetype");
+  font-weight: 300; }
+
+@font-face {
+  font-family: 'Roboto';
+  src: url("../fonts/Roboto-Normal.ttf") format("truetype");
+  font-weight: 400; }
+
+@font-face {
+  font-family: 'Roboto';
+  src: url("../fonts/Roboto-Bold.ttf") format("truetype");
+  font-weight: 700; }
+
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+i,
+u,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+fieldset,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  font-family: Roboto-Light;
+  font-weight: 400; }
+
 .checkbox-inline,
 .radio-inline {
   position: relative;
@@ -9922,10 +10022,12 @@ button.button.button-icon.ion-custom-comment:before {
     background-color: #263238; }
   .side-menu ion-list a {
     background-color: #263238 !important;
-    color: white; }
+    color: white;
+    font-family: Roboto-Light;
+    font-weight: 300;
+    font-size: 20px; }
     .side-menu ion-list a img {
-      height: 18px;
-      width: 18px; }
+      max-width: 25px; }
 
 .menu-header {
   background-color: #263238 !important;
