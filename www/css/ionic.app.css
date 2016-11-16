@@ -10086,6 +10086,12 @@ button.button.button-icon.ion-custom-comment:before {
   transform: scale(0.5);
   padding: 1px 4px; }
 
+.top-card {
+  margin: 0px; }
+
+.overview-mid {
+  background-color: #f0f5f7; }
+
 .state-card {
   box-shadow: none;
   margin: 10px 10px; }
