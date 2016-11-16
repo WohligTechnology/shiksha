@@ -6,8 +6,14 @@
       <ion-content class="tabs-content">
         <div class="">
           <div class="top-div">
-            <h5 class="h5-border ">450 <label for="">Projects to-date</label></h5>
-            <h5>76 <label for="">Active Projects</label></h5>
+            <div class="row">
+              <div class="col h5-border">
+                <h5>450 <label for="">Projects to-date</label></h5>
+              </div>
+              <div class="col">
+                <h5>76 <label for="">Active Projects</label></h5>
+              </div>
+            </div>
           </div>
           <div class="mid-div">
             <div class="total">
@@ -40,11 +46,11 @@
           </div>
         </div>
         <div class="home-bottom">
-          <div class="">
-            <label>Active allocation </label>
+          <div class="home-bottom1">
+            <label>Active Allocations </label>
             <h5>₹ 125 Cr</h5>
           </div>
-          <div class="">
+          <div class="home-bottom1">
             <label>Active Utilization </label>
             <h5>₹ 78 Cr</h5>
           </div>
@@ -57,15 +63,16 @@
         <div>
           <div class="bar bar-header item-input-inset search-bar">
             <button class="button button-stable text-center">
-          All States
+          All States 
+           <i class="ion ion-ios-arrow-down right-arrow"></i>
         </button>
             <label class="item-input-wrapper">
-          <input type="search" placeholder="Search">
+          <input type="search" placeholder="Search by State name">
           <i class="icon ion-ios-search-strong placeholder-icon"></i>
         </label>
           </div>
           <div class="card state-card" ng-repeat="state in states">
-            <a href="#/app/state" class="item item-icon-left">{{state}}</a>
+            <a href="#/app/state" class="item">{{state}}</a>
           </div>
         </div>
       </ion-content>

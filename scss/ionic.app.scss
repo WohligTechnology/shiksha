@@ -8,8 +8,8 @@ For example, you might change some of the default colors:
 $light: #fff !default;
 $stable: #f8f8f8 !default;
 $positive: #7a4bff !default;
-$calm: #11c1f3 !default;
-$balanced: #33cd5f !default;
+$calm: #4b64ff !default;
+$balanced: #55c45f !default;
 $energized: #ffc900 !default;
 $assertive: #ef473a !default;
 $royal: #886aea !default;
@@ -64,6 +64,22 @@ button.button.button-icon.ion-custom-comment:before {
     width: 30px;
     height: 15px;
   }
+}
+
+.right-project-icons {
+  i {
+    padding: 0 6px;
+  }
+  .button {
+    margin-left: 6px;
+  }
+  .arrowup {
+    font-size: 22px;
+  }
+}
+
+.clearfix {
+  clear: both;
 }
 
 .home {
@@ -206,16 +222,15 @@ button.button.button-icon.ion-custom-comment:before {
 }
 
 .top-div {
-  padding: 15px 10px 0px 10px;
+  padding: 15px 5px 0px 5px;
   h5 {
-    display: inline-block;
-    padding: 10px;
-    min-width: 48%;
     text-align: center;
-    font-size: 16px;
     color: #747474;
+    margin: 0;
+    font-size: 15px;
     label {
       color: #c1c1c1;
+      font-size: 15px;
     }
   }
   .h5-border {
@@ -228,12 +243,13 @@ button.button.button-icon.ion-custom-comment:before {
   .total {
     padding: 20px 10%;
     i {
-      font-size: 22px;
+      font-size: 20px;
       display: inline-block;
+      vertical-align: middle;
     }
     h5 {
       display: inline-block;
-      color: #747474;
+      color: #4b4b4b;
       margin-left: 10px;
       margin-top: 5px;
       margin-bottom: 5px;
@@ -296,6 +312,7 @@ button.button.button-icon.ion-custom-comment:before {
   h5 {
     display: inline-block;
     color: #747474;
+    margin-left: 15px;
   }
   label {
     display: inline-block;
@@ -307,45 +324,118 @@ button.button.button-icon.ion-custom-comment:before {
 .states-background {
   background-color: #f1f1f1;
 }
-.search-bar{
+
+.search-bar {
   background: transparent;
-  button{
-      padding: 0px 20px!important;
-      background: #f2f4f7!important;
-      border-color: #dfe3e9!important;
-      color: #333c48!important;
+  button {
+    padding: 0px 20px!important;
+    background: #f2f4f7!important;
+    border-color: #dfe3e9!important;
+    color: #333c48!important;
   }
-  label{
+  label {
     background: white;
     margin-left: 17px;
     border-color: #dfe3e9;
-    i{
-      color: #747474 ;
+    i {
+      color: #747474;
+      font-size: 16px;
+      font-weight: 800;
     }
   }
 }
+
 @import "main";
-.state-card{
+.state-card {
   box-shadow: none;
   margin: 10px 10px;
-  color: #747474 ;
+  a {
+    color: #747474;
+  }
 }
-.track-ins{
+
+.track-ins {
   background-color: white!important;
   border-color: #465eef!important;
   width: 30px!important;
   height: 10px!important;
 }
-.toggle-handle{
+
+.toggle-handle {
   background-color: #4259e2!important;
   top: 6px!important;
 }
-.toggle input:checked + .track {
-    border-color: #465eef!important;
-    background-color: #465eef!important;
+
+.toggle input:checked+.track {
+  border-color: #465eef!important;
+  background-color: #465eef!important;
 }
-.toggle-text{
+
+.toggle-text {
   color: #465eef!important;
   font-size: 12px;
-  
+}
+
+button.button.button-icon.button-clear {
+  &.search-btn {
+    font-size: 24px;
+    padding: 0 10px;
+  }
+  &.settings-btn {
+    font-size: 24px;
+    padding: 0 10px;
+  }
+}
+
+.right-arrow {
+  font-size: 8px;
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.ion-custom-ecommerce {
+  &:before {
+    content: url('../img/ecommerce.png');
+    height: 20px;
+    width: 20px;
+    display: block;
+  }
+}
+
+.button.btn-custom-active {
+  color: $balanced;
+  background-color: #fff;
+  padding: 4px 10px;
+  min-height: auto;
+  line-height: 1;
+  border-radius: 2px;
+  box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.btn-custom-icon {
+  line-height: 0;
+  min-height: auto;
+}
+
+.btn-down {
+  color: #777;
+}
+
+.card-institue {
+  .card {
+    margin-top: 0;
+  }
+  .item h4 {
+    font-size: 14px;
+  }
+  .card-institute-head {
+    padding-bottom: 15px;
+  }
+  .card-institute-bottom {
+    padding-bottom: 15px;
+  }
 }

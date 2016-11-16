@@ -6,8 +6,14 @@
       <ion-content class="tabs-content">
         <div class="">
           <div class="top-div">
-            <h5 class="h5-border ">8 <label for="">Projects to-date</label></h5>
-            <h5>2 <label for="">Active Projects</label></h5>
+            <div class="row">
+              <div class="col h5-border">
+                <h5>8 <label for="">Projects to-date</label></h5>
+              </div>
+              <div class="col">
+                <h5>2 <label for="">Active Projects</label></h5>
+              </div>
+            </div>
           </div>
           <div class="mid-div">
             <div class="total">
@@ -40,7 +46,7 @@
           </div>
           <div class="home-bottom">
             <div class="">
-              <label>Active allocation </label>
+              <label>Active Allocation </label>
               <h5>₹ 175,00,000</h5>
             </div>
             <div class="">
@@ -53,8 +59,8 @@
     </ion-tab>
     <ion-tab title="PROJECTS">
       <ion-content class="tabs-content">
-        <div class="">
-          <li class="item ">
+        <div class="padding">
+          <div class="item-note">
             <label class="toggle toggle-positive">
        <input type="checkbox">
        <div class="track track-ins">
@@ -62,86 +68,145 @@
        </div>
      </label>
             <label for="" class="toggle-text">SHOW ALL</label>
-          </li>
+          </div>
+          <div class="clearfix"></div>
+        </div>
+        <div class="card-institue">
           <div class="card">
             <div class="item item-text-wrap">
-              <div class="">
-                PAB 8 <img src="img/ecommerce.png" alt="" /> <i class="ion ion-arrow-graph-up-right"></i>
-                <button class="button button-stable">
-        Active
-      </button>
+              <div class="card-institute-head">
+                <div class="item-note right-project-icons">
+                  <i class="ion ion-custom-ecommerce"></i>
+                  <i class="ion ion-arrow-graph-up-right balanced arrowup"></i>
+                  <button class="button btn-custom-active">Active</button>
+                </div>
+                <div class="calm bold">PAB 8</div>
               </div>
-              <div class="">
-                <label for="">INFRASTRUTURE GRANT</label>
-                <label for="">₹ 75,00,000</label>
+              <div class="clearfix"></div>
+              <div class="card-institute-mid">
+                <label class="item-note">₹ 75,00,000</label>
+                <h4>INFRASTRUTURE GRANT</h4>
               </div>
-              <div class="">
+              <div class="clearfix"></div>
+              <div class="card-institute-bottom">
+                <label class="item-note">Allocated</label>
                 <label for="">Sports facilities</label>
-                <label for="">Allocated</label>
               </div>
-              <i class="ion ion-chevron-down" ng-click="cardopen();" ng-hide="card"></i>
+              <button class="button button-icon ion-chevron-down item-note btn-down btn-custom-icon" ng-click="cardopen();" ng-hide="card">
+        </button>
+              <div class="clearfix"></div>
             </div>
             <div class="item item-divider" ng-show="card">
-              <div class="">
-                <div class="">
-                  <label for="">Fund received</label>
-                  <label for="">₹ 40,00,000</label>
+              <div class="row">
+                <div class="col col-75">
+                  <div class="">
+                    <span class="item-note">₹ 40,00,000</span>
+                    <h4>Fund received</h4>
+                  </div>
+                  <div class="">
+                    <img src="img/share.png" alt="" class="full-image" />
+                  </div>
+                  <div class="">
+                    <img src="img/progressgreen.png" alt="" />
+                  </div>
+                  <label for="">Utilization</label>
                 </div>
-                <div class="">
-                  <img src="img/share.png" alt="" />
+                <div class="col col-25">
+                  <div class="">
+                    <img src="img/progress.png" alt="" class="full-image" />
+                    <div class="text-center">Work</div>
+                  </div>
                 </div>
-                <div class="">
-                  <img src="img/progressgreen.png" alt="" />
-                </div>
-                <label for="">Utilization</label>
               </div>
-              <div class="">
-                <img src="img/progress.png" alt="" />
-                <label for="">Work</label>
-              </div>
-              <i class="ion ion-chevron-up" ng-click="cardopen();" ng-hide="!card"></i>
+              <button class="button button-icon ion-chevron-up item-note btn-down btn-custom-icon" ng-click="cardopen();" ng-hide="!card">
             </div>
           </div>
-          <div class="card">
+                   <div class="card">
+            <div class="item item-text-wrap">
+              <div class="card-institute-head">
+                <div class="item-note right-project-icons">
+                  <i class="ion ion-custom-ecommerce"></i>
+                  <i class="ion ion-arrow-graph-up-right balanced arrowup"></i>
+                  <button class="button btn-custom-active">Active</button>
+            </div>
+            <div class="calm bold">PAB 7</div>
+          </div>
+          <div class="clearfix"></div>
+          <div class="card-institute-mid">
+            <label class="item-note">₹ 45,00,000</label>
+            <h4>INFRASTRUTURE GRANT</h4>
+          </div>
+          <div class="clearfix"></div>
+          <div class="card-institute-bottom">
+            <label class="item-note">Allocated</label>
+            <label for="">Sports facilities</label>
+          </div>
+          <button class="button button-icon ion-chevron-down item-note btn-down btn-custom-icon" ng-click="cardopen();" ng-hide="card">
+        </button>
+          <div class="clearfix"></div>
+        </div>
+        <div class="item item-divider" ng-show="card">
+          <div class="row">
+            <div class="col col-75">
+              <div class="">
+                <span class="item-note">₹ 40,00,000</span>
+                <h4>Fund received</h4>
+              </div>
+              <div class="">
+                <img src="img/share.png" alt="" class="full-image" />
+              </div>
+              <div class="">
+                <img src="img/progressgreen.png" alt="" />
+              </div>
+              <label for="">Utilization</label>
+            </div>
+            <div class="col col-25">
+              <div class="">
+                <img src="img/progress.png" alt="" class="full-image" />
+                <div class="text-center">Work</div>
+              </div>
+            </div>
+          </div>
+          <button class="button button-icon ion-chevron-up item-note btn-down btn-custom-icon" ng-click="cardopen();" ng-hide="!card">
+            </div>
+          </div>
+          <!--<div class="card">
             <div class="item item-text-wrap">
               <div class="">
                 PAB 7 <img src="img/ecommerce.png" alt="" /> <i class="ion ion-arrow-graph-up-right"></i>
-                <button class="button button-stable">
-        Completed
-        15.06.2016
-      </button>
-              </div>
-              <div class="">
-                <label for="">INFRASTRUTURE GRANT</label>
-                <label for="">₹ 45,00,000</label>
-              </div>
-              <div class="">
-                <label for="">Construction of boys hostel</label>
-                <label for="">Allocated</label>
-              </div>
-              <i class="ion ion-chevron-down" ng-click="cardopen();" ng-hide="card"></i>
+                <button class="button button-stable">Completed 15.06.2016</button>
+        </div>
+        <div class="">
+          <label for="">INFRASTRUTURE GRANT</label>
+          <label for="">₹ 45,00,000</label>
+        </div>
+        <div class="">
+          <label for="">Construction of boys hostel</label>
+          <label for="">Allocated</label>
+        </div>
+        <i class="ion ion-chevron-down" ng-click="cardopen();" ng-hide="card"></i>
+        </div>
+        <div class="item item-divider" ng-show="card">
+          <div class="">
+            <div class="">
+              <label for="">Fund received</label>
+              <label for="">₹ 40,00,000</label>
             </div>
-            <div class="item item-divider" ng-show="card">
-              <div class="">
-                <div class="">
-                  <label for="">Fund received</label>
-                  <label for="">₹ 40,00,000</label>
-                </div>
-                <div class="">
-                  <img src="img/share.png" alt="" />
-                </div>
-                <div class="">
-                  <img src="img/progressgreen.png" alt="" />
-                </div>
-                <label for="">Utilization</label>
-              </div>
-              <div class="">
-                <img src="img/progress.png" alt="" />
-                <label for="">Work</label>
-              </div>
-              <i class="ion ion-chevron-up" ng-click="cardopen();" ng-hide="!card"></i>
+            <div class="">
+              <img src="img/share.png" alt="" />
             </div>
+            <div class="">
+              <img src="img/progressgreen.png" alt="" />
+            </div>
+            <label for="">Utilization</label>
           </div>
+          <div class="">
+            <img src="img/progress.png" alt="" />
+            <label for="">Work</label>
+          </div>
+          <i class="ion ion-chevron-up" ng-click="cardopen();" ng-hide="!card"></i>
+        </div>
+        </div>-->
         </div>
       </ion-content>
     </ion-tab>
