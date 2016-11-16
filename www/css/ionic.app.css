@@ -10076,8 +10076,8 @@ button.button.button-icon.ion-custom-comment:before {
   margin: 10px 10px;
   color: #747474; }
 
-.track {
-  background-color: #465eef !important;
+.track-ins {
+  background-color: white !important;
   border-color: #465eef !important;
   width: 30px !important;
   height: 10px !important; }
@@ -10085,3 +10085,11 @@ button.button.button-icon.ion-custom-comment:before {
 .toggle-handle {
   background-color: #4259e2 !important;
   top: 6px !important; }
+
+.toggle input:checked + .track {
+  border-color: #465eef !important;
+  background-color: #465eef !important; }
+
+.toggle-text {
+  color: #465eef !important;
+  font-size: 12px; }
