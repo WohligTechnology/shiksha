@@ -10193,6 +10193,15 @@ button.button.button-icon.ion-custom-comment:before {
 
 .overview-mid {
   background-color: #f0f5f7; }
+  .overview-mid .col-66 {
+    border-right: 1px solid black; }
+  .overview-mid .col-33 .top {
+    border-bottom: 1px solid black; }
+
+.box {
+  background-color: #55c45f;
+  color: white;
+  padding: 10px; }
 
 .state-card {
   box-shadow: none;
