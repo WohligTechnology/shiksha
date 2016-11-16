@@ -32,4 +32,17 @@
 }
 .overview-mid{
   background-color: #f0f5f7;
+  .col-66{
+    border-right: 1px solid black;
+  }
+  .col-33{
+    .top{
+      border-bottom: 1px solid black;
+    }
+  }
+}
+.box{
+  background-color: $balanced;
+  color: white;
+  padding: 10px;
 }
