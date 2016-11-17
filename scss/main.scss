@@ -1,48 +1,81 @@
 .custom-radio {
-    .toggle {
-        .track {
-            border-radius: 5px;
-            width: 44px;
-            height: 30px;
-            background-color: #fff;
-            box-shadow: none;
-            border: 1px solid #ddd;
-        }
-        .handle {
-            width: 25px;
-            height: 25px;
-            border-radius: 5px;
-            top: 7px;
-            left: 8px;
-        }
-        .icon-lock {
-            &:after {
-                content: url('../img/lock-icon.png');
-                height: 20px;
-                width: 20px;
-                display: block;
-                transform: scale(.5);
-                padding: 1px 4px;
-            }
-        }
+  .toggle {
+    .track {
+      border-radius: 5px;
+      width: 44px;
+      height: 30px;
+      background-color: #fff;
+      box-shadow: none;
+      border: 1px solid #ddd;
     }
+    .handle {
+      width: 25px;
+      height: 25px;
+      border-radius: 5px;
+      top: 7px;
+      left: 8px;
+    }
+    .icon-lock {
+      &:after {
+        content: url('../img/lock-icon.png');
+        height: 20px;
+        width: 20px;
+        display: block;
+        transform: scale(.5);
+        padding: 1px 4px;
+      }
+    }
+  }
 }
-.top-card{
+
+.top-card {
   margin: 0px;
-}
-.overview-mid{
-  background-color: #f0f5f7;
-  .col-66{
-    border-right: 1px solid black;
+  .item {
+    padding: 8px 10px;
   }
-  .col-33{
-    .top{
-      border-bottom: 1px solid black;
+}
+
+.overview-mid {
+  background-color: #f0f5f7;
+  padding: 0;
+  .col-66 {
+    border-right: 1px solid $stable;
+  }
+  .col-33 {
+    .top {
+      border-bottom: 1px solid $stable;
     }
   }
+  .f12 {
+    font-size: 12px;
+  }
+  p {
+    color: #546a79;
+  }
 }
-.box{
-  background-color: $balanced;
+
+.box {
+  background-color: $energized;
   color: white;
-  padding: 10px;
+  padding: 15px 5px;
+}
+
+.uppercase {
+  text-transform: uppercase;
+}
+
+.fund-date {
+  p {
+    text-transform: uppercase;
+    color: #546a79;
+  }
+  label {
+    color: #546a79;
+  }
+  .grey {
+    color: #c3cace;
+  }
+  .light-grey {
+    color: #eeeeee;
+  }
 }

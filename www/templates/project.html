@@ -3,71 +3,77 @@
         <div class="project-overview">
             <div class="card top-card">
                 <div class="item item-text-wrap">
-                    <div class="">
-                        <label for="">Infrastructure Grant</label>
-                    </div>
-                    <div class="">
-                        <label for="">Upgradation of library</label>
-                    </div>
-                    <div class="item-note custom-radio">
+                    <span class="item-note custom-radio">
                         <label class=" item-toggle">
-                        <label class="toggle toggle-balanced">
+                        <label class="toggle toggle-energized">
                             <input type="checkbox">
                             <div class="track">
                             <div class="handle icon-lock"></div>
                             </div>
                         </label>
                         </label>
+                    </span>
+                    <div class="">
+                        <div class="medium f16">Infrastructure Grant</div>
+                        <div class="">
+                            <label for="" class="dark">Upgradation of library</label>
+                        </div>
                     </div>
                 </div>
             </div>
             <div class="row overview-mid">
                 <div class="col-66">
                     <div class="funds-all">
-                        <p>
-                            Funds Allocated
+                        <p class="text-center allocated-size stable f12">
+                            FUNDS ALLOCATED
                         </p>
+                        <h3 class="text-center bold">
+                            100,00,000
+                        </h3>
                     </div>
-                    <p>
-                        100,00,000
-                    </p>
                 </div>
                 <div class="col-33">
-                    <div class="top">
-                        PAB NO
-                        <div class="text-center">
-                            <p>8</p>
+                    <div class="padding top">
+                        <div class="">
+                            <p class="stable f12">PAB NO</p>
+                            <div class="text-center">
+                                <p class="f16">8</p>
+                            </div>
                         </div>
                     </div>
-                    <div class="">
-                        RECEIVED TO DATE
+                    <div class="padding">
+                        <p class="stable f12">RECEIVED TO DATE</p>
                         <div class="text-center">
-                            <p>40,00,000</p>
+                            <p class="f16">40,00,000</p>
                         </div>
                     </div>
                 </div>
             </div>
             <div class="box ">
                 <div class="row">
-                    <div class="col-66">Latest fund inflow</div>
-                    <div class="col-33">16,00,000</div>
+                    <div class="col-66">
+                        <div class="bold f16">Latest fund inflow</div>
+                    </div>
+                    <div class="col-33">
+                        <div class="bold f16 text-center">16,00,000</div>
+                    </div>
                 </div>
             </div>
             <div class="progress-bar">
-                <p class="text-center">Work Completed</p>
+                <p class="text-center energized bold f16 uppercase">Work Completed</p>
             </div>
-            <div class="">
+            <div class="fund-date">
                 <div class="row">
                     <div class="col">
-                        <p>Funds Utilized To Date</p>
+                        <p class="bold">Funds Utilized To Date</p>
                     </div>
                     <div class="col">
-                        <form action="">
-                            <label class="radio-inline"><input type="radio" name="project" value="received"> Received
-                            </label>
-                            <label class="radio-inline"><input type="radio" name="project" value="allocated"> Allocated
-                        </label>
-                        </form>
+                        <div class="">
+                            <i class="ion-record grey"></i>
+                            <label for="">Received</label>
+                            <i class="ion-record light-grey"></i>
+                            <label for="">Allocated</label>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -78,19 +84,19 @@
     <ion-footer>
         <div class="tabs tabs-icon-top">
             <a class="tab-item" ui-sref="app.project">
-                <i class="icon ion-home"></i> Overview
+                <i class="ion-custom  ion-overview"></i> Overview
             </a>
             <a class="tab-item" ui-sref="app.fundFlow">
-                <i class="icon ion-shuffle"></i> Fund Flow
+                <i class="ion-custom  ion-fundflow"></i> Fund Flow
             </a>
             <a class="tab-item" ui-sref="app.milestones">
-                <i class="icon ion-calendar"></i> Milestones
+                <i class="ion-custom  ion-milestone"></i> Milestones
             </a>
             <a class="tab-item" ui-sref="app.utilization">
-                <i class="icon ion-gear-a"></i> Utilization
+                <i class="ion-custom  ion-utilization"></i> Utilization
             </a>
             <a class="tab-item" ui-sref="app.projectPhotos">
-                <i class="icon ion-ios-camera"></i> Photos
+                <i class="ion-custom  ion-photos"></i> Photos
             </a>
         </div>
     </ion-footer>

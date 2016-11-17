@@ -1,547 +1,632 @@
-/*
+  /*
 To customize the look and feel of Ionic, you can override the variables
 in ionic's _variables.scss file.
 
 For example, you might change some of the default colors:
 */
-
-$light: #fff !default;
-$stable: #f8f8f8 !default;
-$positive: #7a4bff !default;
-$calm: #4b64ff !default;
-$balanced: #55c45f !default;
-$energized: #ffc900 !default;
-$assertive: #ef473a !default;
-$royal: #886aea !default;
-$dark: #444 !default;
-// The path for our ionicons font files, relative to the built CSS in www/css
-$ionicons-font-path: "../lib/ionic/fonts" !default;
-// Include all of Ionic
-@import "www/lib/ionic/scss/ionic";
-@font-face {
-  font-family: 'Roboto';
-  src: url('../fonts/Roboto-Light.ttf') format("truetype");
-  font-weight: 300;
-}
-
-@font-face {
-  font-family: 'Roboto';
-  src: url('../fonts/Roboto-Normal.ttf') format("truetype");
-  font-weight: 400;
-}
-
-@font-face {
-  font-family: 'Roboto';
-  src: url('../fonts/Roboto-Bold.ttf') format("truetype");
-  font-weight: 700;
-}
-
-html,
-body,
-div,
-span,
-applet,
-object,
-iframe,
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-p,
-blockquote,
-pre,
-a,
-abbr,
-acronym,
-address,
-big,
-cite,
-code,
-del,
-dfn,
-em,
-img,
-ins,
-kbd,
-q,
-s,
-samp,
-small,
-strike,
-strong,
-sub,
-sup,
-tt,
-var,
-b,
-i,
-u,
-center,
-dl,
-dt,
-dd,
-ol,
-ul,
-li,
-fieldset,
-form,
-label,
-legend,
-table,
-caption,
-tbody,
-tfoot,
-thead,
-tr,
-th,
-td,
-article,
-aside,
-canvas,
-details,
-embed,
-fieldset,
-figure,
-figcaption,
-footer,
-header,
-hgroup,
-menu,
-nav,
-output,
-ruby,
-section,
-summary,
-time,
-mark,
-audio,
-video {
-  font-family: Roboto-Light;
-  font-weight: 400;
-}
-
-.checkbox-inline,
-.radio-inline {
-  position: relative;
-  display: inline-block;
-  padding-left: 5px;
-  margin-bottom: 0;
-  font-weight: 400;
-  vertical-align: middle;
-  cursor: pointer;
-}
-
-button.button.button-icon.ion-custom-comment:before {
-  content: url('../img/comment.png');
-  height: 20px;
-  width: 30px;
-}
-
-.ion-custom-clock {
-  content: url('../img/clock.png');
-  height: 16px;
-  width: 16px;
-  vertical-align: text-bottom;
-}
-
-.bar-header {
-  border: 0px !important;
-  border-bottom-color: transparent !important;
-  background-image: none !important;
-  border-bottom: none !important;
-}
-
-.toggle input:checked+.track .handle {
-  -webkit-transform: translate3d(15px, 0, 0);
-  transform: translate3d(15px, 0, 0);
-}
-
-.toggle {
-  .handle {
-    width: 15px;
-    height: 15px;
-    top: 5px;
+  
+  $light: #fff !default;
+  $stable: #c1c1c1 !default;
+  $positive: #7a4bff !default;
+  $calm: #4b64ff !default;
+  $balanced: #55c45f !default;
+  $energized: #88c057 !default;
+  $assertive: #ef473a !default;
+  $royal: #886aea !default;
+  $dark: #4b4b4b !default;
+  // The path for our ionicons font files, relative to the built CSS in www/css
+  $ionicons-font-path: "../lib/ionic/fonts" !default;
+  // Include all of Ionic
+  @import "www/lib/ionic/scss/ionic";
+  @font-face {
+    font-family: 'Roboto';
+    src: url('../fonts/Roboto-Light.ttf') format("truetype");
+    font-weight: 300;
   }
-  .track {
+  
+  @font-face {
+    font-family: 'Roboto';
+    src: url('../fonts/Roboto-Normal.ttf') format("truetype");
+    font-weight: 400;
+  }
+  
+  @font-face {
+    font-family: 'Roboto';
+    src: url('../fonts/Roboto-Black.ttf') format("truetype");
+    font-weight: 500;
+  }
+  
+  @font-face {
+    font-family: 'Roboto';
+    src: url('../fonts/Roboto-Bold.ttf') format("truetype");
+    font-weight: bold;
+  }
+  
+  html,
+  body,
+  div,
+  span,
+  applet,
+  object,
+  iframe,
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  p,
+  blockquote,
+  pre,
+  a,
+  abbr,
+  acronym,
+  address,
+  big,
+  cite,
+  code,
+  del,
+  dfn,
+  em,
+  img,
+  ins,
+  kbd,
+  q,
+  s,
+  samp,
+  small,
+  strike,
+  strong,
+  sub,
+  sup,
+  tt,
+  var,
+  b,
+  i,
+  u,
+  center,
+  dl,
+  dt,
+  dd,
+  ol,
+  ul,
+  li,
+  fieldset,
+  form,
+  label,
+  legend,
+  table,
+  caption,
+  tbody,
+  tfoot,
+  thead,
+  tr,
+  th,
+  td,
+  article,
+  aside,
+  canvas,
+  details,
+  embed,
+  fieldset,
+  figure,
+  figcaption,
+  footer,
+  header,
+  hgroup,
+  menu,
+  nav,
+  output,
+  ruby,
+  section,
+  summary,
+  time,
+  mark,
+  audio,
+  video {
+    font-family: Roboto;
+    font-weight: 400;
+  }
+  
+  .bold {
+    font-weight: bold;
+  }
+  
+  .medium {
+    font-weight: medium;
+  }
+  
+  .checkbox-inline,
+  .radio-inline {
+    position: relative;
+    display: inline-block;
+    padding-left: 5px;
+    margin-bottom: 0;
+    font-weight: 400;
+    vertical-align: middle;
+    cursor: pointer;
+  }
+  
+  button.button.button-icon.ion-custom-comment:before {
+    content: url('../img/comment.png');
+    height: 20px;
     width: 30px;
-    height: 15px;
   }
-}
-
-.right-project-icons {
-  i {
-    padding: 0 6px;
+  
+  .ion-custom-clock {
+    content: url('../img/clock.png');
+    height: 16px;
+    width: 16px;
+    vertical-align: text-bottom;
   }
-  .button {
-    margin-left: 6px;
+  
+  .bar-header {
+    border: 0px !important;
+    border-bottom-color: transparent !important;
+    background-image: none !important;
+    border-bottom: none !important;
   }
-  .arrowup {
-    font-size: 22px;
+  
+  .toggle input:checked+.track .handle {
+    -webkit-transform: translate3d(15px, 0, 0);
+    transform: translate3d(15px, 0, 0);
   }
-}
-
-.clearfix {
-  clear: both;
-}
-
-.home {
-  color: #595959!important;
-}
-
-.login-background {
-  background: rgba(9, 21, 61, 1);
-  background: -moz-linear-gradient(top, rgba(9, 21, 61, 1) 0%, rgba(89, 50, 172, 1) 35%, rgba(137, 94, 219, 1) 100%);
-  background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(9, 21, 61, 1)), color-stop(35%, rgba(89, 50, 172, 1)), color-stop(100%, rgba(137, 94, 219, 1)));
-  background: -webkit-linear-gradient(top, rgba(9, 21, 61, 1) 0%, rgba(89, 50, 172, 1) 35%, rgba(137, 94, 219, 1) 100%);
-  background: -o-linear-gradient(top, rgba(9, 21, 61, 1) 0%, rgba(89, 50, 172, 1) 35%, rgba(137, 94, 219, 1) 100%);
-  background: -ms-linear-gradient(top, rgba(9, 21, 61, 1) 0%, rgba(89, 50, 172, 1) 35%, rgba(137, 94, 219, 1) 100%);
-  background: linear-gradient(to bottom, rgba(9, 21, 61, 1) 0%, rgba(89, 50, 172, 1) 35%, rgba(137, 94, 219, 1) 100%);
-}
-
-.login-form {
-  margin-top: 60px;
-  .login {
-    background: transparent;
-    border: none;
-    margin: 5px;
-    padding-left: 0px;
-    margin: 0px 30px;
+  
+  .toggle {
+    .handle {
+      width: 15px;
+      height: 15px;
+      top: 5px;
+    }
+    .track {
+      width: 30px;
+      height: 15px;
+    }
   }
-  .border-login {
-    border-bottom: 1px solid #865dd1;
+  
+  .right-project-icons {
+    i {
+      padding: 0 6px;
+    }
+    .button {
+      margin-left: 6px;
+    }
+    .arrowup {
+      font-size: 22px;
+    }
   }
-}
-
-.login-text {
-  color: #9175d1;
-}
-
-.input-text {
-  color: white!important;
-}
-
-.login-button {
-  color: #a345de!important;
-  background-color: white!important;
-  padding: 0px 60px;
-  border-radius: 35px;
-  font-size: 22px;
-  margin-top: 30px;
-}
-
-.rusa-title {
-  color: white;
-  margin-top: 90px!important;
-}
-
-.sign-in {
-  color: white;
-  margin-top: 60px;
-}
-
-.forget {
-  color: white;
-  margin-top: 30px;
-}
-
-.fund {
-  color: #a095c5;
-  line-height: 0px;
-}
-
-.side-menu {
-  background-color: #263238;
-  padding-top: 60px;
-  ion-list {
-    ion-item {
-      background-color: #263238;
+  
+  .clearfix {
+    clear: both;
+  }
+  
+  .home {
+    color: #595959!important;
+  }
+  
+  .login-background {
+    background: rgba(9, 21, 61, 1);
+    background: -moz-linear-gradient(top, rgba(9, 21, 61, 1) 0%, rgba(89, 50, 172, 1) 35%, rgba(137, 94, 219, 1) 100%);
+    background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(9, 21, 61, 1)), color-stop(35%, rgba(89, 50, 172, 1)), color-stop(100%, rgba(137, 94, 219, 1)));
+    background: -webkit-linear-gradient(top, rgba(9, 21, 61, 1) 0%, rgba(89, 50, 172, 1) 35%, rgba(137, 94, 219, 1) 100%);
+    background: -o-linear-gradient(top, rgba(9, 21, 61, 1) 0%, rgba(89, 50, 172, 1) 35%, rgba(137, 94, 219, 1) 100%);
+    background: -ms-linear-gradient(top, rgba(9, 21, 61, 1) 0%, rgba(89, 50, 172, 1) 35%, rgba(137, 94, 219, 1) 100%);
+    background: linear-gradient(to bottom, rgba(9, 21, 61, 1) 0%, rgba(89, 50, 172, 1) 35%, rgba(137, 94, 219, 1) 100%);
+  }
+  
+  .login-form {
+    margin-top: 60px;
+    .login {
+      background: transparent;
       border: none;
-      border-left: 7px solid #263238;
+      margin: 5px;
+      padding-left: 0px;
+      margin: 0px 30px;
     }
-    ion-item.active {
-      border-color: #7a4bff!important;
-      background-color: #263238;
+    .border-login {
+      border-bottom: 1px solid #865dd1;
     }
-    a {
-      background-color: #263238!important;
-      color: white;
-      font-family: Roboto-Light;
-      font-weight: 300;
-      font-size: 20px;
-      img {
-        max-width: 25px;
+  }
+  
+  .login-text {
+    color: #9175d1;
+  }
+  
+  .input-text {
+    color: white!important;
+  }
+  
+  .login-button {
+    color: #a345de!important;
+    background-color: white!important;
+    padding: 0px 60px;
+    border-radius: 35px;
+    font-size: 22px;
+    margin-top: 30px;
+  }
+  
+  .rusa-title {
+    color: white;
+    margin-top: 90px!important;
+  }
+  
+  .sign-in {
+    color: white;
+    margin-top: 60px;
+  }
+  
+  .forget {
+    color: white;
+    margin-top: 30px;
+  }
+  
+  .fund {
+    color: #a095c5;
+    line-height: 0px;
+  }
+  
+  .side-menu {
+    background-color: #263238;
+    padding-top: 60px;
+    ion-list {
+      ion-item {
+        background-color: #263238;
+        border: none;
+        border-left: 7px solid #263238;
+      }
+      ion-item.active {
+        border-color: #7a4bff!important;
+        background-color: #263238;
+      }
+      a {
+        background-color: #263238!important;
+        color: white;
+        font-family: Roboto-Light;
+        font-weight: 300;
+        font-size: 20px;
+        img {
+          max-width: 25px;
+        }
       }
     }
   }
-}
-
-.menu-header {
-  background-color: #263238!important;
-  border: none;
-  background-image: linear-gradient(0deg, #263238, #263238 50%, transparent 50%)!important;
-}
-
-.close-button {
-  font-size: 35px;
-  float: right;
-  margin: 10px 0px 0px 230px;
-  color: white;
-}
-
-.msg-badge {
-  background-color: #6336e1!important;
-  border-radius: 15px;
-}
-
-.side-footer {
-  background: #263238!important;
-  .log-out {
-    margin: 5px 0px 0px 10px;
-    font-size: 16px;
-    img {
-      margin-right: 5px;
-      height: 18px;
-      width: 18px;
+  
+  .menu-header {
+    background-color: #263238!important;
+    border: none;
+    background-image: linear-gradient(0deg, #263238, #263238 50%, transparent 50%)!important;
+  }
+  
+  .close-button {
+    font-size: 35px;
+    float: right;
+    margin: 10px 0px 0px 230px;
+    color: white;
+  }
+  
+  .msg-badge {
+    background-color: #6336e1!important;
+    border-radius: 15px;
+  }
+  
+  .side-footer {
+    background: #263238!important;
+    .log-out {
+      margin: 5px 0px 0px 10px;
+      font-size: 16px;
+      img {
+        margin-right: 5px;
+        height: 18px;
+        width: 18px;
+      }
     }
   }
-}
-
-.tab-header {
-  .tabs {
-    background: #7a4bff;
-    padding-bottom: 1px;
-    .tab-item {
-      color: white;
-      max-width: 100%;
-    }
-    .tab-item.tab-item-active,
-    .tab-item.active {
-      border-bottom: 2px solid white;
+  
+  .tab-header {
+    .tabs {
+      background: #7a4bff;
+      padding-bottom: 1px;
+      .tab-item {
+        color: white;
+        max-width: 100%;
+      }
+      .tab-item.tab-item-active,
+      .tab-item.active {
+        border-bottom: 2px solid white;
+      }
     }
   }
-}
-
-.tabs-content {
-  top: 95px;
-}
-
-.top-div {
-  padding: 15px 5px 5px 5px;
-  h5 {
-    text-align: center;
-    color: #747474;
-    margin: 0;
-    font-size: 15px;
-    label {
-      color: #c1c1c1;
+  
+  .tabs-content {
+    top: 95px;
+  }
+  
+  .top-div {
+    padding: 15px 5px 5px 5px;
+    h5 {
+      text-align: center;
+      color: #747474;
+      margin: 0;
       font-size: 15px;
+      label {
+        color: #c1c1c1;
+        font-size: 15px;
+      }
+    }
+    .h5-border {
+      border-right: 1px solid #c1c1c1;
     }
   }
-  .h5-border {
-    border-right: 1px solid #c1c1c1;
-  }
-}
-
-.mid-div {
-  background-color: #f0f5f7;
-  .total {
-    padding: 20px 10%;
-    i {
-      font-size: 20px;
-      display: inline-block;
-      vertical-align: middle;
+  
+  .mid-div {
+    background-color: #f0f5f7;
+    .total {
+      padding: 20px 10%;
+      i {
+        font-size: 20px;
+        display: inline-block;
+        vertical-align: middle;
+      }
+      h5 {
+        display: inline-block;
+        color: #4b4b4b;
+        margin-left: 10px;
+        margin-top: 5px;
+        margin-bottom: 5px;
+        line-height: 0;
+      }
+      label {
+        color: #c1c1c1;
+      }
+      .release {
+        color: #d8dcde;
+      }
+      .fund {
+        color: #91a4af;
+      }
+      .util {
+        color: #4b64ff;
+      }
     }
+  }
+  
+  #donutchart,
+  #chart {
+    width: 100%;
+    height: 100%;
+    font-family: Arial;
+  }
+  
+  #donutchart {
+    position: relative;
+  }
+  
+  #labelOverlay {
+    position: absolute;
+    top: 30px;
+    left: 25px;
+    text-align: center;
+    cursor: default;
+  }
+  
+  #labelOverlay p {
+    line-height: 0.3;
+    padding: 0;
+    margin: 8px;
+  }
+  
+  #labelOverlay p.used-size {
+    line-height: 0.5;
+    font-size: 20pt;
+    color: #8e8e8e;
+  }
+  
+  #labelOverlay p.total-size {
+    line-height: 0.5;
+    font-size: 12pt;
+    color: #cdcdcd;
+  }
+  
+  .home-bottom {
+    margin: 20px;
     h5 {
       display: inline-block;
-      color: #4b4b4b;
-      margin-left: 10px;
-      margin-top: 5px;
-      margin-bottom: 5px;
-      line-height: 0;
+      color: #747474;
+      margin-left: 15px;
     }
     label {
+      display: inline-block;
       color: #c1c1c1;
-    }
-    .release {
-      color: #d8dcde;
-    }
-    .fund {
-      color: #91a4af;
-    }
-    .util {
-      color: #4b64ff;
+      min-width: 30%;
     }
   }
-}
-
-#donutchart,
-#chart {
-  width: 100%;
-  height: 100%;
-  font-family: Arial;
-}
-
-#donutchart {
-  position: relative;
-}
-
-#labelOverlay {
-  position: absolute;
-  top: 30px;
-  left: 25px;
-  text-align: center;
-  cursor: default;
-}
-
-#labelOverlay p {
-  line-height: 0.3;
-  padding: 0;
-  margin: 8px;
-}
-
-#labelOverlay p.used-size {
-  line-height: 0.5;
-  font-size: 20pt;
-  color: #8e8e8e;
-}
-
-#labelOverlay p.total-size {
-  line-height: 0.5;
-  font-size: 12pt;
-  color: #cdcdcd;
-}
-
-.home-bottom {
-  margin: 20px;
-  h5 {
-    display: inline-block;
-    color: #747474;
-    margin-left: 15px;
+  
+  .states-background {
+    background-color: #f1f1f1;
   }
-  label {
-    display: inline-block;
-    color: #c1c1c1;
-    min-width: 30%;
+  
+  .search-bar {
+    background: transparent;
+    button {
+      padding: 0px 20px!important;
+      background: #f2f4f7!important;
+      border-color: #dfe3e9!important;
+      color: #333c48!important;
+    }
+    label {
+      background: white;
+      margin-left: 17px;
+      border-color: #dfe3e9;
+      i {
+        color: #747474;
+        font-size: 16px;
+        font-weight: 800;
+      }
+    }
   }
-}
-
-.states-background {
-  background-color: #f1f1f1;
-}
-
-.search-bar {
-  background: transparent;
-  button {
-    padding: 0px 20px!important;
-    background: #f2f4f7!important;
-    border-color: #dfe3e9!important;
-    color: #333c48!important;
-  }
-  label {
-    background: white;
-    margin-left: 17px;
-    border-color: #dfe3e9;
-    i {
+  
+  @import "main";
+  .state-card {
+    box-shadow: none;
+    margin: 10px 10px;
+    a {
       color: #747474;
-      font-size: 16px;
-      font-weight: 800;
     }
   }
-}
-
-@import "main";
-.state-card {
-  box-shadow: none;
-  margin: 10px 10px;
-  a {
-    color: #747474;
+  
+  .track-ins {
+    background-color: white!important;
+    border-color: #465eef!important;
+    width: 30px!important;
+    height: 10px!important;
   }
-}
-
-.track-ins {
-  background-color: white!important;
-  border-color: #465eef!important;
-  width: 30px!important;
-  height: 10px!important;
-}
-
-.toggle-handle {
-  background-color: #4259e2!important;
-  top: 6px!important;
-}
-
-.toggle input:checked+.track {
+  
+  .toggle-handle {
+    background-color: #4259e2!important;
+    top: 6px!important;
+  }
+  /*.toggle input:checked+.track {
   border-color: #465eef!important;
   background-color: #465eef!important;
-}
-
-.toggle-text {
-  color: #465eef!important;
-  font-size: 12px;
-}
-
-button.button.button-icon.button-clear {
-  &.search-btn {
-    font-size: 24px;
-    padding: 0 10px;
+}*/
+  
+  .toggle-text {
+    color: #465eef!important;
+    font-size: 12px;
   }
-  &.settings-btn {
-    font-size: 24px;
-    padding: 0 10px;
+  
+  button.button.button-icon.button-clear {
+    &.search-btn {
+      font-size: 24px;
+      padding: 0 10px;
+    }
+    &.settings-btn {
+      font-size: 24px;
+      padding: 0 10px;
+    }
   }
-}
-
-.right-arrow {
-  font-size: 8px;
-  position: absolute;
-  right: 10px;
-  top: 50%;
-  transform: translateY(-50%);
-}
-
-.ion-custom-ecommerce {
-  &:before {
-    content: url('../img/ecommerce.png');
-    height: 20px;
-    width: 20px;
-    display: block;
+  
+  .right-arrow {
+    font-size: 8px;
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
   }
-}
-
-.button.btn-custom-active {
-  color: $balanced;
-  background-color: #fff;
-  padding: 4px 10px;
-  min-height: auto;
-  line-height: 1;
-  border-radius: 2px;
-  box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
-  font-size: 12px;
-  font-weight: bold;
-}
-
-.btn-custom-icon {
-  line-height: 0;
-  min-height: auto;
-}
-
-.btn-down {
-  color: #777;
-}
-
-.card-institue {
-  .card {
-    margin-top: 0;
+  
+  .ion-custom-ecommerce {
+    &:before {
+      height: 20px;
+      width: 20px;
+      display: block;
+    }
+    &.ecommerce-green:before {
+      content: url('../img/ecommerce.png');
+    }
+    &.ecommerce-red:before {
+      content: url('../img/ecommerce-red.png');
+    }
+    &.ecommerce-orange:before {
+      content: url('../img/ecommerce-orange.png');
+    }
   }
-  .item h4 {
-    font-size: 14px;
+  
+  .btn-custom-active {
+    background-color: #fff;
+    padding: 4px 10px;
+    min-height: auto;
+    line-height: 1;
+    border-radius: 2px;
+    box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+    font-size: 12px;
+    display: inline-block;
   }
-  .card-institute-head {
-    padding-bottom: 15px;
+  
+  .btn-custom-icon {
+    line-height: 0;
+    min-height: auto;
   }
-  .card-institute-bottom {
-    padding-bottom: 15px;
+  
+  .btn-down {
+    color: #c1c1c1;
   }
-}
+  
+  .card-institue {
+    .card {
+      margin-top: 0;
+    }
+    .item h4 {
+      font-size: 14px;
+    }
+    .card-institute-head {
+      padding-bottom: 15px;
+    }
+    .card-institute-bottom {
+      padding-bottom: 15px;
+    }
+    .card-institute-mid {
+      .item h4 {
+        @extend .bold;
+      }
+    }
+    .drop-institute {
+      .row {
+        padding: 0;
+      }
+      h4,
+      label {
+        color: #c1c1c1;
+      }
+    }
+    .fund-recieved {
+      margin-bottom: 10px;
+    }
+  }
+  
+  .funds-all {
+    padding: 30px 0;
+    p {
+      font-weight: 300;
+    }
+    h3 {
+      color: #546a79;
+    }
+  }
+  
+  .f16 {
+    font-size: 16px;
+    @extend .bold;
+  }
+  
+  .ion-custom {
+    &:before {
+      height: 20px;
+      width: 20px;
+      display: block;
+      margin: 5px auto 3px;
+    }
+    &.ion-overview:before {
+      content: url(../img/menuicon/overview.png);
+    }
+    &.ion-fundflow:before {
+      content: url(../img/menuicon/fund-flow.png);
+    }
+    &.ion-milestone:before {
+      content: url(../img/menuicon/milestone.png);
+    }
+    &.ion-utilization:before {
+      content: url(../img/menuicon/utilization.png);
+    }
+    &.ion-photos:before {
+      content: url(../img/menuicon/photos.png);
+    }
+  }
+  
+  .tabs {
+    background-color: #ffffff;
+    background-image: linear-gradient(0deg, #b2b2b2, #b2b2b2 44%, transparent 50%);
+    .tab-item {
+      border-right: 1px solid #ddd;
+      text-align: center;
+    }
+  }
