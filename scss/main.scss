@@ -114,34 +114,39 @@
 
   }
 }
-.float-button {
-background-color:$orange;
-opacity: 0.9;
-color: white;
-border-radius: 50%;
-width: 25px;
-padding: 25px;
-position: fixed;
-bottom: 10%;
-right: 7%;
-z-index: 1000;
-}
+// .float-button {
+// background-color:white;
+// opacity: 0.9;
+// color: white;
+// border-radius: 50%;
+// width: 25px;
+// padding: 25px;
+// position: fixed;
+// bottom: 10%;
+// right: 7%;
+// z-index: 1000;
+// }
+//
+//
+// .float-button .height_fix {
+//   margin-top: 80%;
+//   border: 1px solid red;
+// }
+//
+// .float-button .content {
+//   position: absolute;
+//   left: 0;
+//   height: 100%;
+//   width: 100%;
+//   color: white;
+//   bottom: -27%;
+//   text-align: center;
+//   i{
+//     font-size: 25px;
+//   }
+// }
+.util-card{
+  .top-card{
 
-
-.float-button .height_fix {
-  margin-top: 80%;
-  border: 1px solid red;
-}
-
-.float-button .content {
-  position: absolute;
-  left: 0;
-  height: 100%;
-  width: 100%;
-  color: white;
-  bottom: -27%;
-  text-align: center;
-  i{
-    font-size: 25px;
   }
 }
