@@ -14,31 +14,41 @@ For example, you might change some of the default colors:
   $assertive: #ef473a !default;
   $royal: #40bad5 !default;
   $dark: #4b4b4b !default;
+  $font-family-sans-serif: "Source Sans Pro",
+  "Helvetica Neue",
+  "Roboto",
+  "Segoe UI",
+  sans-serif !default;
+  $font-family-light-sans-serif: "Source Sans Pro",
+  "HelveticaNeue-Light",
+  "Roboto-Light",
+  "Segoe UI-Light",
+  sans-serif-light !default;
   // The path for our ionicons font files, relative to the built CSS in www/css
   $ionicons-font-path: "../lib/ionic/fonts" !default;
   // Include all of Ionic
   @import "www/lib/ionic/scss/ionic";
   @font-face {
     font-family: 'Roboto';
-    src: url('../fonts/Roboto-Light.ttf') format("truetype");
+    src: url('../fonts/Roboto/Roboto-Light.ttf');
     font-weight: 300;
   }
   
   @font-face {
     font-family: 'Roboto';
-    src: url('../fonts/Roboto-Normal.ttf') format("truetype");
+    src: url('../fonts/Roboto/Roboto-Regular.ttf');
     font-weight: 400;
   }
   
   @font-face {
     font-family: 'Roboto';
-    src: url('../fonts/Roboto-Black.ttf') format("truetype");
+    src: url('../fonts/Roboto/Roboto-Black.ttf');
     font-weight: 500;
   }
   
   @font-face {
     font-family: 'Roboto';
-    src: url('../fonts/Roboto-Bold.ttf') format("truetype");
+    src: url('../fonts/Roboto/Roboto-Bold.ttf');
     font-weight: bold;
   }
   
@@ -292,8 +302,9 @@ For example, you might change some of the default colors:
         color: white;
         font-weight: 300;
         font-size: 20px;
-        img {
-          max-width: 25px;
+        i {
+          min-width: 26px;
+          display: inline-block;
         }
       }
     }
@@ -315,18 +326,18 @@ For example, you might change some of the default colors:
   .msg-badge {
     background-color: #6336e1!important;
     border-radius: 15px;
+    top: 22px;
   }
   
   .side-footer {
     background: #263238!important;
     .log-out {
       margin: 5px 0px 0px 10px;
-      font-size: 16px;
-      img {
-        margin-right: 5px;
-        height: 18px;
-        width: 18px;
-      }
+      font-size: 20px;
+    }
+    i {
+      display: inline-block;
+      min-width: 25px;
     }
   }
   
@@ -610,7 +621,7 @@ For example, you might change some of the default colors:
     &:before {
       height: 20px;
       width: 20px;
-      display: block;
+      display: inline-block;
       margin: 5px auto 3px;
     }
     &.ion-overview:before {
@@ -643,6 +654,24 @@ For example, you might change some of the default colors:
     &.ion-photos-active:before {
       content: url(../img/menuicon/photos-active.png);
     }
+    &.ion-custom-home:before {
+      content: url(../img/home-icon.png);
+    }
+    &.ion-custom-feed:before {
+      content: url(../img/feed-icon.png);
+    }
+    &.ion-custom-notify:before {
+      content: url(../img/notif-icon.png);
+    }
+    &.ion-custom-message:before {
+      content: url(../img/message-icon.png);
+    }
+    &.ion-custom-setting:before {
+      content: url(../img/setting-icon.png);
+    }
+    &.ion-custom-logout:before {
+      content: url(../img/logout-icon.png);
+    }
   }
   
   .tabs-custom {
@@ -656,6 +685,9 @@ For example, you might change some of the default colors:
         text-align: center;
         padding-top: 2px;
       }
+    }
+    .ion-custom {
+      display: block;
     }
   }
   
@@ -680,6 +712,9 @@ For example, you might change some of the default colors:
     table {
       font-size: 10px;
       line-height: 1;
+      td {
+        text-align: center;
+      }
       i {
         font-size: 20px;
       }
