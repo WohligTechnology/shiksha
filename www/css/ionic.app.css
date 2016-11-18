@@ -10523,7 +10523,14 @@ button.button.button-icon.button-clear.settings-btn {
     line-height: 1;
     position: absolute;
     left: 0px;
-    top: 40%; }
+    top: 40%;
+    font-weight: 500; }
+  .table-amount table .bt0 {
+    border-top: 0; }
+  .table-amount table .br0 {
+    border-right: 0; }
+  .table-amount table .bl0 {
+    border-left: 0; }
   .table-amount table .toggle {
     margin: 0 auto; }
     .table-amount table .toggle .track {
