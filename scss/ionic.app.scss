@@ -714,16 +714,20 @@ For example, you might change some of the default colors:
       line-height: 1;
       td {
         text-align: center;
+        border-bottom: 1px solid #ddd;
+        padding: 5px;
+        vertical-align: middle;
       }
       i {
         font-size: 20px;
       }
-      .pr-10 {
-        padding: 0 0 0 10px;
-      }
       th {
         font-weight: 500;
         color: #546a79;
+        border: 1px solid #ddd;
+        padding: 5px;
+        vertical-align: middle;
+        line-height: 1;
       }
       th.dark {
         color: $dark;

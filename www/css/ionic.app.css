@@ -10427,14 +10427,19 @@ button.button.button-icon.button-clear.settings-btn {
   font-size: 10px;
   line-height: 1; }
   .table-amount table td {
-    text-align: center; }
+    text-align: center;
+    border-bottom: 1px solid #ddd;
+    padding: 5px;
+    vertical-align: middle; }
   .table-amount table i {
     font-size: 20px; }
-  .table-amount table .pr-10 {
-    padding: 0 0 0 10px; }
   .table-amount table th {
     font-weight: 500;
-    color: #546a79; }
+    color: #546a79;
+    border: 1px solid #ddd;
+    padding: 5px;
+    vertical-align: middle;
+    line-height: 1; }
   .table-amount table th.dark {
     color: #4b4b4b;
     font-size: 14px; }
