@@ -10043,8 +10043,9 @@ button.button.button-icon.ion-custom-comment:before {
     color: white;
     font-weight: 300;
     font-size: 20px; }
-    .side-menu ion-list a img {
-      max-width: 25px; }
+    .side-menu ion-list a i {
+      min-width: 26px;
+      display: inline-block; }
 
 .menu-header {
   background-color: #263238 !important;
@@ -10065,11 +10066,10 @@ button.button.button-icon.ion-custom-comment:before {
   background: #263238 !important; }
   .side-footer .log-out {
     margin: 5px 0px 0px 10px;
-    font-size: 16px; }
-    .side-footer .log-out img {
-      margin-right: 5px;
-      height: 18px;
-      width: 18px; }
+    font-size: 20px; }
+  .side-footer i {
+    display: inline-block;
+    min-width: 25px; }
 
 .tab-header .tabs {
   background: #7a4bff;
@@ -10348,7 +10348,7 @@ button.button.button-icon.button-clear.settings-btn {
 .ion-custom:before {
   height: 20px;
   width: 20px;
-  display: block;
+  display: inline-block;
   margin: 5px auto 3px; }
 
 .ion-custom.ion-overview:before {
@@ -10381,6 +10381,24 @@ button.button.button-icon.button-clear.settings-btn {
 .ion-custom.ion-photos-active:before {
   content: url(../img/menuicon/photos-active.png); }
 
+.ion-custom.ion-custom-home:before {
+  content: url(../img/home-icon.png); }
+
+.ion-custom.ion-custom-feed:before {
+  content: url(../img/feed-icon.png); }
+
+.ion-custom.ion-custom-notify:before {
+  content: url(../img/notif-icon.png); }
+
+.ion-custom.ion-custom-message:before {
+  content: url(../img/message-icon.png); }
+
+.ion-custom.ion-custom-setting:before {
+  content: url(../img/setting-icon.png); }
+
+.ion-custom.ion-custom-logout:before {
+  content: url(../img/logout-icon.png); }
+
 .tabs-custom .tabs {
   background-color: #ffffff;
   background-image: linear-gradient(0deg, #b2b2b2, rgba(178, 178, 178, 0.33) 51%, transparent 50%);
@@ -10390,6 +10408,9 @@ button.button.button-icon.button-clear.settings-btn {
     border-right: 1px solid #ddd;
     text-align: center;
     padding-top: 2px; }
+
+.tabs-custom .ion-custom {
+  display: block; }
 
 .list-share ul li {
   display: inline-block;

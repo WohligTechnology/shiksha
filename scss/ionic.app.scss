@@ -302,8 +302,9 @@ For example, you might change some of the default colors:
         color: white;
         font-weight: 300;
         font-size: 20px;
-        img {
-          max-width: 25px;
+        i {
+          min-width: 26px;
+          display: inline-block;
         }
       }
     }
@@ -331,12 +332,11 @@ For example, you might change some of the default colors:
     background: #263238!important;
     .log-out {
       margin: 5px 0px 0px 10px;
-      font-size: 16px;
-      img {
-        margin-right: 5px;
-        height: 18px;
-        width: 18px;
-      }
+      font-size: 20px;
+    }
+    i {
+      display: inline-block;
+      min-width: 25px;
     }
   }
   
@@ -620,7 +620,7 @@ For example, you might change some of the default colors:
     &:before {
       height: 20px;
       width: 20px;
-      display: block;
+      display: inline-block;
       margin: 5px auto 3px;
     }
     &.ion-overview:before {
@@ -653,6 +653,24 @@ For example, you might change some of the default colors:
     &.ion-photos-active:before {
       content: url(../img/menuicon/photos-active.png);
     }
+    &.ion-custom-home:before {
+      content: url(../img/home-icon.png);
+    }
+    &.ion-custom-feed:before {
+      content: url(../img/feed-icon.png);
+    }
+    &.ion-custom-notify:before {
+      content: url(../img/notif-icon.png);
+    }
+    &.ion-custom-message:before {
+      content: url(../img/message-icon.png);
+    }
+    &.ion-custom-setting:before {
+      content: url(../img/setting-icon.png);
+    }
+    &.ion-custom-logout:before {
+      content: url(../img/logout-icon.png);
+    }
   }
   
   .tabs-custom {
@@ -666,6 +684,9 @@ For example, you might change some of the default colors:
         text-align: center;
         padding-top: 2px;
       }
+    }
+    .ion-custom {
+      display: block;
     }
   }
   
