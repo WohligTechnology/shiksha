@@ -5,4 +5,4 @@ plugins/
 platforms/
 plugins/
 bower_components/
-lib/
+*.css

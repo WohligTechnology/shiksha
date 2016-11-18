@@ -743,7 +743,17 @@ For example, you might change some of the default colors:
         line-height: 1;
         position: absolute;
         left: 0px;
-        top: 40%
+        top: 40%;
+        font-weight: 500;
+      }
+      .bt0 {
+        border-top: 0;
+      }
+      .br0 {
+        border-right: 0;
+      }
+      .bl0 {
+        border-left: 0;
       }
       .toggle {
         margin: 0 auto;
