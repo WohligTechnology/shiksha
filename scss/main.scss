@@ -79,3 +79,69 @@
     color: #eeeeee;
   }
 }
+.mile-card{
+  margin: 5px 0px 10px 0px;
+  .button-div{
+    margin-top: -25px;
+    button{
+      padding: 0px;
+      vertical-align: middle;
+      font-size: 28px;
+      color: #525252;
+    }
+    .more{
+      color: #c1c1c1;
+      margin-left: 12px;
+    }
+  }
+  p{
+    line-height: 25px;
+    margin: 0px;
+  }
+  .header{
+    color: #546a79;
+    margin-top: 10px;
+    font-size: 16px;
+    font-weight: 300;
+  }
+  .details{
+    margin-top: 25px;
+  }
+  .content{
+    color: #333333;
+    font-size: 16px;
+    font-weight: 400;
+
+  }
+}
+.float-button {
+background-color:$orange;
+opacity: 0.9;
+color: white;
+border-radius: 50%;
+width: 25px;
+padding: 25px;
+position: fixed;
+bottom: 10%;
+right: 7%;
+z-index: 1000;
+}
+
+
+.float-button .height_fix {
+  margin-top: 80%;
+  border: 1px solid red;
+}
+
+.float-button .content {
+  position: absolute;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  color: white;
+  bottom: -27%;
+  text-align: center;
+  i{
+    font-size: 25px;
+  }
+}
