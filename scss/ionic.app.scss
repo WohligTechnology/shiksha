@@ -12,7 +12,7 @@ For example, you might change some of the default colors:
   $balanced: #55c45f !default;
   $energized: #88c057 !default;
   $assertive: #ef473a !default;
-  $royal: #886aea !default;
+  $royal: #40bad5 !default;
   $dark: #4b4b4b !default;
   // The path for our ionicons font files, relative to the built CSS in www/css
   $ionicons-font-path: "../lib/ionic/fonts" !default;
@@ -128,6 +128,11 @@ For example, you might change some of the default colors:
     font-weight: 400;
   }
   
+  .body,
+  p {
+    color: #4b4b4b;
+  }
+  
   .bold {
     font-weight: bold;
   }
@@ -194,6 +199,10 @@ For example, you might change some of the default colors:
     .arrowup {
       font-size: 22px;
     }
+  }
+  
+  .grey {
+    color: #858585;
   }
   
   .clearfix {
@@ -281,7 +290,6 @@ For example, you might change some of the default colors:
       a {
         background-color: #263238!important;
         color: white;
-        font-family: Roboto-Light;
         font-weight: 300;
         font-size: 20px;
         img {
@@ -385,7 +393,7 @@ For example, you might change some of the default colors:
         color: #91a4af;
       }
       .util {
-        color: #4b64ff;
+        color: $calm;
       }
     }
   }
@@ -608,8 +616,17 @@ For example, you might change some of the default colors:
     &.ion-overview:before {
       content: url(../img/menuicon/overview.png);
     }
+    &.ion-overview-active:before {
+      content: url(../img/menuicon/overview-active.png);
+    }
     &.ion-fundflow:before {
       content: url(../img/menuicon/fund-flow.png);
+    }
+    &.ion-fundflow-active:before {
+      content: url(../img/menuicon/fund-flow-active.png);
+    }
+    &.ion-milestone-active:before {
+      content: url(../img/menuicon/milestone-active.png);
     }
     &.ion-milestone:before {
       content: url(../img/menuicon/milestone.png);
@@ -617,16 +634,94 @@ For example, you might change some of the default colors:
     &.ion-utilization:before {
       content: url(../img/menuicon/utilization.png);
     }
+    &.ion-utilization-active:before {
+      content: url(../img/menuicon/utilization-active.png);
+    }
     &.ion-photos:before {
       content: url(../img/menuicon/photos.png);
     }
+    &.ion-photos-active:before {
+      content: url(../img/menuicon/photos-active.png);
+    }
   }
   
-  .tabs {
-    background-color: #ffffff;
-    background-image: linear-gradient(0deg, #b2b2b2, #b2b2b2 44%, transparent 50%);
-    .tab-item {
-      border-right: 1px solid #ddd;
-      text-align: center;
+  .tabs-custom {
+    .tabs {
+      background-color: #ffffff;
+      background-image: linear-gradient(0deg, #b2b2b2, rgba(178, 178, 178, 0.33) 51%, transparent 50%);
+      border: 0;
+      padding-top: 0;
+      .tab-item {
+        border-right: 1px solid #ddd;
+        text-align: center;
+        padding-top: 2px;
+      }
+    }
+  }
+  
+  .list-share {
+    ul {
+      li {
+        display: inline-block;
+        padding-left: 10px;
+        font-size: 12px;
+        i {
+          margin-right: 5px;
+        }
+      }
+    }
+  }
+  
+  .bg-light-blue {
+    background: #f0f5f7;
+  }
+  
+  .table-amount {
+    table {
+      font-size: 10px;
+      line-height: 1;
+      i {
+        font-size: 20px;
+      }
+      .pr-10 {
+        padding: 0 0 0 10px;
+      }
+      th {
+        font-weight: 500;
+        color: #546a79;
+      }
+      th.dark {
+        color: $dark;
+        font-size: 14px;
+      }
+      .state-release {
+        width: 25px;
+        position: relative;
+      }
+      .rotate-state {
+        transform: rotate(-90deg) translateY(-50%);
+        padding-right: 0px;
+        line-height: 1;
+        position: absolute;
+        left: 0px;
+        top: 40%
+      }
+      .toggle {
+        margin: 0 auto;
+        .track {
+          width: 25px;
+          height: 13px;
+        }
+        .handle {
+          width: 7px;
+          height: 8px;
+          top: 8px;
+          left: 8px;
+        }
+        input:checked+.track .handle {
+          -webkit-transform: translate3d(14px, 0, 0);
+          transform: translate3d(14px, 0, 0);
+        }
+      }
     }
   }
