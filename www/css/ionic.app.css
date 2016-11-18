@@ -10060,7 +10060,8 @@ button.button.button-icon.ion-custom-comment:before {
 
 .msg-badge {
   background-color: #6336e1 !important;
-  border-radius: 15px; }
+  border-radius: 15px;
+  top: 22px; }
 
 .side-footer {
   background: #263238 !important; }
