@@ -10271,6 +10271,50 @@ button.button.button-icon.ion-custom-comment:before {
     font-size: 16px;
     font-weight: 400; }
 
+.util-card {
+  padding: 5px 0px;
+  margin: 10px; }
+
+.top-util {
+  border-bottom: 1px solid #cccccc; }
+
+.util-header {
+  font-size: 12px;
+  color: #546a79;
+  font-weight: 300; }
+
+.util-content {
+  font-size: 12px;
+  color: #333333;
+  font-weight: 400; }
+
+.util-add {
+  font-size: 12px;
+  color: #333333;
+  padding: 0px;
+  font-weight: 400; }
+
+.util-more {
+  min-height: 0px;
+  line-height: 14px; }
+
+.util-row {
+  margin-top: 10px !important; }
+
+.util-camera {
+  min-height: 0px;
+  line-height: 14px; }
+
+.progress-div {
+  margin: 10px; }
+  .progress-div img {
+    margin-top: 5px;
+    width: 100%; }
+  .progress-div label {
+    color: #333333; }
+  .progress-div .rupee {
+    float: right; }
+
 .state-card {
   box-shadow: none;
   margin: 10px 10px; }
