@@ -1,5 +1,5 @@
 <ion-view view-title="Milestones">
-    <ion-content>
+    <ion-content class="bg-light-blue">
         <div class="">
             <div class="card top-card">
                 <div class="item item-text-wrap">
@@ -23,12 +23,12 @@
             </div>
             <div class="bar-sucess padding-horizontal">
                 <span class="item-note">40%</span>
-                <h4 class=""> Total work completed</h4>
+                <h5 class=""> Total work completed</h5>
             </div>
             <div class="card">
-                <div class="padding-horizontal">
-                    <p class="">Amount of work</p>
-                    <div class="item-note buttons-right">
+                <div class="padding-horizontal mile-card">
+                    <p class="header">Amount of work</p>
+                    <div class="item-note buttons-right button-div">
                         <button class="button button-icon ion-ios-camera"></button>
                         <button class="button button-icon ion-custom-comment"></button>
                         <label class="toggle">
@@ -37,13 +37,65 @@
                                 <div class="handle"></div>
                             </div>
                        </label>
-                        <button class="button button-icon ion-android-more-vertical"></button>
+                        <button class="button button-icon ion-android-more-vertical more"></button>
                     </div>
-                    <p class="">40%</p>
-                    <div class="">
+                    <p class="content">40%</p>
+                    <div class="header clearfix">
                         Item details
+                        </div>
+                    <div class="content">
+                        <div class="item-note">
+                            <i class="ion ion-custom-clock"></i> 22 Sep '16
+                        </div>
+                        <p>Purchase of 200 books</p>
                     </div>
-                    <div class="">
+                </div>
+            </div>
+            <div class="card">
+                <div class="padding-horizontal mile-card">
+                    <p class="header">Amount of work</p>
+                    <div class="item-note buttons-right button-div">
+                        <button class="button button-icon ion-ios-camera"></button>
+                        <button class="button button-icon ion-custom-comment"></button>
+                        <label class="toggle">
+                            <input type="checkbox">
+                            <div class="track">
+                                <div class="handle"></div>
+                            </div>
+                       </label>
+                        <button class="button button-icon ion-android-more-vertical more"></button>
+                    </div>
+                    <p class="content">40%</p>
+                    <div class="header clearfix">
+                        Item details
+                        </div>
+                    <div class="content">
+                        <div class="item-note">
+                            <i class="ion ion-custom-clock"></i> 22 Sep '16
+                        </div>
+                        <p>Purchase of 200 books</p>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <div class="padding-horizontal mile-card">
+                    <p class="header">Amount of work</p>
+                    <div class="item-note buttons-right button-div">
+                        <button class="button button-icon ion-ios-camera"></button>
+                        <button class="button button-icon ion-custom-comment"></button>
+                        <label class="toggle">
+                            <input type="checkbox">
+                            <div class="track">
+                                <div class="handle"></div>
+                            </div>
+                       </label>
+                        <button class="button button-icon ion-android-more-vertical more"></button>
+                    </div>
+                    <p class="content">40%</p>
+                    <div class="header clearfix">
+                        Item details
+                        </div>
+                    <div class="content">
                         <div class="item-note">
                             <i class="ion ion-custom-clock"></i> 22 Sep '16
                         </div>
@@ -52,9 +104,16 @@
                 </div>
             </div>
         </div>
-        <button class="button button-icon ion-plus-round"></button>
     </ion-content>
-    <ion-footer>
+    <div class="float-button">
+          		<span class="height-fix">
+          	   		<a class="content">
+          	    		<i class="fa fa-plus"> </i>
+          	   		</a>
+          	  	</span>
+          	</div>    <ion-footer>
+
+
         <div class="tabs-custom">
             <div class="tabs tabs-icon-top">
                 <a class="tab-item" ui-sref="app.project">

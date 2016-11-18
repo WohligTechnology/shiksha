@@ -10244,6 +10244,33 @@ button.button.button-icon.ion-custom-comment:before {
 .fund-date .light-grey {
   color: #eeeeee; }
 
+.mile-card {
+  margin: 5px 0px 10px 0px; }
+  .mile-card .button-div {
+    margin-top: -25px; }
+    .mile-card .button-div button {
+      padding: 0px;
+      vertical-align: middle;
+      font-size: 28px;
+      color: #525252; }
+    .mile-card .button-div .more {
+      color: #c1c1c1;
+      margin-left: 12px; }
+  .mile-card p {
+    line-height: 25px;
+    margin: 0px; }
+  .mile-card .header {
+    color: #546a79;
+    margin-top: 10px;
+    font-size: 16px;
+    font-weight: 300; }
+  .mile-card .details {
+    margin-top: 25px; }
+  .mile-card .content {
+    color: #333333;
+    font-size: 16px;
+    font-weight: 400; }
+
 .state-card {
   box-shadow: none;
   margin: 10px 10px; }
