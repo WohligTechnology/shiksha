@@ -14,6 +14,7 @@ For example, you might change some of the default colors:
   $assertive: #ef473a !default;
   $royal: #40bad5 !default;
   $dark: #4b4b4b !default;
+  $dark-grey: #546a79 !default;
   $font-family-sans-serif: "Source Sans Pro",
   "Helvetica Neue",
   "Roboto",
@@ -50,6 +51,11 @@ For example, you might change some of the default colors:
     font-family: 'Roboto';
     src: url('../fonts/Roboto/Roboto-Bold.ttf');
     font-weight: bold;
+  }
+  
+  h2.rusa-title {
+    font-size: 45px;
+    letter-spacing: 5px;
   }
   
   html,
@@ -215,6 +221,10 @@ For example, you might change some of the default colors:
     color: #858585;
   }
   
+  .dark-grey {
+    color: $dark-grey;
+  }
+  
   .clearfix {
     clear: both;
   }
@@ -234,7 +244,7 @@ For example, you might change some of the default colors:
   }
   
   .login-form {
-    margin-top: 60px;
+    margin-top: 40px;
     .login {
       background: transparent;
       border: none;
@@ -249,6 +259,7 @@ For example, you might change some of the default colors:
   
   .login-text {
     color: #9175d1;
+    font-size: 20px;
   }
   
   .input-text {
@@ -258,35 +269,44 @@ For example, you might change some of the default colors:
   .login-button {
     color: #a345de!important;
     background-color: white!important;
-    padding: 0px 60px;
+    padding: 8px 80px;
     border-radius: 35px;
-    font-size: 22px;
+    font-size: 30px;
     margin-top: 30px;
   }
   
   .rusa-title {
     color: white;
-    margin-top: 90px!important;
+    margin-top: 55px!important;
   }
   
   .sign-in {
     color: white;
     margin-top: 60px;
+    font-size: 30px;
+    font-weight: 300;
+    letter-spacing: 2px;
   }
   
   .forget {
     color: white;
     margin-top: 30px;
+    font-size: 18px;
   }
   
   .fund {
-    color: #a095c5;
+    color: #fff;
     line-height: 0px;
+    font-size: 20px;
+    letter-spacing: 3px;
   }
   
   .side-menu {
     background-color: #263238;
     padding-top: 60px;
+    .item .badge {
+      top: 22px;
+    }
     ion-list {
       ion-item {
         background-color: #263238;
@@ -317,9 +337,9 @@ For example, you might change some of the default colors:
   }
   
   .close-button {
-    font-size: 35px;
+    font-size: 40px;
     float: right;
-    margin: 10px 0px 0px 230px;
+    margin: 0px 0px 0px 230px;
     color: white;
   }
   
@@ -408,8 +428,7 @@ For example, you might change some of the default colors:
       }
     }
   }
-  
-  #donutchart,
+  /*#donutchart,
   #chart {
     width: 100%;
     height: 100%;
@@ -418,7 +437,7 @@ For example, you might change some of the default colors:
   
   #donutchart {
     position: relative;
-  }
+  }*/
   
   #labelOverlay {
     position: absolute;
@@ -451,7 +470,7 @@ For example, you might change some of the default colors:
     h5 {
       display: inline-block;
       color: #747474;
-      margin-left: 15px;
+      margin: 4px;
     }
     label {
       display: inline-block;
@@ -493,25 +512,25 @@ For example, you might change some of the default colors:
     }
   }
   
-  .track-ins {
-    background-color: white!important;
-    border-color: #465eef!important;
-    width: 30px!important;
-    height: 10px!important;
-  }
-  
-  .toggle-handle {
-    background-color: #4259e2!important;
-    top: 6px!important;
-  }
-  /*.toggle input:checked+.track {
-  border-color: #465eef!important;
-  background-color: #465eef!important;
-}*/
-  
-  .toggle-text {
-    color: #465eef!important;
-    font-size: 12px;
+  .toggle-institute {
+    .track-ins {
+      background-color: white!important;
+      border-color: #465eef!important;
+      width: 30px!important;
+      height: 10px!important;
+    }
+    .toggle-handle {
+      background-color: #4259e2!important;
+      top: 6px!important;
+    }
+    .toggle input:checked+.track {
+      border-color: #465eef!important;
+      background-color: #465eef!important;
+    }
+    .toggle-text {
+      color: #465eef!important;
+      font-size: 12px;
+    }
   }
   
   button.button.button-icon.button-clear {
@@ -554,7 +573,7 @@ For example, you might change some of the default colors:
     background-color: #fff;
     padding: 4px 10px;
     min-height: auto;
-    line-height: 1;
+    line-height: 150%;
     border-radius: 2px;
     box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
     font-size: 12px;
@@ -749,6 +768,9 @@ For example, you might change some of the default colors:
       .bt0 {
         border-top: 0;
       }
+      .bb0 {
+        border-bottom: 0;
+      }
       .br0 {
         border-right: 0;
       }
@@ -773,4 +795,16 @@ For example, you might change some of the default colors:
         }
       }
     }
+  }
+  
+  .pb50 {
+    padding-bottom: 50px;
+  }
+  
+  .pb110 {
+    padding-bottom: 110px;
+  }
+  
+  .f24 {
+    font-size: 24px;
   }

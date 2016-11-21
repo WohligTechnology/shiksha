@@ -36,25 +36,33 @@
                 </h5>
               </div>
             </div>
-            <img src="img/stats.png" alt="" />
-            <!-- <div id="donutchart" class="col-xs-12 col-sm-6 col-md-4">
-  <div id="chart"></div>
-  <div id="labelOverlay">
-    <p class="used-size">41<span>GB</span></p>
-    <p class="total-size"> of 50GB</p>
-  </div> -->
+            <!--<img src="img/stats.png" alt="" />-->
+            <div class="padding chart-home">
+              <canvas id="doughnut" class="chart chart-doughnut" chart-data="data" chart-labels="labels" chart-colors="colors">
+              </canvas>
+              <h5 class="f16">
+                75% Fund Utilization
+              </h5>
+            </div>
           </div>
-        </div>
-        <div class="home-bottom">
-          <div class="home-bottom1">
-            <label>Active Allocations </label>
-            <h5>₹ 125 Cr</h5>
+          <div class="home-bottom pb110">
+            <div class="home-bottom1">
+              <div class="row">
+                <div class="col"> <label>Active Allocations </label></div>
+                <div class="col">
+                  <h5>₹ 125 Cr</h5>
+                </div>
+              </div>
+            </div>
+            <div class="home-bottom1">
+              <div class="row">
+                <div class="col"> <label>Active Utilization </label></div>
+                <div class="col">
+                  <h5>₹ 78 Cr</h5>
+                </div>
+              </div>
+            </div>
           </div>
-          <div class="home-bottom1">
-            <label>Active Utilization </label>
-            <h5>₹ 78 Cr</h5>
-          </div>
-        </div>
         </div>
       </ion-content>
     </ion-tab>

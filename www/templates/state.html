@@ -4,7 +4,7 @@
   <ion-tabs class=" tab-button tabs-top tab-header ">
     <ion-tab title="OVERVIEW">
       <ion-content class="tabs-content">
-        <div class="">
+        <div class="pb110">
           <div class="top-div">
             <div class="row">
               <div class="col h5-border">
@@ -36,7 +36,13 @@
                 </h5>
               </div>
             </div>
-            <img src="img/stats.png" alt="" />
+            <div class="padding chart-home">
+              <canvas id="doughnut" class="chart chart-doughnut" chart-data="data" chart-labels="labels" chart-colors="colors">
+              </canvas>
+              <h5 class="f16">
+                75% Fund Utilization
+              </h5>
+            </div>
           </div>
           <div class="home-bottom">
             <div class="">

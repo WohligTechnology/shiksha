@@ -9825,6 +9825,10 @@ a.button {
   src: url("../fonts/Roboto/Roboto-Bold.ttf");
   font-weight: bold; }
 
+h2.rusa-title {
+  font-size: 45px;
+  letter-spacing: 5px; }
+
 html,
 body,
 div,
@@ -9972,6 +9976,9 @@ button.button.button-icon.ion-custom-comment:before {
 .grey {
   color: #858585; }
 
+.dark-grey {
+  color: #546a79; }
+
 .clearfix {
   clear: both; }
 
@@ -9988,7 +9995,7 @@ button.button.button-icon.ion-custom-comment:before {
   background: linear-gradient(to bottom, #09153d 0%, #5932ac 35%, #895edb 100%); }
 
 .login-form {
-  margin-top: 60px; }
+  margin-top: 40px; }
   .login-form .login {
     background: transparent;
     border: none;
@@ -9999,7 +10006,8 @@ button.button.button-icon.ion-custom-comment:before {
     border-bottom: 1px solid #865dd1; }
 
 .login-text {
-  color: #9175d1; }
+  color: #9175d1;
+  font-size: 20px; }
 
 .input-text {
   color: white !important; }
@@ -10007,30 +10015,38 @@ button.button.button-icon.ion-custom-comment:before {
 .login-button {
   color: #a345de !important;
   background-color: white !important;
-  padding: 0px 60px;
+  padding: 8px 80px;
   border-radius: 35px;
-  font-size: 22px;
+  font-size: 30px;
   margin-top: 30px; }
 
 .rusa-title {
   color: white;
-  margin-top: 90px !important; }
+  margin-top: 55px !important; }
 
 .sign-in {
   color: white;
-  margin-top: 60px; }
+  margin-top: 60px;
+  font-size: 30px;
+  font-weight: 300;
+  letter-spacing: 2px; }
 
 .forget {
   color: white;
-  margin-top: 30px; }
+  margin-top: 30px;
+  font-size: 18px; }
 
 .fund {
-  color: #a095c5;
-  line-height: 0px; }
+  color: #fff;
+  line-height: 0px;
+  font-size: 20px;
+  letter-spacing: 3px; }
 
 .side-menu {
   background-color: #263238;
   padding-top: 60px; }
+  .side-menu .item .badge {
+    top: 22px; }
   .side-menu ion-list ion-item {
     background-color: #263238;
     border: none;
@@ -10053,9 +10069,9 @@ button.button.button-icon.ion-custom-comment:before {
   background-image: linear-gradient(0deg, #263238, #263238 50%, transparent 50%) !important; }
 
 .close-button {
-  font-size: 35px;
+  font-size: 40px;
   float: right;
-  margin: 10px 0px 0px 230px;
+  margin: 0px 0px 0px 230px;
   color: white; }
 
 .msg-badge {
@@ -10122,15 +10138,16 @@ button.button.button-icon.ion-custom-comment:before {
     .mid-div .total .util {
       color: #4b64ff; }
 
-#donutchart,
-#chart {
-  width: 100%;
-  height: 100%;
-  font-family: Arial; }
-
-#donutchart {
-  position: relative; }
-
+/*#donutchart,
+  #chart {
+    width: 100%;
+    height: 100%;
+    font-family: Arial;
+  }
+  
+  #donutchart {
+    position: relative;
+  }*/
 #labelOverlay {
   position: absolute;
   top: 30px;
@@ -10158,7 +10175,7 @@ button.button.button-icon.ion-custom-comment:before {
   .home-bottom h5 {
     display: inline-block;
     color: #747474;
-    margin-left: 15px; }
+    margin: 4px; }
   .home-bottom label {
     display: inline-block;
     color: #c1c1c1;
@@ -10246,16 +10263,24 @@ button.button.button-icon.ion-custom-comment:before {
 
 .mile-card {
   margin: 5px 0px 10px 0px; }
-  .mile-card .button-div {
-    margin-top: -25px; }
-    .mile-card .button-div button {
-      padding: 0px;
-      vertical-align: middle;
-      font-size: 28px;
-      color: #525252; }
-    .mile-card .button-div .more {
-      color: #c1c1c1;
-      margin-left: 12px; }
+  .mile-card .button-div button {
+    padding: 0px;
+    vertical-align: sub;
+    font-size: 28px;
+    color: #525252;
+    line-height: 1;
+    min-height: auto; }
+  .mile-card .button-div .more {
+    color: #c1c1c1;
+    margin-left: 12px; }
+  .mile-card .toggle input:checked + .track .handle {
+    -webkit-transform: translate3d(14px, 0, 0);
+    transform: translate3d(14px, 0, 0); }
+  .mile-card .toggle .handle {
+    width: 12px;
+    height: 12px;
+    top: 6px;
+    left: 8px; }
   .mile-card p {
     line-height: 25px;
     margin: 0px; }
@@ -10271,6 +10296,22 @@ button.button.button-icon.ion-custom-comment:before {
     font-size: 16px;
     font-weight: 400; }
 
+.float-button .content {
+  background-color: white;
+  color: white;
+  border-radius: 50%;
+  width: 36px;
+  height: 36px;
+  position: fixed;
+  bottom: 10%;
+  left: 7%;
+  z-index: 1000;
+  box-shadow: 2px 1px 1px #ddd;
+  padding: 9px 11px; }
+  .float-button .content i {
+    font-size: 18px;
+    color: #ddd; }
+
 .util-card {
   padding: 5px 0px;
   margin: 10px; }
@@ -10285,14 +10326,18 @@ button.button.button-icon.ion-custom-comment:before {
 
 .util-content {
   font-size: 12px;
-  color: #333333;
-  font-weight: 400; }
+  color: #333333; }
 
 .util-add {
   font-size: 12px;
   color: #333333;
-  padding: 0px;
-  font-weight: 400; }
+  padding: 0px; }
+
+.p5 {
+  padding: 5px; }
+
+button.button.button-icon.util-camera {
+  color: #858585; }
 
 .util-more {
   min-height: 0px;
@@ -10315,27 +10360,43 @@ button.button.button-icon.ion-custom-comment:before {
   .progress-div .rupee {
     float: right; }
 
+.chart-home {
+  position: relative;
+  width: 70%;
+  margin: 0 auto; }
+  .chart-home h5 {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    margin: 0;
+    text-align: center; }
+  .chart-home.overview-chat {
+    width: 60%; }
+  .chart-home.institute-chart {
+    width: 100%; }
+
 .state-card {
   box-shadow: none;
   margin: 10px 10px; }
   .state-card a {
     color: #747474; }
 
-.track-ins {
+.toggle-institute .track-ins {
   background-color: white !important;
   border-color: #465eef !important;
   width: 30px !important;
   height: 10px !important; }
 
-.toggle-handle {
+.toggle-institute .toggle-handle {
   background-color: #4259e2 !important;
   top: 6px !important; }
 
-/*.toggle input:checked+.track {
-  border-color: #465eef!important;
-  background-color: #465eef!important;
-}*/
-.toggle-text {
+.toggle-institute .toggle input:checked + .track {
+  border-color: #465eef !important;
+  background-color: #465eef !important; }
+
+.toggle-institute .toggle-text {
   color: #465eef !important;
   font-size: 12px; }
 
@@ -10372,7 +10433,7 @@ button.button.button-icon.button-clear.settings-btn {
   background-color: #fff;
   padding: 4px 10px;
   min-height: auto;
-  line-height: 1;
+  line-height: 150%;
   border-radius: 2px;
   box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
   font-size: 12px;
@@ -10527,6 +10588,8 @@ button.button.button-icon.button-clear.settings-btn {
     font-weight: 500; }
   .table-amount table .bt0 {
     border-top: 0; }
+  .table-amount table .bb0 {
+    border-bottom: 0; }
   .table-amount table .br0 {
     border-right: 0; }
   .table-amount table .bl0 {
@@ -10544,3 +10607,12 @@ button.button.button-icon.button-clear.settings-btn {
     .table-amount table .toggle input:checked + .track .handle {
       -webkit-transform: translate3d(14px, 0, 0);
       transform: translate3d(14px, 0, 0); }
+
+.pb50 {
+  padding-bottom: 50px; }
+
+.pb110 {
+  padding-bottom: 110px; }
+
+.f24 {
+  font-size: 24px; }

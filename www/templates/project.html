@@ -1,6 +1,6 @@
 <ion-view view-title="Project Overview">
     <ion-content>
-        <div class="project-overview">
+        <div class="project-overview pb50">
             <div class="card top-card">
                 <div class="item item-text-wrap">
                     <span class="item-note custom-radio">
@@ -60,8 +60,14 @@
                 </div>
             </div>
             <div class="progress-bar text-center">
-              <img src="img/forty.png" alt="" />
-                <p class="text-center energized bold f16 uppercase">Work Completed</p>
+                <div class="padding chart-home overview-chat">
+                    <canvas id="doughnut" class="chart chart-doughnut" chart-data="data" chart-labels="labels" chart-colors="colors">
+                    </canvas>
+                    <h5 class="f24 dark-grey">
+                        40%
+                    </h5>
+                </div>
+                <p class="text-center energized bold f16 uppercase bold">Work Completed</p>
             </div>
             <div class="fund-date">
                 <div class="row">
@@ -76,11 +82,9 @@
                             <label for="">Allocated</label>
                         </div>
                     </div>
-
                 </div>
-                <div class="">
-                  <img src="img/Calories.png" alt="" />
-
+                <div class="padding-horizontal">
+                    <img src="img/Calories.png" alt="" />
                 </div>
             </div>
             <div class="bar-line">

@@ -1,4 +1,4 @@
-angular.module('starter.controllers', [])
+angular.module('starter.controllers', ["chart.js"])
 
 
 .controller('AppCtrl', function ($scope, $ionicModal, $timeout) {})
@@ -11,42 +11,18 @@ angular.module('starter.controllers', [])
   $scope.states = [
     'Andhra Pradesh', 'Arunachal Pradesh', 'Assam', 'Bihar', 'Chhattisgarh', 'Goa', 'Gujarat'
   ];
-  // google.charts.load("current", {packages:["corechart"]});
-  //       google.charts.setOnLoadCallback(drawChart);
-  //       function drawChart() {
-  //         var data = google.visualization.arrayToDataTable([
-  //           ['Task', 'Hours per Day'],
-  //           ['Work',     60],
-  //           ['Eat',      15],
-  //           ['Commute',  25],
-  //
-  //         ]);
-  //
-  //        	var options = {
-  // 		title: "",
-  // 		pieHole: 0.85
-  //     ,
-  // 		pieSliceBorderColor: "none",
-  //      colors: ['#067ab5', '#3aa5dd', '#eaeaea' ],
-  // 		legend: {
-  // 			position: "none"
-  // 		},
-  // 		pieSliceText: "none",
-  // 		tooltip: {
-  // 			trigger: "none"
-  // 		}
-  // 	};
-  //
-  //         var chart = new google.visualization.PieChart(document.getElementById('donutchart'));
-  //         chart.draw(data, options);
-  //       }
-
+  $scope.colors = ["#4b64ff", "#91a4af", "#d8dcde"];
+  $scope.labels = ["75% Fund Utilization", "", ""];
+  $scope.data = [75, 20, 15];
 })
 
 .controller('StateCtrl', function ($scope, $stateParams) {
   $scope.institution = [
     'Institue of Chemical Technology', 'Mahatma Phule Krishi Vidyapeeth', 'Shivaji University', 'Solapur University', 'Tata Institue of Social Sciences', 'Tilal Maharastra University', 'University of Mumbai', 'Savitribai Phule Pune University'
   ];
+  $scope.colors = ["#4b64ff", "#91a4af", "#d8dcde"];
+  $scope.labels = ["75% Fund Utilization", "", ""];
+  $scope.data = [75, 20, 15];
 })
 
 .controller('InstituteCtrl', function ($scope, $stateParams) {
@@ -57,9 +33,29 @@ angular.module('starter.controllers', [])
   };
 
   $scope.showtab = true;
+  $scope.colors = ["#4b64ff", "#91a4af", "#d8dcde"];
+  $scope.labels = ["75% Fund Utilization", "", ""];
+  $scope.data = [75, 20, 15];
+
+
+  $scope.colors1 = ["#88c057", "#d8dcde"];
+  $scope.labels1 = ["40%", ""];
+  $scope.data1 = [50, 50];
+
+  $scope.colors2 = ["#88c057", "#d8dcde"];
+  $scope.labels2 = ["40%", ""];
+  $scope.data2 = [50, 50];
+
+  $scope.colors3 = ["#88c057", "#d8dcde"];
+  $scope.labels3 = ["40%", ""];
+  $scope.data3 = [50, 50];
 })
 
-.controller('ProjectCtrl', function ($scope, $stateParams) {})
+.controller('ProjectCtrl', function ($scope, $stateParams) {
+  $scope.colors = ["#88c057", "#d8dcde"];
+  $scope.labels = ["40% Work Completed", ""];
+  $scope.data = [40, 60];
+})
 
 .controller('FundFlowCtrl', function ($scope, $stateParams) {})
 
