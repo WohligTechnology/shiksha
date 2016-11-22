@@ -10616,3 +10616,7 @@ button.button.button-icon.button-clear.settings-btn {
 
 .f24 {
   font-size: 24px; }
+
+.buttons-right.button-div {
+  position: relative;
+  z-index: 2; }

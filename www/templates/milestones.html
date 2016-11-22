@@ -33,21 +33,21 @@
                     <p class="header">Amount of work</p>
                     <div class="item-note buttons-right button-div">
                         <button class="button button-icon ion-ios-camera"></button>
-                        <button class="button button-icon ion-custom-comment"></button>
+                        <button class="button button-icon ion-custom-comment" ng-click=" openComment(); "></button>
                         <label class="toggle">
-                            <input type="checkbox">
+                            <input type="checkbox" ng-checked=true>
                             <div class="track">
                                 <div class="handle"></div>
                             </div>
                        </label>
-                        <button class="button button-icon ion-android-more-vertical more"></button>
+                        <button class="button button-icon ion-android-more-vertical more" ng-click="openMilestoneEdit();"></button>
                     </div>
                     <p class="content">40%</p>
                     <div class="header clearfix">
                         Item details
                     </div>
                     <div class="content">
-                        <div class="item-note">
+                        <div class="item-note balanced">
                             <i class="ion ion-custom-clock"></i> 22 Sep '16
                         </div>
                         <p>Purchase of 200 books</p>
@@ -58,78 +58,78 @@
                 <div class="padding-horizontal mile-card">
                     <p class="header">Amount of work</p>
                     <div class="item-note buttons-right button-div">
-                        <button class="button button-icon ion-ios-camera"></button>
-                        <button class="button button-icon ion-custom-comment"></button>
-                        <label class="toggle">
-                            <input type="checkbox">
-                            <div class="track">
-                                <div class="handle"></div>
+                        <button class="button button-icon ion-ios-camera" ng-disabled=true></button>
+                        <button class="button button-icon ion-custom-comment" ng-disabled=true></button>
+                        <label class="toggle ">
+                            <input type="checkbox " ng-disabled= true>
+                            <div class="track ">
+                                <div class="handle "></div>
                             </div>
                        </label>
-                        <button class="button button-icon ion-android-more-vertical more"></button>
+                        <button class="button button-icon ion-android-more-vertical more" ng-disabled=true></button>
                     </div>
-                    <p class="content">40%</p>
-                    <div class="header clearfix">
+                    <p class="content ">50%</p>
+                    <div class="header clearfix ">
                         Item details
                     </div>
-                    <div class="content">
-                        <div class="item-note">
-                            <i class="ion ion-custom-clock"></i> 22 Sep '16
-                        </div>
+                    <div class="content ">
+                        <!--<div class="item-note ">
+                            <i class="ion ion-custom-clock "></i> 22 Sep '16
+                        </div>-->
                         <p>Purchase of 200 books</p>
                     </div>
                 </div>
             </div>
-            <div class="card">
-                <div class="padding-horizontal mile-card">
-                    <p class="header">Amount of work</p>
-                    <div class="item-note buttons-right button-div">
-                        <button class="button button-icon ion-ios-camera"></button>
-                        <button class="button button-icon ion-custom-comment"></button>
-                        <label class="toggle">
-                            <input type="checkbox">
-                            <div class="track">
-                                <div class="handle"></div>
+            <div class="card ">
+                <div class="padding-horizontal mile-card ">
+                    <p class="header ">Amount of work</p>
+                    <div class="item-note buttons-right button-div ">
+                        <button class="button button-icon ion-ios-camera " ng-disabled=true></button>
+                        <button class="button button-icon ion-custom-comment " ng-disabled=true></button>
+                        <label class="toggle ">
+                            <input type="checkbox " ng-disabled= true>
+                            <div class="track ">
+                                <div class="handle "></div>
                             </div>
                        </label>
-                        <button class="button button-icon ion-android-more-vertical more"></button>
+                        <button class="button button-icon ion-android-more-vertical more" ng-disabled=true></button>
                     </div>
-                    <p class="content">40%</p>
-                    <div class="header clearfix">
+                    <p class="content ">10%</p>
+                    <div class="header clearfix ">
                         Item details
                     </div>
-                    <div class="content">
-                        <div class="item-note">
-                            <i class="ion ion-custom-clock"></i> 22 Sep '16
-                        </div>
+                    <div class="content ">
+                        <!--<div class="item-note ">
+                            <i class="ion ion-custom-clock "></i> 22 Sep '16
+                        </div>-->
                         <p>Purchase of 200 books</p>
                     </div>
                 </div>
             </div>
         </div>
     </ion-content>
-    <div class="float-button">
-        <a class="content">
-            <i class="ion ion-plus"> </i>
+    <div class="float-button" ng-click="openMilestoneAdd();">
+        <a class="content ">
+            <i class="ion ion-plus "> </i>
         </a>
     </div>
     <ion-footer>
-        <div class="tabs-custom">
-            <div class="tabs tabs-icon-top">
-                <a class="tab-item" ui-sref="app.project">
-                    <i class="ion-custom  ion-overview"></i> Overview
+        <div class="tabs-custom ">
+            <div class="tabs tabs-icon-top ">
+                <a class="tab-item " ui-sref="app.project ">
+                    <i class="ion-custom ion-overview "></i> Overview
                 </a>
-                <a class="tab-item" ui-sref="app.fundFlow">
-                    <i class="ion-custom  ion-fundflow"></i> Fund Flow
+                <a class="tab-item " ui-sref="app.fundFlow ">
+                    <i class="ion-custom ion-fundflow "></i> Fund Flow
                 </a>
-                <a class="tab-item" ui-sref="app.milestones">
-                    <i class="ion-custom  ion-milestone-active"></i> Milestones
+                <a class="tab-item " ui-sref="app.milestones ">
+                    <i class="ion-custom ion-milestone-active "></i> Milestones
                 </a>
-                <a class="tab-item" ui-sref="app.utilization">
-                    <i class="ion-custom  ion-utilization"></i> Utilization
+                <a class="tab-item " ui-sref="app.utilization ">
+                    <i class="ion-custom ion-utilization "></i> Utilization
                 </a>
-                <a class="tab-item" ui-sref="app.projectPhotos">
-                    <i class="ion-custom  ion-photos"></i> Photos
+                <a class="tab-item " ui-sref="app.projectPhotos ">
+                    <i class="ion-custom ion-photos "></i> Photos
                 </a>
             </div>
         </div>

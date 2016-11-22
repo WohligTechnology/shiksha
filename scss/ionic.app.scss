@@ -808,3 +808,8 @@ For example, you might change some of the default colors:
   .f24 {
     font-size: 24px;
   }
+  
+  .buttons-right.button-div {
+    position: relative;
+    z-index: 2;
+  }

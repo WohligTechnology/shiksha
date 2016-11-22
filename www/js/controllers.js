@@ -59,7 +59,46 @@ angular.module('starter.controllers', ["chart.js"])
 
 .controller('FundFlowCtrl', function ($scope, $stateParams) {})
 
-.controller('MilestonesCtrl', function ($scope, $stateParams) {})
+.controller('MilestonesCtrl', function ($scope, $stateParams, $ionicModal) {
+  $ionicModal.fromTemplateUrl('templates/modal/comment.html', {
+    scope: $scope,
+    animation: 'slide-in-up'
+  }).then(function (modal) {
+    $scope.modal = modal;
+  });
+  $scope.openComment = function () {
+    $scope.modal.show();
+  };
+  $scope.closeComment = function () {
+    $scope.modal.hide();
+  };
+
+  $ionicModal.fromTemplateUrl('templates/modal/milestone-add.html', {
+    scope: $scope,
+    animation: 'slide-in-up'
+  }).then(function (modal) {
+    $scope.modaladd = modal;
+  });
+  $scope.openMilestoneAdd = function () {
+    $scope.modaladd.show();
+  };
+  $scope.closeMilestoneAdd = function () {
+    $scope.modaladd.hide();
+  };
+
+  $ionicModal.fromTemplateUrl('templates/modal/milestone-edit.html', {
+    scope: $scope,
+    animation: 'slide-in-up'
+  }).then(function (modal) {
+    $scope.modaledit = modal;
+  });
+  $scope.openMilestoneEdit = function () {
+    $scope.modaledit.show();
+  };
+  $scope.closeMilestoneEdit = function () {
+    $scope.modaledit.hide();
+  };
+})
 
 .controller('UtilizationCtrl', function ($scope, $stateParams) {})
 
