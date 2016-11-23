@@ -325,6 +325,7 @@ button.button.button-icon.ion-custom-comment:before {
       i {
         min-width: 26px;
         display: inline-block;
+        font-size: 22px;
       }
     }
   }
@@ -862,7 +863,7 @@ input[type=range]:focus::-webkit-slider-runnable-track {
   position: absolute;
   left: 0;
   border-radius: 15px;
-  transform: scale(0.72);
+  transform: scale(0.78);
   transform-origin: 80px 0;
 }
 

@@ -7,6 +7,13 @@
     </ion-header-bar>
     <ion-content>
         <ul class="list">
+            <div class="item range range-assertive">
+                <div class="custom-slide" style="width:{{user.value}}%"></div>
+                <input type="range" min="0" max="{{user.max}}" value="{{user.min}}" step="1" ng-model="user.value">
+                <div class="text-right">
+                    {{user.value}}%
+                </div>
+            </div>
             <li class="item item-input">
                 <span class="input-label">Item Details</span>
                 <input type="text">
