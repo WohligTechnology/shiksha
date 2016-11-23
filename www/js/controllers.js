@@ -57,7 +57,13 @@ angular.module('starter.controllers', ["chart.js"])
   $scope.data = [40, 60];
 })
 
-.controller('FundFlowCtrl', function ($scope, $stateParams) {})
+.controller('FundFlowCtrl', function ($scope, $stateParams) {
+  $scope.complete = {
+    center: 30,
+    state: 40,
+    institute: 50
+  };
+})
 
 .controller('MilestonesCtrl', function ($scope, $stateParams, $ionicModal) {
   $ionicModal.fromTemplateUrl('templates/modal/comment.html', {
@@ -85,7 +91,14 @@ angular.module('starter.controllers', ["chart.js"])
   $scope.closeMilestoneAdd = function () {
     $scope.modaladd.hide();
   };
-
+  $scope.complete = {
+    value: 40
+  };
+  $scope.user = {
+    min: 0,
+    max: 100,
+    value: 0
+  }
   $ionicModal.fromTemplateUrl('templates/modal/milestone-edit.html', {
     scope: $scope,
     animation: 'slide-in-up'
@@ -100,6 +113,35 @@ angular.module('starter.controllers', ["chart.js"])
   };
 })
 
-.controller('UtilizationCtrl', function ($scope, $stateParams) {})
+.controller('UtilizationCtrl', function ($scope, $stateParams, $ionicModal) {
+  $ionicModal.fromTemplateUrl('templates/modal/fund-utilization-add.html', {
+    scope: $scope,
+    animation: 'slide-in-up'
+  }).then(function (modal) {
+    $scope.modaladd = modal;
+  });
+  $scope.openUtilizationAdd = function () {
+    $scope.modaladd.show();
+  };
+  $scope.closeUtilizationAdd = function () {
+    $scope.modaladd.hide();
+  };
+
+  $ionicModal.fromTemplateUrl('templates/modal/fund-utilization-edit.html', {
+    scope: $scope,
+    animation: 'slide-in-up'
+  }).then(function (modal) {
+    $scope.modaledit = modal;
+  });
+  $scope.openUtilizationEdit = function () {
+    $scope.modaledit.show();
+  };
+  $scope.closeUtilizationEdit = function () {
+    $scope.modaledit.hide();
+  };
+  $scope.complete = {
+    value: 50
+  };
+})
 
 .controller('ProjectPhotosCtrl', function ($scope, $stateParams) {});

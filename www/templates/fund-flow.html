@@ -31,11 +31,13 @@
               </span>
                 <p class="bold">Total funds received</p>
               </div>
-              <div class="">
-                <img src="img/share1.png" alt="" />
+              <div class="custom-slide-flow">
+                <div class="complete"></div>
+                <div class="begin-state" style="width:{{complete.state}}%"></div>
+                <div class="begin-center" style="width:{{complete.center}}%"></div>
               </div>
               <div class="">
-                <img src="img/rectangle6.png" alt="" />
+                <div class="rectangle" style="width:{{complete.institute}}%"></div>
                 <label for="">50%</label>
               </div>
             </div>
@@ -155,7 +157,10 @@
                       </th>
                       <td colspan="3" class="bb0">
                         <div class="padding-horizontal">
-                          <img src="img/prediction.png" alt="" class="full-image" />
+                          <div class="discount">
+                            <div class="rectangle" style="width:{{complete.institute}}%"></div>
+                            <!--<label for="">50%</label>-->
+                          </div>
                         </div>
                       </td>
                       <td class="bb0">
@@ -177,7 +182,7 @@
         <a class="tab-item" ui-sref="app.project">
           <i class="ion-custom  ion-overview"></i> Overview
         </a>
-        <a class="tab-item" ui-sref="app.fundFlow">
+        <a class="tab-item calm" ui-sref="app.fundFlow">
           <i class="ion-custom  ion-fundflow-active"></i> Fund Flow
         </a>
         <a class="tab-item" ui-sref="app.milestones">

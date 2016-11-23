@@ -26,7 +26,12 @@
           <label for="" class="bold">Total payment/Fund Utilization</label>
           <label for="" class="rupee bold">₹ 20,00,000</label>
         </div>
-        <img src="img/progressbar.png" alt="" />
+        <div class="custom-slide-miles utilization-margn">
+          <div class="complete"></div>
+          <div class="begin-complete" style="width:{{complete.value}}%"></div>
+          <div class="mark-make">{{complete.value}}%</div>
+          <!--<img src="img/progressbar.png" alt="" />-->
+        </div>
       </div>
       <div class="">
         <div class="card util-card padding">
@@ -34,8 +39,8 @@
             <div class="row ">
               <div class="col-50 util-header">Item</div>
               <div class="col-50 util-header">
-                <div class="item-note ">
-                  <button class="button button-icon ion-android-more-vertical util-more"></button>
+                <div class="item-note">
+                  <button class="button button-icon ion-android-more-vertical util-more" ng-click="openUtilizationEdit()"></button>
                 </div>
                 <div class="util-header">
                   Total Value
@@ -85,7 +90,7 @@
               <div class="col-50 util-header">Item</div>
               <div class="col-50 util-header">
                 <div class="item-note">
-                  <button class="button button-icon ion-android-more-vertical util-more"></button>
+                  <button class="button button-icon ion-android-more-vertical util-more" ng-click="openUtilizationEdit()"></button>
                 </div>
                 <div class="util-header">
                   Total Value
@@ -145,7 +150,7 @@
     </div>
   </ion-content>
   <div class="float-button">
-    <a class="content">
+    <a class="content" ng-click="openUtilizationAdd()">
       <i class="ion ion-plus"> </i>
     </a>
   </div>
@@ -162,7 +167,7 @@
         <a class="tab-item" ui-sref="app.milestones">
           <i class="ion-custom  ion-milestone"></i> Milestones
         </a>
-        <a class="tab-item" ui-sref="app.utilization">
+        <a class="tab-item calm" ui-sref="app.utilization">
           <i class="ion-custom  ion-utilization-active"></i> Utilization
         </a>
         <a class="tab-item" ui-sref="app.projectPhotos">

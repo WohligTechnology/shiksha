@@ -6,19 +6,33 @@
         </div>
     </ion-header-bar>
     <ion-content>
-        <div class="list">
-            <label class="item item-input">
-    <span class="input-label">Item Details</span>
-    <input type="text">
-  </label>
-            <label class="item item-input">
-            <span class="input-label">Finised Date</span>
-            <input type="date" name="finised"  required>
-          </label>
-            <label class="item item-input item-stacked-label">
-    <span class="input-label">Comment</span>
-   <textarea type="text" placeholder=""> </textarea>
-  </label>
+        <ul class="list">
+            <li class="item item-input">
+                <span class="input-label">Item Details</span>
+                <input type="text">
+            </li>
+            <li class="item item-input">
+                <span class="input-label">Finised Date</span>
+                <input type="date" name="finised" required>
+            </li>
+            <li class="item item-input item-stacked-label">
+                <span class="input-label">Comment</span>
+                <textarea type="text" placeholder=""> </textarea>
+            </li>
+            <li class="item item-toggle">
+                Status
+                <label class="toggle tp19 toggle-balanced">
+       <input type="checkbox">
+       <div class="track">
+         <div class="handle"></div>
+       </div>
+     </label>
+            </li>
+        </ul>
+        <div class="padding">
+            <button class="button button-positive button-block">
+  Save
+</button>
         </div>
     </ion-content>
 </ion-modal-view>

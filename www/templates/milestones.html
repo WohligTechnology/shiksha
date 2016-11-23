@@ -26,7 +26,11 @@
                     <span class="item-note bold dark">40%</span>
                     <h5 class="bold"> Total work completed</h5>
                 </div>
-                <img src="img/progress-green.png" alt="" />
+                <div class="custom-slide-miles">
+                    <div class="complete"></div>
+                    <div class="begin-complete" style="width:{{complete.value}}%"></div>
+                </div>
+                <!--<img src="img/progress-green.png" alt="" />-->
             </div>
             <div class="card">
                 <div class="padding-horizontal mile-card">
@@ -122,7 +126,7 @@
                 <a class="tab-item " ui-sref="app.fundFlow ">
                     <i class="ion-custom ion-fundflow "></i> Fund Flow
                 </a>
-                <a class="tab-item " ui-sref="app.milestones ">
+                <a class="tab-item calm" ui-sref="app.milestones ">
                     <i class="ion-custom ion-milestone-active "></i> Milestones
                 </a>
                 <a class="tab-item " ui-sref="app.utilization ">
