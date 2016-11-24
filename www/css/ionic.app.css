@@ -10047,6 +10047,8 @@ button.button.button-icon.ion-custom-comment:before {
   padding-top: 60px; }
   .side-menu .item .badge {
     top: 22px; }
+  .side-menu .item-complex .item-content {
+    padding: 10px 49px 10px 16px; }
   .side-menu ion-list ion-item {
     background-color: #263238;
     border: none;
@@ -10712,3 +10714,22 @@ input[type=range]:focus::-webkit-slider-runnable-track {
 
 .discount .rectangle {
   margin: 0; }
+
+.custom-slide-projects .allocated-bar {
+  background: #eee;
+  height: 15px; }
+
+.custom-slide-projects .received-bar {
+  height: 15px;
+  background: #c3cace;
+  margin-top: -15px; }
+
+.custom-slide-projects .made-bar {
+  height: 15px;
+  color: #fff;
+  text-align: right;
+  font-size: 13px;
+  background: #4b64ff;
+  line-height: 1.2;
+  margin-top: -15px;
+  padding-right: 5px; }

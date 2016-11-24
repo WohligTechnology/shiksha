@@ -55,6 +55,11 @@ angular.module('starter.controllers', ["chart.js"])
   $scope.colors = ["#88c057", "#d8dcde"];
   $scope.labels = ["40% Work Completed", ""];
   $scope.data = [40, 60];
+    $scope.funds = {
+    allocated: 100,
+    received: 60,
+    value: 30
+  };
 })
 
 .controller('FundFlowCtrl', function ($scope, $stateParams) {
