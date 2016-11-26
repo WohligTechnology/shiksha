@@ -1,9 +1,6 @@
+# Specifies intentionally untracked files to ignore when using Git
+# http://git-scm.com/docs/gitignore
+
 node_modules/
-*.lock
-*.bin
-plugins/
 platforms/
 plugins/
-bower_components/
-*.css
-/node_modules
