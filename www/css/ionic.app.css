@@ -10085,8 +10085,9 @@ button.button.button-icon.ion-custom-comment:before {
 .side-footer {
   background: #263238 !important; }
   .side-footer .log-out {
-    margin: 5px 0px 0px 10px;
-    font-size: 20px; }
+    font-size: 20px;
+    padding: 0px 49px 10px 16px;
+    width: 100%; }
   .side-footer i {
     display: inline-block;
     min-width: 25px; }
@@ -10323,16 +10324,14 @@ button.button.button-icon.ion-custom-comment:before {
   border-bottom: 1px solid #cccccc; }
 
 .util-header {
-  font-size: 12px;
   color: #546a79;
   font-weight: 300; }
 
 .util-content {
-  font-size: 12px;
-  color: #333333; }
+  color: #333333;
+  line-height: 120%; }
 
 .util-add {
-  font-size: 12px;
   color: #333333;
   padding: 0px; }
 
@@ -10340,11 +10339,13 @@ button.button.button-icon.ion-custom-comment:before {
   padding: 5px; }
 
 button.button.button-icon.util-camera {
-  color: #858585; }
+  color: #858585;
+  font-size: 20px; }
 
 .util-more {
   min-height: 0px;
-  line-height: 14px; }
+  line-height: 14px;
+  font-size: 20px; }
 
 .util-row {
   margin-top: 10px !important; }
@@ -10452,6 +10453,9 @@ button.button.button-icon.button-clear.settings-btn {
 .card-institue .card {
   margin-top: 0; }
 
+.card-institue .item-divider {
+  background-color: #ffffff; }
+
 .card-institue .item h4 {
   font-size: 14px; }
 
@@ -10467,6 +10471,9 @@ button.button.button-icon.button-clear.settings-btn {
 .card-institue .drop-institute h4,
 .card-institue .drop-institute label {
   color: #c1c1c1; }
+
+.card-institue .drop-institute .balanced {
+  color: #55c45f; }
 
 .card-institue .fund-recieved {
   margin-bottom: 10px; }
@@ -10670,6 +10677,8 @@ input[type=range]:focus::-webkit-slider-runnable-track {
   .custom-slide-miles.utilization-margn {
     margin-bottom: 30px;
     margin-top: 6px; }
+  .custom-slide-miles.pt7 {
+    padding-top: 7px; }
   .custom-slide-miles .complete {
     height: 7px;
     background: #ddd;
@@ -10679,15 +10688,20 @@ input[type=range]:focus::-webkit-slider-runnable-track {
     background: #55c45f;
     border-radius: 6px;
     margin-top: -7px; }
+  .custom-slide-miles .received {
+    height: 7px;
+    background: #7a4bff;
+    border-radius: 6px;
+    margin-top: -7px; }
   .custom-slide-miles .mark-make {
     width: 35px;
     background: #e5e5e5;
     position: absolute;
     left: 44%;
     bottom: -19px;
-    font-size: 10px;
+    font-size: 12px;
     text-align: center;
-    color: #aaa; }
+    color: #717171; }
 
 .custom-slide-flow {
   height: 20px;
@@ -10712,6 +10726,13 @@ input[type=range]:focus::-webkit-slider-runnable-track {
   background: #55c45f;
   margin: 5px 0 0; }
 
+.rectangle-institute {
+  height: 10px;
+  background: #55c45f;
+  margin: 5px 0 0;
+  float: left;
+  margin-right: 5px; }
+
 .discount .rectangle {
   margin: 0; }
 
@@ -10733,3 +10754,6 @@ input[type=range]:focus::-webkit-slider-runnable-track {
   line-height: 1.2;
   margin-top: -15px;
   padding-right: 5px; }
+
+.bg-grey-light {
+  background: #f0f5f7; }

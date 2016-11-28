@@ -11,7 +11,9 @@ angular.module('starter.controllers', ["chart.js"])
   $scope.states = [
     'Andhra Pradesh', 'Arunachal Pradesh', 'Assam', 'Bihar', 'Chhattisgarh', 'Goa', 'Gujarat'
   ];
+  $scope.options = { segmentShowStroke : false };
   $scope.colors = ["#4b64ff", "#91a4af", "#d8dcde"];
+  $scope.override = { borderColor: ['#4b64ff', '#91a4af','#d8dcde'] };
   $scope.labels = ["75% Fund Utilization", "", ""];
   $scope.data = [75, 20, 15];
 })
@@ -21,38 +23,68 @@ angular.module('starter.controllers', ["chart.js"])
     'Institue of Chemical Technology', 'Mahatma Phule Krishi Vidyapeeth', 'Shivaji University', 'Solapur University', 'Tata Institue of Social Sciences', 'Tilal Maharastra University', 'University of Mumbai', 'Savitribai Phule Pune University'
   ];
   $scope.colors = ["#4b64ff", "#91a4af", "#d8dcde"];
+    $scope.override = { borderColor: ['#4b64ff', '#91a4af','#d8dcde'] };
   $scope.labels = ["75% Fund Utilization", "", ""];
   $scope.data = [75, 20, 15];
 })
 
 .controller('InstituteCtrl', function ($scope, $stateParams) {
-  $scope.card = false;
-  $scope.cardopen = function (index) {
+  // $scope.card = false;
+  $scope.card = {};
+  $scope.cardopen = function (index,flag) {
     console.log("hi");
-    $scope.card = !$scope.card;
+    $scope.card[index] = flag;
+    console.log($scope.card);
   };
 
   $scope.showtab = true;
   $scope.colors = ["#4b64ff", "#91a4af", "#d8dcde"];
+    $scope.override = { borderColor: ['#4b64ff', '#91a4af','#d8dcde'] };
   $scope.labels = ["75% Fund Utilization", "", ""];
   $scope.data = [75, 20, 15];
 
 
-  $scope.colors1 = ["#88c057", "#d8dcde"];
+  $scope.colors1 = ["#55c45f", "#d8dcde"];
+   $scope.override1 = { borderColor: ['#55c45f', '#d8dcde'] };
   $scope.labels1 = ["40%", ""];
   $scope.data1 = [50, 50];
 
-  $scope.colors2 = ["#88c057", "#d8dcde"];
+  $scope.colors2 = ["#55c45f", "#d8dcde"];
+     $scope.override2 = { borderColor: ['#55c45f', '#d8dcde'] };
   $scope.labels2 = ["40%", ""];
   $scope.data2 = [50, 50];
 
-  $scope.colors3 = ["#88c057", "#d8dcde"];
+  $scope.colors3 = ["#55c45f", "#d8dcde"];
+     $scope.override3 = { borderColor: ['#55c45f', '#d8dcde'] };
   $scope.labels3 = ["40%", ""];
   $scope.data3 = [50, 50];
+      $scope.funds = {
+    utilized: 50,
+    received: 40,
+  };
+  $scope.fundInstitutes=[{
+    pab:'PAB8',
+    utilized: '50',
+    received: '40',
+    status:'Active',
+    grant:'75,00,000',
+name:'Sports facilities',
+fundRecieved:' 40,00,000',
+  },{
+    pab:'PAB7',
+    utilized: '50',
+    received: '40',
+    status:'Active',
+    grant:'75,00,000',
+name:'Sports facilities',
+fundRecieved:' 40,00,000',
+  },
+  ];
 })
 
 .controller('ProjectCtrl', function ($scope, $stateParams) {
-  $scope.colors = ["#88c057", "#d8dcde"];
+  $scope.colors = ["#55c45f", "#d8dcde"];
+     $scope.override = { borderColor: ['#55c45f', '#d8dcde'] };
   $scope.labels = ["40% Work Completed", ""];
   $scope.data = [40, 60];
     $scope.funds = {

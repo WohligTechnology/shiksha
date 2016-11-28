@@ -37,7 +37,7 @@
               </div>
             </div>
             <div class="padding chart-home">
-              <canvas id="doughnut" class="chart chart-doughnut" chart-data="data" chart-labels="labels" chart-colors="colors">
+              <canvas id="doughnut" class="chart chart-doughnut" chart-data="data" chart-labels="labels" chart-colors="colors" chart-dataset-override="override">
               </canvas>
               <h5 class="f16">
                 75% Fund Utilization
@@ -50,7 +50,7 @@
                 <label>Active Allocation </label>
               </div>
               <div class="col">
-                <h5>₹ 12,50,000</h5>
+                <h5>₹ 220,00,000</h5>
               </div>
             </div>
             <div class="row">
@@ -58,7 +58,7 @@
                 <label>Active Utilization </label>
               </div>
               <div class="col">
-                <h5>₹ 87,50,000</h5>
+                <h5>₹ 112,50,000</h5>
               </div>
             </div>
           </div>
@@ -66,7 +66,7 @@
       </ion-content>
     </ion-tab>
     <ion-tab title="PROJECTS">
-      <ion-content class="tabs-content">
+      <ion-content class="tabs-content bg-grey-light">
         <div class="padding">
           <div class="item-note toggle-institute">
             <label class="toggle toggle-positive">
@@ -80,30 +80,30 @@
           <div class="clearfix"></div>
         </div>
         <div class="card-institue pb110">
-          <div class="card">
+          <div class="card" ng-repeat="fundInstitute in fundInstitutes">
             <div class="item item-text-wrap">
-              <div class="card-institute-head">
+              <div class="card-institute-head" ui-sref="app.project">
                 <div class="item-note right-project-icons">
                   <i class="ion ion-custom-ecommerce ecommerce-green"></i>
                   <i class="ion ion-arrow-graph-up-right balanced arrowup"></i>
-                  <span class="btn-custom-active balanced bold">Active</span>
+                  <span class="btn-custom-active balanced bold">{{fundInstitute.status}}</span>
                 </div>
-                <div class="calm bold">PAB 8</div>
+                <div class="calm bold">{{fundInstitute.pab}}</div>
                 <div class="clearfix"></div>
               </div>
               <div class="card-institute-mid" ui-sref="app.project">
-                <label class="item-note dark">₹ 75,00,000</label>
+                <label class="item-note dark">₹ {{fundInstitute.grant}}</label>
                 <h4 class="bold">INFRASTRUTURE GRANT</h4>
                 <div class="clearfix"></div>
               </div>
               <div class="card-institute-bottom">
                 <label class="item-note">Allocated</label>
-                <label for="">Sports facilities</label>
+                <label for="">{{fundInstitute.name}}</label>
               </div>
-              <button class="button button-icon ion-chevron-down item-note btn-down btn-custom-icon" ng-click="cardopen();" ng-hide="card"></button>
+              <button class="button button-icon ion-chevron-down item-note btn-down btn-custom-icon" ng-click="cardopen($index,true)" ng-if="!card[$index]"></button>
               <div class="clearfix"></div>
             </div>
-            <div class="item item-divider" ng-show="card">
+            <div class="item item-divider" ng-if="card[$index]">
               <div class="drop-institute">
                 <div class="row">
                   <div class="col col-75">
@@ -111,12 +111,14 @@
                       <span class="item-note dark">₹ 40,00,000</span>
                       <h4>Fund received</h4>
                       <div class="clearfix"></div>
-                      <div class="">
-                        <img src="img/share.png" alt="" class="full-image" />
-                      </div>
+                           <div class="custom-slide-miles pt7">
+                    <div class="complete"></div>
+                    <div class="received" style="width:{{fundInstitute.received}}%"></div>
+                </div>
                     </div>
                     <div class="">
-                      <img src="img/progressgreen.png" alt="" />
+                <div class="rectangle-institute" style="width:{{fundInstitute.utilized}}%"></div>
+                <label for="" class="balanced">{{fundInstitute.utilized}}%</label>
                     </div>
                     <label for="">Utilization</label>
                   </div>
@@ -124,7 +126,7 @@
                     <div class="">
                       <!--<img src="img/progress.png" alt="" class="full-image" />-->
                       <div class="chart-home institute-chart">
-                        <canvas id="doughnut3" class="chart chart-doughnut" chart-data="data3" chart-labels="labels3" chart-colors="colors3">
+                        <canvas id="doughnut3" class="chart chart-doughnut" chart-data="data3" chart-labels="labels3" chart-colors="colors3" chart-dataset-override="override3">
                         </canvas>
                         <h5 class="f16">
                           50%
@@ -135,68 +137,11 @@
                   </div>
                 </div>
               </div>
-              <button class="button button-icon ion-chevron-up item-note btn-down btn-custom-icon" ng-click="cardopen();" ng-hide="!card">
+              <button class="button button-icon ion-chevron-up item-note btn-down btn-custom-icon" ng-click="cardopen($index,false)" ng-if="card[$index]">
             </div>
           </div>
-                    <div class="card">
-            <div class="item item-text-wrap">
-              <div class="card-institute-head">
-                <div class="item-note right-project-icons">
-                  <i class="ion ion-custom-ecommerce ecommerce-red"></i>
-                  <i class="ion ion-arrow-graph-up-right balanced arrowup"></i>
-                  <span class="btn-custom-active balanced bold">Active</span>
-                </div>
-                <div class="calm bold">PAB 8</div>
-                         <div class="clearfix"></div>
-              </div>
-
-              <div class="card-institute-mid" ui-sref="app.project">
-                <label class="item-note dark">₹ 75,00,000</label>
-                <h4 class="bold">INFRASTRUTURE GRANT</h4>
-                            <div class="clearfix"></div>
-              </div>
-              <div class="card-institute-bottom">
-                <label class="item-note">Allocated</label>
-                <label for="">Sports facilities</label>
-              </div>
-              <button class="button button-icon ion-chevron-down item-note btn-down btn-custom-icon" ng-click="cardopen();" ng-hide="card"></button>
-              <div class="clearfix"></div>
-            </div>
-            <div class="item item-divider" ng-show="card">
-              <div class="drop-institute">
-                <div class="row">
-                  <div class="col col-75">
-                    <div class="fund-recieved">
-                      <span class="item-note dark">₹ 40,00,000</span>
-                      <h4>Fund received</h4>
-                      <div class="clearfix"></div>
-                      <div class="">
-                        <img src="img/share.png" alt="" class="full-image" />
-                      </div>
-                    </div>
-                    <div class="">
-                      <img src="img/progressgreen.png" alt="" />
-                    </div>
-                    <label for="">Utilization</label>
-                  </div>
-                  <div class="col col-25">
-                    <div class="">
-                      <div class="chart-home institute-chart">
-                        <canvas id="doughnut2" class="chart chart-doughnut" chart-data="data2" chart-labels="labels2" chart-colors="colors2">
-                        </canvas>
-                        <h5 class="f16">
-                          50%
-                        </h5>
-                      </div>
-                      <div class="text-center stable">Work</div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <button class="button button-icon ion-chevron-up item-note btn-down btn-custom-icon" ng-click="cardopen();" ng-hide="!card">
-            </div>
-          </div>
-          <div class="card">
+ 
+          <!--<div class="card">
             <div class="item item-text-wrap">
               <div class="card-institute-head">
                 <div class="item-note right-project-icons">
@@ -216,7 +161,7 @@
             <label class="item-note stable">Allocated</label>
             <label for="" class="stable">Contruction of boys hostel</label>
           </div>
-          <button class="button button-icon ion-chevron-down item-note btn-down btn-custom-icon" ng-click="cardopen();" ng-hide="card">
+          <button class="button button-icon ion-chevron-down item-note btn-down btn-custom-icon" ng-click="cardopen(3);" ng-hide="card">
         </button>
               <div class="clearfix"></div>
             </div>
@@ -228,19 +173,21 @@
                       <span class="item-note">₹ 40,00,000</span>
                       <h4>Fund received</h4>
                       <div class="clearfix"></div>
-                      <div class="">
-                        <img src="img/share.png" alt="" class="full-image" />
-                      </div>
+                              <div class="custom-slide-miles pt7">
+                    <div class="complete"></div>
+                    <div class="received" style="width:{{funds.received}}%"></div>
+                </div>
                     </div>
                     <div class="">
-                      <img src="img/progressgreen.png" alt="" />
+                <div class="rectangle-institute" style="width:{{funds.utilized}}%"></div>
+                <label for="" class="balanced">50%</label>
                     </div>
                     <label for="">Utilization</label>
                   </div>
                   <div class="col col-25">
                     <div class="">
                       <div class="chart-home institute-chart">
-                        <canvas id="doughnut1" class="chart chart-doughnut" chart-data="data1" chart-labels="labels1" chart-colors="colors1">
+                        <canvas id="doughnut1" class="chart chart-doughnut" chart-data="data1" chart-labels="labels1" chart-colors="colors1" chart-dataset-override="override1">
                         </canvas>
                         <h5 class="f16">
                           50%
@@ -251,9 +198,9 @@
                   </div>
                 </div>
               </div>
-              <button class="button button-icon ion-chevron-up item-note btn-down btn-custom-icon" ng-click="cardopen();" ng-hide="!card">
+              <button class="button button-icon ion-chevron-up item-note btn-down btn-custom-icon" ng-click="cardopen(3);" ng-hide="!card">
             </div>
-          </div>
+          </div>-->
         </div>
       </ion-content>
     </ion-tab>
