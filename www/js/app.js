@@ -49,7 +49,16 @@ angular.module('starter', ['ionic', 'starter.controllers'])
       }
     }
   })
+  .state('app.search', {
+    url: '/search',
+    views: {
+      'menuContent': {
+        templateUrl: 'templates/search.html',
+        controller: 'HomeCtrl'
 
+      }
+    }
+  })
   .state('login', {
     url: '/login',
     templateUrl: 'templates/login.html',

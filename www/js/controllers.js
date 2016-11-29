@@ -6,6 +6,8 @@ angular.module('starter.controllers', ["chart.js"])
 .controller('PlaylistCtrl', function ($scope, $stateParams) {})
 
 .controller('LoginCtrl', function ($scope, $stateParams) {})
+.controller('SearchCtrl', function ($scope, $stateParams) {
+})
 
 .controller('HomeCtrl', function ($scope, $stateParams) {
   $scope.states = [
@@ -69,14 +71,28 @@ angular.module('starter.controllers', ["chart.js"])
     status:'Active',
     grant:'75,00,000',
 name:'Sports facilities',
+    classcommerce:'ecommerce-green',
 fundRecieved:' 40,00,000',
+
   },{
     pab:'PAB7',
     utilized: '50',
     received: '40',
     status:'Active',
     grant:'75,00,000',
+        classcommerce:'ecommerce-green',
 name:'Sports facilities',
+fundRecieved:' 40,00,000',
+  },{
+    pab:'PAB7',
+    utilized: '50',
+    received: '40',
+    status:'Completed',
+    date:'15.06.2016',
+    classStatus:'stable',
+    classcommerce:'ecommerce-orange',
+    grant:'45,00,000',
+name:'Contruction of boys hostel',
 fundRecieved:' 40,00,000',
   },
   ];

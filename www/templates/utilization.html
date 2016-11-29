@@ -29,7 +29,7 @@
         <div class="custom-slide-miles utilization-margn">
           <div class="complete"></div>
           <div class="begin-complete" style="width:{{complete.value}}%"></div>
-          <div class="mark-make">{{complete.value}}%</div>
+          <div class="mark-make" style="left: calc({{complete.value}}% - 20px);">{{complete.value}}%</div>
           <!--<img src="img/progressbar.png" alt="" />-->
         </div>
       </div>
@@ -61,8 +61,8 @@
               <button class="button button-icon ion-trash-a util-more assertive"></button>
             </div>
           </div>
-          <div class="">
-            <div class="row util-row">
+          <div class="util-row">
+            <div class="row">
               <div class="col-33 util-header">Payment Date</div>
               <div class="col-33 util-header">Value released</div>
               <div class="col-33 util-header">
@@ -105,7 +105,7 @@
               </div>
             </div>
             <div class="row util-row">
-              <div class="col-50 util-header">vender</div>
+              <div class="col-50 util-header">Vender</div>
             </div>
             <div class="row">
               <div class="col util-add bold">Alpha Contractors Pvt. Ltd., Mumbai</div>
@@ -113,7 +113,7 @@
             </div>
           </div>
           <div class="">
-            <div class="row">
+            <div class="row util-row">
               <div class="col-33 util-header">Payment Date</div>
               <div class="col-33 util-header">Value released</div>
               <div class="col-33 util-header">
@@ -122,7 +122,7 @@
                 </div>
               </div>
             </div>
-            <div class="row">
+            <div class="row util-row">
               <div class="col-33 util-content bold">12.06.2016</div>
               <div class="col-33 util-content bold">₹ 5,00,000</div>
               <div class="col-33">
@@ -134,7 +134,7 @@
                 </div>
               </div>
             </div>
-            <div class="row">
+            <div class="row util-row">
               <div class="col-33 util-content bold">08.08.2016</div>
               <div class="col-33 util-content bold">₹ 5,00,000</div>
               <div class="col-33">
@@ -159,23 +159,23 @@
   <ion-footer>
     <button class="button button-icon ion-plus-round"></button>
     <div class="tabs-custom">
-      <div class="tabs tabs-icon-top">
-        <a class="tab-item" ui-sref="app.project">
-          <i class="ion-custom  ion-overview"></i> Overview
-        </a>
-        <a class="tab-item" ui-sref="app.fundFlow">
-          <i class="ion-custom  ion-fundflow"></i> Fund Flow
-        </a>
-        <a class="tab-item" ui-sref="app.milestones">
-          <i class="ion-custom  ion-milestone"></i> Milestones
-        </a>
-        <a class="tab-item calm" ui-sref="app.utilization">
-          <i class="ion-custom  ion-utilization-active"></i> Utilization
-        </a>
-        <a class="tab-item" ui-sref="app.projectPhotos">
-          <i class="ion-custom  ion-photos"></i> Photos
-        </a>
-      </div>
+         <div class="tabs tabs-icon-top">
+                <a class="tab-item" ui-sref="app.project">
+                    <i class="ion ion-ios-timer"></i> Overview
+                </a>
+                <a class="tab-item" ui-sref="app.fundFlow">
+                    <i class="ion ion-shuffle"></i> Fund Flow
+                </a>
+                <a class="tab-item" ui-sref="app.milestones">
+                    <i class="ion ion-calendar"></i> Milestones
+                </a>
+                <a class="tab-item calm" ui-sref="app.utilization">
+                    <i class="ion ion-bag"></i> Utilization
+                </a>
+                <a class="tab-item" ui-sref="app.projectPhotos">
+                    <i class="ion  ion-android-camera"></i> Photos
+                </a>
+            </div>
     </div>
   </ion-footer>
 </ion-view>

@@ -10348,7 +10348,7 @@ button.button.button-icon.util-camera {
   font-size: 20px; }
 
 .util-row {
-  margin-top: 10px !important; }
+  margin-top: 5px !important; }
 
 .util-camera {
   min-height: 0px;
@@ -10404,11 +10404,11 @@ button.button.button-icon.util-camera {
   color: #465eef !important;
   font-size: 12px; }
 
-button.button.button-icon.button-clear.search-btn {
+button.button.button-icon.button-clear.search-btn:before {
   font-size: 24px;
   padding: 0 10px; }
 
-button.button.button-icon.button-clear.settings-btn {
+button.button.button-icon.button-clear.settings-btn:before {
   font-size: 24px;
   padding: 0 10px; }
 
@@ -10449,6 +10449,9 @@ button.button.button-icon.button-clear.settings-btn {
 
 .btn-down {
   color: #c1c1c1; }
+
+.card-institue .stable {
+  color: #c1c1c1 !important; }
 
 .card-institue .card {
   margin-top: 0; }
@@ -10494,36 +10497,6 @@ button.button.button-icon.button-clear.settings-btn {
   display: inline-block;
   margin: 5px auto 3px; }
 
-.ion-custom.ion-overview:before {
-  content: url(../img/menuicon/overview.png); }
-
-.ion-custom.ion-overview-active:before {
-  content: url(../img/menuicon/overview-active.png); }
-
-.ion-custom.ion-fundflow:before {
-  content: url(../img/menuicon/fund-flow.png); }
-
-.ion-custom.ion-fundflow-active:before {
-  content: url(../img/menuicon/fund-flow-active.png); }
-
-.ion-custom.ion-milestone-active:before {
-  content: url(../img/menuicon/milestone-active.png); }
-
-.ion-custom.ion-milestone:before {
-  content: url(../img/menuicon/milestone.png); }
-
-.ion-custom.ion-utilization:before {
-  content: url(../img/menuicon/utilization.png); }
-
-.ion-custom.ion-utilization-active:before {
-  content: url(../img/menuicon/utilization-active.png); }
-
-.ion-custom.ion-photos:before {
-  content: url(../img/menuicon/photos.png); }
-
-.ion-custom.ion-photos-active:before {
-  content: url(../img/menuicon/photos-active.png); }
-
 .ion-custom.ion-custom-home:before {
   content: url(../img/home-icon.png); }
 
@@ -10546,11 +10519,22 @@ button.button.button-icon.button-clear.settings-btn {
   background-color: #ffffff;
   background-image: linear-gradient(0deg, #b2b2b2, rgba(178, 178, 178, 0.33) 51%, transparent 50%);
   border: 0;
-  padding-top: 0; }
+  padding-top: 0;
+  height: 60px; }
   .tabs-custom .tabs .tab-item {
     border-right: 1px solid #ddd;
     text-align: center;
-    padding-top: 2px; }
+    padding-top: 2px;
+    font-family: Roboto;
+    text-transform: uppercase;
+    font-weight: 500;
+    padding: 5px 0 0; }
+    .tabs-custom .tabs .tab-item.calm {
+      color: #0020e4; }
+    .tabs-custom .tabs .tab-item i {
+      font-size: 26px;
+      display: block;
+      margin-bottom: 8px; }
 
 .tabs-custom .ion-custom {
   display: block; }
@@ -10567,7 +10551,8 @@ button.button.button-icon.button-clear.settings-btn {
 
 .table-amount table {
   font-size: 10px;
-  line-height: 1; }
+  line-height: 1;
+  width: 100%; }
   .table-amount table td {
     text-align: center;
     border-bottom: 1px solid #ddd;
@@ -10697,7 +10682,6 @@ input[type=range]:focus::-webkit-slider-runnable-track {
     width: 35px;
     background: #e5e5e5;
     position: absolute;
-    left: 44%;
     bottom: -19px;
     font-size: 12px;
     text-align: center;

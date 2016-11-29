@@ -541,11 +541,11 @@ button.button.button-icon.ion-custom-comment:before {
 }
 
 button.button.button-icon.button-clear {
-  &.search-btn {
+  &.search-btn:before {
     font-size: 24px;
     padding: 0 10px;
   }
-  &.settings-btn {
+  &.settings-btn:before {
     font-size: 24px;
     padding: 0 10px;
   }
@@ -597,6 +597,9 @@ button.button.button-icon.button-clear {
 }
 
 .card-institue {
+  .stable{
+    color:$stable!important;
+  }
   .card {
     margin-top: 0;
   }
@@ -656,36 +659,36 @@ button.button.button-icon.button-clear {
     display: inline-block;
     margin: 5px auto 3px;
   }
-  &.ion-overview:before {
-    content: url(../img/menuicon/overview.png);
-  }
-  &.ion-overview-active:before {
-    content: url(../img/menuicon/overview-active.png);
-  }
-  &.ion-fundflow:before {
-    content: url(../img/menuicon/fund-flow.png);
-  }
-  &.ion-fundflow-active:before {
-    content: url(../img/menuicon/fund-flow-active.png);
-  }
-  &.ion-milestone-active:before {
-    content: url(../img/menuicon/milestone-active.png);
-  }
-  &.ion-milestone:before {
-    content: url(../img/menuicon/milestone.png);
-  }
-  &.ion-utilization:before {
-    content: url(../img/menuicon/utilization.png);
-  }
-  &.ion-utilization-active:before {
-    content: url(../img/menuicon/utilization-active.png);
-  }
-  &.ion-photos:before {
-    content: url(../img/menuicon/photos.png);
-  }
-  &.ion-photos-active:before {
-    content: url(../img/menuicon/photos-active.png);
-  }
+  // &.ion-overview:before {
+  //   content: url(../img/menuicon/overview.png);
+  // }
+  // &.ion-overview-active:before {
+  //   content: url(../img/menuicon/overview-active.png);
+  // }
+  // &.ion-fundflow:before {
+  //   content: url(../img/menuicon/fund-flow.png);
+  // }
+  // &.ion-fundflow-active:before {
+  //   content: url(../img/menuicon/fund-flow-active.png);
+  // }
+  // &.ion-milestone-active:before {
+  //   content: url(../img/menuicon/milestone-active.png);
+  // }
+  // &.ion-milestone:before {
+  //   content: url(../img/menuicon/milestone.png);
+  // }
+  // &.ion-utilization:before {
+  //   content: url(../img/menuicon/utilization.png);
+  // }
+  // &.ion-utilization-active:before {
+  //   content: url(../img/menuicon/utilization-active.png);
+  // }
+  // &.ion-photos:before {
+  //   content: url(../img/menuicon/photos.png);
+  // }
+  // &.ion-photos-active:before {
+  //   content: url(../img/menuicon/photos-active.png);
+  // }
   &.ion-custom-home:before {
     content: url(../img/home-icon.png);
   }
@@ -712,10 +715,23 @@ button.button.button-icon.button-clear {
     background-image: linear-gradient(0deg, #b2b2b2, rgba(178, 178, 178, 0.33) 51%, transparent 50%);
     border: 0;
     padding-top: 0;
+        height: 60px;
     .tab-item {
       border-right: 1px solid #ddd;
       text-align: center;
       padding-top: 2px;
+        font-family: Roboto;
+        text-transform: uppercase;
+  font-weight: 500;
+            padding: 5px 0 0;
+      &.calm{
+        color: darken($calm,20%);
+      }
+      i{
+       font-size: 26px;
+    display: block;
+    margin-bottom: 8px;
+      }
     }
   }
   .ion-custom {
@@ -744,6 +760,7 @@ button.button.button-icon.button-clear {
   table {
     font-size: 10px;
     line-height: 1;
+    width: 100%;
     td {
       text-align: center;
       border-bottom: 1px solid #ddd;
@@ -908,7 +925,6 @@ input[type=range]:focus::-webkit-slider-runnable-track {
     width: 35px;
     background: #e5e5e5;
     position: absolute;
-    left: 44%;
     bottom: -19px;
     font-size: 12px;
     text-align: center;

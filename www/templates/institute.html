@@ -67,6 +67,7 @@
     </ion-tab>
     <ion-tab title="PROJECTS">
       <ion-content class="tabs-content bg-grey-light">
+        <div class="pb50">  
         <div class="padding">
           <div class="item-note toggle-institute">
             <label class="toggle toggle-positive">
@@ -82,23 +83,25 @@
         <div class="card-institue pb110">
           <div class="card" ng-repeat="fundInstitute in fundInstitutes">
             <div class="item item-text-wrap">
-              <div class="card-institute-head" ui-sref="app.project">
+              <div ui-sref="app.project">
+              <div class="card-institute-head">
                 <div class="item-note right-project-icons">
-                  <i class="ion ion-custom-ecommerce ecommerce-green"></i>
+                  <i class="ion ion-custom-ecommerce {{fundInstitute.classcommerce}}"></i>
                   <i class="ion ion-arrow-graph-up-right balanced arrowup"></i>
-                  <span class="btn-custom-active balanced bold">{{fundInstitute.status}}</span>
+                  <span class="btn-custom-active balanced bold {{fundInstitute.classStatus}}">{{fundInstitute.status}} <br> {{fundInstitute.date}} </span>
                 </div>
-                <div class="calm bold">{{fundInstitute.pab}}</div>
+                <div class="calm bold {{fundInstitute.classStatus}}">{{fundInstitute.pab}}</div>
                 <div class="clearfix"></div>
               </div>
-              <div class="card-institute-mid" ui-sref="app.project">
-                <label class="item-note dark">₹ {{fundInstitute.grant}}</label>
-                <h4 class="bold">INFRASTRUTURE GRANT</h4>
+              <div class="card-institute-mid">
+                <label class="item-note dark {{fundInstitute.classStatus}}">₹ {{fundInstitute.grant}}</label>
+                <h4 class="bold {{fundInstitute.classStatus}}">INFRASTRUTURE GRANT</h4>
                 <div class="clearfix"></div>
               </div>
               <div class="card-institute-bottom">
-                <label class="item-note">Allocated</label>
-                <label for="">{{fundInstitute.name}}</label>
+                <label class="item-note {{fundInstitute.classStatus}}">Allocated</label>
+                <label for=""class="{{fundInstitute.classStatus}}">{{fundInstitute.name}}</label>
+              </div>
               </div>
               <button class="button button-icon ion-chevron-down item-note btn-down btn-custom-icon" ng-click="cardopen($index,true)" ng-if="!card[$index]"></button>
               <div class="clearfix"></div>
@@ -108,7 +111,7 @@
                 <div class="row">
                   <div class="col col-75">
                     <div class="fund-recieved">
-                      <span class="item-note dark">₹ 40,00,000</span>
+                      <span class="item-note dark {{fundInstitute.classStatus}}">₹ 40,00,000</span>
                       <h4>Fund received</h4>
                       <div class="clearfix"></div>
                            <div class="custom-slide-miles pt7">
@@ -140,67 +143,7 @@
               <button class="button button-icon ion-chevron-up item-note btn-down btn-custom-icon" ng-click="cardopen($index,false)" ng-if="card[$index]">
             </div>
           </div>
- 
-          <!--<div class="card">
-            <div class="item item-text-wrap">
-              <div class="card-institute-head">
-                <div class="item-note right-project-icons">
-                  <i class="ion ion-custom-ecommerce ecommerce-orange"></i>
-                  <i class="ion ion-arrow-graph-up-right balanced arrowup"></i>
-                  <span class="btn-custom-active stable bold">Completed <br>15.06.2016</span>
-            </div>
-            <div class="stable bold">PAB 7</div>
-            <div class="clearfix"></div>
-          </div>
-          <div class="card-institute-mid" ui-sref="app.project">
-            <label class="item-note stable">₹ 45,00,000</label>
-            <h4 class="stable bold">INFRASTRUTURE GRANT</h4>
-            <div class="clearfix"></div>
-          </div>
-          <div class="card-institute-bottom">
-            <label class="item-note stable">Allocated</label>
-            <label for="" class="stable">Contruction of boys hostel</label>
-          </div>
-          <button class="button button-icon ion-chevron-down item-note btn-down btn-custom-icon" ng-click="cardopen(3);" ng-hide="card">
-        </button>
-              <div class="clearfix"></div>
-            </div>
-            <div class="item item-divider" ng-show="card">
-              <div class="drop-institute">
-                <div class="row">
-                  <div class="col col-75">
-                    <div class="fund-recieved">
-                      <span class="item-note">₹ 40,00,000</span>
-                      <h4>Fund received</h4>
-                      <div class="clearfix"></div>
-                              <div class="custom-slide-miles pt7">
-                    <div class="complete"></div>
-                    <div class="received" style="width:{{funds.received}}%"></div>
-                </div>
-                    </div>
-                    <div class="">
-                <div class="rectangle-institute" style="width:{{funds.utilized}}%"></div>
-                <label for="" class="balanced">50%</label>
-                    </div>
-                    <label for="">Utilization</label>
-                  </div>
-                  <div class="col col-25">
-                    <div class="">
-                      <div class="chart-home institute-chart">
-                        <canvas id="doughnut1" class="chart chart-doughnut" chart-data="data1" chart-labels="labels1" chart-colors="colors1" chart-dataset-override="override1">
-                        </canvas>
-                        <h5 class="f16">
-                          50%
-                        </h5>
-                      </div>
-                      <div class="text-center stable">Work</div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <button class="button button-icon ion-chevron-up item-note btn-down btn-custom-icon" ng-click="cardopen(3);" ng-hide="!card">
-            </div>
-          </div>-->
+        </div>
         </div>
       </ion-content>
     </ion-tab>
