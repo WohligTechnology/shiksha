@@ -37,8 +37,8 @@
                 <div class="begin-center" style="width:{{complete.center}}%"></div>
               </div>
               <div class="">
-                <div class="rectangle" style="width:{{complete.institute}}%"></div>
-                <label for="">50%</label>
+                <div class="rectangle" style="width:calc({{complete.institute}}% - 40px);display: inline-block;"></div>
+                <label for="" class="balanced">50%</label>
               </div>
             </div>
             <div class="col-33">
@@ -155,14 +155,15 @@
                       <th colspan="2" class="text-left bl0 bb0">
                         FUND UTILIZATION
                       </th>
-                      <td colspan="3" class="bb0">
+                      <td colspan="3" class="bb0 td-bottom">
                         <div class="padding-horizontal">
-                          <div class="discount">
+                          <div class="discount ">
                             <div class="rectangle" style="width:{{complete.institute}}%"></div>
-                            <!--<label for="">50%</label>-->
+                            <div class="mark-make" style="left: calc({{complete.institute}}% - 14px);">50%</div>
                           </div>
                         </div>
                       </td>
+
                       <td class="bb0">
                         ₹20,00,000
                       </td>

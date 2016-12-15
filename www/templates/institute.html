@@ -67,7 +67,7 @@
     </ion-tab>
     <ion-tab title="PROJECTS">
       <ion-content class="tabs-content bg-grey-light">
-        <div class="pb50">  
+        <div class="pb50">
         <div class="padding">
           <div class="item-note toggle-institute">
             <label class="toggle toggle-positive">
@@ -85,6 +85,7 @@
             <div class="item item-text-wrap">
               <div ui-sref="app.project">
               <div class="card-institute-head">
+                <div class="color-status">
                 <div class="item-note right-project-icons">
                   <i class="ion ion-custom-ecommerce {{fundInstitute.classcommerce}}"></i>
                   <i class="ion ion-arrow-graph-up-right balanced arrowup"></i>
@@ -92,12 +93,13 @@
                 </div>
                 <div class="calm bold {{fundInstitute.classStatus}}">{{fundInstitute.pab}}</div>
                 <div class="clearfix"></div>
-              </div>
               <div class="card-institute-mid">
                 <label class="item-note dark {{fundInstitute.classStatus}}">₹ {{fundInstitute.grant}}</label>
                 <h4 class="bold {{fundInstitute.classStatus}}">INFRASTRUTURE GRANT</h4>
                 <div class="clearfix"></div>
               </div>
+            </div>
+
               <div class="card-institute-bottom">
                 <label class="item-note {{fundInstitute.classStatus}}">Allocated</label>
                 <label for=""class="{{fundInstitute.classStatus}}">{{fundInstitute.name}}</label>
