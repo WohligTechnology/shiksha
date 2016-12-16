@@ -315,10 +315,7 @@ button.button.button-icon.ion-custom-comment:before {
       border-color: $positive!important;
       background-color: #263238;
     }
-    
 
-
-    
     a {
       background-color: #263238!important;
       color: white;
@@ -817,7 +814,7 @@ button.button.button-icon.button-clear {
 
     .td-bottom {
       padding-top: 10px;
-      padding-bottom: 20px;
+      padding-bottom: 12px;
     }
 
     i {
@@ -1029,7 +1026,7 @@ input[type=range]:focus::-webkit-slider-runnable-track {
 }
 
 .rectangle {
-  height: 8px;
+  height: 5px;
   background: $balanced;
   margin: 5px 0 0;
 }
@@ -1047,17 +1044,29 @@ input[type=range]:focus::-webkit-slider-runnable-track {
 
   .rectangle {
     margin: 0;
+    height: 8px;
   }
 
   .mark-make {
     width: 30px;
     background: #e5e5e5;
-    position: absolute;
-    bottom: -19px;
+    position: relative;
+    bottom: -9px;
     font-size: 10px;
     text-align: center;
     color: #717171;
     padding: 2px 0;
+
+    &:before {
+      content: "";
+      border-style: solid;
+      border-width: 3px 7px 4px 7px;
+      border-color: transparent transparent #e5e5e5 transparent;
+      position: absolute;
+      left: 50%;
+      top: -7px;
+      transform: translate(-50%);
+    }
   }
 }
 

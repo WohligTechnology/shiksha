@@ -10560,7 +10560,7 @@ button.button.button-icon.button-clear.settings-btn:before {
     vertical-align: middle; }
   .table-amount table .td-bottom {
     padding-top: 10px;
-    padding-bottom: 20px; }
+    padding-bottom: 12px; }
   .table-amount table i {
     font-size: 20px; }
   .table-amount table th {
@@ -10709,7 +10709,7 @@ input[type=range]:focus::-webkit-slider-runnable-track {
     margin-top: -14px; }
 
 .rectangle {
-  height: 8px;
+  height: 5px;
   background: #55c45f;
   margin: 5px 0 0; }
 
@@ -10723,16 +10723,26 @@ input[type=range]:focus::-webkit-slider-runnable-track {
 .discount {
   position: relative; }
   .discount .rectangle {
-    margin: 0; }
+    margin: 0;
+    height: 8px; }
   .discount .mark-make {
     width: 30px;
     background: #e5e5e5;
-    position: absolute;
-    bottom: -19px;
+    position: relative;
+    bottom: -9px;
     font-size: 10px;
     text-align: center;
     color: #717171;
     padding: 2px 0; }
+    .discount .mark-make:before {
+      content: "";
+      border-style: solid;
+      border-width: 3px 7px 4px 7px;
+      border-color: transparent transparent #e5e5e5 transparent;
+      position: absolute;
+      left: 50%;
+      top: -7px;
+      transform: translate(-50%); }
 
 .custom-slide-projects .allocated-bar {
   background: #eee;
