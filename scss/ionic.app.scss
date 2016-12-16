@@ -14,6 +14,7 @@ $assertive: #ef473a !default;
 $royal: #40bad5 !default;
 $dark: #4b4b4b !default;
 $dark-grey: #546a79 !default;
+$purle: #673ab7 !default;
 $font-family-sans-serif: "Source Sans Pro", "Helvetica Neue", "Roboto", "Segoe UI", sans-serif !default;
 $font-family-light-sans-serif: "Source Sans Pro", "HelveticaNeue-Light", "Roboto-Light", "Segoe UI-Light", sans-serif-light !default; // The path for our ionicons font files, relative to the built CSS in www/css
 $ionicons-font-path: "../lib/ionic/fonts" !default; // Include all of Ionic
@@ -765,7 +766,8 @@ button.button.button-icon.button-clear {
       padding: 5px 0 0;
 
       &.calm {
-        color: darken($calm,20%);
+        // color: darken($calm,20%);
+        color: darken($purle, 20%);
       }
 
       i {
@@ -910,6 +912,7 @@ button.button.button-icon.button-clear {
 .buttons-right.button-div {
   position: relative;
   z-index: 2;
+
 }
 
 .item-button-right > .button {
@@ -1019,7 +1022,7 @@ input[type=range]:focus::-webkit-slider-runnable-track {
 
   .begin-center {
     height: 14px;
-    background: $calm;
+    background: $purle;
     border-radius: 6px;
     margin-top: -14px;
   }
@@ -1087,7 +1090,7 @@ input[type=range]:focus::-webkit-slider-runnable-track {
     color: #fff;
     text-align: right;
     font-size: 13px;
-    background: $calm;
+    background: $purle;
     line-height: 1.2;
     margin-top: -15px;
     padding-right: 5px;
@@ -1096,4 +1099,69 @@ input[type=range]:focus::-webkit-slider-runnable-track {
 
 .bg-grey-light {
   background: #f0f5f7;
+}
+
+
+.purple{
+  color: $purle;
+}
+.what-use{
+  .btnshare{
+min-height: 0;
+    height: 0;
+    line-height: 0;
+    font-size: 22px;
+  }
+  p{
+    font-weight: 600;
+    // letter-spacing: 1px;
+font-size: 16px;
+vertical-align: -webkit-baseline-middle;
+}
+  }
+.display-inline{
+  display: inline-block;
+}
+.timeline-sec{
+  padding-top: 7px;
+.util-header{
+  p{
+    font-weight: 300;
+    color: #546a79;
+  }
+}
+.util-cont{
+      padding-top: 8px;
+  font-size: 15px;
+font-weight: 400;
+.txt-green{
+  color: $balanced;
+}
+.util-content{
+  font-size: 16px;
+  letter-spacing: 1px;
+}
+}
+}
+.pd0{
+  padding: 0;
+}
+.unallocate{
+  span{
+        font-size: 16px;
+  }
+  .mile-card{
+    padding: 20px;
+  }
+  p{
+    font-weight: 300;
+    color: #546a79;
+  }
+}
+.pdb0{
+  padding-bottom: 0;
+}
+.pd5{
+  padding: 5px;
+  padding-bottom: 0;
 }

@@ -10530,7 +10530,7 @@ button.button.button-icon.button-clear.settings-btn:before {
     font-weight: 500;
     padding: 5px 0 0; }
     .tabs-custom .tabs .tab-item.calm {
-      color: #0020e4; }
+      color: #3b216a; }
     .tabs-custom .tabs .tab-item i {
       font-size: 26px;
       display: block;
@@ -10704,7 +10704,7 @@ input[type=range]:focus::-webkit-slider-runnable-track {
     margin-top: -14px; }
   .custom-slide-flow .begin-center {
     height: 14px;
-    background: #4b64ff;
+    background: #673ab7;
     border-radius: 6px;
     margin-top: -14px; }
 
@@ -10758,10 +10758,62 @@ input[type=range]:focus::-webkit-slider-runnable-track {
   color: #fff;
   text-align: right;
   font-size: 13px;
-  background: #4b64ff;
+  background: #673ab7;
   line-height: 1.2;
   margin-top: -15px;
   padding-right: 5px; }
 
 .bg-grey-light {
   background: #f0f5f7; }
+
+.purple {
+  color: #673ab7; }
+
+.what-use .btnshare {
+  min-height: 0;
+  height: 0;
+  line-height: 0;
+  font-size: 22px; }
+
+.what-use p {
+  font-weight: 600;
+  font-size: 16px;
+  vertical-align: -webkit-baseline-middle; }
+
+.display-inline {
+  display: inline-block; }
+
+.timeline-sec {
+  padding-top: 7px; }
+  .timeline-sec .util-header p {
+    font-weight: 300;
+    color: #546a79; }
+  .timeline-sec .util-cont {
+    padding-top: 8px;
+    font-size: 15px;
+    font-weight: 400; }
+    .timeline-sec .util-cont .txt-green {
+      color: #55c45f; }
+    .timeline-sec .util-cont .util-content {
+      font-size: 16px;
+      letter-spacing: 1px; }
+
+.pd0 {
+  padding: 0; }
+
+.unallocate span {
+  font-size: 16px; }
+
+.unallocate .mile-card {
+  padding: 20px; }
+
+.unallocate p {
+  font-weight: 300;
+  color: #546a79; }
+
+.pdb0 {
+  padding-bottom: 0; }
+
+.pd5 {
+  padding: 5px;
+  padding-bottom: 0; }
