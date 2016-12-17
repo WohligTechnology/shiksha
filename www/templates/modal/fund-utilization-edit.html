@@ -1,53 +1,77 @@
 <ion-modal-view>
-    <ion-header-bar class="bar-positive bar bar-header">
-        <h1 class="title">Edit Fund Utilization</h1>
-        <div class="buttons">
-            <button class="button button-clear ion-close" ng-click="closeUtilizationEdit()"></button>
-        </div>
-    </ion-header-bar>
-    <ion-content>
-        <div>
-            <ul class="list">
-                <li class="item item-input">
-                    <span class="input-label">Item</span>
-                    <input type="text">
-                </li>
-                <li class="item item-input">
-                    <span class="input-label">Vender</span>
-                    <input type="text">
-                </li>
-                <li class="item item-input">
-                    <span class="input-label">Total Value</span>
-                    <input type="text">
-                </li>
-            </ul>
-            <!--<div class="padding">
-                <button class="button button-positive button-block">Save</button>
-            </div>-->
-            <div class="item item-divider item-button-right">
-                Payments
-                <button class="button button-clear button-small">Add</button>
-                <!--<button class="button button-clear button-assertive button-small">Delete</button>-->
-            </div>
-            <ul class="list">
-                <li class="item item-input">
-                    <span class="input-label">Payment Date</span>
-                    <input type="date" name="finised" required>
-                </li>
-                <li class="item item-input">
-                    <span class="input-label">Value Released</span>
-                    <input type="text">
-                </li>
-                <li class="item item-input">
-                    <span class="input-label">Description</span>
-                    <input type="text">
-                </li>
-            </ul>
-            <div class="padding">
-                <button class="button button-positive button-block">
-  Save
-</button>
-            </div>
-        </div>
-    </ion-content>
+  <!-- <ion-header-bar class="bar-positive bar bar-header">
+    <h1 class="title">Edit Fund Utilization</h1>
+    <div class="buttons">
+      <button class="button button-clear ion-close" ng-click="closeUtilizationEdit()"></button>
+    </div>
+  </ion-header-bar> -->
+  <ion-content>
+    <!-- <div class="edit-details">
+      <ul class="list">
+        <li class="item item-input">
+          <span class="input-label">Item</span>
+          <input type="text">
+        </li>
+        <li class="item item-input">
+          <span class="input-label">Vender</span>
+          <input type="text">
+        </li>
+        <li class="item item-input">
+          <span class="input-label">Total Value</span>
+          <input type="text">
+        </li>
+      </ul>
+      <div class="item item-divider item-button-right">
+        Payments
+        <button class="button button-clear button-small">Add</button>
+      </div>
+      <ul class="list">
+        <li class="item item-input">
+          <span class="input-label">Payment Date</span>
+          <input type="date" name="finised" required>
+        </li>
+        <li class="item item-input">
+          <span class="input-label">Value Released</span>
+          <input type="text">
+        </li>
+        <li class="item item-input">
+          <span class="input-label">Description</span>
+          <input type="text">
+        </li>
+      </ul>
+      <div class="padding">
+        <button class="button button-positive button-block">
+            Save
+        </button>
+      </div>
+    </div> -->
+<div class="fund-utilize">
+  <div class="list">
+    <a class="item item-icon-left" href="#">
+    <i class="icon ion-email"></i>
+    Email Order Details
+  </a>
+    <a class="item item-icon-left" href="#">
+    <i class="icon ion-email"></i>
+    Add/Edit Payment Details
+  </a>
+    <a class="item item-icon-left" href="#">
+    <i class="icon ion-email"></i>
+    Add/Edit Milestones
+  </a>
+    <a class="item item-icon-left" href="#">
+    <i class="icon ion-email"></i>
+    Add/Edit Notes
+  </a>
+    <a class="item item-icon-left" href="#">
+    <i class="icon ion-email"></i>
+    Add/Edit Photos
+  </a>
+    <a class="item item-icon-left" href="#">
+    <i class="icon ion-email"></i>
+    Mark as Complete
+  </a>
+  </div>
+</div>
+  </ion-content>
 </ion-modal-view>

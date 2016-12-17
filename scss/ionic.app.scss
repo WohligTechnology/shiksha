@@ -10,11 +10,11 @@ $positive: #3300ff !default;
 $calm: #4b64ff !default;
 $balanced: #55c45f !default;
 $energized: #88c057 !default;
-$assertive: #ef473a !default;
+$assertive: #ff0000 !default;
 $royal: #40bad5 !default;
 $dark: #4b4b4b !default;
 $dark-grey: #546a79 !default;
-$purle: #673ab7 !default;
+$purple: #673ab7 !default;
 $font-family-sans-serif: "Source Sans Pro", "Helvetica Neue", "Roboto", "Segoe UI", sans-serif !default;
 $font-family-light-sans-serif: "Source Sans Pro", "HelveticaNeue-Light", "Roboto-Light", "Segoe UI-Light", sans-serif-light !default; // The path for our ionicons font files, relative to the built CSS in www/css
 $ionicons-font-path: "../lib/ionic/fonts" !default; // Include all of Ionic
@@ -677,7 +677,7 @@ button.button.button-icon.button-clear {
   }
 
   h3 {
-    color: #546a79;
+    color: $dark-grey;
   }
 }
 
@@ -764,10 +764,11 @@ button.button.button-icon.button-clear {
       text-transform: uppercase;
       font-weight: 500;
       padding: 5px 0 0;
+      color: $dark-grey;
 
       &.calm {
-        // color: darken($calm,20%);
-        color: darken($purle, 20%);
+        color: darken($calm,20%);
+        // color: darken($purple, 20%);
       }
 
       i {
@@ -825,7 +826,7 @@ button.button.button-icon.button-clear {
 
     th {
       font-weight: 500;
-      color: #546a79;
+      color: $dark-grey;
       border: 1px solid #ddd;
       padding: 5px;
       vertical-align: middle;
@@ -912,7 +913,6 @@ button.button.button-icon.button-clear {
 .buttons-right.button-div {
   position: relative;
   z-index: 2;
-
 }
 
 .item-button-right > .button {
@@ -972,34 +972,46 @@ input[type=range]:focus::-webkit-slider-runnable-track {
     padding-top: 7px;
   }
 
-  .complete {
-    height: 7px;
-    background: #ddd;
+  .begin-complete,
+  .complete,
+  .received {
+    height: 8px;
     border-radius: 6px;
+  }
+
+  .complete {
+    background: #ddd;
   }
 
   .begin-complete {
-    height: 7px;
     background: $balanced;
-    border-radius: 6px;
-    margin-top: -7px;
+    margin-top: -8px;
   }
 
   .received {
-    height: 7px;
     background: $positive;
-    border-radius: 6px;
-    margin-top: -7px;
+    margin-top: -8px;
   }
 
   .mark-make {
     width: 35px;
     background: #e5e5e5;
-    position: absolute;
-    bottom: -19px;
+    position: relative;
+    bottom: -5px;
     font-size: 12px;
     text-align: center;
     color: #717171;
+
+    &:before {
+      content: "";
+      border-style: solid;
+      border-width: 4px;
+      border-color: transparent transparent #e5e5e5 transparent;
+      position: absolute;
+      left: 50%;
+      top: -8px;
+      transform: translate(-50%);
+    }
   }
 }
 
@@ -1008,23 +1020,27 @@ input[type=range]:focus::-webkit-slider-runnable-track {
   padding: 3px 0;
 
   .complete {
-    height: 14px;
     background: #ddd;
+  }
+
+  .begin-center,
+  .begin-state,
+  .complete {
+    height: 15px;
     border-radius: 6px;
+  }
+
+  .begin-center,
+  .begin-state {
+    margin-top: -15px;
   }
 
   .begin-state {
-    height: 14px;
     background: $royal;
-    border-radius: 6px;
-    margin-top: -14px;
   }
 
   .begin-center {
-    height: 14px;
-    background: $purle;
-    border-radius: 6px;
-    margin-top: -14px;
+    background: $positive;
   }
 }
 
@@ -1048,13 +1064,14 @@ input[type=range]:focus::-webkit-slider-runnable-track {
   .rectangle {
     margin: 0;
     height: 8px;
+    border-radius: 3px 0 0 3px;
   }
 
   .mark-make {
     width: 30px;
     background: #e5e5e5;
     position: relative;
-    bottom: -9px;
+    bottom: -7px;
     font-size: 10px;
     text-align: center;
     color: #717171;
@@ -1063,11 +1080,11 @@ input[type=range]:focus::-webkit-slider-runnable-track {
     &:before {
       content: "";
       border-style: solid;
-      border-width: 3px 7px 4px 7px;
+      border-width: 4px;
       border-color: transparent transparent #e5e5e5 transparent;
       position: absolute;
       left: 50%;
-      top: -7px;
+      top: -8px;
       transform: translate(-50%);
     }
   }
@@ -1090,7 +1107,7 @@ input[type=range]:focus::-webkit-slider-runnable-track {
     color: #fff;
     text-align: right;
     font-size: 13px;
-    background: $purle;
+    background: $positive;
     line-height: 1.2;
     margin-top: -15px;
     padding-right: 5px;
@@ -1101,67 +1118,85 @@ input[type=range]:focus::-webkit-slider-runnable-track {
   background: #f0f5f7;
 }
 
-
-.purple{
-  color: $purle;
+.purple {
+  color: $purple;
 }
-.what-use{
-  .btnshare{
-min-height: 0;
+
+.what-use {
+  .btnshare {
+    min-height: 0;
     height: 0;
     line-height: 0;
     font-size: 22px;
   }
-  p{
+
+  p {
     font-weight: 600;
-    // letter-spacing: 1px;
-font-size: 16px;
-vertical-align: -webkit-baseline-middle;
-}
+    margin-right: 10px;
   }
-.display-inline{
+}
+
+.display-inline {
   display: inline-block;
 }
-.timeline-sec{
+
+.timeline-sec {
   padding-top: 7px;
-.util-header{
-  p{
-    font-weight: 300;
-    color: #546a79;
+
+  .util-header {
+    p {
+      font-weight: 300;
+      color: $dark-grey;
+    }
+  }
+
+  .util-cont {
+    padding-top: 8px;
+    font-size: 15px;
+    font-weight: 400;
+
+    .txt-green {
+      color: $balanced;
+    }
+
+    .util-content {
+      font-size: 16px;
+    }
   }
 }
-.util-cont{
-      padding-top: 8px;
-  font-size: 15px;
-font-weight: 400;
-.txt-green{
-  color: $balanced;
-}
-.util-content{
-  font-size: 16px;
-  letter-spacing: 1px;
-}
-}
-}
-.pd0{
+
+.pd0 {
   padding: 0;
 }
-.unallocate{
-  span{
-        font-size: 16px;
+.mg0 {
+  margin: 0;
+}
+.unallocate {
+  min-height: 126px;
+  position: relative;
+
+  span {
+    font-size: 16px;
   }
-  .mile-card{
-    padding: 20px;
+
+  .mile-card {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translate(-0%,-50%);
+    width: 100%;
   }
-  p{
+
+  p {
     font-weight: 300;
-    color: #546a79;
+    color: $dark-grey;
   }
 }
-.pdb0{
+
+.pdb0 {
   padding-bottom: 0;
 }
-.pd5{
-  padding: 5px;
-  padding-bottom: 0;
+
+.pd5 {
+  padding: 5px 5px 0;
 }

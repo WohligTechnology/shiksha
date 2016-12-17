@@ -1,9 +1,9 @@
 <ion-view view-title="Milestones">
-    <ion-content class="bg-light-blue">
-        <div class="pb110">
-            <div class="card top-card">
-                <div class="item item-text-wrap">
-                    <span class="item-note custom-radio">
+  <ion-content class="bg-light-blue">
+    <div class="pb110">
+      <div class="card top-card">
+        <div class="item item-text-wrap">
+          <span class="item-note custom-radio">
                         <label class=" item-toggle">
                         <label class="toggle toggle-energized">
                             <input type="checkbox">
@@ -13,143 +13,109 @@
                         </label>
                         </label>
                     </span>
-                    <div class="">
-                        <div class="medium f16">Infrastructure Grant</div>
-                        <div class="">
-                            <label for="" class="dark">Upgradation of library</label>
-                        </div>
-                    </div>
-                </div>
+          <div class="">
+            <div class="medium f16">Infrastructure Grant</div>
+            <div class="">
+              <label for="" class="dark">Upgradation of library</label>
             </div>
-            <div class="bar-sucess padding-horizontal progress-div">
-                <div class="">
-                    <span class="item-note bold dark">40%</span>
-                    <h5 class="bold"> Total work completed</h5>
-                </div>
-                <div class="custom-slide-miles">
-                    <div class="complete"></div>
-                    <div class="begin-complete" style="width:{{complete.value}}%"></div>
-                </div>
-                <!--<img src="img/progress-green.png" alt="" />-->
-            </div>
-            <div class="card what-use">
-                <div class="padding-horizontal mile-card">
-                  <div class="header clearfix">
-                      Item details
+          </div>
+        </div>
+      </div>
+      <div class="bar-sucess padding-horizontal progress-div">
+        <div class="">
+          <span class="item-note bold dark">40%</span>
+          <h5 class="bold"> Total work completed</h5>
+        </div>
+        <div class="custom-slide-miles">
+          <div class="complete"></div>
+          <div class="begin-complete" style="width:{{complete.value}}%"></div>
+        </div>
+        <!--<img src="img/progress-green.png" alt="" />-->
+      </div>
+      <div class="card what-use">
+        <div class="padding-horizontal mile-card">
+          <div class="header clearfix">
+            Item details
 
-                  </div>
+          </div>
 
-                    <p class="display-inline">Preparing RFQ and evaluation</p>
-                    <div class="item-note buttons-right button-div">
-                        <button class="button button-icon ion-ios-camera"></button>
-                        <button class="button button-icon ion-custom-comment" ng-click=" openComment(); "></button>
-                        <label class="toggle">
+          <p class="display-inline">Preparing RFQ and evaluation</p>
+          <div class="item-note buttons-right button-div">
+            <button class="button button-icon ion-ios-camera"></button>
+            <button class="button button-icon ion-custom-comment" ng-click=" openComment(); "></button>
+            <label class="toggle toggle-assertive toggle-custom-mile">
                             <input type="checkbox" ng-checked=true>
                             <div class="track">
                                 <div class="handle"></div>
                             </div>
                        </label>
-                        <button class="button button-icon ion-android-more-vertical more" ng-click="openMilestoneEdit();"></button>
-                    </div>
+            <button class="button button-icon ion-android-more-vertical more" ng-click="openMilestoneEdit();"></button>
+          </div>
 
-                    <div class="util-row timeline-sec">
-                      <div class="row pd0">
-                        <div class="col-33 util-header"><p>Amount of work</p></div>
-                        <div class="col-33 util-header text-center"><p>Due date</p></div>
-                        <div class="col-33 util-header"><p>Completion date</p></div>
-                      </div>
-                      <div class="row pd0 util-cont">
-                        <div class="col-33 util-content medium">40%</div>
-                        <div class="col-33 util-content medium text-center">30.9.2016</div>
-                        <div class="col-33 util-content medium txt-green">20.10.2016</div>
-                      </div>
-                    </div>
-
-                    <!-- <p class="header">Amount of work</p> -->
-                    <!-- <div class="item-note buttons-right button-div">
-                        <button class="button button-icon ion-ios-camera"></button>
-                        <button class="button button-icon ion-custom-comment" ng-click=" openComment(); "></button>
-                        <label class="toggle">
-                            <input type="checkbox" ng-checked=true>
-                            <div class="track">
-                                <div class="handle"></div>
-                            </div>
-                       </label>
-                        <button class="button button-icon ion-android-more-vertical more" ng-click="openMilestoneEdit();"></button>
-                    </div> -->
-                    <!-- <p class="content">40%</p> -->
-                    <!-- <div class="header clearfix">
-                        Item details
-                    </div> -->
-                    <!-- <div class="content">
-                        <div class="item-note balanced">
-                            <i class="ion ion-custom-clock"></i> 22 Sep '16
-                        </div>
-                        <p>Purchase of 200 books</p>
-                    </div> -->
-                </div>
+          <div class="util-row timeline-sec">
+            <div class="row pd0">
+              <div class="col-33 util-header">
+                <p>Amount of work</p>
+              </div>
+              <div class="col-33 util-header text-center">
+                <p>Due date</p>
+              </div>
+              <div class="col-33 util-header">
+                <p>Completion date</p>
+              </div>
             </div>
-            <div class="card what-use">
-                <div class="padding-horizontal mile-card">
-                  <div class="header clearfix">
-                      Item details
-  <button class="button button-icon ion-ios-infinite btnshare"></button>
-                  </div>
-
-                    <p class="display-inline">Preparing RFQ and evaluation</p>
-                    <div class="item-note buttons-right button-div">
-                        <button class="button button-icon ion-ios-camera"></button>
-                        <button class="button button-icon ion-custom-comment" ng-click=" openComment(); "></button>
-                        <label class="toggle">
-                            <input type="checkbox" ng-checked=true>
-                            <div class="track">
-                                <div class="handle"></div>
-                            </div>
-                       </label>
-                        <button class="button button-icon ion-android-more-vertical more" ng-click="openMilestoneEdit();"></button>
-                    </div>
-
-                    <div class="util-row timeline-sec">
-                      <div class="row pd0">
-                        <div class="col-33 util-header"><p>Amount of work</p></div>
-                        <div class="col-33 util-header text-center"><p>Due date</p></div>
-                        <div class="col-33 util-header"><p>Completion date</p></div>
-                      </div>
-                      <div class="row pd0 util-cont">
-                        <div class="col-33 util-content medium">40%</div>
-                        <div class="col-33 util-content medium text-center">30.9.2016</div>
-                        <div class="col-33 util-content medium txt-green">20.10.2016</div>
-                      </div>
-                    </div>
-
-                    <!-- <p class="header">Amount of work</p> -->
-                    <!-- <div class="item-note buttons-right button-div">
-                        <button class="button button-icon ion-ios-camera"></button>
-                        <button class="button button-icon ion-custom-comment" ng-click=" openComment(); "></button>
-                        <label class="toggle">
-                            <input type="checkbox" ng-checked=true>
-                            <div class="track">
-                                <div class="handle"></div>
-                            </div>
-                       </label>
-                        <button class="button button-icon ion-android-more-vertical more" ng-click="openMilestoneEdit();"></button>
-                    </div> -->
-                    <!-- <p class="content">40%</p> -->
-                    <!-- <div class="header clearfix">
-                        Item details
-                    </div> -->
-                    <!-- <div class="content">
-                        <div class="item-note balanced">
-                            <i class="ion ion-custom-clock"></i> 22 Sep '16
-                        </div>
-                        <p>Purchase of 200 books</p>
-                    </div> -->
-                </div>
+            <div class="row pd0 util-cont">
+              <div class="col-33 util-content medium">40%</div>
+              <div class="col-33 util-content medium text-center">30.9.2016</div>
+              <div class="col-33 util-content medium txt-green">20.10.2016</div>
             </div>
-            <div class="card unallocate">
-                <div class="padding-horizontal mile-card text-center">
-                  <p>UNALLOCATED MILESTONES</p>
-                  <span class="medium">40%</p>
+          </div>
+        </div>
+      </div>
+      <div class="card what-use">
+        <div class="padding-horizontal mile-card">
+          <div class="header clearfix">
+            Item details
+            <button class="button button-icon ion-ios-infinite btnshare"></button>
+          </div>
+
+          <p class="display-inline">Repair of existing library room / Civil work</p>
+          <div class="item-note buttons-right button-div light-grey">
+            <button class="button button-icon ion-ios-camera light-grey"></button>
+            <button class="button button-icon ion-custom-comment light-grey" ng-click=" openComment(); "></button>
+            <label class="toggle toggle-assertive toggle-custom-mile">
+                            <input type="checkbox" ng-checked=true>
+                            <div class="track">
+                                <div class="handle"></div>
+                            </div>
+                       </label>
+            <button class="button button-icon ion-android-more-vertical more" ng-click="openMilestoneEdit();"></button>
+          </div>
+
+          <div class="util-row timeline-sec">
+            <div class="row pd0">
+              <div class="col-33 util-header">
+                <p>Amount of work</p>
+              </div>
+              <div class="col-33 util-header text-center">
+                <p class="mg0">Due date</p>
+              </div>
+              <div class="col-33 util-header">
+                <p>Completion date</p>
+              </div>
+            </div>
+            <div class="row pd0 util-cont">
+              <div class="col-33 util-content medium">40%</div>
+              <div class="col-33 util-content medium text-center">30.9.2016</div>
+              <div class="col-33 util-content medium txt-green"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card unallocate">
+        <div class="padding-horizontal mile-card text-center">
+          <p>UNALLOCATED MILESTONES</p>
+          <span class="medium">20%</p>
                 </div>
             </div>
         </div>

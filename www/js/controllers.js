@@ -46,18 +46,18 @@ angular.module('starter.controllers', ["chart.js"])
   $scope.data = [75, 20, 15];
 
 
-  $scope.colors1 = ["#55c45f", "#d8dcde"];
-   $scope.override1 = { borderColor: ['#55c45f', '#d8dcde'] };
+  $scope.colors1 = ["#88c057", "#d8dcde"];
+   $scope.override1 = { borderColor: ['#88c057', '#d8dcde'] };
   $scope.labels1 = ["40%", ""];
   $scope.data1 = [50, 50];
 
-  $scope.colors2 = ["#55c45f", "#d8dcde"];
-     $scope.override2 = { borderColor: ['#55c45f', '#d8dcde'] };
+  $scope.colors2 = ["#88c057", "#d8dcde"];
+     $scope.override2 = { borderColor: ['#88c057', '#d8dcde'] };
   $scope.labels2 = ["40%", ""];
   $scope.data2 = [50, 50];
 
-  $scope.colors3 = ["#55c45f", "#d8dcde"];
-     $scope.override3 = { borderColor: ['#55c45f', '#d8dcde'] };
+  $scope.colors3 = ["#88c057", "#d8dcde"];
+     $scope.override3 = { borderColor: ['#88c057', '#d8dcde'] };
   $scope.labels3 = ["40%", ""];
   $scope.data3 = [50, 50];
       $scope.funds = {
@@ -99,8 +99,8 @@ fundRecieved:' 40,00,000',
 })
 
 .controller('ProjectCtrl', function ($scope, $stateParams) {
-  $scope.colors = ["#55c45f", "#d8dcde"];
-     $scope.override = { borderColor: ['#55c45f', '#d8dcde'] };
+  $scope.colors = ["#88c057", "#d8dcde"];
+     $scope.override = { borderColor: ['#88c057', '#d8dcde'] };
   $scope.labels = ["40% Work Completed", ""];
   $scope.data = [40, 60];
     $scope.funds = {
@@ -151,7 +151,7 @@ fundRecieved:' 40,00,000',
     min: 0,
     max: 100,
     value: 0
-  }
+  };
   $ionicModal.fromTemplateUrl('templates/modal/milestone-edit.html', {
     scope: $scope,
     animation: 'slide-in-up'
@@ -195,6 +195,19 @@ fundRecieved:' 40,00,000',
   $scope.complete = {
     value: 50
   };
+  $ionicModal.fromTemplateUrl('templates/modal/comment.html', {
+    scope: $scope,
+    animation: 'slide-in-up'
+  }).then(function (modal) {
+    $scope.modal = modal;
+  });
+  $scope.openComment = function () {
+    $scope.modal.show();
+  };
+  $scope.closeComment = function () {
+    $scope.modal.hide();
+  };
+
 })
 
 .controller('ProjectPhotosCtrl', function ($scope, $stateParams) {});

@@ -4,10 +4,16 @@
       border-radius: 5px;
       width: 44px;
       height: 30px;
-      background-color: #fff;
+      background-color: $energized;
       box-shadow: none;
       border: 1px solid #ddd;
     }
+
+    &.toggle-energized input:checked + .track {
+      border-color: #ddd;
+      background-color: #ddd;
+    }
+
     .handle {
       width: 25px;
       height: 25px;
@@ -15,6 +21,7 @@
       top: 7px;
       left: 8px;
     }
+
     .icon-lock {
       &:after {
         content: url('../img/lock-icon.png');
@@ -29,7 +36,8 @@
 }
 
 .top-card {
-  margin: 0px;
+  margin: 0;
+
   .item {
     padding: 8px 10px;
   }
@@ -38,19 +46,23 @@
 .overview-mid {
   background-color: #f0f5f7;
   padding: 0;
+
   .col-66 {
     border-right: 1px solid $stable;
   }
+
   .col-33 {
     .top {
       border-bottom: 1px solid $stable;
     }
   }
+
   .f12 {
     font-size: 12px;
   }
+
   p {
-    color: #546a79;
+    color: $dark-grey;
   }
 }
 
@@ -67,40 +79,47 @@
 .fund-date {
   p {
     text-transform: uppercase;
-    color: #546a79;
+    color: $dark-grey;
   }
+
   label {
-    color: #546a79;
+    color: $dark-grey;
   }
+
   .grey {
     color: #c3cace;
   }
+
   .light-grey {
     color: #eeeeee;
   }
 }
 
 .mile-card {
-  margin: 5px 0px 10px 0px;
+  margin: 5px 0 10px;
+
   .button-div {
     button {
-      padding: 0px;
+      padding: 0;
       vertical-align: sub;
-      font-size: 28px;
+      font-size: 25px;
       color: #525252;
       line-height: 1;
       min-height: auto;
     }
+
     .more {
       color: #c1c1c1;
       margin-left: 12px;
     }
   }
+
   .toggle {
     input:checked+.track .handle {
       -webkit-transform: translate3d(14px, 0, 0);
       transform: translate3d(14px, 0, 0);
     }
+
     .handle {
       width: 12px;
       height: 12px;
@@ -108,19 +127,23 @@
       left: 8px;
     }
   }
+
   p {
     line-height: 25px;
-    margin: 0px;
+    margin: 0;
   }
+
   .header {
-    color: #546a79;
+    color: $dark-grey;
     margin-top: 10px;
     font-size: 16px;
     font-weight: 300;
   }
+
   .details {
     margin-top: 25px;
   }
+
   .content {
     color: #333333;
     font-size: 16px;
@@ -139,18 +162,37 @@
     bottom: 10%;
     left: 7%;
     z-index: 1000;
-    box-shadow: 2px 1px 1px #ddd;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.29);
     padding: 9px 11px;
+
     i {
       font-size: 18px;
-      color: #ddd;
+      color: #c7c8cd;
     }
   }
 }
 
 .util-card {
-  padding: 5px 0px;
+  padding: 5px 0;
   margin: 10px;
+
+  .tabs-util {
+      padding: 10px 0 0;
+    display: block;
+
+    li {
+      display: inline-block;
+      width: 32.65%;
+      position: relative;
+      padding: 8px 0 0;
+      color: #bcbcbc;
+      font-weight: 500;
+      &.active-made{
+        color: #3366ff;
+        border-bottom: 3px solid #3366ff;
+      }
+    }
+  }
 }
 
 .top-util {
@@ -158,18 +200,37 @@
 }
 
 .util-header {
-  color: #546a79;
+  color: $dark-grey;
   font-weight: 300;
+  position: relative;
+}
+.badge-one{
+  width: 12px;
+  height: 12px;
+  background: #ff0000;
+  border-radius: 50%;
+  display: block;
+  font-size: 9px;
+  color: #fff;
+  padding: 0;
+  font-weight: 700;
+  position: absolute;
+  top: 1px;
+  right: 7px;
+  line-height: 1.4;
+}
+.pr0 {
+  padding-right: 0;
 }
 
 .util-content {
   color: #333333;
-      line-height: 120%;  
+  line-height: 120%;
 }
 
 .util-add {
   color: #333333;
-  padding: 0px;
+  padding: 0;
 }
 
 .p5 {
@@ -182,29 +243,32 @@ button.button.button-icon.util-camera {
 }
 
 .util-more {
-  min-height: 0px;
+  min-height: 0;
   line-height: 14px;
   font-size: 20px;
 }
 
 .util-row {
-  margin-top: 5px!important;
+  margin-top: 5px !important;
 }
 
 .util-camera {
-  min-height: 0px;
+  min-height: 0;
   line-height: 14px;
 }
 
 .progress-div {
-  margin: 10px;
+  margin: 15px 10px 10px;
+
   img {
     margin-top: 5px;
     width: 100%;
   }
+
   label {
     color: #333333;
   }
+
   .rupee {
     float: right;
   }
@@ -214,6 +278,7 @@ button.button.button-icon.util-camera {
   position: relative;
   width: 70%;
   margin: 0 auto;
+
   h5 {
     position: absolute;
     top: 50%;
@@ -222,10 +287,24 @@ button.button.button-icon.util-camera {
     margin: 0;
     text-align: center;
   }
+
   &.overview-chat {
     width: 60%;
   }
+
   &.institute-chart {
     width: 100%;
+  }
+}
+
+.toggle-custom-mile.toggle {
+  .track {
+    border-color: $assertive;
+    background-color: $assertive;
+  }
+
+  &.toggle-assertive input:checked + .track {
+    border-color: #cccccc;
+    background-color: #cccccc;
   }
 }

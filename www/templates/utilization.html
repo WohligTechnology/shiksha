@@ -38,36 +38,57 @@
           <div class="top-util">
             <div class="row ">
               <div class="col util-header pdb0">Item</div>
-          </div>
+            </div>
             <div class="row">
               <div class="col util-content bold">Purchase of 200 books</div>
-      </div>
+            </div>
             <!-- <div class="util-row"> -->
             <div class="row">
               <div class="col-50 util-header pd5">Total Value</div>
-              <div class="col-50 util-header pd5">Amount of Work</div>
+              <div class="col-50 util-header pd5">Amount of Work <i class="badge badge-one">1</i></div>
             </div>
             <div class="row">
               <div class="col-50 util-content bold pd5">₹ 10,00,000</div>
-              <div class="col-50 util-content bold pd5">40%</div>
+              <div class="col-50 util-content bold pd5">
+                <div class="item-note">
+                  <button class="button button-icon ion-camera util-camera pr0"></button>
+                </div>
+                <p>
+                  40%
+                </p>
+              </div>
             </div>
             <div class="row">
               <div class="col-50 util-header pd5">Vendor</div>
-              <div class="col-50 util-header pd5">Due Date</div>
+              <div class="col-50 util-header pd5">
+                <div class="item-note">
+                  <button class="button button-icon button button-icon ion-custom-comment util-camera pr0" ng-click=" openComment();"></button>
+                </div>
+                <p class="mg0">Due Date</p>
+              </div>
             </div>
             <div class="row">
               <div class="col-50 util-content bold pd5">Alpha Contractores Private.LTD,Mumbai</div>
               <div class="col-50 util-content bold pd5">15.10.2016</div>
             </div>
           </div>
-          <div class="">
+          <ul class="tabs-util">
+              <li class="uppercase text-center active-made">
+                  Payments
+              </li>
+              <li class="uppercase text-center">
+                  Milestones <i class="badge badge-one">1</i>
+              </li>
+              <li class="uppercase text-center">
+                  Notes
+              </li>
+          </ul>
+          <div class="row-main-util">
             <div class="row util-row">
               <div class="col-33 util-header">Payment Date</div>
-              <div class="col-33 util-header">Value released</div>
+              <div class="col-33 util-header">Value Released</div>
               <div class="col-33 util-header">
-                <div class="">
-                  Description
-                </div>
+                Description
               </div>
             </div>
             <div class="row util-row">
@@ -87,113 +108,15 @@
               <div class="col-33 util-content bold">₹ 5,00,000</div>
               <div class="col-33">
                 <div class="item-note">
-                  <button class="button button-icon ion-camera util-camera"></button>
+                  <button class="button button-icon ion-camera util-camera stable"></button>
                 </div>
                 <div class="util-content bold">
                   Final Payment
                 </div>
               </div>
             </div>
-            <div class="tabs">
-      <a class="tab-item">
-        Home
-      </a>
-      <a class="tab-item">
-        Favorites
-      </a>
-      <a class="tab-item">
-        Settings
-      </a>
-    </div>
           </div>
-          <!-- <div class="util-row">
-            <div class="row">
-              <div class="col-33 util-header">Payment Date</div>
-              <div class="col-33 util-header">Value released</div>
-              <div class="col-33 util-header">
-                <div class="">
-                  Description
-                </div>
-              </div>
-            </div>
-            <div class="row">
-              <div class="col-33 util-content bold">22.09.2016</div>
-              <div class="col-33 util-content bold">₹ 10,00,000</div>
-              <div class="col-33 util-content">
-                <div class="item-note">
-                  <button class="button button-icon ion-camera util-camera util-camera"></button>
-                </div>
-                <div class="bold">
-                  Final Payment
-                </div>
-              </div>
-            </div>
-          </div> -->
         </div>
-        <!-- <div class="card util-card padding">
-          <div class="top-util">
-            <div class="row ">
-              <div class="col-50 util-header">Item</div>
-              <div class="col-50 util-header">
-                <div class="item-note">
-                  <button class="button button-icon ion-android-more-vertical util-more" ng-click="openUtilizationEdit()"></button>
-                </div>
-                <div class="util-header">
-                  Total Value
-                </div>
-              </div>
-            </div>
-            <div class="row">
-              <div class="col-50 util-content bold">Repair/ Civil work</div>
-              <div class="col-50 util-content bold">
-                ₹ 10,00,000
-              </div>
-            </div>
-            <div class="row util-row">
-              <div class="col-50 util-header">Vender</div>
-            </div>
-            <div class="row">
-              <div class="col util-add bold">Alpha Contractors Pvt. Ltd., Mumbai</div>
-                 <button class="button button-icon ion-trash-a util-more assertive"></button>
-            </div>
-          </div>
-          <div class="">
-            <div class="row util-row">
-              <div class="col-33 util-header">Payment Date</div>
-              <div class="col-33 util-header">Value released</div>
-              <div class="col-33 util-header">
-                <div class="">
-                  Description
-                </div>
-              </div>
-            </div>
-            <div class="row util-row">
-              <div class="col-33 util-content bold">12.06.2016</div>
-              <div class="col-33 util-content bold">₹ 5,00,000</div>
-              <div class="col-33">
-                <div class="item-note">
-                  <button class="button button-icon ion-camera util-camera"></button>
-                </div>
-                <div class="util-content bold">
-                  Advance Payment
-                </div>
-              </div>
-            </div>
-            <div class="row util-row">
-              <div class="col-33 util-content bold">08.08.2016</div>
-              <div class="col-33 util-content bold">₹ 5,00,000</div>
-              <div class="col-33">
-                <div class="item-note">
-                  <button class="button button-icon ion-camera util-camera"></button>
-                </div>
-                <div class="util-content bold">
-                  Final Payment
-                </div>
-              </div>
-            </div>
-          </div>
-        </div> -->
-
       </div>
     </div>
   </ion-content>
@@ -205,23 +128,23 @@
   <ion-footer>
     <button class="button button-icon ion-plus-round"></button>
     <div class="tabs-custom">
-         <div class="tabs tabs-icon-top">
-                <a class="tab-item" ui-sref="app.project">
-                    <i class="ion ion-ios-timer"></i> Overview
-                </a>
-                <a class="tab-item" ui-sref="app.fundFlow">
-                    <i class="ion ion-shuffle"></i> Fund Flow
-                </a>
-                <a class="tab-item" ui-sref="app.milestones">
-                    <i class="ion ion-calendar"></i> Milestones
-                </a>
-                <a class="tab-item calm" ui-sref="app.utilization">
-                    <i class="ion ion-bag"></i> Utilization
-                </a>
-                <a class="tab-item" ui-sref="app.projectPhotos">
-                    <i class="ion  ion-android-camera"></i> Photos
-                </a>
-            </div>
+      <div class="tabs tabs-icon-top">
+        <a class="tab-item" ui-sref="app.project">
+          <i class="ion ion-ios-timer"></i> Overview
+        </a>
+        <a class="tab-item" ui-sref="app.fundFlow">
+          <i class="ion ion-shuffle"></i> Fund Flow
+        </a>
+        <a class="tab-item" ui-sref="app.milestones">
+          <i class="ion ion-calendar"></i> Milestones
+        </a>
+        <a class="tab-item calm" ui-sref="app.utilization">
+          <i class="ion ion-bag"></i> Utilization
+        </a>
+        <a class="tab-item" ui-sref="app.projectPhotos">
+          <i class="ion  ion-android-camera"></i> Photos
+        </a>
+      </div>
     </div>
   </ion-footer>
 </ion-view>
