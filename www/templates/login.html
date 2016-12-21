@@ -3,21 +3,23 @@
     <h2 class="text-center rusa-title bold">RUSA</h2>
     <h5 class="text-center fund bold">FUND TRACKER</h5>
     <h4 class="text-center sign-in">SIGN IN</h4>
-    <div class="list login-form">
-      <label class="item item-input login border-login">
-        <span class="input-label login-text" >Username:</span>
-        <input type="text" class="input-text">
-      </label>
-      <label class="item item-input login">
-        <span class="input-label login-text">Password:</span>
-        <input type="password" class="input-text">
-      </label>
-    </div>
-    <div class="text-center">
-      <button class="button button-stable text-center login-button " ui-sref="app.home">
-        Login
-      </button>
-    </div>
-    <h5 class="text-center forget">Forgot password?</h5>
+    <form action="">
+      <div class="list login-form">
+        <label class="item item-input login border-login">
+          <span class="input-label login-text" >Username:</span>
+          <input type="text" class="input-text">
+        </label>
+        <label class="item item-input login">
+          <span class="input-label login-text">Password:</span>
+          <input type="password" class="input-text">
+        </label>
+      </div>
+      <div class="text-center">
+        <button class="button button-stable text-center login-button " ui-sref="app.home">
+          Login
+        </button>
+      </div>
+    </form>
+    <h5 class="text-center forget" ui-serf="forgot">Forgot password?</h5>
   </ion-content>
 </ion-view>

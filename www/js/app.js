@@ -55,10 +55,10 @@ angular.module('starter', ['ionic', 'starter.controllers'])
       'menuContent': {
         templateUrl: 'templates/search.html',
         controller: 'SearchCtrl'
-
       }
     }
   })
+
   .state('login', {
     url: '/login',
     templateUrl: 'templates/login.html',
