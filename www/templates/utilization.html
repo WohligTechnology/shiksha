@@ -45,7 +45,7 @@
             <!-- <div class="util-row"> -->
             <div class="row">
               <div class="col-50 util-header pd5">Total Value</div>
-              <div class="col-50 util-header pd5">Amount of Work <i class="badge badge-one">1</i></div>
+              <div class="col-50 util-header pd5"><span class="for-badge">Amount of Work <i class="badge badge-one">1</i></span></div>
             </div>
             <div class="row">
               <div class="col-50 util-content bold pd5">₹ 10,00,000</div>
@@ -72,48 +72,138 @@
               <div class="col-50 util-content bold pd5">15.10.2016</div>
             </div>
           </div>
-          <ul class="tabs-util">
-              <li class="uppercase text-center active-made">
-                  Payments
-              </li>
-              <li class="uppercase text-center">
-                  Milestones <i class="badge badge-one">1</i>
-              </li>
-              <li class="uppercase text-center">
-                  Notes
-              </li>
-          </ul>
-          <div class="row-main-util">
-            <div class="row util-row">
-              <div class="col-33 util-header">Payment Date</div>
-              <div class="col-33 util-header">Value Released</div>
-              <div class="col-33 util-header">
-                Description
+          <div class="tab-custom" ng-init="tab=1">
+            <ul class="tabs-util">
+                <li class="uppercase text-center" ng-click="tab = 1" ng-class="{active:tab == 1}">
+                    Payments
+                </li>
+                <li class="uppercase text-center" ng-click="tab = 2" ng-class="{active:tab == 2}">
+                    <span class="for-badge bold">
+                      Milestones <i class="badge badge-one">1</i>
+                    </span>
+                </li>
+                <li class="uppercase text-center" ng-click="tab = 3" ng-class="{active:tab == 3}">
+                    Notes
+                </li>
+            </ul>
+            <div ng-show="tab == 1">
+              <div class="row-main-util">
+                <div class="row util-row">
+                  <div class="col-33 util-header">Payment Date</div>
+                  <div class="col-33 util-header">Value Released</div>
+                  <div class="col-33 util-header">
+                    Description
+                  </div>
+                </div>
+                <div class="row util-row">
+                  <div class="col-33 util-content bold">12.06.2016</div>
+                  <div class="col-33 util-content bold">₹ 5,00,000</div>
+                  <div class="col-33">
+                    <div class="item-note">
+                      <button class="button button-icon ion-camera util-camera"></button>
+                    </div>
+                    <div class="util-content bold">
+                      Advance Payment
+                    </div>
+                  </div>
+                </div>
+                <div class="row util-row">
+                  <div class="col-33 util-content bold">08.08.2016</div>
+                  <div class="col-33 util-content bold">₹ 5,00,000</div>
+                  <div class="col-33">
+                    <div class="item-note">
+                      <button class="button button-icon ion-camera util-camera stable"></button>
+                    </div>
+                    <div class="util-content bold">
+                      Final Payment
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
-            <div class="row util-row">
-              <div class="col-33 util-content bold">12.06.2016</div>
-              <div class="col-33 util-content bold">₹ 5,00,000</div>
-              <div class="col-33">
-                <div class="item-note">
-                  <button class="button button-icon ion-camera util-camera"></button>
+            <div ng-show="tab == 2">
+              <div class="row-main-util">
+                <div class="row util-row">
+                  <div class="col-33 util-header">%Work</div>
+                  <div class="col-33 util-header">Item Description</div>
+                  <div class="col-33 util-header">
+                    Due Date
+                  </div>
                 </div>
-                <div class="util-content bold">
-                  Advance Payment
+                <div class="row util-row">
+                  <div class="col-33 util-content">50%</div>
+                  <div class="col-33 util-content">Clean-up of all areas</div>
+                  <div class="col-33">
+                    <div class="item-note custom-toggle-utili">
+                      <label class="toggle toggle-assertive toggle-custom-mile">
+                                      <input type="checkbox" ng-checked=true>
+                                      <div class="track">
+                                          <div class="handle"></div>
+                                      </div>
+                                 </label>
+                    </div>
+                    <div class="util-content">
+                      10.08.2016
+                    </div>
+                  </div>
+                </div>
+                <div class="row util-row">
+                  <div class="col-33 util-content">50%</div>
+                  <div class="col-33 util-content">Clean-up of all areas</div>
+                  <div class="col-33">
+                    <div class="item-note custom-toggle-utili">
+                      <label class="toggle toggle-assertive toggle-custom-mile">
+                                      <input type="checkbox" ng-checked=true>
+                                      <div class="track">
+                                          <div class="handle"></div>
+                                      </div>
+                                 </label>
+                    </div>
+                    <div class="util-content">
+                      10.08.2016
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+            <div ng-show="tab == 3">
+              <div class="row-main-util">
+                <div class="row util-row">
+                  <div class="col-33 util-header">Payment Date</div>
+                  <div class="col-33 util-header">Value Released</div>
+                  <div class="col-33 util-header">
+                    Description
+                  </div>
+                </div>
+                <div class="row util-row">
+                  <div class="col-33 util-content bold">12.06.2016</div>
+                  <div class="col-33 util-content bold">₹ 5,00,000</div>
+                  <div class="col-33">
+                    <div class="item-note">
+                      <button class="button button-icon ion-camera util-camera"></button>
+                    </div>
+                    <div class="util-content bold">
+                      Advance Payment
+                    </div>
+                  </div>
+                </div>
+                <div class="row util-row">
+                  <div class="col-33 util-content bold">08.08.2016</div>
+                  <div class="col-33 util-content bold">₹ 5,00,000</div>
+                  <div class="col-33">
+                    <div class="item-note">
+                      <button class="button button-icon ion-camera util-camera stable"></button>
+                    </div>
+                    <div class="util-content bold">
+                      Final Payment
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
-            <div class="row util-row">
-              <div class="col-33 util-content bold">08.08.2016</div>
-              <div class="col-33 util-content bold">₹ 5,00,000</div>
-              <div class="col-33">
-                <div class="item-note">
-                  <button class="button button-icon ion-camera util-camera stable"></button>
-                </div>
-                <div class="util-content bold">
-                  Final Payment
-                </div>
-              </div>
+            <div class="padding-horizontal">
+              <button class="button button-icon ion-chevron-up item-note btn-down btn-custom-icon"></button>
             </div>
           </div>
         </div>
@@ -121,7 +211,8 @@
     </div>
   </ion-content>
   <div class="float-button">
-    <a class="content" ng-click="openUtilizationAdd()">
+    <!-- <a class="content" ng-click="openUtilizationAdd()"> -->
+    <a class="content" ng-click="openUtilizationEdit()">
       <i class="ion ion-plus"> </i>
     </a>
   </div>
