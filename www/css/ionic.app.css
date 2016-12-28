@@ -10247,7 +10247,7 @@ button.button.button-icon.button-clear.settings-btn:before {
   height: 20px;
   width: 20px;
   display: block;
-  content: url("../img/ecommerce.png"); }
+  content: url("../img/wallet.png"); }
 
 .btn-custom-active {
   background-color: #fff;
@@ -11057,3 +11057,11 @@ button.button.button-icon.util-camera {
   width: 11px;
   height: 11px;
   top: 6px; }
+
+.mark-as {
+  padding: 10px !important; }
+  .mark-as img {
+    height: 32px;
+    width: 30px;
+    margin-right: 12px;
+    vertical-align: middle; }

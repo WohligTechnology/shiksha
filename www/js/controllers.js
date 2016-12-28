@@ -230,4 +230,24 @@ angular.module('starter.controllers', ["chart.js"])
   };
 })
 
-.controller('ProjectPhotosCtrl', function($scope, $stateParams) {});
+.controller('ProjectPhotosCtrl', function($scope, $stateParams) {})
+
+.directive('readmores', function($window) {
+return function(scope, element, attrs) {
+var $element = $(element);
+ $element.children(".read-morecont").height(0);
+$element.children(".readmore").click(function() {
+var lastheight = $element.children(".read-morecont").height();
+if (lastheight == 0) {
+var newheight = $element.children(".read-morecont").children(".read-inner").height();
+$element.children(".read-morecont").css("height", "100%");
+                // $element.children(".read-morecont").css("margin-top", "5px");
+                // $element.children(".read-morecont").css("margin-bottom", "5px");
+} else {
+$element.children(".read-morecont").height(0);
+$element.children(".read-morecont").css("margin", "0px");
+                //				$element.children(".read-morecont").css("overflow", "hidden");
+            }
+        });
+    };
+});
