@@ -36,13 +36,14 @@ angular.module('starter.controllers', ["chart.js"])
 })
 
 .controller('InstituteCtrl', function($scope, $stateParams) {
-  // $scope.card = false;
+
   $scope.card = {};
   $scope.cardopen = function(index, flag) {
     console.log("hi");
     $scope.card[index] = flag;
     console.log($scope.card);
   };
+
   $scope.showtab = true;
   $scope.colors = ['#4b64ff', '#91a4af', '#d8dcde'];
   $scope.override = {
@@ -230,24 +231,4 @@ angular.module('starter.controllers', ["chart.js"])
   };
 })
 
-.controller('ProjectPhotosCtrl', function($scope, $stateParams) {})
-
-.directive('readmores', function($window) {
-return function(scope, element, attrs) {
-var $element = $(element);
- $element.children(".read-morecont").height(0);
-$element.children(".readmore").click(function() {
-var lastheight = $element.children(".read-morecont").height();
-if (lastheight == 0) {
-var newheight = $element.children(".read-morecont").children(".read-inner").height();
-$element.children(".read-morecont").css("height", "100%");
-                // $element.children(".read-morecont").css("margin-top", "5px");
-                // $element.children(".read-morecont").css("margin-bottom", "5px");
-} else {
-$element.children(".read-morecont").height(0);
-$element.children(".read-morecont").css("margin", "0px");
-                //				$element.children(".read-morecont").css("overflow", "hidden");
-            }
-        });
-    };
-});
+.controller('ProjectPhotosCtrl', function($scope, $stateParams) {});
