@@ -10116,12 +10116,12 @@ button.button.button-icon.ion-custom-comment:before {
       color: #c1c1c1;
       font-size: 15px; }
   .top-div .h5-border {
-    border-right: 1px solid #c1c1c1; }
+    border-right: 2px solid #c1c1c1; }
 
 .mid-div {
   background-color: #f0f5f7; }
   .mid-div .total {
-    padding: 20px 10%; }
+    padding: 30px 10%; }
     .mid-div .total i {
       font-size: 20px;
       display: inline-block;
@@ -11065,3 +11065,39 @@ button.button.button-icon.util-camera {
     width: 30px;
     margin-right: 12px;
     vertical-align: middle; }
+
+.filtering .filter {
+  background-color: transparent;
+  color: #006699; }
+  .filtering .filter:hover {
+    color: #006699; }
+
+.filtering .button.activated {
+  border: none;
+  color: #006699;
+  background-color: transparent; }
+
+.no-pad {
+  padding: 0 !important; }
+
+.black {
+  color: #000 !important; }
+
+.filter-options .closure {
+  position: absolute;
+  top: 10px;
+  right: 10px; }
+
+.filter-options .setting-down {
+  text-align: center; }
+
+.filter-options .infra-college {
+  margin: 20px 0; }
+  .filter-options .infra-college .custom-select {
+    width: 100%; }
+    .filter-options .infra-college .custom-select select {
+      width: 100%;
+      height: 34px;
+      padding: 6px 12px;
+      border: none;
+      background-color: transparent; }

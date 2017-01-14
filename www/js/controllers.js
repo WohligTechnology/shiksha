@@ -8,7 +8,28 @@ angular.module('starter.controllers', ["chart.js"])
 .controller('LoginCtrl', function($scope, $stateParams) {})
   .controller('SearchCtrl', function($scope, $stateParams) {})
 
-.controller('HomeCtrl', function($scope, $stateParams) {
+.controller('HomeCtrl', function($scope, $stateParams ,$ionicPopup,$state) {
+
+  $scope.filters = function () {
+    $scope.filter = $ionicPopup.show({
+      templateUrl: 'templates/modal/projectfilter.html',
+      scope: $scope,
+
+    });
+  }
+
+  $scope.closePopup = function () {
+      $scope.filter.close();
+    }
+$scope.onsubmit =function(){
+  $state.go('app.state');
+    $scope.closePopup();
+
+}
+
+ $scope.institution = [
+    'Institue of Chemical Technology', 'Mahatma Phule Krishi Vidyapeeth', 'Shivaji University', 'Solapur University', 'Tata Institue of Social Sciences', 'Tilal Maharastra University', 'University of Mumbai', 'Savitribai Phule Pune University'
+  ];
   $scope.states = [
     'Andhra Pradesh', 'Arunachal Pradesh', 'Assam', 'Bihar', 'Chhattisgarh', 'Goa', 'Gujarat'
   ];
@@ -21,6 +42,72 @@ angular.module('starter.controllers', ["chart.js"])
   };
   $scope.labels = ["75% Fund Utilization", "", ""];
   $scope.data = [75, 20, 15];
+
+    $scope.card = {};
+  $scope.cardopen = function(index, flag) {
+    console.log("hi");
+    $scope.card[index] = flag;
+    console.log($scope.card);
+  };
+
+  $scope.showtab = true;
+  $scope.colors = ['#4b64ff', '#91a4af', '#d8dcde'];
+  $scope.override = {
+    borderColor: ['#4b64ff', '#91a4af', '#d8dcde']
+  };
+
+  $scope.labels = ["75% Fund Utilization", "", ""];
+  $scope.data = [75, 20, 15];
+
+  $scope.options1 = {
+    segmentShowStroke: false
+  };
+  $scope.colors1 = ['#003366', '#f5f5f5', '#0099cb'];
+  $scope.override1 = {
+    borderColor: ['#003366', '#f5f5f5', '#0099cb']
+  };
+  $scope.labels1 = ["", "", ""];
+  $scope.data1 = [30, 55, 15];
+  $scope.options = {
+    segmentShowStroke: false
+  };
+  $scope.funds = {
+    utilized: 50,
+    received: 40,
+  };
+  $scope.fundInstitutes = [{
+    pab: 'PAB 8',
+    utilized: '50',
+    received: '40',
+    classStatus: 'bg-sky-blue',
+    status: 'Active',
+    grant: '75,00,000',
+    name: 'Sports facilities',
+    classcommerce: 'ecommerce-green',
+    fundRecieved: ' 40,00,000',
+
+  }, {
+    pab: 'PAB7',
+    utilized: '50',
+    received: '40',
+    status: 'On-hold',
+    classStatus: 'bg-yellow',
+    grant: '75,00,000',
+    classcommerce: 'ecommerce-green',
+    name: 'Sports facilities',
+    fundRecieved: ' 40,00,000',
+  }, {
+    pab: 'PAB7',
+    utilized: '50',
+    received: '40',
+    status: 'Completed',
+    date: '15.06.2016',
+    classStatus: 'bg-greylight',
+    classcommerce: 'ecommerce-orange',
+    grant: '45,00,000',
+    name: 'Contruction of boys hostel',
+    fundRecieved: ' 40,00,000',
+  } ];
 })
 
 .controller('StateCtrl', function($scope, $stateParams) {
