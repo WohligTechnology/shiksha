@@ -1,6 +1,6 @@
 <ion-view view-title="Milestones">
-  <ion-content class="bg-light-blue">
-    <div class="pb110">
+  <ion-content class="bg-light-blue mb60">
+    <div class="">
       <div class="card top-card">
         <div class="item item-text-wrap">
           <span class="item-note custom-radio">
@@ -118,6 +118,221 @@
                 </div>
             </div>
         </div>
+          <div class="">
+            <!-- <div class="card top-card">
+              <div class="item item-text-wrap">
+                <span class="item-note custom-radio">
+                      <label class=" item-toggle">
+                      <label class="toggle toggle-energized">
+                          <input type="checkbox">
+                          <div class="track">
+                          <div class="handle icon-lock"></div>
+                          </div>
+                      </label>
+                      </label>
+                  </span>
+                <div class="">
+                  <div class="medium f16">Infrastructure Grant</div>
+                  <div class="">
+                    <label for="" class="dark">Upgradation of library</label>
+                  </div>
+                </div>
+              </div>
+            </div> -->
+            <div class="progress-div">
+              <div class="">
+                <label for="" class="bold">Total payment/Fund Utilization</label>
+                <label for="" class="rupee bold">₹ 20,00,000</label>
+              </div>
+              <div class="custom-slide-miles utilization-margn">
+                <div class="complete"></div>
+                <div class="begin-complete" style="width:{{complete.value}}%"></div>
+                <div class="mark-make" style="left: calc({{complete.value}}% - 20px);">{{complete.value}}%</div>
+                <!--<img src="img/progressbar.png" alt="" />-->
+              </div>
+            </div>
+            <div class="">
+              <div class="card util-card padding">
+                <div class="">
+                  <div class="row ">
+                    <div class="col util-header pdb0">Item</div>
+                  </div>
+                  <div class="row">
+                    <div class="col util-content bold">Purchase of 200 books</div>
+                  </div>
+                  <!-- <div class="util-row"> -->
+                  <div class="row">
+                    <div class="col-50 util-header pd5">Total Value</div>
+                    <div class="col-50 util-header pd5"><span class="for-badge">Amount of Work <i class="badge badge-one">1</i></span></div>
+                  </div>
+                  <div class="row">
+                    <div class="col-50 util-content bold pd5">₹ 10,00,000</div>
+                    <div class="col-50 util-content bold pd5">
+                      <div class="item-note">
+                        <button class="button button-icon ion-camera util-camera pr0"></button>
+                      </div>
+                      <p>
+                        40%
+                      </p>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-50 util-header pd5">Vendor</div>
+                    <div class="col-50 util-header pd5">
+                      <div class="item-note">
+                        <button class="button button-icon button button-icon ion-custom-comment util-camera pr0" ng-click=" openComment();"></button>
+                      </div>
+                      <p class="mg0">Due Date</p>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-50 util-content bold pd5">Alpha Contractores Private.LTD,Mumbai</div>
+                    <div class="col-50 util-content bold pd5">15.10.2016</div>
+                  </div>
+                </div>
+                <div class="tab-custom tab-border" ng-init="tab=1" ng-if="payment">
+                  <ul class="tabs-util">
+                      <li class="uppercase text-center" ng-click="tab = 1" ng-class="{active:tab == 1}">
+                          Payments
+                      </li>
+                      <li class="uppercase text-center" ng-click="tab = 2" ng-class="{active:tab == 2}">
+                          <span class="for-badge bold">
+                            Milestones <i class="badge badge-one">1</i>
+                          </span>
+                      </li>
+                      <li class="uppercase text-center" ng-click="tab = 3" ng-class="{active:tab == 3}">
+                          Notes
+                      </li>
+                  </ul>
+                  <div ng-show="tab == 1">
+                    <div class="row-main-util">
+                      <div class="row util-row">
+                        <div class="col-33 util-header">Payment Date</div>
+                        <div class="col-33 util-header">Value Released</div>
+                        <div class="col-33 util-header">
+                          Description
+                        </div>
+                      </div>
+                      <div class="row util-row">
+                        <div class="col-33 util-content bold">12.06.2016</div>
+                        <div class="col-33 util-content bold">₹ 5,00,000</div>
+                        <div class="col-33">
+                          <div class="item-note">
+                            <button class="button button-icon ion-camera util-camera"></button>
+                          </div>
+                          <div class="util-content bold">
+                            Advance Payment
+                          </div>
+                        </div>
+                      </div>
+                      <div class="row util-row">
+                        <div class="col-33 util-content bold">08.08.2016</div>
+                        <div class="col-33 util-content bold">₹ 5,00,000</div>
+                        <div class="col-33">
+                          <div class="item-note">
+                            <button class="button button-icon ion-camera util-camera stable"></button>
+                          </div>
+                          <div class="util-content bold">
+                            Final Payment
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div ng-show="tab == 2">
+                    <div class="row-main-util">
+                      <div class="row util-row">
+                        <div class="col-33 util-header">%Work</div>
+                        <div class="col-33 util-header">Item Description</div>
+                        <div class="col-33 util-header">
+                          Due Date
+                        </div>
+                      </div>
+                      <div class="row util-row">
+                        <div class="col-33 util-content">50%</div>
+                        <div class="col-33 util-content">Clean-up of all areas</div>
+                        <div class="col-33">
+                          <div class="item-note custom-toggle-utili">
+                            <label class="toggle toggle-assertive toggle-custom-mile">
+                                            <input type="checkbox" ng-checked=true>
+                                            <div class="track">
+                                                <div class="handle"></div>
+                                            </div>
+                                       </label>
+                          </div>
+                          <div class="util-content">
+                            10.08.2016
+                          </div>
+                        </div>
+                      </div>
+                      <div class="row util-row">
+                        <div class="col-33 util-content">50%</div>
+                        <div class="col-33 util-content">Clean-up of all areas</div>
+                        <div class="col-33">
+                          <div class="item-note custom-toggle-utili">
+                            <label class="toggle toggle-assertive toggle-custom-mile">
+                                            <input type="checkbox" ng-checked=true>
+                                            <div class="track">
+                                                <div class="handle"></div>
+                                            </div>
+                                       </label>
+                          </div>
+                          <div class="util-content">
+                            10.08.2016
+                          </div>
+                        </div>
+                      </div>
+
+                    </div>
+                  </div>
+                  <div ng-show="tab == 3">
+                    <div class="row-main-util">
+                      <div class="row util-row">
+                        <div class="col-33 util-header">Payment Date</div>
+                        <div class="col-33 util-header">Value Released</div>
+                        <div class="col-33 util-header">
+                          Description
+                        </div>
+                      </div>
+                      <div class="row util-row">
+                        <div class="col-33 util-content bold">12.06.2016</div>
+                        <div class="col-33 util-content bold">₹ 5,00,000</div>
+                        <div class="col-33">
+                          <div class="item-note">
+                            <button class="button button-icon ion-camera util-camera"></button>
+                          </div>
+                          <div class="util-content bold">
+                            Advance Payment
+                          </div>
+                        </div>
+                      </div>
+                      <div class="row util-row">
+                        <div class="col-33 util-content bold">08.08.2016</div>
+                        <div class="col-33 util-content bold">₹ 5,00,000</div>
+                        <div class="col-33">
+                          <div class="item-note">
+                            <button class="button button-icon ion-camera util-camera stable"></button>
+                          </div>
+                          <div class="util-content bold">
+                            Final Payment
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- <div class="padding-horizontal">
+                    <button class="button button-icon ion-chevron-up item-note btn-down btn-custom-icon"></button>
+                  </div> -->
+                </div>
+                <div class="padding-horizontal">
+                  <button class="button button-icon ion-chevron-up item-note btn-down btn-custom-icon" ng-click="showPayment()" ng-if="!payment"></button>
+                </div>
+                <div class="padding-horizontal">
+                  <button class="button button-icon ion-chevron-down item-note btn-down btn-custom-icon" ng-click="hidePayment()" ng-if="payment"></button>
+                </div>
+              </div>
+            </div>
+          </div>
     </ion-content>
     <div class="float-button" ng-click="openMilestoneAdd();">
         <a class="content ">
@@ -136,9 +351,9 @@
                 <a class="tab-item calm" ui-sref="app.milestones">
                     <i class="ion ion-calendar"></i> Milestones
                 </a>
-                <a class="tab-item" ui-sref="app.utilization">
+                <!-- <a class="tab-item" ui-sref="app.utilization">
                     <i class="ion ion-bag"></i> Utilization
-                </a>
+                </a> -->
                 <a class="tab-item" ui-sref="app.projectPhotos">
                     <i class="ion  ion-android-camera"></i> Photos
                 </a>

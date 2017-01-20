@@ -1,22 +1,45 @@
 angular.module('starter.controllers', ["chart.js"])
 
 
-.controller('AppCtrl', function($scope, $ionicModal, $timeout) {})
-
-.controller('PlaylistCtrl', function($scope, $stateParams) {})
-
-.controller('LoginCtrl', function($scope, $stateParams) {})
-  .controller('SearchCtrl', function($scope, $stateParams) {})
-
-.controller('HomeCtrl', function($scope, $stateParams ,$ionicPopup,$state) {
-
+.controller('AppCtrl', function($scope, $ionicModal, $timeout,$ionicPopup) {
   $scope.filters = function () {
+
     $scope.filter = $ionicPopup.show({
       templateUrl: 'templates/modal/projectfilter.html',
       scope: $scope,
 
     });
   }
+
+  $scope.closePopup = function () {
+      $scope.filter.close();
+    }
+})
+
+.controller('PlaylistCtrl', function($scope, $stateParams) {})
+
+.controller('LoginCtrl', function($scope, $stateParams) {})
+  .controller('SearchCtrl', function($scope, $stateParams) {})
+
+.controller('HomeCtrl', function($scope, $stateParams ,$ionicPopup,$state,$ionicTabsDelegate,$ionicPopover) {
+
+  $scope.filters = function () {
+    if ($ionicTabsDelegate.selectedIndex() == 0){
+// Perform some action
+$scope.filter = $ionicPopup.show({
+  templateUrl: 'templates/modal/projectfilter.html',
+  cssClass: 'filter-pop',
+  scope: $scope
+});
+}else{
+  $scope.filter = $ionicPopup.show({
+    templateUrl: 'templates/modal/projectinside.html',
+    scope: $scope,
+    cssClass: 'filter-pop'
+  });
+}
+};
+
 
   $scope.closePopup = function () {
       $scope.filter.close();
@@ -51,10 +74,10 @@ $scope.onsubmit =function(){
   };
 
   $scope.showtab = true;
-  $scope.colors = ['#4b64ff', '#91a4af', '#d8dcde'];
-  $scope.override = {
-    borderColor: ['#4b64ff', '#91a4af', '#d8dcde']
-  };
+  // $scope.colors = ['#4b64ff', '#91a4af', '#d8dcde'];
+  // $scope.override = {
+  //   borderColor: ['#4b64ff', '#91a4af', '#d8dcde']
+  // };
 
   $scope.labels = ["75% Fund Utilization", "", ""];
   $scope.data = [75, 20, 15];
@@ -62,12 +85,12 @@ $scope.onsubmit =function(){
   $scope.options1 = {
     segmentShowStroke: false
   };
-  $scope.colors1 = ['#003366', '#f5f5f5', '#0099cb'];
-  $scope.override1 = {
-    borderColor: ['#003366', '#f5f5f5', '#0099cb']
-  };
+  // $scope.colors1 = ['#003366', '#f5f5f5', '#0099cb'];
+  // $scope.override1 = {
+  //   borderColor: ['#003366', '#f5f5f5', '#0099cb']
+  // };
   $scope.labels1 = ["", "", ""];
-  $scope.data1 = [30, 55, 15];
+  // $scope.data1 = [30, 55, 15];
   $scope.options = {
     segmentShowStroke: false
   };
@@ -80,8 +103,12 @@ $scope.onsubmit =function(){
     utilized: '50',
     received: '40',
     classStatus: 'bg-sky-blue',
+    funddot: 'bg-sky-blue',
     status: 'Active',
+    data1 : [30, 55, 15],
     grant: '75,00,000',
+    colors1: ["#006699", "#079be4", "#a2d4ec"],
+    borderColor: ["#006699", "#079be4", "#a2d4ec"],
     name: 'Sports facilities',
     classcommerce: 'ecommerce-green',
     fundRecieved: ' 40,00,000',
@@ -93,6 +120,10 @@ $scope.onsubmit =function(){
     status: 'On-hold',
     classStatus: 'bg-yellow',
     grant: '75,00,000',
+    data1 : [50, 35, 15],
+    colors1: ["#977202", "#c3ad6a", "#d8c280"],
+    borderColor:["#977202", "#c3ad6a", "#d8c280"],
+    funddot: 'bg-yellow',
     classcommerce: 'ecommerce-green',
     name: 'Sports facilities',
     fundRecieved: ' 40,00,000',
@@ -103,6 +134,10 @@ $scope.onsubmit =function(){
     status: 'Completed',
     date: '15.06.2016',
     classStatus: 'bg-greylight',
+    funddot: 'bg-greylight',
+    data1 : [40, 45, 15],
+    colors1: ["#6f6f6f", "#908b8b", "#c1b9b9"],
+    borderColor: ['#6f6f6f', '#908b8bf', '#c1b9b9'],
     classcommerce: 'ecommerce-orange',
     grant: '45,00,000',
     name: 'Contruction of boys hostel',
@@ -214,6 +249,25 @@ $scope.onsubmit =function(){
 })
 
 .controller('MilestonesCtrl', function($scope, $stateParams, $ionicModal) {
+  $ionicModal.fromTemplateUrl('templates/modal/comment.html', {
+    scope: $scope,
+    animation: 'slide-in-up'
+  }).then(function(modal) {
+    $scope.modal = modal;
+  });
+  $scope.openComment = function() {
+    $scope.modal.show();
+  };
+  $scope.closeComment = function() {
+    $scope.modal.hide();
+  };
+
+  $scope.showPayment = function () {
+      $scope.payment=true;
+    }
+  $scope.hidePayment = function () {
+    $scope.payment=false;
+    }
   $ionicModal.fromTemplateUrl('templates/modal/comment.html', {
     scope: $scope,
     animation: 'slide-in-up'

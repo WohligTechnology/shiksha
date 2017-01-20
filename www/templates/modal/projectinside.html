@@ -1,0 +1,74 @@
+<!--<ion-modal-view>
+  <ion-header-bar class="bar-positive bar bar-header">
+    <h1 class="title">choose</h1>
+    <div class="buttons">
+      <button class="button button-clear ion-close" ng-click="closePopup();"></button>
+    </div>
+  </ion-header-bar>
+  <ion-content>
+    <div class="list">
+     <h2>hello</h2>
+     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Porro quia placeat harum officiis nostrum pariatur consequatur cumque, vero saepe dolor aliquid repellendus, ut ea dolorem ipsum architecto doloribus ducimus eos.</p>
+  </label>
+    </div>
+  </ion-content>
+</ion-modal-view>-->
+<div class="filter-options animate-if">
+    <div class="ion-close closure" ng-click="closePopup();"></div>
+
+
+        <div class="infra-college">
+    <label class="item item-input ">
+               <div class="custom-select">
+                  <select class="gender" ng-model="filter.state" ng-options="in for in in states">
+                     <option ng-selected="true" value="" disabled>Filter by State</option>
+                     <!--<ng-option ng-repeat="institution in ins track by $index" value="{{ins}}">{{ins}}</option>-->
+                  </select>
+               </div>
+            </label>
+</div>
+<div class="infra-college">
+       <label class="item item-input ">
+               <div class="custom-select">
+                  <select class="gender" ng-model="filter.institute" ng-options="ins for ins in institution">
+                     <option ng-selected="true" value="" disabled>Filter by Institute</option>
+                     <!--<ng-option ng-repeat="institution in ins track by $index" value="{{ins}}">{{ins}}</option>-->
+                  </select>
+               </div>
+            </label>
+ <!--<div class="bar  item-input-inset search-bar">
+   <label class="item-input-wrapper">
+ <input type="search" placeholder="Filter by Institute ">
+ <i class="icon ion-ios-search-strong placeholder-icon"></i>
+</label>
+ </div>-->
+</div>
+<div class="infra-college">
+<label class="item item-input ">
+      <div class="custom-select">
+         <select class="gender" ng-model="" >
+            <option selected="true" value="" disabled>Filter by PAB</option>
+            <option >PAB 7</option>
+            <option >PAB 8</option>
+            <option >PAB 9</option>
+         </select>
+      </div>
+   </label>
+</div>
+<div class="infra-college">
+<label class="item item-input ">
+       <div class="custom-select">
+          <select class="gender" ng-model="filter.state" ng-options="in for in in states">
+             <option ng-selected="true" value="" disabled>Filter by status</option>
+             <select class="" name="">
+
+             </select>
+             <!--<ng-option ng-repeat="institution in ins track by $index" value="{{ins}}">{{ins}}</option>-->
+          </select>
+       </div>
+    </label>
+</div>
+         <div class="setting-down">
+                          <button class="button button-small button-assertive uppercase" ng-click="closePopup();">submit</button>
+                        </div>
+</div>

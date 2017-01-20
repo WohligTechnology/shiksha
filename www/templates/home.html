@@ -1,6 +1,20 @@
 <ion-view view-title="RUSA FUND TRACKER">
-  <div class="bar bar-header bar-light">
-  </div>
+  <ion-nav-bar class="bar-positive">
+    <!--<ion-nav-back-button>
+    </ion-nav-back-button>-->
+    <ion-nav-buttons side="left">
+      <button class="button button-icon button-clear ion-navicon" menu-toggle="left">
+      </button>
+    </ion-nav-buttons>
+    <ion-nav-buttons side="right">
+      <button class="button button-icon button-clear search-btn ion-funnel" ng-click="filters();">
+      </button>
+      <!-- <button class="button button-icon button-clear search-btn ion-android-search" ui-sref="app.search">
+      </button> -->
+      <button class="button button-icon button-clear ion-android-more-vertical settings-btn" ui-sref="app.home">
+      </button>
+    </ion-nav-buttons>
+  </ion-nav-bar>
   <ion-tabs class="tab-button tab-header tabs-top">
     <ion-tab title="OVERVIEW">
       <ion-content class="tabs-content">
@@ -15,9 +29,9 @@
               </div>
             </div>
           </div>
-           <div class="item-note toggle-institute filtering">
+           <!-- <div class="item-note toggle-institute filtering">
               <div class="button icon-left ion-funnel filter" ng-click="filters();">Filter</div>
-            </div>
+            </div> -->
              <!--<div class="clearfix"></div>-->
           <div class="mid-div">
             <div class="total">
@@ -74,23 +88,23 @@
       <ion-content class="tabs-content bg-grey-light">
         <div class="pb50">
           <div class="padding">
-            <div class="item-note toggle-institute filtering">
+            <!-- <div class="item-note toggle-institute filtering">
               <div class="button icon-left ion-funnel filter" ng-click="filters();">Filter</div>
-            </div>
-            
+            </div> -->
+
             <div class="clearfix"></div>
           </div>
           <div class="card-institue no-space pb110">
-             
-            <div ng-repeat="fundInstitute in fundInstitutes" class="card card-institute-detail {{fundInstitute.classStatus}}" ng-class="">
-             <div class="infra-college no-pad">
+
+            <div ng-repeat="fundInstitute in fundInstitutes" class="card card-institute-detail  " ng-class="">
+             <div class="infra-college no-pad {{fundInstitute.classStatus}}">
                <div class="top-div">
             <div class="row">
               <div class="col h5-border">
-                <h5 class="black">Maharashtra</h5>
+                <h5 class=" color-white">Maharashtra</h5>
               </div>
               <div class="col">
-              <h5  class="black">Shivaji University</h5>
+              <h5  class=" color-white">Shivaji University</h5>
               </div>
             </div>
           </div>
@@ -102,7 +116,7 @@
  <p>Shivaji University</p>
                       </div>
                     </div>-->
-                    </div> 
+                    </div>
               <div class="no-pad">
                 <div ui-sref="app.project">
                   <div class="card-institute-head">
@@ -163,7 +177,8 @@
                           <div class="padding">
                             <div class="text-center">Fund Utilization - ₹ (in lacs)</div>
                             <div class="chart-home institute-chart pd15">
-                              <canvas id="doughnut" class="chart chart-doughnut" chart-data="data1" chart-labels="labels1" chart-colors="colors1" chart-dataset-override="override1"></canvas>
+
+                              <canvas id="doughnut" class="chart chart-doughnut" chart-data="fundInstitute.data1" chart-labels="fundInstitute.labels1" chart-colors="fundInstitute.colors1" chart-dataset-override="borderColor"></canvas>
                               <h5 class="f16 bold">
                             50%
                           </h5>
@@ -193,7 +208,7 @@
                                   </div>
                                 </div>
                               </div>
-                              <div class="text-center bold dark f16">50%</div>
+                              <div class="text-center bold dark f16 ">50%</div>
                             </div>
                             <div class="cert-bottom">
                               <div class="text-center">Ut. Cert.</div>
@@ -226,6 +241,7 @@
         </div>
       </ion-content>
     </ion-tab>
+
     <!--<ion-tab title="STATES">
       <ion-content class="tabs-content states-background">
         <div class="pb110">
@@ -245,5 +261,7 @@
         </div>
       </ion-content>
     </ion-tab>-->
+    <!-- <ion-tab title="OVERVIEW">
+    </ion-tab> -->
   </ion-tabs>
 </ion-view>
