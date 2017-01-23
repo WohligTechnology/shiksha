@@ -10032,9 +10032,7 @@ button.button.button-icon.ion-custom-comment:before {
   letter-spacing: 2px; }
 
 .bar.bar-positive .title {
-  color: #fff;
-  right: 0 !important;
-  left: 0 !important; }
+  color: #fff; }
 
 .forget {
   color: white;
@@ -10404,7 +10402,7 @@ button.button.button-icon.button-clear.settings-btn:before {
       min-height: 0; }
     .card-institue .card-institute-detail .ecommerce .for-badge .badge-one {
       top: -6px;
-      right: -8px; }
+      right: -2px; }
   .card-institue .card-institute-detail .setting-down {
     border-left: 1px solid #7d7d7d; }
     .card-institue .card-institute-detail .setting-down .btn-down {
@@ -11135,6 +11133,10 @@ button.button.button-icon.util-camera {
   top: 45px;
   right: 0; }
 
+.work-order {
+  background: transparent;
+  border: none; }
+
 .popup:before {
   content: '';
   /* border-top: 15px solid transparent; */
@@ -11142,6 +11144,33 @@ button.button.button-icon.util-camera {
   border-bottom: 15px solid white;
   position: absolute;
   top: -12px;
-  right: 18%;
+  right: 10%;
   border-left: 15px solid transparent;
   border-right: 15px solid transparent; }
+
+.photos .col .relative {
+  position: relative;
+  height: 150px; }
+  .photos .col .relative .black-strip {
+    background: rgba(0, 0, 0, 0.63);
+    bottom: 0;
+    height: 31px;
+    position: absolute;
+    right: 0;
+    left: 0; }
+    .photos .col .relative .black-strip h4 {
+      color: white;
+      text-align: center; }
+  .photos .col .relative img {
+    height: 100%;
+    width: 100%; }
+
+.photos-list {
+  margin-bottom: 20px; }
+
+.gallery {
+  height: 100px;
+  margin: 5px; }
+  .gallery img {
+    height: 100%;
+    width: 100%; }

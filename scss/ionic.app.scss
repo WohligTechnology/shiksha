@@ -281,8 +281,7 @@ button.button.button-icon.ion-custom-comment:before {
 }
 .bar.bar-positive .title {
     color: #fff;
-    right: 0!important;
-    left: 0!important;
+
 }
 .forget {
   color: white;
@@ -858,7 +857,7 @@ background: #977202;
 
         .badge-one {
           top: -6px;
-          right: -8px;
+          right: -2px;
         }
       }
     }
@@ -1949,6 +1948,10 @@ button.button.button-icon.util-camera {
   top: 45px;
   right: 0;
 }
+.work-order{
+  background: transparent;
+  border: none;
+}
 .popup:before {
     content: '';
     /* border-top: 15px solid transparent; */
@@ -1957,7 +1960,45 @@ button.button.button-icon.util-camera {
     position: absolute;
     top: -12px;
     // left: 70%;
-    right: 18%;
+    right: 10%;
     border-left: 15px solid transparent;
     border-right: 15px solid transparent;
+}
+.photos{
+  .col{
+    .relative{
+      position: relative;
+      height: 150px;
+
+      .black-strip{
+        background: rgba(0, 0, 0, 0.63);
+        bottom: 0;
+        height: 31px;
+        position: absolute;
+      right: 0;
+      left: 0;
+        h4
+        {
+          color: white;
+          text-align: center;
+        }
+      }
+      img{
+        height: 100%;
+        width: 100%;
+      }
+    }
+
+  }
+}
+.photos-list{
+  margin-bottom: 20px;
+}
+.gallery{
+  height: 100px;
+  margin: 5px;
+  img{
+    height: 100%;
+    width: 100%;
+  }
 }

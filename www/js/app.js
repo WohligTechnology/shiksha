@@ -58,6 +58,16 @@ angular.module('starter', ['ionic', 'starter.controllers'])
       }
     }
   })
+  .state('app.photogallery', {
+    url: '/photogallery',
+    views: {
+      'menuContent': {
+    templateUrl: 'templates/photogallery.html',
+    controller: 'PhotoGalleryCtrl'
+  }
+}
+
+  })
 
   .state('login', {
     url: '/login',

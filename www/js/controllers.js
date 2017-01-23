@@ -20,6 +20,7 @@ angular.module('starter.controllers', ["chart.js"])
 
 .controller('LoginCtrl', function($scope, $stateParams) {})
   .controller('SearchCtrl', function($scope, $stateParams) {})
+  .controller('PhotoGalleryCtrl', function($scope, $stateParams) {})
 
 .controller('HomeCtrl', function($scope, $stateParams ,$ionicPopup,$state,$ionicTabsDelegate,$ionicPopover) {
 
