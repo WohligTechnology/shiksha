@@ -168,6 +168,7 @@ button.button.button-icon.ion-custom-comment:before {
   vertical-align: text-bottom;
 }
 
+
 .bar-header {
   border: 0 !important;
   border-bottom-color: transparent !important;
@@ -282,6 +283,9 @@ button.button.button-icon.ion-custom-comment:before {
 .bar.bar-positive .title {
     color: #fff;
 
+}
+.bar .title{
+  left: 0!important;
 }
 .forget {
   color: white;
@@ -596,6 +600,17 @@ button.button.button-icon.button-clear {
   transform: translateY(-50%);
 }
 
+.ion-custom-gear {
+  &:before {
+    height: 20px;
+    width: 20px;
+    display: block;
+    content: url('../img/gear.png');
+  }
+}
+.mtop{
+  margin-top: 0!important;
+}
 .ion-custom-ecommerce {
   &:before {
     height: 20px;
@@ -1833,13 +1848,13 @@ button.button.button-icon.util-camera {
     height: 20px;
     width: 20px;
     display: block;
-    content: url('../img/medal.png');
-    margin-top: -3px;
-    padding: 0 10px !important;
+    content: url('../img/certificate.png');
+    // margin-top: -3px;
+    // padding: 0 10px !important;
   }
 }
 .pad-certificate{
-  padding: 0 7px!important;
+  padding-top: 5px!important;
 }
 .ion-custom-rupee {
   &:before {
