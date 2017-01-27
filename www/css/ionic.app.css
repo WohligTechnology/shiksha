@@ -11151,7 +11151,7 @@ button.button.button-icon.util-camera {
   content: '';
   /* border-top: 15px solid transparent; */
   border-bottom: 15px solid rgba(0, 0, 0, 0.5);
-  border-bottom: 15px solid white;
+  border-bottom: 15px solid #eee;
   position: absolute;
   top: -12px;
   right: 10%;
@@ -11184,3 +11184,72 @@ button.button.button-icon.util-camera {
   .gallery img {
     height: 100%;
     width: 100%; }
+
+.card-institute-detail:nth-of-type(1) .bg-blue {
+  background-color: #00baff; }
+
+.card-institute-detail:nth-of-type(1) .infra-college {
+  background-color: #00abab; }
+
+.card-institute-detail:nth-of-type(1) .bg-footer-card {
+  background-color: #006699; }
+
+.card-institute-detail:nth-of-type(2) .bg-blue {
+  background-color: #ffdd07; }
+
+.card-institute-detail:nth-of-type(2) .infra-college {
+  background-color: #efcc07; }
+
+.card-institute-detail:nth-of-type(2) .bg-footer-card {
+  background-color: #977202; }
+
+.card-institute-detail:nth-of-type(3) .bg-blue {
+  background-color: #d9dcdb; }
+
+.card-institute-detail:nth-of-type(3) .infra-college {
+  background-color: #c8cccb; }
+
+.card-institute-detail:nth-of-type(3) .bg-footer-card {
+  background-color: #6f6f6f; }
+
+.image {
+  width: 100px;
+  height: 100px;
+  border-radius: 100%;
+  margin: 0 auto;
+  background-image: url("../img/ionic.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  display: inline-block;
+  vertical-align: middle; }
+
+.image-info {
+  display: inline-block;
+  vertical-align: middle;
+  padding: 10px 30px; }
+
+.bg {
+  background-color: transparent;
+  border: none; }
+  .bg p {
+    color: #fff;
+    font-weight: 300;
+    font-size: 20px; }
+  .bg span {
+    color: #fff; }
+
+.menu-left {
+  background-color: #263238 !important; }
+
+.top-spacing {
+  top: 185px;
+  padding: 10px 0; }
+
+.tags {
+  float: right;
+  margin-left: 10px; }
+
+.alignment {
+  border-right: 1px solid #ccc;
+  padding-right: 10px; }

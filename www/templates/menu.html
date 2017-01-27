@@ -27,7 +27,18 @@
     <ion-header-bar class="bar-stable menu-header">
       <i class="ion ion-ios-close-empty close-button" menu-close></i>
     </ion-header-bar>
-    <ion-content class="side-menu">
+    <div class="side-menu">
+      <ion-item class="bg">
+        <div class="image">
+  <!--<img src="img/ionic.png"  class="img-responsive" alt="profileimage">-->
+</div>
+<div class="image-info">
+  <p>T.Matthew</p>
+  <span>New Delhi</span>
+</div>
+
+        </ion-item>
+        <ion-content class="top-spacing">
       <ion-list>
         <ion-item nav-clear menu-close ui-sref="app.home" ui-sref-active="active">
           <i class="ion-custom ion-custom-home"></i> Home
@@ -38,15 +49,25 @@
         <ion-item nav-clear menu-close ui-sref="app.institute" ui-sref-active="active">
           <i class="ion-custom ion-custom-notify"></i> Notifications
         </ion-item>
-        <ion-item nav-clear menu-close ui-sref="app.project" ui-sref-active="active">
-          <i class="ion ion-ios-information-outline"></i> Alerts
-          <!--<span class="badge badge-assertive msg-badge">2</span>-->
+         <ion-item nav-clear menu-close ui-sref="app.institute" ui-sref-active="active">
+          <i class="ion-custom ion-ios-email-outline"></i> Messages
         </ion-item>
-        <ion-item nav-clear menu-close ui-sref="login" ui-sref-active="active">
+        <!--<ion-item nav-clear menu-close ui-sref="app.project" ui-sref-active="active">
+          <i class="ion ion-ios-information-outline"></i> Alerts
+          <span class="badge badge-assertive msg-badge">2</span>
+        </ion-item>-->
+        <!--<ion-item nav-clear menu-close ui-sref="login" ui-sref-active="active">
           <i class="ion-custom ion-custom-setting"></i> Setting
+        </ion-item>-->
+         <ion-item nav-clear menu-close ui-sref="login" ui-sref-active="active">
+          <i class="ion-custom ion-custom-setting"></i> App Training
+        </ion-item>
+         <ion-item nav-clear menu-close ui-sref="login" ui-sref-active="active">
+          <i class="ion-custom ion-ios-person-outline"></i> Vendor list
         </ion-item>
       </ion-list>
     </ion-content>
+    </div>
     <ion-footer-bar align-title="left" class="bar-assertive side-footer ">
       <div class="log-out" ui-sref="login">
         <i class="ion-custom ion-custom-logout"></i> Logout
@@ -54,3 +75,7 @@
     </ion-footer-bar>
   </ion-side-menu>
 </ion-side-menus>
+
+
+
+
