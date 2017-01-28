@@ -11212,6 +11212,23 @@ button.button.button-icon.util-camera {
 .card-institute-detail:nth-of-type(3) .bg-footer-card {
   background-color: #6f6f6f; }
 
+.resize {
+  resize: none; }
+
+.comment-text {
+  height: 80px;
+  border: 1px solid #ccc;
+  margin-top: 15px; }
+
+.comment-section {
+  border: none; }
+
+.milestone-popup .pane {
+  top: 50px; }
+
+.milestone-popup .tabs {
+  top: 0; }
+
 .image {
   width: 100px;
   height: 100px;
@@ -11253,3 +11270,35 @@ button.button.button-icon.util-camera {
 .alignment {
   border-right: 1px solid #ccc;
   padding-right: 10px; }
+
+.contact-details {
+  position: relative;
+  padding-left: 10px; }
+  .contact-details .icons a {
+    position: absolute;
+    top: 20px;
+    right: 80px;
+    font-size: 24px;
+    padding: 5px; }
+  .contact-details .icons a + a {
+    position: absolute;
+    top: 20px;
+    right: 25px; }
+
+.vendor-image, .show-hide {
+  display: inline-block;
+  vertical-align: middle; }
+
+.vendor-image {
+  height: 40px;
+  width: 40px;
+  border-radius: 50%; }
+  .vendor-image img {
+    border-radius: 50%;
+    width: 100%; }
+
+.detailhide {
+  margin-left: 45px; }
+  .detailhide a {
+    color: #666;
+    text-decoration: none; }

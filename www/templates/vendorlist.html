@@ -1,0 +1,37 @@
+
+ <ion-view view-title="Vendor List">
+       <ion-content>
+   <ion-list>
+       <div class="list" >
+
+    <div class="item item-avatar contact-details" ng-repeat="contact in contacts track by $index">
+        
+        <div class="vendor-image" ng-click="shows($index);">
+ <img ng-src="{{contact.img}}">
+        </div>
+     <div class="show-hide" ng-click="shows($index);">
+      
+          <div class="detailshow" >
+        <h2>{{contact.CompanyName}}</h2>
+        <h3>{{contact.ContactPersonName}}</h3>
+        </div>
+        
+     
+      </div>
+         <div  class="detailhide" ng-show="$index===details">
+        <p>Pan no:{{contact.panno}}</p>
+        <p><a href="tel:{{contact.mobile}}">Mobile No.:{{contact.mobile}}</a></p>
+        <p><a href="mailto:{{contact.email}}">Email id: {{contact.email}}</a></p>
+        </div>
+        <div class="icons">
+      <a href="tel:{{contact.mobile}}"><span class="ion-ios-telephone-outline"></span></a>
+      <a href="sms:{{contact.mobile}}"><span class="ion-ios-email-outline"></span></a>
+        </div>
+     
+    </div>
+</div>
+
+
+   </ion-list>
+</ion-content> 
+    </ion-view>

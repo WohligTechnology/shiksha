@@ -1,13 +1,17 @@
-<ion-modal-view>
-    <ion-header-bar class="bar-positive bar bar-header">
+<div>
+    <!--<ion-header-bar class="bar-positive bar bar-header">
         <h1 class="title">Edit Milestone</h1>
         <div class="buttons">
             <button class="button button-clear ion-close" ng-click="closeMilestoneEdit()"></button>
         </div>
-    </ion-header-bar>
-    <ion-content>
-        <ul class="list">
+    </ion-header-bar>-->
+    <div class="milestone-popup">
+        <ion-tabs class="tabs-positive tabs-icon-top has-header">
+
+  <ion-tab title="Details" icon-on="ion-ios-compose" icon-off="ion-ios-compose-outline">
+     <ul class="list">
             <div class="item range range-assertive">
+               
                 <div class="custom-slide" style="width:{{user.value}}%"></div>
                 <input type="range" min="0" max="{{user.max}}" value="{{user.min}}" step="1" ng-model="user.value">
                 <div class="text-right">
@@ -15,26 +19,26 @@
                 </div>
             </div>
             <li class="item item-input">
-              <div class="input-label">
-                Work order
-              </div>
-              <select class="work-order">
-                <option>Payment</option>
-                <option selected>Normal</option>
-              </select>
-            </li>
-            <li class="item item-input">
-                <span class="input-label">Item Details</span>
+                <span class="input-label">Item Title</span>
                 <input type="text">
             </li>
-            <li class="item item-input">
-                <span class="input-label">Finised Date</span>
-                <input type="date" name="finised" required>
+             <li class="item item-input">
+                <span class="input-label">Item Description</span>
+                <input type="text">
             </li>
-            <li class="item item-input item-stacked-label">
+             <li class="item item-input">
+              <div class="input-label">
+              Choose Vendor
+              </div>
+              <select class="work-order">
+                <option>Ganesh Kothavale</option>
+                <option selected>Ruchira Padave</option>
+              </select>
+            </li>
+            <!--<li class="item item-input item-stacked-label ">
                 <span class="input-label">Comment</span>
-                <textarea type="text" placeholder=""> </textarea>
-            </li>
+                <textarea type="text"  class="resize" placeholder=""> </textarea>
+            </li>-->
             <li class="item item-toggle">
                 Status
                 <label class="toggle tp19 toggle-balanced">
@@ -50,5 +54,108 @@
   Save
 </button>
         </div>
-    </ion-content>
-</ion-modal-view>
+
+  </ion-tab>
+
+  <ion-tab title="Photos" icon-on="ion-ios-camera" icon-off="ion-ios-camera-outline">
+ <div class="photos">
+          <div class="row" >
+         <div class="col">
+   <div class="image-grid">
+    <img src="img/markas.png" alt="">
+              </div>
+         </div>
+          <div class="col">
+              <div class="image-grid">
+    <img src="img/markas.png" alt="">
+              </div>
+          
+         </div>
+          <div class="col">
+              <div class="image-grid">
+    <img src="img/markas.png" alt="">
+              </div>
+         </div>
+          <div class="col">
+             <div class="image-grid">
+    <img src="img/markas.png" alt="">
+              </div>
+         </div>
+        
+     </div>
+          <div class="row" >
+         <div class="col">
+   <div class="image-grid">
+    <img src="img/markas.png" alt="">
+              </div>
+         </div>
+          <div class="col">
+              <div class="image-grid">
+    <img src="img/markas.png" alt="">
+              </div>
+          
+         </div>
+          <div class="col">
+              <div class="image-grid">
+    <img src="img/markas.png" alt="">
+              </div>
+         </div>
+          <div class="col">
+             <div class="image-grid">
+    <img src="img/markas.png" alt="">
+              </div>
+         </div>
+        
+     </div>
+     <div class="row" >
+         <div class="col">
+   <div class="image-grid">
+    <img src="img/markas.png" alt="">
+              </div>
+         </div>
+          <div class="col">
+              <div class="image-grid">
+    <img src="img/markas.png" alt="">
+              </div>
+          
+         </div>
+          <div class="col">
+              <div class="image-grid">
+    <img src="img/markas.png" alt="">
+              </div>
+         </div>
+          <div class="col">
+             <div class="image-grid">
+    <img src="img/markas.png" alt="">
+              </div>
+         </div>
+        
+     </div>
+ </div>
+  </ion-tab>
+
+  <ion-tab title="Comments" icon-on="ion-ios-more" icon-off="ion-ios-more-outline">
+      <ion-list >
+          <ion-item class="comment-section">
+ <div class="listings">
+       <label>Comment:</label>
+  <label class="item item-input comment-text">
+    <textarea class="resize" placeholder="Comments"></textarea>
+  </label>
+   <div class="padding">
+            <button class="button button-positive button-block">
+  Submit
+</button>
+        </div>
+</div>
+          </ion-item>
+      </ion-list>
+  
+  </ion-tab>
+
+</ion-tabs>
+        
+      
+        
+    </div>
+</div>

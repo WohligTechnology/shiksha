@@ -19,8 +19,49 @@ angular.module('starter.controllers', ["chart.js"])
 .controller('PlaylistCtrl', function($scope, $stateParams) {})
 
 .controller('LoginCtrl', function($scope, $stateParams) {})
-  .controller('SearchCtrl', function($scope, $stateParams) {})
-  .controller('PhotoGalleryCtrl', function($scope, $stateParams) {})
+
+.controller('SearchCtrl', function($scope, $stateParams) {})
+
+.controller('PhotoGalleryCtrl', function($scope, $stateParams) {})
+
+.controller('VendorListCtrl', function($scope, $stateParams) {
+
+$scope.contacts=[{
+  img:'img/venkman.jpg',
+  CompanyName:'Capgemini',
+  ContactPersonName:'Venkman Nair',
+   panno:'2344',
+  mobile:'3930085096',
+  email:'ruchira.wohlig@gmail.com'
+},
+{
+img:'img/venkman.jpg',
+  CompanyName:'Capgemini',
+  ContactPersonName:'Venkman Nair',
+  panno:'2344',
+  mobile:'3930085096',
+  email:'ruchira.wohlig@gmail.com'
+}
+]
+
+// $scope.details=false;
+
+// $scope.shows=function(index){
+//   console.log(index);
+//   $scope.details= !$scope.details;
+// };
+
+    $scope.details = -1;
+   $scope.shows = function(index) {
+       console.log(index);
+       if ($scope.details !== index) {
+           $scope.details = index;
+       } else {
+           $scope.details = -1;
+       }
+   };
+
+})
 
 .controller('HomeCtrl', function($scope, $stateParams ,$ionicPopup,$state,$ionicTabsDelegate,$ionicPopover) {
 

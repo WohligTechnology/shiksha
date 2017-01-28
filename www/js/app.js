@@ -69,6 +69,17 @@ angular.module('starter', ['ionic', 'starter.controllers'])
 
   })
 
+    .state('app.vendorlist', {
+    url: '/vendorlist',
+    views: {
+      'menuContent': {
+    templateUrl: 'templates/vendorlist.html',
+    controller: 'VendorListCtrl'
+  }
+}
+
+  })
+
   .state('login', {
     url: '/login',
     templateUrl: 'templates/login.html',
