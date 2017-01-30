@@ -2088,7 +2088,7 @@ button.button.button-icon.util-camera {
 .comment-text{
    height: 80px;
     border: 1px solid #ccc;
-   margin-top: 15px; 
+   margin-top: 15px;
 }
 
 .comment-section{
@@ -2184,14 +2184,14 @@ a+a{
     }
 }
 
-.detailhide{ 
+.detailhide{
   margin-left: 45px;
 
-  a{ 
+  a{
     color: #666;
     text-decoration: none;
      }
- 
+
 }
 
 .infra-project{
@@ -2249,7 +2249,7 @@ a+a{
 
 
 
-  
+
   .row{
     padding: 0;
   }
@@ -2257,7 +2257,7 @@ a+a{
     h5{
       margin: 0;
      padding: 30px 10px 10px;
-     
+
     }
     p{
        color: #000;
@@ -2329,7 +2329,15 @@ color:#d8dcde;
           }
         }
   }
-   
+
+}
+.hamburger{
+  margin-left: 20px;
+}
+
+.has-notabs.pane {bottom:0;}
+
+.bar .buttons-left span{
+  margin-right: 20px;
 }
 //ruchira
-

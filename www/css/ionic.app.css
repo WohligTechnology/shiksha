@@ -11418,3 +11418,12 @@ button.button.button-icon.util-camera {
 
 .recordings p .ion-record {
   margin-right: 5px; }
+
+.hamburger {
+  margin-left: 20px; }
+
+.has-notabs.pane {
+  bottom: 0; }
+
+.bar .buttons-left span {
+  margin-right: 20px; }
