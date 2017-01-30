@@ -21,21 +21,33 @@
           </div>
         </div>
       </div>
-      <div class="bar-sucess padding-horizontal progress-div">
+      <!--<div class="bar-sucess padding-horizontal progress-div">
         <div class="">
-          <span class="item-note bold dark">40%</span>
-          <h5 class="bold"> Total work completed</h5>
+        
+          <h5 class="bold"> </h5>
         </div>
         <div class="custom-slide-miles">
           <div class="complete"></div>
           <div class="begin-complete" style="width:{{complete.value}}%"></div>
         </div>
-      </div>
+      </div>-->
+         <div class="progress-div">
+              <div class="">
+                <label for="" class="bold"> Total work completed</label>
+                 <span class="item-note bold dark">40%</span>
+              </div>
+              <div class="custom-slide-miles utilization-margn">
+                <div class="complete"></div>
+                <div class="begin-complete" style="width:{{complete.value}}%"></div>
+                <div class="mark-make" style="left: calc({{complete.value}}% - 20px);">{{complete.value}}%</div>
+                <!--<img src="img/progressbar.png" alt="" />-->
+              </div>
+            </div>
       <div class="card what-use">
         <div class="padding-horizontal mile-card">
           <div class="header clearfix">
-            Item details
-
+            <!--Item details-->
+            Project Type
           </div>
 
           <p class="display-inline">Preparing RFQ and evaluation</p>
@@ -203,7 +215,7 @@
                     
                     <div class="col-50 util-content bold pd5">
                        <div class="item-note">
-                        <button class="button button-icon ion-android-share-alt links" ng-click=" openUtilizationEdit();"></button>
+                        <button class="button button-icon ion-android-share-alt links" ></button>
                       </div>
                       <p>
                         40%
@@ -242,9 +254,13 @@
                         <div class="col-33 util-content bold">12.06.2016</div>
                         <div class="col-33 util-content bold">₹ 5,00,000</div>
                         <div class="col-33">
-                          <!--<div class="item-note">
-                            <button class="button button-icon ion-camera util-camera"></button>
-                          </div>-->
+                          <div class="item-note">
+                                                     <div class="tags">
+                            <div class="add-tag" ng-click="openMilestoneEdit();">
+                              <img src="img/menuicon/tag-add.png" alt="">
+                            </div>
+                          </div>
+                          </div>
                           <!--<div class="util-content bold">
                             Advance Payment
                           </div>-->
@@ -254,9 +270,13 @@
                         <div class="col-33 util-content bold">08.08.2016</div>
                         <div class="col-33 util-content bold">₹ 5,00,000</div>
                         <div class="col-33">
-                          <!--<div class="item-note">
-                            <button class="button button-icon ion-camera util-camera stable"></button>
-                          </div>-->
+                          <div class="item-note">
+                                                     <div class="tags">
+                            <div class="add-tag" ng-click="openMilestoneEdit();">
+                              <img src="img/menuicon/tag-add.png" alt="">
+                            </div>
+                          </div>
+                          </div>
                           <!--<div class="util-content bold">
                             Final Payment
                           </div>-->
@@ -278,7 +298,7 @@
                         <div class="col-33 util-content">Clean-up of all areas</div>
                         <div class="col-33">
                            <div class="tags">
-                            <div class="add-tag">
+                            <div class="add-tag" ng-click="openMilestoneEdit();">
                               <img src="img/menuicon/tag-add.png" alt="">
                             </div>
                           </div>
@@ -301,7 +321,7 @@
                         <div class="col-33 util-content">Clean-up of all areas</div>
                        <div class="col-33">
                            <div class="tags">
-                            <div class="add-tag">
+                            <div class="add-tag" ng-click="openMilestoneEdit();">
                               <img src="img/menuicon/tag-add.png" alt="">
                             </div>
                           </div>

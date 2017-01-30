@@ -11291,10 +11291,10 @@ button.button.button-icon.util-camera {
 
 .tags {
   float: right;
-  margin-left: 10px; }
+  margin-left: 10px;
+  margin-top: -10px; }
 
 .alignment {
-  border-right: 1px solid #ccc;
   padding-right: 10px; }
 
 .contact-details {
@@ -11372,13 +11372,19 @@ button.button.button-icon.util-camera {
     padding: 0; }
   .components h5 {
     margin: 0;
-    padding: 10px; }
+    padding: 30px 10px 10px; }
   .components p {
     color: #000; }
   .components .padding-tops {
     border-bottom: 1px solid #fff; }
+    .components .padding-tops .stable {
+      margin: 0;
+      padding: 5px; }
   .components .padding {
     padding: 2px 5px; }
+    .components .padding .stable {
+      margin: 0;
+      padding: 5px; }
 
 .components + .components {
   background-color: #4b64ff; }
@@ -11396,11 +11402,19 @@ button.button.button-icon.util-camera {
 
 .mid-div .funds-all {
   padding: 60px 0 0; }
-  .mid-div .funds-all h3 .ion-record:before {
-    font-size: 14px;
-    color: #4b64ff; }
+  .mid-div .funds-all h3 {
+    margin: 0; }
+    .mid-div .funds-all h3 .ion-record:before {
+      font-size: 14px; }
+
+.col1 {
+  color: #91a4af; }
+
+.col2 {
+  color: #d8dcde; }
+
+.col3 {
+  color: #4b64ff; }
 
 .recordings p .ion-record {
   margin-right: 5px; }
-  .recordings p .ion-record:before {
-    color: #4b64ff; }

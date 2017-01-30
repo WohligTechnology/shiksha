@@ -2141,11 +2141,12 @@ button.button.button-icon.util-camera {
 
 .tags{
   float: right;
-  margin-left: 10px;
+    margin-left: 10px;
+    margin-top: -10px;
 }
 
 .alignment{
-  border-right: 1px solid #ccc;
+  // border-right: 1px solid #ccc;
   padding-right: 10px;
 }
 
@@ -2255,7 +2256,7 @@ a+a{
   border-bottom: 1px solid #ccc;
     h5{
       margin: 0;
-      padding: 10px;
+     padding: 30px 10px 10px;
      
     }
     p{
@@ -2263,9 +2264,17 @@ a+a{
     }
     .padding-tops{
       border-bottom: 1px solid #fff;
+      .stable{
+            margin: 0;
+            padding: 5px;
+      }
     }
     .padding{
       padding: 2px 5px;
+      .stable{
+            margin: 0;
+            padding: 5px;
+      }
     }
 }
 .components+.components{
@@ -2289,13 +2298,26 @@ a+a{
   .funds-all{
         padding: 60px 0 0;
         h3{
+          margin: 0;
        .ion-record:before{
           font-size: 14px;
-          color: $calm;
+          // color: $calm;
         }
   }
+  // .f16{
+  //   font-size: 20px;
+  // }
         }
 
+}
+.col1{
+color:#91a4af;
+}
+.col2{
+color:#d8dcde;
+}
+.col3{
+ color: $calm;
 }
 
 .recordings{
@@ -2303,7 +2325,7 @@ a+a{
 .ion-record{
           margin-right: 5px;
           &:before{
-            color: $calm;
+            // color: $calm;
           }
         }
   }
