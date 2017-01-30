@@ -10268,7 +10268,7 @@ button.button.button-icon.button-clear.settings-btn:before {
   height: 20px;
   width: 20px;
   display: block;
-  content: url("../img/gear.png"); }
+  content: url("../img/menuicon/2.png"); }
 
 .mtop {
   margin-top: 0 !important; }
@@ -10277,7 +10277,7 @@ button.button.button-icon.button-clear.settings-btn:before {
   height: 20px;
   width: 20px;
   display: block;
-  content: url("../img/wallet.png"); }
+  content: url("../img/wallet-filled.png"); }
 
 .btn-custom-active {
   background-color: #fff;
@@ -10298,6 +10298,8 @@ button.button.button-icon.button-clear.settings-btn:before {
 
 .btn-down {
   color: #c1c1c1; }
+  .btn-down:before {
+    color: #fff; }
 
 .fund-dot1 {
   color: #003366; }
@@ -10321,7 +10323,7 @@ button.button.button-icon.button-clear.settings-btn:before {
   background: #977202; }
 
 .bg-greylight {
-  background: #6f6f6f; }
+  background: #6f6f6f !important; }
 
 .color-white {
   color: white !important; }
@@ -10393,18 +10395,27 @@ button.button.button-icon.button-clear.settings-btn:before {
   .card-institue .card-institute-detail .bb {
     border-bottom: 1px dotted #7d7d7d; }
   .card-institue .card-institute-detail .bl {
-    border-left: 1px dotted #7d7d7d; }
+    border-left: 1px dotted #000; }
   .card-institue .card-institute-detail .pd0 {
     padding: 0; }
   .card-institue .card-institute-detail .inside-head {
     padding: 8px; }
+    .card-institue .card-institute-detail .inside-head:before {
+      content: "";
+      border-top: 8px solid #fff;
+      border-left: 8px solid transparent;
+      border-right: 8px solid transparent;
+      position: absolute;
+      top: 0;
+      right: -9px; }
   .card-institue .card-institute-detail .upgrade {
     padding: 10px; }
   .card-institue .card-institute-detail .pb15 {
     padding-bottom: 8px; }
   .card-institue .card-institute-detail .infra-college {
-    padding: 15px 10px;
-    border-top: 1px solid #7d7d7d; }
+    padding: 15px 10px; }
+  .card-institue .card-institute-detail .no-pad {
+    border: none; }
   .card-institue .card-institute-detail .bg-footer-card {
     border-top: 1px solid #7d7d7d; }
   .card-institue .card-institute-detail .ecommerce {
@@ -10415,12 +10426,18 @@ button.button.button-icon.button-clear.settings-btn:before {
     .card-institue .card-institute-detail .ecommerce .for-badge .badge-one {
       top: -6px;
       right: -2px; }
-  .card-institue .card-institute-detail .setting-down {
-    border-left: 1px solid #7d7d7d; }
-    .card-institue .card-institute-detail .setting-down .btn-down {
-      color: black;
-      padding: 10px 12px;
-      font-size: 24px; }
+  .card-institue .card-institute-detail .setting-down .btn-down {
+    color: black;
+    padding: 10px 12px;
+    font-size: 24px; }
+  .card-institue .card-institute-detail .setting-down:before {
+    content: "";
+    border-bottom: 8px solid #eee;
+    border-left: 8px solid transparent;
+    border-right: 8px solid transparent;
+    position: absolute;
+    bottom: -6px;
+    right: 95px; }
 
 .card-institue .stable {
   color: #c1c1c1 !important; }
@@ -10515,7 +10532,7 @@ button.button.button-icon.button-clear.settings-btn:before {
 
 .list-share ul li {
   display: inline-block;
-  padding-left: 10px;
+  padding-left: 6px;
   font-size: 12px; }
   .list-share ul li i {
     margin-right: 5px; }
@@ -10860,6 +10877,12 @@ input[type=range]:focus::-webkit-slider-runnable-track {
   .top-card .item {
     padding: 8px 10px; }
 
+.mid-div {
+  border-bottom: 1px solid #ccc; }
+  .mid-div .overview-mid {
+    border-top: 1px solid #ccc;
+    border-bottom: 1px solid #ccc; }
+
 .overview-mid {
   background-color: #f0f5f7;
   padding: 0; }
@@ -10882,10 +10905,12 @@ input[type=range]:focus::-webkit-slider-runnable-track {
 
 .fund-date p {
   text-transform: uppercase;
-  color: #546a79; }
+  color: #546a79;
+  font-size: 12px; }
 
 .fund-date label {
-  color: #546a79; }
+  color: #546a79;
+  font-size: 12px; }
 
 .fund-date .grey {
   color: #c3cace; }
@@ -10935,11 +10960,12 @@ input[type=range]:focus::-webkit-slider-runnable-track {
   width: 36px;
   height: 36px;
   position: fixed;
-  bottom: 10%;
+  bottom: 15%;
   left: 7%;
   z-index: 1000;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.29);
-  padding: 9px 11px; }
+  box-shadow: 0 6px 5px rgba(0, 0, 0, 0.29);
+  padding: 9px 11px;
+  border: 1px solid #ccc; }
   .float-button .content i {
     font-size: 18px;
     color: #c7c8cd; }
@@ -11224,7 +11250,7 @@ button.button.button-icon.util-camera {
   border: none; }
 
 .milestone-popup .pane {
-  top: 50px; }
+  top: 45px; }
 
 .milestone-popup .tabs {
   top: 0; }
@@ -11302,3 +11328,79 @@ button.button.button-icon.util-camera {
   .detailhide a {
     color: #666;
     text-decoration: none; }
+
+.infra-project {
+  font-size: 14px;
+  padding: 10px; }
+
+.image-grid {
+  width: 60px;
+  height: 60px; }
+  .image-grid img {
+    width: 100%; }
+
+.photos {
+  padding: 10px 0; }
+
+.util-card .links {
+  margin-top: -15px; }
+
+.padding-horizontal .btn-down:before {
+  color: #ccc; }
+
+.btn-para {
+  position: relative;
+  margin-bottom: 5px; }
+  .btn-para .button-icon {
+    position: absolute;
+    top: -10px;
+    right: -7px; }
+
+.homes-main .home-bottom1 {
+  border-bottom: 1px solid #ccc;
+  background-color: #4b64ff; }
+  .homes-main .home-bottom1 h5 {
+    margin: 3px 0 0; }
+
+.bgss {
+  background-color: #d8dcde !important; }
+
+.components {
+  background-color: #91a4af;
+  border-bottom: 1px solid #ccc; }
+  .components .row {
+    padding: 0; }
+  .components h5 {
+    margin: 0;
+    padding: 10px; }
+  .components p {
+    color: #000; }
+  .components .padding-tops {
+    border-bottom: 1px solid #fff; }
+  .components .padding {
+    padding: 2px 5px; }
+
+.components + .components {
+  background-color: #4b64ff; }
+
+.bleft {
+  border-left: 1px solid #fff; }
+
+.spacings .mile-card {
+  position: absolute;
+  top: -15px;
+  right: -25px; }
+
+.relative {
+  position: relative; }
+
+.mid-div .funds-all {
+  padding: 60px 0 0; }
+  .mid-div .funds-all h3 .ion-record:before {
+    font-size: 14px;
+    color: #4b64ff; }
+
+.recordings p .ion-record {
+  margin-right: 5px; }
+  .recordings p .ion-record:before {
+    color: #4b64ff; }

@@ -605,7 +605,7 @@ button.button.button-icon.button-clear {
     height: 20px;
     width: 20px;
     display: block;
-    content: url('../img/gear.png');
+    content: url('../img/menuicon/2.png');
   }
 }
 .mtop{
@@ -616,7 +616,7 @@ button.button.button-icon.button-clear {
     height: 20px;
     width: 20px;
     display: block;
-    content: url('../img/wallet.png');
+    content: url('../img/wallet-filled.png');
   }
   // &.ecommerce-green:before {
   //   content: url('../img/ecommerce.png');
@@ -653,6 +653,9 @@ button.button.button-icon.button-clear {
 
 .btn-down {
   color: #c1c1c1;
+  &:before{
+    color: #fff;
+  }
 }
 
 .fund-dot1 {
@@ -682,7 +685,7 @@ button.button.button-icon.button-clear {
 background: #977202;
 }
 .bg-greylight {
-  background: #6f6f6f;
+  background: #6f6f6f !important;
 }
 .color-white{
   color: white!important;
@@ -744,6 +747,8 @@ background: #977202;
   .card-institute-detail {
     border-radius: 5px;
     padding-bottom: 0;
+
+
 
     .triangle-up {
       position: relative;
@@ -834,7 +839,7 @@ background: #977202;
     }
 
     .bl {
-      border-left: 1px dotted #7d7d7d;
+      border-left: 1px dotted #000;
     }
 
     .pd0 {
@@ -843,6 +848,15 @@ background: #977202;
 
     .inside-head {
       padding: 8px;
+      &:before{
+    content: "";
+    border-top: 8px solid #fff;
+    border-left: 8px solid transparent;
+    border-right: 8px solid transparent;
+    position: absolute;
+    top: 0;
+    right: -9px;
+      }
     }
 
     .upgrade {
@@ -855,7 +869,10 @@ background: #977202;
 
     .infra-college {
       padding: 15px 10px;
-      border-top: 1px solid #7d7d7d;
+      // border-top: 1px solid #7d7d7d;
+    }
+    .no-pad{
+      border:none;
     }
     .bg-footer-card {
       // background: #006699;
@@ -878,34 +895,33 @@ background: #977202;
     }
 
     .setting-down {
-      border-left: 1px solid #7d7d7d;
+      // border-left: 1px solid #7d7d7d;
       .btn-down {
         color: black;
         padding: 10px 12px;
         font-size: 24px;
       }
+      &:before{
+            content: "";
+            border-bottom: 8px solid #eee;
+            border-left: 8px solid transparent;
+            border-right: 8px solid transparent;
+            position: absolute;
+            bottom: -6px;
+            right: 95px;
+      }
     }
   }
 
-  .stable {
-    color: $stable!important;
-  }
+  .stable { color: $stable!important; }
 
-  .card {
-    margin-top: 0;
-  }
+  .card { margin-top: 0; }
 
-  .item-divider {
-    background-color: #ffffff;
-  }
+  .item-divider { background-color: #ffffff; }
 
-  .item h4 {
-    font-size: 14px;
-  }
+  .item h4 { font-size: 14px; }
 
-  .card-institute-bottom {
-    padding-bottom: 15px;
-  }
+  .card-institute-bottom { padding-bottom: 15px; }
 
   .card-institute-head {
     .allocation-made h4 {
@@ -952,9 +968,7 @@ background: #977202;
   }
 }
 
-.f16 {
-  font-size: 16px;
-}
+.f16 { font-size: 16px; }
 
 .ion-custom {
   &:before {
@@ -1058,7 +1072,7 @@ background: #977202;
   ul {
     li {
       display: inline-block;
-      padding-left: 10px;
+      padding-left: 6px;
       font-size: 12px;
 
       i {
@@ -1545,6 +1559,18 @@ input[type=range]:focus::-webkit-slider-runnable-track {
   }
 }
 
+.mid-div{
+   border-bottom: 1px solid #ccc;
+  //  padding: 10px 0;
+  .overview-mid{
+    border-top: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+  }
+  // .ion-record:before{
+  //   color:$calm;
+  // }
+}
+
 .overview-mid {
   background-color: #f0f5f7;
   padding: 0;
@@ -1582,10 +1608,12 @@ input[type=range]:focus::-webkit-slider-runnable-track {
   p {
     text-transform: uppercase;
     color: $dark-grey;
+    font-size: 12px;
   }
 
   label {
     color: $dark-grey;
+    font-size: 12px;
   }
 
   .grey {
@@ -1661,11 +1689,12 @@ input[type=range]:focus::-webkit-slider-runnable-track {
     width: 36px;
     height: 36px;
     position: fixed;
-    bottom: 10%;
+    bottom: 15%;
     left: 7%;
     z-index: 1000;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.29);
+    box-shadow: 0 6px 5px rgba(0, 0, 0, 0.29);
     padding: 9px 11px;
+    border: 1px solid #ccc;
 
     i {
       font-size: 18px;
@@ -2067,7 +2096,7 @@ button.button.button-icon.util-camera {
 }
 .milestone-popup{
   .pane{
-    top:50px;
+    top:45px;
   }
   .tabs{
     top:0;
@@ -2164,7 +2193,121 @@ a+a{
  
 }
 
+.infra-project{
+  font-size: 14px;
+  padding: 10px;
+}
+
+.image-grid{
+  width: 60px;
+  height: 60px;
+  img{
+    width: 100%;
+  }
+}
+
+.photos{
+  padding: 10px 0;
+}
+
+.util-card{
+  .links{
+    margin-top: -15px;
+  }
+}
+
+.padding-horizontal{
+  .btn-down:before{
+    color: #ccc;
+  }
+}
+.btn-para{
+  position: relative;
+    margin-bottom: 5px;
+    .button-icon{
+      position: absolute;
+    top: -10px;
+    right: -7px;
+    }
+}
+
+.homes-main{
+  .home-bottom1{
+    border-bottom: 1px solid #ccc;
+    background-color: #4b64ff;
+    h5{
+      margin: 3px 0 0;
+    }
+  }
+}
+.bgss{
+    background-color: #d8dcde !important;
+  }
+.components{
+  background-color: #91a4af;
 
 
+
+  
+  .row{
+    padding: 0;
+  }
+  border-bottom: 1px solid #ccc;
+    h5{
+      margin: 0;
+      padding: 10px;
+     
+    }
+    p{
+       color: #000;
+    }
+    .padding-tops{
+      border-bottom: 1px solid #fff;
+    }
+    .padding{
+      padding: 2px 5px;
+    }
+}
+.components+.components{
+  background-color: $calm;
+}
+.bleft{
+  border-left:1px solid #fff;
+}
+.spacings{
+    .mile-card {
+   position: absolute;
+    top: -15px;
+    right: -25px;
+  }
+}
+.relative{
+  position: relative;
+}
+
+.mid-div{
+  .funds-all{
+        padding: 60px 0 0;
+        h3{
+       .ion-record:before{
+          font-size: 14px;
+          color: $calm;
+        }
+  }
+        }
+
+}
+
+.recordings{
+  p{
+.ion-record{
+          margin-right: 5px;
+          &:before{
+            color: $calm;
+          }
+        }
+  }
+   
+}
 //ruchira
 

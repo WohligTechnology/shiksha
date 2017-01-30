@@ -355,6 +355,18 @@ $scope.onsubmit =function(){
   $scope.closeMilestoneEdit = function() {
     $scope.modaledit.hide();
   };
+    $ionicModal.fromTemplateUrl('templates/modal/utilization-detail.html', {
+    scope: $scope,
+    animation: 'slide-in-up'
+  }).then(function(modal) {
+    $scope.modaladd = modal;
+  });
+  $scope.openUtilizationEdit = function() {
+    $scope.modaladd.show();
+  };
+  $scope.closeUtilizationEdit = function() {
+    $scope.modaladd.hide();
+  };
 })
 
 .controller('UtilizationCtrl', function($scope, $stateParams, $ionicModal) {
