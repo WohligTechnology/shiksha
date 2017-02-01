@@ -10035,8 +10035,8 @@ button.button.button-icon.ion-custom-comment:before {
   color: #fff; }
 
 .bar .title {
-  right: 50px !important;
-  left: 0 !important; }
+  right: 0 !important;
+  left: 55px !important; }
 
 .forget {
   color: white;
