@@ -285,6 +285,7 @@ button.button.button-icon.ion-custom-comment:before {
 
 }
 .bar .title{
+  right: 50px!important;
   left: 0!important;
 }
 .forget {
@@ -605,7 +606,7 @@ button.button.button-icon.button-clear {
     height: 20px;
     width: 20px;
     display: block;
-    content: url('../img/menuicon/2.png');
+    content: url('../img/icon.png');
   }
 }
 .mtop{
@@ -842,14 +843,12 @@ background: #977202;
       border-left: 1px dotted #000;
     }
 
-    .pd0 {
-      padding: 0;
-    }
+  
 
     .inside-head {
       padding: 8px;
       &:before{
-    content: "";
+    // content: "";
     border-top: 8px solid #fff;
     border-left: 8px solid transparent;
     border-right: 8px solid transparent;
@@ -902,7 +901,7 @@ background: #977202;
         font-size: 24px;
       }
       &:before{
-            content: "";
+            // content: "";
             border-bottom: 8px solid #eee;
             border-left: 8px solid transparent;
             border-right: 8px solid transparent;
@@ -1996,6 +1995,9 @@ button.button.button-icon.util-camera {
   background: transparent;
   border: none;
 }
+.mts{
+  margin-left: 10px;
+}
 .popup:before {
     content: '';
     /* border-top: 15px solid transparent; */
@@ -2048,6 +2050,23 @@ button.button.button-icon.util-camera {
 }
 
 //ruchira
+
+
+.padings{ 
+  padding: 0 10px !important;
+  img{
+    margin-top: 3px;
+  }
+   }
+   .vendordetails{
+     a{
+       color: #000;
+       text-decoration: none;
+     }
+   }
+
+.projecttype{ width: 98%;}
+
 .card-institute-detail:nth-of-type(1){
 .bg-blue{
   background-color: #00baff;
@@ -2235,15 +2254,12 @@ a+a{
 .homes-main{
   .home-bottom1{
     border-bottom: 1px solid #ccc;
-    background-color: #4b64ff;
     h5{
       margin: 3px 0 0;
     }
   }
 }
-.bgss{
-    background-color: #d8dcde !important;
-  }
+
 .components{
   background-color: #91a4af;
 
@@ -2280,6 +2296,16 @@ a+a{
 .components+.components{
   background-color: $calm;
 }
+
+.bgss{
+    background-color: #d8dcde !important;
+  }
+
+  .bgs{
+    background-color: #4b64ff ;
+
+  }
+
 .bleft{
   border-left:1px solid #fff;
 }
@@ -2301,12 +2327,8 @@ a+a{
           margin: 0;
        .ion-record:before{
           font-size: 14px;
-          // color: $calm;
         }
   }
-  // .f16{
-  //   font-size: 20px;
-  // }
         }
 
 }
@@ -2324,20 +2346,26 @@ color:#d8dcde;
   p{
 .ion-record{
           margin-right: 5px;
-          &:before{
-            // color: $calm;
-          }
         }
   }
 
 }
-.hamburger{
-  margin-left: 20px;
-}
+.hamburger{ margin-left: 20px; }
 
 .has-notabs.pane {bottom:0;}
 
 .bar .buttons-left span{
   margin-right: 20px;
 }
+
+.pad-change { padding: 10px 0; }
+
+.has-footer.has-tabs {
+    bottom: 60px;
+}
+
+  .pd0 {
+      padding: 0!important;
+    }
+
 //ruchira

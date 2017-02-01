@@ -10035,6 +10035,7 @@ button.button.button-icon.ion-custom-comment:before {
   color: #fff; }
 
 .bar .title {
+  right: 50px !important;
   left: 0 !important; }
 
 .forget {
@@ -10268,7 +10269,7 @@ button.button.button-icon.button-clear.settings-btn:before {
   height: 20px;
   width: 20px;
   display: block;
-  content: url("../img/menuicon/2.png"); }
+  content: url("../img/icon.png"); }
 
 .mtop {
   margin-top: 0 !important; }
@@ -10396,12 +10397,9 @@ button.button.button-icon.button-clear.settings-btn:before {
     border-bottom: 1px dotted #7d7d7d; }
   .card-institue .card-institute-detail .bl {
     border-left: 1px dotted #000; }
-  .card-institue .card-institute-detail .pd0 {
-    padding: 0; }
   .card-institue .card-institute-detail .inside-head {
     padding: 8px; }
     .card-institue .card-institute-detail .inside-head:before {
-      content: "";
       border-top: 8px solid #fff;
       border-left: 8px solid transparent;
       border-right: 8px solid transparent;
@@ -10431,7 +10429,6 @@ button.button.button-icon.button-clear.settings-btn:before {
     padding: 10px 12px;
     font-size: 24px; }
   .card-institue .card-institute-detail .setting-down:before {
-    content: "";
     border-bottom: 8px solid #eee;
     border-left: 8px solid transparent;
     border-right: 8px solid transparent;
@@ -11173,6 +11170,9 @@ button.button.button-icon.util-camera {
   background: transparent;
   border: none; }
 
+.mts {
+  margin-left: 10px; }
+
 .popup:before {
   content: '';
   /* border-top: 15px solid transparent; */
@@ -11210,6 +11210,18 @@ button.button.button-icon.util-camera {
   .gallery img {
     height: 100%;
     width: 100%; }
+
+.padings {
+  padding: 0 10px !important; }
+  .padings img {
+    margin-top: 3px; }
+
+.vendordetails a {
+  color: #000;
+  text-decoration: none; }
+
+.projecttype {
+  width: 98%; }
 
 .card-institute-detail:nth-of-type(1) .bg-blue {
   background-color: #00baff; }
@@ -11357,13 +11369,9 @@ button.button.button-icon.util-camera {
     right: -7px; }
 
 .homes-main .home-bottom1 {
-  border-bottom: 1px solid #ccc;
-  background-color: #4b64ff; }
+  border-bottom: 1px solid #ccc; }
   .homes-main .home-bottom1 h5 {
     margin: 3px 0 0; }
-
-.bgss {
-  background-color: #d8dcde !important; }
 
 .components {
   background-color: #91a4af;
@@ -11387,6 +11395,12 @@ button.button.button-icon.util-camera {
       padding: 5px; }
 
 .components + .components {
+  background-color: #4b64ff; }
+
+.bgss {
+  background-color: #d8dcde !important; }
+
+.bgs {
   background-color: #4b64ff; }
 
 .bleft {
@@ -11427,3 +11441,12 @@ button.button.button-icon.util-camera {
 
 .bar .buttons-left span {
   margin-right: 20px; }
+
+.pad-change {
+  padding: 10px 0; }
+
+.has-footer.has-tabs {
+  bottom: 60px; }
+
+.pd0 {
+  padding: 0 !important; }

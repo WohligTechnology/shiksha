@@ -24,7 +24,21 @@ angular.module('starter.controllers', ["chart.js"])
 
 .controller('PhotoGalleryCtrl', function($scope, $stateParams) {})
 
-.controller('VendorListCtrl', function($scope, $stateParams) {
+.controller('VendorListCtrl', function($scope, $stateParams, $ionicModal) {
+
+  $ionicModal.fromTemplateUrl('templates/modal/vendordetail.html', {
+    scope: $scope,
+    // animation: 'slide-in-up'
+  }).then(function(modal) {
+    $scope.modal = modal;
+  });
+  $scope.openVendor = function() {
+    $scope.modal.show();
+  };
+  $scope.closeVendor= function() {
+    $scope.modal.hide();
+  };
+
 
 $scope.contacts=[{
   img:'img/venkman.jpg',
@@ -98,6 +112,9 @@ $scope.onsubmit =function(){
   $scope.states = [
     'Andhra Pradesh', 'Arunachal Pradesh', 'Assam', 'Bihar', 'Chhattisgarh', 'Goa', 'Gujarat'
   ];
+    $scope.status = [
+    'Active', 'On-Hold ', 'Completed'
+  ];
   $scope.options = {
     segmentShowStroke: false
   };
@@ -150,7 +167,9 @@ $scope.onsubmit =function(){
     data1 : [30, 55, 15],
     grant: '75,00,000',
     colors1: ["#006699", "#079be4", "#a2d4ec"],
-    borderColor: ["#006699", "#079be4", "#a2d4ec"],
+    override1:{
+    borderColor: ["#006699", "#079be4", "#a2d4ec"]
+  },
     name: 'Sports facilities',
     classcommerce: 'ecommerce-green',
     fundRecieved: ' 40,00,000',
@@ -164,7 +183,9 @@ $scope.onsubmit =function(){
     grant: '75,00,000',
     data1 : [50, 35, 15],
     colors1: ["#977202", "#c3ad6a", "#d8c280"],
-    borderColor:["#977202", "#c3ad6a", "#d8c280"],
+    override1:{
+    borderColor: ["#977202", "#c3ad6a", "#d8c280"]
+  },
     funddot: 'bg-yellow',
     classcommerce: 'ecommerce-green',
     name: 'Sports facilities',
@@ -179,7 +200,9 @@ $scope.onsubmit =function(){
     funddot: 'bg-greylight',
     data1 : [40, 45, 15],
     colors1: ["#6f6f6f", "#908b8b", "#c1b9b9"],
-    borderColor: ['#6f6f6f', '#908b8bf', '#c1b9b9'],
+    override1:{
+    borderColor: ["#6f6f6f", "#908b8b", "#c1b9b9"]
+  },
     classcommerce: 'ecommerce-orange',
     grant: '45,00,000',
     name: 'Contruction of boys hostel',
@@ -355,6 +378,18 @@ $scope.onsubmit =function(){
   $scope.closeMilestoneEdit = function() {
     $scope.modaledit.hide();
   };
+    $ionicModal.fromTemplateUrl('templates/modal/payment-edit.html', {
+    scope: $scope,
+    animation: 'slide-in-up'
+  }).then(function(modal) {
+    $scope.modals = modal;
+  });
+  $scope.openPaymentEdit = function() {
+    $scope.modals.show();
+  };
+  $scope.closePaymentEdit = function() {
+    $scope.modals.hide();
+  };
     $ionicModal.fromTemplateUrl('templates/modal/utilization-detail.html', {
     scope: $scope,
     animation: 'slide-in-up'
@@ -366,6 +401,18 @@ $scope.onsubmit =function(){
   };
   $scope.closeUtilizationEdit = function() {
     $scope.modaladd.hide();
+  };
+    $ionicModal.fromTemplateUrl('templates/modal/createproject.html', {
+    scope: $scope,
+    // animation: 'slide-in-up'
+  }).then(function(modal) {
+    $scope.modal = modal;
+  });
+  $scope.openCreate = function() {
+    $scope.modal.show();
+  };
+  $scope.closeCreate= function() {
+    $scope.modal.hide();
   };
 })
 

@@ -1,0 +1,75 @@
+<ion-modal-view>
+    <ion-header-bar class="bar-positive bar bar-header">
+         <h1 class="title">Create Project</h1>
+    <div class="buttons">
+      <button class="button button-clear ion-close" ng-click="closeCreate();"></button>
+    </div>
+    </ion-header-bar>
+    <ion-content>
+        <ion-list>
+            <ion-item>
+                <div class="input-label">
+       Project Type
+      </div>
+                <select class="projecttype work-order">
+                     <option selected="true" value="" disabled>Project Type</option>
+                     <option>Creation of New Facilities</option>
+                     <option>Renovation/Upgradation of Existing Facilities</option>
+                     <option>New Equipments</option>
+                  </select>
+            </ion-item>
+             <ion-item>
+                    <div class="input-label">
+      Asset type
+      </div>
+                <select class="projecttype work-order" >  
+                    <option selected="true" value="" disabled>Asset type</option>
+                    <option value="">Academic Buildings</option>
+                    <option value="">Administrative Buildings</option>
+                    <option value="">Auditorium</option>
+                    <option value="">Books/Journals/E-Resources</option>
+                    <option value="">Boys Hostel</option>
+                    <option value="">Boys Toilet</option>
+                    <option value="">Campus development</option>
+                    <option value="">Campus development-Alternate Energy Sources</option>
+                    <option value="">Campus development-Amenities</option>
+                    <option value="">Campus development-Beautification</option>
+                    <option value="">Campus development-Drainage</option>
+                    <option value="">Campus development-Playgrounds</option>
+                    <option value="">Campus development-Water Harvesting</option>
+                    <option value="">Campus development-Water Supply</option>
+                    <option value="">Canteen/Cafeteria</option>
+                    <option value="">Classrooms </option>
+                    <option value="">Common Room for Students</option>
+                    <option value="">Computer Centre</option>
+                    <option value="">Computers</option>
+                    <option value="">Girls Hostel</option>
+                    <option value="">Girls Toilet</option>
+                    <option value="">Laboratory</option>
+                    <option value="">Library</option>
+                    <option value="">Sports facility</option>
+                     <!--
+                         ng-model="filter.asset"
+                         <option ng-selected="true" value="" disabled>Asset Type</option>-->
+                     <!--<option> </option>
+                     <option></option>
+                     <option></option>-->
+                  </select>
+            </ion-item>
+            <ion-item>
+                <h3> Total Value (In Rs)</h3>
+            </ion-item>
+             <ion-item>
+                <h3> Amount of Work (In %)</h3>
+            </ion-item>
+             <ion-item>
+                <h3> Due Date</h3>
+            </ion-item>
+        </ion-list>
+        <div class="padding">
+      <button class="button button-positive button-block">
+  Create
+</button>
+    </div>
+    </ion-content>
+</ion-modal-view>

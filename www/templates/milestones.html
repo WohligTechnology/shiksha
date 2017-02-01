@@ -1,5 +1,5 @@
 <ion-view view-title="Milestones">
-  <ion-content class="bg-light-blue mb60 has-tabs">
+  <ion-content class="bg-light-blue  has-tabs has-footer">
     <div class="">
       <div class="card top-card">
         <div class="item item-text-wrap">
@@ -60,7 +60,7 @@
                                 <div class="handle"></div>
                             </div>
                        </label>
-            <button class="button button-icon ion-android-more-vertical more" ng-click="openMilestoneEdit();"></button>
+            <button class="button button-icon ion-android-more-vertical more" ng-click="openUtilizationEdit();"></button>
           </div>
 
           <div class="util-row timeline-sec">
@@ -391,12 +391,14 @@
             </div>
           </div>
     </ion-content>
-    <div class="float-button" ng-click="openMilestoneEdit();">
+   
+
+    <ion-footer>
+       <div class="float-button" ng-click="openCreate();">
         <a class="content ">
             <i class="ion ion-plus "> </i>
         </a>
     </div>
-    <ion-footer>
         <div class="tabs-custom ">
             <div class="tabs tabs-icon-top">
                 <a class="tab-item" ui-sref="app.project">

@@ -7,11 +7,11 @@
       </button>
     </ion-nav-buttons>
     <ion-nav-buttons side="right">
-      <button class="button button-icon button-clear search-btn ion-funnel" ng-click="filters();">
+      <button class="button button-icon button-clear search-btn ion-funnel padings" ng-click="filters();">
       </button>
       <!-- <button class="button button-icon button-clear search-btn ion-android-search" ui-sref="app.search">
       </button> -->
-      <button class="button button-icon button-clear ion-android-more-vertical settings-btn" >
+      <button class="button button-icon button-clear ion-android-more-vertical settings-btn padings" >
       </button>
     </ion-nav-buttons>
   </ion-nav-bar>
@@ -48,7 +48,7 @@
                     </div>
                 </div>
                 <div class="col-33">
-                    <div class="padding top">
+                    <div class="padding top pad-change">
                         <div class="recordings">
                             <p class="stable f12 text-center"><i class="ion-record release col1"></i>Funds Release</p>
 
@@ -57,7 +57,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="padding recordings">
+                    <div class="padding recordings pad-change">
                         <p class="stable f12 text-center"><i class="ion-record release col2"></i>Funds Utilized</p>
 
                         <div class="text-center ">
@@ -89,7 +89,7 @@
             </div>-->
             <!--<img src="img/stats.png" alt="" />-->
             <div class="padding chart-home">
-              <canvas id="doughnut" class="chart chart-doughnut" chart-data="data" chart-labels="labels" chart-colors="colors" chart-dataset-override="override">
+              <canvas id="doughnut" class="chart chart-doughnut noborder" chart-data="data" chart-labels="labels" chart-colors="colors" chart-dataset-override="override" style="border:none;">
               </canvas>
               <h5 class="f16">
                 75% Fund Utilization
@@ -102,7 +102,7 @@
               <div class="row">
                 <div class="col"> <label>NO. OF INSTITUTIONS </label></div>
                 <div class="col">
-                  <h5> 250 Lacs</h5>
+                  <h5> 25</h5>
                 </div>
               </div>
             </div>
@@ -122,25 +122,25 @@
     </div>
     <div class="col-50 bleft">
  <div class="padding top padding-tops">
-                        <div class="">
-                            <p class="stable f12">Total 28</p>
-                            <!--<div class="text-center">
-                                <p class="f16"></p>
-                            </div>-->
+                        <div class="text-center">
+                            <p class="stable f12 ">Total </p>
+                            <div>
+                                <p class="f16">28</p>
+                            </div>
                         </div>
                     </div>
-                      <div class="padding ">
-                        <p class="stable f12">Delayed 5</p>
-                        <!--<div class="text-center">
+                      <div class="padding text-center">
+                        <p class="stable f12 ">Delayed</p>
+                        <div>
                             <p class="f16">5</p>
-                        </div>-->
+                        </div>
                     </div>
     </div>
   </div>
 </div>
 <div class="clearfix"></div>
 
-<div class="components ">
+<div class="components bgs">
   <div class="row">
     <div class="col-50">
    <h5>Projects</h5>
@@ -149,19 +149,19 @@
        <!--<h5 class="padding-tops">Funds Release</h5>-->
  <div class="padding top padding-tops">
 
-                        <div class="">
+                        <div class="text-center">
 
-                            <p class="stable f12">Total 105</p>
-                            <!--<div class="text-center">
-                                <p class="f16"></p>
-                            </div>-->
+                            <p class="stable f12">Total</p>
+                            <div class="">
+                                <p class="f16"> 105</p>
+                            </div>
                         </div>
                     </div>
-                      <div class="padding ">
-                        <p class="stable f12">Delayed 15</p>
-                        <!--<div class="text-center">
-                            <p class="f16">5</p>
-                        </div>-->
+                      <div class="padding text-center">
+                        <p class="stable f12">Delayed </p>
+                        <div class="">
+                            <p class="f16">15</p>
+                        </div>
                     </div>
     </div>
   </div>
@@ -267,7 +267,7 @@
                             <div class="text-center">Fund Utilization - ₹ (in lacs)</div>
                             <div class="chart-home institute-chart pd15">
 
-                              <canvas id="doughnut" class="chart chart-doughnut" chart-data="fundInstitute.data1" chart-labels="fundInstitute.labels1" chart-colors="fundInstitute.colors1" chart-dataset-override="borderColor"></canvas>
+                              <canvas id="doughnut" class="chart chart-doughnut" chart-data="fundInstitute.data1" chart-labels="fundInstitute.labels1" chart-colors="fundInstitute.colors1" chart-dataset-override="fundInstitute.override1"></canvas>
                               <h5 class="f16 bold">
                             50%
                           </h5>

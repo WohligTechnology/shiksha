@@ -1,0 +1,41 @@
+<ion-modal-view>
+  <ion-header-bar class="bar-positive bar bar-header">
+    <h1 class="title">Add Vendor </h1>
+    <div class="buttons">
+      <button class="button button-clear ion-close" ng-click="closeVendor()"></button>
+    </div>
+  </ion-header-bar>
+  <ion-content>
+    <div class="list vendordetails">
+          <ion-list>
+        <ion-item >
+           <h3>Company Name:</h3>
+      
+        </ion-item>
+        <ion-item >
+            <h3>Contact Person Name : </h3>
+        </ion-item>
+        <ion-item >
+            <h3>Pan no: </h3>
+        </ion-item>
+          <ion-item >
+           <h3><a href="tel:{{contact.mobile}}">Mobile No.:</a></h3>
+       
+        </ion-item>
+         <ion-item >
+        <h3><a href="mailto:{{contact.email}}">Email id: </a></h3>
+        </ion-item>
+       
+      </ion-list>
+      <!--<label class="item item-input item-stacked-label">
+    <span class="input-label">Comment</span>
+    <textarea type="text" placeholder=""> </textarea>
+  </label>-->
+    </div>
+    <div class="padding">
+      <button class="button button-positive button-block" ng-click="closeVendor();">
+ Save
+</button>
+    </div>
+  </ion-content>
+</ion-modal-view>
