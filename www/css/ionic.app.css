@@ -11450,3 +11450,6 @@ button.button.button-icon.util-camera {
 
 .pd0 {
   padding: 0 !important; }
+
+.nav-bar-tabs-top.hide ~ .view-container .tabs-top .tabs {
+  top: 44px; }
