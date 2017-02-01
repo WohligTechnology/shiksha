@@ -166,9 +166,9 @@ $scope.onsubmit =function(){
     status: 'Active',
     data1 : [30, 55, 15],
     grant: '75,00,000',
-    colors1: ["#006699", "#079be4", "#a2d4ec"],
+    colors1: ["#2d8bb9", "#079be4", "#a2d4ec"],
     override1:{
-    borderColor: ["#006699", "#079be4", "#a2d4ec"]
+    borderColor: ["#2d8bb9", "#079be4", "#a2d4ec"]
   },
     name: 'Sports facilities',
     classcommerce: 'ecommerce-green',
@@ -182,9 +182,9 @@ $scope.onsubmit =function(){
     classStatus: 'bg-yellow',
     grant: '75,00,000',
     data1 : [50, 35, 15],
-    colors1: ["#977202", "#c3ad6a", "#d8c280"],
+    colors1: ["#b9931f", "#c3ad6a", "#d8c280"],
     override1:{
-    borderColor: ["#977202", "#c3ad6a", "#d8c280"]
+    borderColor: ["#b9931f", "#c3ad6a", "#d8c280"]
   },
     funddot: 'bg-yellow',
     classcommerce: 'ecommerce-green',
@@ -199,9 +199,9 @@ $scope.onsubmit =function(){
     classStatus: 'bg-greylight',
     funddot: 'bg-greylight',
     data1 : [40, 45, 15],
-    colors1: ["#6f6f6f", "#908b8b", "#c1b9b9"],
+    colors1: ["#7d7979", "#908b8b", "#c1b9b9"],
     override1:{
-    borderColor: ["#6f6f6f", "#908b8b", "#c1b9b9"]
+    borderColor: ["#7d7979", "#908b8b", "#c1b9b9"]
   },
     classcommerce: 'ecommerce-orange',
     grant: '45,00,000',
