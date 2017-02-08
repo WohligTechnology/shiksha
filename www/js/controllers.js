@@ -79,6 +79,7 @@ img:'img/venkman.jpg',
 
 .controller('HomeCtrl', function($scope, $stateParams ,$ionicPopup,$state,$ionicTabsDelegate,$ionicPopover) {
 
+
   $scope.filters = function () {
     if ($ionicTabsDelegate.selectedIndex() == 0){
 // Perform some action
@@ -166,9 +167,9 @@ $scope.onsubmit =function(){
     status: 'Active',
     data1 : [30, 55, 15],
     grant: '75,00,000',
-    colors1: ["#2d8bb9", "#079be4", "#a2d4ec"],
+    colors1: ["#003366", "#0099cc", "#ffffff"],
     override1:{
-    borderColor: ["#2d8bb9", "#079be4", "#a2d4ec"]
+    borderColor: ["#003366", "#0099cc", "#ffffff"]
   },
     name: 'Sports facilities',
     classcommerce: 'ecommerce-green',
@@ -182,9 +183,9 @@ $scope.onsubmit =function(){
     classStatus: 'bg-yellow',
     grant: '75,00,000',
     data1 : [50, 35, 15],
-    colors1: ["#b9931f", "#c3ad6a", "#d8c280"],
+    colors1: ["#6d5303", "#c3ad6a", "#ffffff"],
     override1:{
-    borderColor: ["#b9931f", "#c3ad6a", "#d8c280"]
+    borderColor: ["#6d5303", "#c3ad6a", "#ffffff"]
   },
     funddot: 'bg-yellow',
     classcommerce: 'ecommerce-green',
@@ -199,9 +200,9 @@ $scope.onsubmit =function(){
     classStatus: 'bg-greylight',
     funddot: 'bg-greylight',
     data1 : [40, 45, 15],
-    colors1: ["#7d7979", "#908b8b", "#c1b9b9"],
+    colors1: ["#525050", "#ada8a8", "#ffffff"],
     override1:{
-    borderColor: ["#7d7979", "#908b8b", "#c1b9b9"]
+    borderColor: ["#525050", "#ada8a8", "#ffffff"]
   },
     classcommerce: 'ecommerce-orange',
     grant: '45,00,000',

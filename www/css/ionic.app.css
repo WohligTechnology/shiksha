@@ -9986,13 +9986,14 @@ button.button.button-icon.ion-custom-comment:before {
   color: #595959 !important; }
 
 .login-background {
-  background: #09153d;
-  background: -moz-linear-gradient(top, #09153d 0%, #5932ac 35%, #895edb 100%);
-  background: -webkit-gradient(left top, left bottom, color-stop(0%, #09153d), color-stop(35%, #5932ac), color-stop(100%, #895edb));
-  background: -webkit-linear-gradient(top, #09153d 0%, #5932ac 35%, #895edb 100%);
-  background: -o-linear-gradient(top, #09153d 0%, #5932ac 35%, #895edb 100%);
-  background: -ms-linear-gradient(top, #09153d 0%, #5932ac 35%, #895edb 100%);
-  background: linear-gradient(to bottom, #09153d 0%, #5932ac 35%, #895edb 100%); }
+  background: #19075e;
+  background: -moz-linear-gradient(top, #19075e 0%, #19075e 27%, #5329fc 84%, #5329fc 100%);
+  background: -webkit-gradient(left top, left bottom, color-stop(0%, #19075e), color-stop(27%, #19075e), color-stop(84%, #5329fc), color-stop(100%, #5329fc));
+  background: -webkit-linear-gradient(top, #19075e 0%, #19075e 27%, #5329fc 84%, #5329fc 100%);
+  background: -o-linear-gradient(top, #19075e 0%, #19075e 27%, #5329fc 84%, #5329fc 100%);
+  background: -ms-linear-gradient(top, #19075e 0%, #19075e 27%, #5329fc 84%, #5329fc 100%);
+  background: linear-gradient(to bottom, #19075e 0%, #19075e 27%, #5329fc 84%, #5329fc 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#19075e', endColorstr='#5329fc', GradientType=0 ); }
 
 .login-form {
   margin-top: 40px; }
@@ -10013,7 +10014,7 @@ button.button.button-icon.ion-custom-comment:before {
   color: white !important; }
 
 .login-button {
-  color: #a345de !important;
+  color: #3300ff !important;
   background-color: white !important;
   padding: 8px 80px;
   border-radius: 35px;
@@ -10035,8 +10036,7 @@ button.button.button-icon.ion-custom-comment:before {
   color: #fff; }
 
 .bar .title {
-  right: 0 !important;
-  left: 55px !important; }
+  left: 0px !important; }
 
 .forget {
   color: white;
@@ -10331,24 +10331,12 @@ button.button.button-icon.button-clear.settings-btn:before {
 
 .card-institue .bg-sky-blue {
   background: #006699; }
-  .card-institue .bg-sky-blue .infra-college {
-    border-top: 1px solid #7d7d7d; }
-  .card-institue .bg-sky-blue .bg-footer-card {
-    border-top: 1px solid #7d7d7d; }
 
 .card-institue .bg-yellow {
   background: #977202; }
-  .card-institue .bg-yellow .infra-college {
-    border-top: 1px solid #7d7d7d; }
-  .card-institue .bg-yellow .bg-footer-card {
-    border-top: 1px solid #7d7d7d; }
 
 .card-institue .bg-greylight {
   background: #6f6f6f; }
-  .card-institue .bg-greylight .infra-college {
-    border-top: 1px solid #7d7d7d; }
-  .card-institue .bg-greylight .bg-footer-card {
-    border-top: 1px solid #7d7d7d; }
 
 .card-institue .card-institute-detail {
   border-radius: 5px;
@@ -10392,9 +10380,9 @@ button.button.button-icon.button-clear.settings-btn:before {
     width: 100%;
     left: 0;
     padding: 15px 0;
-    border-top: 1px dotted #7d7d7d; }
+    border-top: 1px dotted #000; }
   .card-institue .card-institute-detail .bb {
-    border-bottom: 1px dotted #7d7d7d; }
+    border-bottom: 1px dotted #000; }
   .card-institue .card-institute-detail .bl {
     border-left: 1px dotted #000; }
   .card-institue .card-institute-detail .inside-head {
@@ -10414,8 +10402,6 @@ button.button.button-icon.button-clear.settings-btn:before {
     padding: 15px 10px; }
   .card-institue .card-institute-detail .no-pad {
     border: none; }
-  .card-institue .card-institute-detail .bg-footer-card {
-    border-top: 1px solid #7d7d7d; }
   .card-institue .card-institute-detail .ecommerce {
     padding: 12px 0; }
     .card-institue .card-institute-detail .ecommerce .for-badge .button-icon.ion-custom-ecommerce {
@@ -10472,11 +10458,11 @@ button.button.button-icon.button-clear.settings-btn:before {
   padding: 30px 0; }
   .funds-all p {
     font-weight: 300; }
-  .funds-all h3 {
+  .funds-all h5 {
     color: #546a79; }
 
 .f16 {
-  font-size: 16px; }
+  font-size: 16px !important; }
 
 .ion-custom:before {
   height: 20px;
@@ -10877,15 +10863,14 @@ input[type=range]:focus::-webkit-slider-runnable-track {
 .mid-div {
   border-bottom: 1px solid #ccc; }
   .mid-div .overview-mid {
-    border-top: 1px solid #ccc;
     border-bottom: 1px solid #ccc; }
 
 .overview-mid {
   background-color: #f0f5f7;
   padding: 0; }
-  .overview-mid .col-66 {
+  .overview-mid .col-60 {
     border-right: 1px solid #c1c1c1; }
-  .overview-mid .col-33 .top {
+  .overview-mid .col-40 .top {
     border-bottom: 1px solid #c1c1c1; }
   .overview-mid .f12 {
     font-size: 12px; }
@@ -11044,7 +11029,7 @@ button.button.button-icon.util-camera {
     margin: 0;
     text-align: center;
     width: 120px;
-    color: #00f400; }
+    color: #546a79; }
   .chart-home.overview-chat {
     width: 60%; }
   .chart-home.institute-chart {
@@ -11162,9 +11147,8 @@ button.button.button-icon.util-camera {
       background-color: transparent; }
 
 .filter-pop .popup {
-  position: absolute;
-  top: 45px;
-  right: 0; }
+  box-shadow: 10px 10px 5px rgba(0, 0, 0, 0.18);
+  border-radius: 10px; }
 
 .work-order {
   background: transparent;
@@ -11172,17 +11156,6 @@ button.button.button-icon.util-camera {
 
 .mts {
   margin-left: 10px; }
-
-.popup:before {
-  content: '';
-  /* border-top: 15px solid transparent; */
-  border-bottom: 15px solid rgba(0, 0, 0, 0.5);
-  border-bottom: 15px solid #eee;
-  position: absolute;
-  top: -12px;
-  right: 10%;
-  border-left: 15px solid transparent;
-  border-right: 15px solid transparent; }
 
 .photos .col .relative {
   position: relative;
@@ -11227,7 +11200,7 @@ button.button.button-icon.util-camera {
   background-color: #00baff; }
 
 .card-institute-detail:nth-of-type(1) .infra-college {
-  background-color: #2fd8d8; }
+  background-color: #00abeb; }
 
 .card-institute-detail:nth-of-type(1) .bg-footer-card {
   background-color: #006699; }
@@ -11374,7 +11347,7 @@ button.button.button-icon.util-camera {
     margin: 3px 0 0; }
 
 .components {
-  background-color: #91a4af;
+  background-color: white;
   border-bottom: 1px solid #ccc; }
   .components .row {
     padding: 0; }
@@ -11384,7 +11357,7 @@ button.button.button-icon.util-camera {
   .components p {
     color: #000; }
   .components .padding-tops {
-    border-bottom: 1px solid #fff; }
+    border-bottom: 1px solid #ccc; }
     .components .padding-tops .stable {
       margin: 0;
       padding: 5px; }
@@ -11401,10 +11374,10 @@ button.button.button-icon.util-camera {
   background-color: #d8dcde !important; }
 
 .bgs {
-  background-color: #4b64ff; }
+  background-color: white; }
 
 .bleft {
-  border-left: 1px solid #fff; }
+  border-left: 1px solid #ccc; }
 
 .spacings .mile-card {
   position: absolute;
@@ -11453,3 +11426,34 @@ button.button.button-icon.util-camera {
 
 .nav-bar-tabs-top.hide ~ .view-container .tabs-top .tabs {
   top: 44px; }
+
+.home-label {
+  font-size: 12px;
+  color: #546a79 !important; }
+
+.home-content {
+  font-size: 12px;
+  font-style: bold; }
+
+.delayed {
+  color: red !important; }
+
+.footer-head {
+  color: #546a79; }
+
+.home-data {
+  color: #546a79 !important; }
+
+.submit-pop {
+  background-color: #3300ff !important;
+  padding: 0 25px;
+  border-radius: 10px; }
+
+.project-right {
+  color: #908787 !important; }
+
+.brown-footertop {
+  border-top: 1px solid #977202; }
+
+.brown-footerbtm {
+  border-top: 1px solid #977202; }
