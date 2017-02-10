@@ -171,6 +171,8 @@ $scope.onsubmit =function(){
     override1:{
     borderColor: ["#003366", "#0099cc", "#ffffff"]
   },
+    dot1:'blue-dark',
+    dot2:'blue-light',
     name: 'Sports facilities',
     classcommerce: 'ecommerce-green',
     fundRecieved: ' 40,00,000',
@@ -183,6 +185,8 @@ $scope.onsubmit =function(){
     classStatus: 'bg-yellow',
     grant: '75,00,000',
     data1 : [50, 35, 15],
+    dot1:'yellow-dark',
+    dot2:'yellow-light',
     colors1: ["#6d5303", "#c3ad6a", "#ffffff"],
     override1:{
     borderColor: ["#6d5303", "#c3ad6a", "#ffffff"]
@@ -200,6 +204,8 @@ $scope.onsubmit =function(){
     classStatus: 'bg-greylight',
     funddot: 'bg-greylight',
     data1 : [40, 45, 15],
+    dot1:'grey-dark',
+    dot2:'grey-light',
     colors1: ["#525050", "#ada8a8", "#ffffff"],
     override1:{
     borderColor: ["#525050", "#ada8a8", "#ffffff"]
@@ -319,33 +325,33 @@ $scope.onsubmit =function(){
     scope: $scope,
     animation: 'slide-in-up'
   }).then(function(modal) {
-    $scope.modal = modal;
+    $scope.comment = modal;
   });
   $scope.openComment = function() {
-    $scope.modal.show();
+    $scope.comment.show();
   };
   $scope.closeComment = function() {
-    $scope.modal.hide();
+    $scope.comment.hide();
   };
-
+  $ionicModal.fromTemplateUrl('templates/modal/transition.html', {
+    scope: $scope,
+    animation: 'slide-in-up'
+  }).then(function(modal) {
+    $scope.transition = modal;
+  });
+  $scope.opentransition = function() {
+    $scope.transition.show();
+  };
+  $scope.closetransition = function() {
+    $scope.transition.hide();
+  };
+$scope.priceSlider = 150;
   $scope.showPayment = function () {
       $scope.payment=true;
     }
   $scope.hidePayment = function () {
     $scope.payment=false;
     }
-  $ionicModal.fromTemplateUrl('templates/modal/comment.html', {
-    scope: $scope,
-    animation: 'slide-in-up'
-  }).then(function(modal) {
-    $scope.modal = modal;
-  });
-  $scope.openComment = function() {
-    $scope.modal.show();
-  };
-  $scope.closeComment = function() {
-    $scope.modal.hide();
-  };
 
   $ionicModal.fromTemplateUrl('templates/modal/milestone-add.html', {
     scope: $scope,
@@ -367,6 +373,7 @@ $scope.onsubmit =function(){
     max: 100,
     value: 0
   };
+
   $ionicModal.fromTemplateUrl('templates/modal/milestone-edit.html', {
     scope: $scope,
     animation: 'slide-in-up'
@@ -383,37 +390,37 @@ $scope.onsubmit =function(){
     scope: $scope,
     animation: 'slide-in-up'
   }).then(function(modal) {
-    $scope.modals = modal;
+    $scope.modalpayment = modal;
   });
   $scope.openPaymentEdit = function() {
-    $scope.modals.show();
+    $scope.modalpayment.show();
   };
   $scope.closePaymentEdit = function() {
-    $scope.modals.hide();
+    $scope.modalpayment.hide();
   };
     $ionicModal.fromTemplateUrl('templates/modal/utilization-detail.html', {
     scope: $scope,
     animation: 'slide-in-up'
   }).then(function(modal) {
-    $scope.modaladd = modal;
+    $scope.modalutil = modal;
   });
   $scope.openUtilizationEdit = function() {
-    $scope.modaladd.show();
+    $scope.modalutil.show();
   };
   $scope.closeUtilizationEdit = function() {
-    $scope.modaladd.hide();
+    $scope.modalutil.hide();
   };
     $ionicModal.fromTemplateUrl('templates/modal/createproject.html', {
     scope: $scope,
     // animation: 'slide-in-up'
   }).then(function(modal) {
-    $scope.modal = modal;
+    $scope.createproject = modal;
   });
   $scope.openCreate = function() {
-    $scope.modal.show();
+    $scope.createproject.show();
   };
   $scope.closeCreate= function() {
-    $scope.modal.hide();
+    $scope.createproject.hide();
   };
 })
 

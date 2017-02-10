@@ -22,7 +22,7 @@
                     <!--<div class="input-label">
       Asset type
       </div>-->
-                <select class="projecttype work-order" >  
+                <select class="projecttype work-order" >
                     <option selected="true" value="" disabled>Asset type</option>
                     <option value="">Academic Buildings</option>
                     <option value="">Administrative Buildings</option>
@@ -58,19 +58,18 @@
             </ion-item>
             <ion-item>
                   <input type="text" placeholder=" Total Value (In Rs)">
-               
+
             </ion-item>
              <ion-item>
                    <input type="text" placeholder="Amount of Work (In %)">
-               
+
             </ion-item>
              <ion-item>
-                   <input type="text" placeholder="Due Date">
-               
+               <input placeholder="Due Date" class="textbox-n" type="text" onfocus="(this.type='date')" onfocusout="(this.type='text')" id="date">
             </ion-item>
         </ion-list>
         <div class="padding">
-      <button class="button button-positive button-block">
+      <button class="button button-positive button-block" ng-click="closeCreate();">
   Create
 </button>
     </div>

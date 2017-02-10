@@ -6,117 +6,41 @@
         </div>
     </ion-header-bar>-->
     <div class="milestone-popup">
+
         <ion-tabs class="tabs-positive tabs-icon-top has-header">
 
   <ion-tab title="Details" icon-on="ion-ios-compose" icon-off="ion-ios-compose-outline">
-
-      <ul class="list">
-           <div class="item range range-assertive">
-               
-                <div class="custom-slide" style="width:{{user.value}}%"></div>
-                <input type="range" min="0" max="{{user.max}}" value="{{user.min}}" step="1" ng-model="user.value">
-                <div class="text-right">
-                    {{user.value}}%
-                </div>
-            </div>
- 
-            <li>
- <label class="item item-input item-stacked-label">
-    <!--<span class="input-label">Item Title</span>-->
-    <input type="text" placeholder="Item Title">
-  </label>
-            </li>
- <li>
- <label class="item item-input item-stacked-label">
-    <!--<span class="input-label">Item Description</span>-->
-    <input type="text" placeholder="Item Description">
-  </label>
- </li>
- <!--<li>
- <label class="item item-input item-stacked-label">
-    <span class="input-label">Item Title</span>
-    <input type="text" placeholder="Item Title">
-  </label>
- </li>-->
-  
-  <li>
-     <label class="item item-input item-stacked-label">
-         <!--<span class="input-label pd0">Choose Vendor</span>-->
-          <!--<select class="work-order mts">
-                <option selected="true" value="" disabled>Choose Vendor</option>
-                <option selected>Ruchira Padave</option>
-                 <option selected> Ganesh Kothavale</option>
-               
-              </select>-->
-               <!--<span class="input-label pd0">Choose Vendor</span>-->
-               <select class="work-order ">
-                   
-                     <option selected="true" value="" disabled>Choose Vendor</option>
-                     <option>Ruchira Padave</option>
-                     <option> Ganesh Kothavale</option>
-                    
+          <ul class="list">
+              <li>
+                 <label class="item item-input item-stacked-label">
+                   <select class="work-order ">
+                         <option selected="true" value="" disabled>Choose Vendor</option>
+                         <option>Ruchira Padave</option>
+                         <option> Ganesh Kothavale</option>
                   </select>
-     </label>
-             
-  </li>
-  
-                 <li class="item item-toggle">
-                Status
-                <label class="toggle tp19 toggle-balanced">
-       <input type="checkbox">
-       <div class="track">
-         <div class="handle"></div>
-       </div>
-     </label>
-            </li>
-</ul>
-  <div class="padding">
-            <button class="button button-positive button-block" ng-click="closeMilestoneEdit()">
-  Save
-</button>
-        </div>
-     <!--<ul class="list">
+                 </label>
+              </li>
+              <li>
 
-            <div class="item range range-assertive">
-               
-                <div class="custom-slide" style="width:{{user.value}}%"></div>
-                <input type="range" min="0" max="{{user.max}}" value="{{user.min}}" step="1" ng-model="user.value">
-                <div class="text-right">
-                    {{user.value}}%
-                </div>
-            </div>
-            <li class="item item-input">
-                <span class="input-label">Item Title</span>
-                <input type="text">
-            </li>
-             <li class="item item-input">
-                <span class="input-label">Item Description</span>
-                <input type="text">
-            </li>
-             <li class="item item-input">
-              <div class="input-label">
-              Choose Vendor
-              </div>
-              <select class="work-order">
-                <option>Ganesh Kothavale</option>
-                <option selected>Ruchira Padave</option>
-              </select>
-            </li>
-            <li class="item item-toggle">
-                Status
-                <label class="toggle tp19 toggle-balanced">
-       <input type="checkbox">
-       <div class="track">
-         <div class="handle"></div>
-       </div>
-     </label>
-            </li>
-        </ul>
-        <div class="padding">
-            <button class="button button-positive button-block" ng-click="closeMilestoneEdit()">
-  Save
-</button>
-        </div>-->
+              <label class="item item-input item-stacked-label">
+                <!-- <span class="input-label">Value Allocated</span> -->
+                <input type="text" placeholder="Value Allocated">
+              </label>
+              </li>
+
+            </ul>
+                  <div class="padding">
+                    <button class="button button-positive button-block" ng-click="closeMilestoneEdit()">Save
+                    </button>
+                  </div>
+                </ion-content>
+                <ion-footer>
+                   <div class="float-button" ng-click="opentransition();">
+                    <a class="content ">
+                        <i class="ion ion-plus "> </i>
+                    </a>
+                  </div>
+                </ion-footer>
 
   </ion-tab>
 
@@ -132,7 +56,7 @@
               <div class="image-grid">
     <img src="img/venkman.jpg" alt="image-grid">
               </div>
-          
+
          </div>
           <div class="col">
               <div class="image-grid">
@@ -144,7 +68,7 @@
     <img src="img/venkman.jpg" alt="image-grid">
               </div>
          </div>
-        
+
      </div>
           <div class="row" >
          <div class="col">
@@ -156,7 +80,7 @@
               <div class="image-grid">
     <img src="img/venkman.jpg" alt="image-grid">
               </div>
-          
+
          </div>
           <div class="col">
               <div class="image-grid">
@@ -168,7 +92,7 @@
     <img src="img/venkman.jpg" alt="image-grid">
               </div>
          </div>
-        
+
      </div>
      <div class="row" >
          <div class="col">
@@ -180,7 +104,7 @@
               <div class="image-grid">
     <img src="img/venkman.jpg" alt="image-grid">
               </div>
-          
+
          </div>
           <div class="col">
               <div class="image-grid">
@@ -192,7 +116,7 @@
     <img src="img/venkman.jpg" alt="image-grid">
               </div>
          </div>
-        
+
      </div>
  </div>
   </ion-tab>
@@ -206,19 +130,19 @@
     <textarea class="resize" placeholder="Comments"></textarea>
   </label>
    <div class="padding">
-            <button class="button button-positive button-block">
+            <button class="button button-positive button-block" ng-click="closeMilestoneEdit()">
   Submit
 </button>
         </div>
 </div>
           </ion-item>
       </ion-list>
-  
+
   </ion-tab>
 
 </ion-tabs>
-        
-      
-        
+
+
+
     </div>
 </div>

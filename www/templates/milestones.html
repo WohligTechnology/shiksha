@@ -4,18 +4,18 @@
       <div class="card top-card">
         <div class="item item-text-wrap">
           <span class="item-note custom-radio">
-                        <label class=" item-toggle">
-                        <label class="toggle toggle-energized">
-                            <input type="checkbox">
-                            <div class="track">
-                            <div class="handle icon-lock"></div>
-                            </div>
-                        </label>
-                        </label>
-                    </span>
-          <div class="">
-            <div class="infra-project">Infrastructure Grant to College</div>
-            <!--<div class="">
+                  <label class=" item-toggle">
+                    <label class="toggle toggle-energized">
+                        <input type="checkbox">
+                        <div class="track">
+                        <div class="handle icon-lock"></div>
+                        </div>
+                    </label>
+                  </label>
+            </span>
+          <div class="infra-div">
+            <div class="infra-project bold">Infrastructure Grant to college</div>
+            <!--<div>
               <label for="" class="dark">Upgradation of library</label>
             </div>-->
           </div>
@@ -31,7 +31,7 @@
           <div class="begin-complete" style="width:{{complete.value}}%"></div>
         </div>
       </div>-->
-         <div class="progress-div">
+         <!-- <div class="progress-div">
               <div class="">
                 <label for="" class="bold"> Total work completed</label>
                  <span class="item-note bold dark">40%</span>
@@ -40,20 +40,18 @@
                 <div class="complete"></div>
                 <div class="begin-complete" style="width:{{complete.value}}%"></div>
                 <div class="mark-make" style="left: calc({{complete.value}}% - 20px);">{{complete.value}}%</div>
-                <!--<img src="img/progressbar.png" alt="" />-->
               </div>
-            </div>
-      <div class="card what-use">
+            </div> -->
+      <!-- <div class="card what-use">
         <div class="padding-horizontal mile-card">
-          <div class="header clearfix">
-            <!--Item details-->
+          <div class=" clearfix col util-header pdb0">
             Project Type
           </div>
 
           <p class="display-inline">Preparing RFQ and evaluation</p>
           <div class="item-note buttons-right button-div">
             <button class="button button-icon ion-ios-camera"></button>
-            <button class="button button-icon ion-custom-comment" ng-click=" openComment(); "></button>
+            <button class="button button-icon ion-custom-comment" ng-click=" openMilestoneAdd(); "></button>
             <label class="toggle toggle-assertive toggle-custom-mile">
                             <input type="checkbox" ng-checked=true>
                             <div class="track">
@@ -65,24 +63,28 @@
 
           <div class="util-row timeline-sec">
             <div class="row pd0">
-              <div class="col-33 util-header">
+              <div class="col-33 util-header text-center">
                 <p>Amount of work</p>
               </div>
               <div class="col-33 util-header text-center">
                 <p>Due date</p>
               </div>
-              <div class="col-33 util-header">
+              <div class="col-33 util-header text-center">
                 <p>Completion date</p>
               </div>
             </div>
             <div class="row pd0 util-cont">
-              <div class="col-33 util-content medium">40%</div>
-              <div class="col-33 util-content medium text-center">30.9.2016</div>
-              <div class="col-33 util-content medium txt-green">20.10.2016</div>
+              <div class="col-33 util-content bold text-center">40%</div>
+              <div class="col-33 util-content bold text-center">30.9.2016</div>
+              <div class="col-33 util-content bold txt-green text-center">20.10.2016</div>
             </div>
           </div>
         </div>
-      </div>
+      </div> -->
+
+
+
+
       <!--<div class="card what-use">
         <div class="padding-horizontal mile-card">
           <div class="header clearfix">
@@ -134,26 +136,7 @@
             </div>-->
         </div>
           <div class="">
-            <!-- <div class="card top-card">
-              <div class="item item-text-wrap">
-                <span class="item-note custom-radio">
-                      <label class=" item-toggle">
-                      <label class="toggle toggle-energized">
-                          <input type="checkbox">
-                          <div class="track">
-                          <div class="handle icon-lock"></div>
-                          </div>
-                      </label>
-                      </label>
-                  </span>
-                <div class="">
-                  <div class="medium f16">Infrastructure Grant</div>
-                  <div class="">
-                    <label for="" class="dark">Upgradation of library</label>
-                  </div>
-                </div>
-              </div>
-            </div> -->
+
             <div class="progress-div">
               <div class="">
                 <label for="" class="bold"> Fund Utilization for Work Orders</label>
@@ -163,7 +146,6 @@
                 <div class="complete"></div>
                 <div class="begin-complete" style="width:{{complete.value}}%"></div>
                 <div class="mark-make" style="left: calc({{complete.value}}% - 20px);">{{complete.value}}%</div>
-                <!--<img src="img/progressbar.png" alt="" />-->
               </div>
             </div>
             <div class="">
@@ -173,16 +155,16 @@
                      <div class="relative">
                     <div class="col util-header pdb0">Project Type</div>
 
-   <div class="mile-card">
+   <!-- <div class="mile-card">
  <button class="button button-icon ion ion-link btnshare"></button>
-                    </div>
+                    </div> -->
                     </div>
 
 
                   </div>
                   <div class="row">
                     <div class="col util-content bold">Repair of existing library room / Civil work</div>
-                     <button class="button button-icon ion-android-more-vertical more" ng-click="openUtilizationEdit();"></button>
+                    <button class="button button-icon ion-android-more-vertical more more-button" ng-click="openUtilizationEdit();"></button>
                   </div>
                   <!-- <div class="util-row"> -->
 
@@ -193,22 +175,22 @@
                        <div class="item-note">
                         <button class="button button-icon ion-camera util-camera pr0"></button>
                       </div>
-                      <p class="mg0">Due Date</p>
+                      <p class="mg0 util-header">Due Date</p>
 
                     </div>
                   </div>
                        <div class="row">
-                    <div class="col-50 util-content bold pd5"></div>
+                    <div class="col-50 util-content bold pd5">Library</div>
 
                     <div class="col-50 util-content bold pd5">
-                      <p>
+                      <p class="bold">
                        23.3.2017
                       </p>
                     </div>
                   </div>
                           <div class="row">
                     <div class="col-50 util-header pd5">Total Value</div>
-                    <div class="col-50 util-header pd5"><span class="for-badge">Amount of Work <i class="badge badge-one">1</i></span></div>
+                    <div class="col-50 util-header pd5">Amount of Work<span class="for-badge"><i class="badge badge-one">1</i></span></div>
                   </div>
                   <div class="row">
                     <div class="col-50 util-content bold pd5">₹ 10,00,000</div>
@@ -217,7 +199,7 @@
                        <div class="item-note">
                         <button class="button button-icon ion-android-share-alt links" ></button>
                       </div>
-                      <p>
+                      <p class="bold">
                         40%
                       </p>
                     </div>
@@ -230,120 +212,122 @@
                 <div class="tab-custom tab-border" ng-init="tab=1" ng-if="payment">
                   <ul class="tabs-util">
                       <li class="uppercase text-center" ng-click="tab = 1" ng-class="{active:tab == 1}">
-                          Payments
+                          Expenses
                       </li>
-                      <li class="uppercase text-center" ng-click="tab = 2" ng-class="{active:tab == 2}">
+                      <!-- <li class="uppercase text-center" ng-click="tab = 2" ng-class="{active:tab == 2}">
                           <span class="for-badge bold">
                             Milestones <i class="badge badge-one">1</i>
                           </span>
-                      </li>
-                      <li class="uppercase text-center" ng-click="tab = 3" ng-class="{active:tab == 3}">
+                      </li> -->
+                      <li class="uppercase text-center" ng-click="tab = 2" ng-class="{active:tab == 2}">
                           Notes
                       </li>
                   </ul>
                   <div ng-show="tab == 1">
                     <div class="row-main-util">
                       <div class="row util-row">
-                        <div class="col-33 util-header">Payment Date</div>
-                        <div class="col-33 util-header">Value Released</div>
-                        <!--<div class="col-33 util-header">
-                          Description
-                        </div>-->
-                      </div>
-                      <div class="row util-row">
-                        <div class="col-33 util-content bold">12.06.2016</div>
-                        <div class="col-33 util-content bold">₹ 5,00,000</div>
-                        <div class="col-33">
-                          <div class="item-note">
-                                                     <div class="tags">
-                            <div class="add-tag" ng-click="openMilestoneEdit();">
-                              <img src="img/menuicon/tag-add.png" alt="">
-                            </div>
-                          </div>
-                          </div>
-                          <!--<div class="util-content bold">
-                            Advance Payment
-                          </div>-->
+                        <div class="col-33 util-header text-center">Vender</div>
+                        <div class="col-25 util-header text-center">Allocation</div>
+                        <div class="col-25 util-header text-center">Released</div>
+                        <div class="col util-header text-center">
                         </div>
                       </div>
                       <div class="row util-row">
-                        <div class="col-33 util-content bold">08.08.2016</div>
-                        <div class="col-33 util-content bold">₹ 5,00,000</div>
-                        <div class="col-33">
+                        <div class="col-33 util-content bold text-center">Neha</div>
+                        <div class="col-25 util-content bold text-center">₹ 5,00,000</div>
+                        <div class="col-25 util-content bold text-center">₹ 5,00,000</div>
+                        <div class="col tag text-center">
                           <div class="item-note">
-                                                     <div class="tags">
+                           <div class="tags">
                             <div class="add-tag" ng-click="openMilestoneEdit();">
-                              <img src="img/menuicon/tag-add.png" alt="">
+                              <img src="img/tags.png" alt="">
                             </div>
                           </div>
                           </div>
-                          <!--<div class="util-content bold">
-                            Final Payment
-                          </div>-->
+                        </div>
+                      </div>
+                      <div class="row util-row">
+                        <div class="col-33 util-content bold text-center">Riya</div>
+                        <div class="col-25 util-content bold text-center">₹ 5,00,000</div>
+                        <div class="col-25 util-content bold text-center">₹ 5,00,000</div>
+                        <div class="col tag text-center">
+                          <div class="item-note">
+                           <div class="tags">
+                            <div class="add-tag" ng-click="openMilestoneEdit();">
+                              <img src="img/tags.png" alt="">
+                            </div>
+                          </div>
+                          </div>
                         </div>
                       </div>
                     </div>
                   </div>
+                  <!-- <div ng-show="tab == 2">
+                    <div class="row-main-util">
+                      <div class="row util-row">
+                        <div class="col-20 util-header">%Work</div>
+                        <div class="col-50 util-header">Item Description</div>
+
+                      </div>
+                      <div class="row util-row">
+                        <div class="col-20 util-content bold">50%</div>
+                        <div class="col-50 util-content bold">Clean-up of all areas</div>
+                        <div class="col-30">
+                           <div class="tags">
+                            <div class="add-tag" ng-click="openMilestoneEdit();">
+                              <img src="img/tags.png" alt="">
+                            </div>
+                          </div>
+                          <div class="item-note custom-toggle-utili alignment">
+                            <label class="toggle toggle-assertive toggle-custom-mile">
+                                            <input type="checkbox" ng-checked=true>
+                                            <div class="track">
+                                                <div class="handle"></div>
+                                            </div>
+                                       </label>
+                          </div>
+
+
+                        </div>
+                      </div>
+                      <div class="row util-row">
+                        <div class="col-20 util-content bold">50%</div>
+                        <div class="col-50 util-content bold">Clean-up of all areas</div>
+                       <div class="col-30">
+                           <div class="tags">
+                            <div class="add-tag" ng-click="openMilestoneEdit();">
+                              <img src="img/tags.png" alt="">
+                            </div>
+                          </div>
+                          <div class="item-note custom-toggle-utili alignment">
+                            <label class="toggle toggle-assertive toggle-custom-mile">
+                                            <input type="checkbox" ng-checked=true>
+                                            <div class="track">
+                                                <div class="handle"></div>
+                                            </div>
+                                       </label>
+                          </div>
+
+
+                        </div>
+                      </div>
+
+                    </div>
+                  </div> -->
                   <div ng-show="tab == 2">
-                    <div class="row-main-util">
-                      <div class="row util-row">
-                        <div class="col-33 util-header">%Work</div>
-                        <div class="col-33 util-header">Item Description</div>
-                        <!--<div class="col-33 util-header">
-                          Due Date
-                        </div>-->
+                    <div class="">
+                      <div class="item comment">
+                        <label class="item item-input">
+                         <textarea placeholder="Comments"></textarea>
+                       </label>
                       </div>
-                      <div class="row util-row">
-                        <div class="col-33 util-content">50%</div>
-                        <div class="col-33 util-content">Clean-up of all areas</div>
-                        <div class="col-33">
-                           <div class="tags">
-                            <div class="add-tag" ng-click="openMilestoneEdit();">
-                              <img src="img/menuicon/tag-add.png" alt="">
-                            </div>
-                          </div>
-                          <div class="item-note custom-toggle-utili alignment">
-                            <label class="toggle toggle-assertive toggle-custom-mile">
-                                            <input type="checkbox" ng-checked=true>
-                                            <div class="track">
-                                                <div class="handle"></div>
-                                            </div>
-                                       </label>
-                          </div>
-
-                          <!--<div class="util-content">
-                            10.08.2016
-                          </div>-->
-                        </div>
-                      </div>
-                      <div class="row util-row">
-                        <div class="col-33 util-content">50%</div>
-                        <div class="col-33 util-content">Clean-up of all areas</div>
-                       <div class="col-33">
-                           <div class="tags">
-                            <div class="add-tag" ng-click="openMilestoneEdit();">
-                              <img src="img/menuicon/tag-add.png" alt="">
-                            </div>
-                          </div>
-                          <div class="item-note custom-toggle-utili alignment">
-                            <label class="toggle toggle-assertive toggle-custom-mile">
-                                            <input type="checkbox" ng-checked=true>
-                                            <div class="track">
-                                                <div class="handle"></div>
-                                            </div>
-                                       </label>
-                          </div>
-
-                          <!--<div class="util-content">
-                            10.08.2016
-                          </div>-->
-                        </div>
-                      </div>
-
                     </div>
-                  </div>
-                  <div ng-show="tab == 3">
-                    <div class="row-main-util">
+                    <div class="comment-button">
+                     <button class="button button-small button-assertive submit-pop pull-left" >Comment</button>
+                     <button class="button button-small button-assertive submit-pop item-note" >View all</button>
+                   </div>
+
+                    <!-- <div class="row-main-util">
                       <div class="row util-row">
                         <div class="col-33 util-header">Payment Date</div>
                         <div class="col-33 util-header">Value Released</div>
@@ -375,30 +359,30 @@
                           </div>
                         </div>
                       </div>
-                    </div>
+                    </div> -->
                   </div>
                   <!-- <div class="padding-horizontal">
                     <button class="button button-icon ion-chevron-up item-note btn-down btn-custom-icon"></button>
                   </div> -->
                 </div>
                 <div class="padding-horizontal">
-                  <button class="button button-icon ion-chevron-up item-note btn-down btn-custom-icon" ng-click="showPayment()" ng-if="!payment"></button>
+                  <button class="button button-icon ion-chevron-up item-note btn-down btn-custom-icon" ng-click="hidePayment()" ng-if="payment"></button>
                 </div>
                 <div class="padding-horizontal">
-                  <button class="button button-icon ion-chevron-down item-note btn-down btn-custom-icon" ng-click="hidePayment()" ng-if="payment"></button>
+                  <button class="button button-icon ion-chevron-down item-note btn-down btn-custom-icon" ng-click="showPayment()" ng-if="!payment"></button>
                 </div>
               </div>
             </div>
           </div>
     </ion-content>
-   
+
 
     <ion-footer>
        <div class="float-button" ng-click="openCreate();">
         <a class="content ">
             <i class="ion ion-plus "> </i>
         </a>
-    </div>
+      </div>
         <div class="tabs-custom ">
             <div class="tabs tabs-icon-top">
                 <a class="tab-item" ui-sref="app.project">
