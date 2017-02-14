@@ -9939,6 +9939,10 @@ button.button.button-icon.ion-custom-comment:before {
   height: 20px;
   width: 30px; }
 
+.btn-cmnt {
+  min-height: 30px;
+  line-height: 30px; }
+
 .ion-custom-clock {
   content: url("../img/clock.png");
   height: 16px;
@@ -10552,7 +10556,7 @@ button.button.button-icon.button-clear.settings-btn:before {
     font-size: 20px; }
   .table-amount table th {
     font-weight: 500;
-    color: #546a79;
+    color: #b6b6b6;
     border: 1px solid #ddd;
     padding: 5px;
     vertical-align: middle;
@@ -11164,7 +11168,8 @@ button.button.button-icon.util-camera {
   background: transparent;
   border: none;
   width: 95%;
-  margin: 10px 0; }
+  margin: 10px 0;
+  display: block; }
 
 .mts {
   margin-left: 10px; }
@@ -11247,10 +11252,10 @@ button.button.button-icon.util-camera {
   border: none; }
 
 .milestone-popup .pane {
-  top: 45px; }
+  top: 0px; }
 
 .milestone-popup .tabs {
-  top: 0; }
+  top: 43px; }
 
 .image {
   width: 100px;
@@ -11459,10 +11464,11 @@ button.button.button-icon.util-camera {
 .submit-pop {
   background-color: #3300ff !important;
   padding: 0 25px;
-  border-radius: 10px; }
+  border-radius: 10px;
+  margin-bottom: 50px; }
 
 .project-right {
-  color: #908787 !important; }
+  color: #5b5b5b !important; }
 
 .brown-footertop {
   border-top: 1px solid #977202; }
@@ -11527,3 +11533,25 @@ button.button.button-icon.util-camera {
 .tab-mile {
   width: 100%;
   height: 100%; }
+
+.fund-btns {
+  display: inline-block;
+  vertical-align: middle; }
+
+.instlmnt {
+  padding: 10px 20px; }
+
+.tbl-btm {
+  font-size: 10px;
+  color: #b6b6b6; }
+
+.fs12 {
+  font-size: 12px; }
+
+.range-div {
+  padding: 5px 0; }
+  .range-div label {
+    margin-left: 22px; }
+
+.edit-btn:before {
+  font-size: 18px !important; }

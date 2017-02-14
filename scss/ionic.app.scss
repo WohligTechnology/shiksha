@@ -159,8 +159,12 @@ button.button.button-icon.ion-custom-comment:before {
   content: url('../img/comment.png');
   height: 20px;
   width: 30px;
-}
 
+}
+.btn-cmnt{
+  min-height: 30px;
+  line-height: 30px;
+}
 .ion-custom-clock {
   content: url('../img/clock.png');
   height: 16px;
@@ -1123,7 +1127,7 @@ background: #977202;
 
     th {
       font-weight: 500;
-      color: $dark-grey;
+      color: #b6b6b6;
       border: 1px solid #ddd;
       padding: 5px;
       vertical-align: middle;
@@ -2008,6 +2012,7 @@ button.button.button-icon.util-camera {
   border: none;
   width: 95%;
   margin: 10px 0;
+  display: block;
 }
 .mts{
   margin-left: 10px;
@@ -2131,10 +2136,10 @@ button.button.button-icon.util-camera {
 }
 .milestone-popup{
   .pane{
-    top:45px;
+    top:0px;
   }
   .tabs{
-    top:0;
+    top:43px;
   }
 }
 .image{
@@ -2406,10 +2411,11 @@ color:#d8dcde;
   background-color: #3300ff!important;
   padding: 0 25px;
   border-radius: 10px;
+  margin-bottom: 50px;
 
 }
 .project-right{
-  color: #908787!important;
+  color: #5b5b5b!important;
 }
 .brown-footertop{
   border-top: 1px solid #977202;
@@ -2482,4 +2488,29 @@ color:#d8dcde;
 .tab-mile{
   width: 100%;
   height: 100%;
+}
+.fund-btns{
+  display: inline-block;
+  vertical-align: middle;
+}
+.instlmnt{
+  padding:10px 20px;
+}
+.tbl-btm{
+  font-size: 10px;
+  color: #b6b6b6;
+}
+.fs12{
+  font-size: 12px;
+}
+.range-div{
+padding: 5px 0;
+label{
+  margin-left: 22px;
+}
+}
+.edit-btn{
+&:before {
+      font-size: 18px!important;
+  }
 }

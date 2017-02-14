@@ -1,39 +1,44 @@
 <ion-modal-view>
   <ion-header-bar class="bar-positive bar bar-header">
-    <h1 class="title">Add Transition </h1>
+    <h1 class="title">Add Transaction </h1>
     <div class="buttons">
-      <button class="button button-clear ion-close" ng-click="closetransition()"></button>
+      <button class="button button-clear ion-close" ng-click="closetransaction()"></button>
     </div>
   </ion-header-bar>
   <ion-content>
     <div class="list vendordetails">
       <div class="list">
-        <div class="item range range-assertive">
-          <div class="custom-slide" style="width:{{user.value}}%"></div>
-          <input type="range" min="0" max="{{user.max}}" value="{{user.min}}"  ng-model="user.value">
-          <div class="text-right">
-            {{user.value}}%
-          </div>
+    <div class="range-div">
+      <label class="">Amount of work :</label>
+      <div class=" range range-assertive">
+        <div class="custom-slide" style="width:{{user.value}}%"></div>
+        <input type="range" min="0" max="{{user.max}}" value="{{user.min}}"  ng-model="user.value">
+        <div class="text-right">
+          {{user.value}}%
         </div>
-        <label class="item item-input item-stacked-label">
-          <!-- <span class="input-label">Vendor :</span> -->
+      </div>
+    </div>
+
+        <!-- <label class="item item-input item-stacked-label">
+          <span class="input-label">Vendor :</span>
           <input type="text" placeholder="Vendor">
         </label>
         <label class="item item-input item-stacked-label">
-          <!-- <span class="input-label">Allocation :</span> -->
+          <span class="input-label">Allocation :</span>
           <input type="text" placeholder="Allocation">
-        </label>
-        <label class="item item-input item-stacked-label">
-          <!-- <span class="input-label">Payment Date :</span> -->
-          <input placeholder="Payment Date" class="" type="text" onfocus="(this.type='date')" onfocusout="(this.type='text')" id="date">
+        </label> -->
 
-        </label>
         <label class="item item-input item-stacked-label">
-          <!-- <span class="input-label">Value Released :</span> -->
+          <span class="input-label">Payment Date</span>
+          <input type="text"onfocus="(this.type='date')" onfocusout="(this.type='text')" id="date" placeholder="Payment Date">
+        </label>
+
+        <label class="item item-input item-stacked-label">
+          <span class="input-label">Value Released :</span>
           <input type="text" placeholder="Value Released">
         </label>
         <label class="item item-input item-stacked-label">
-          <!-- <span class="input-label">Discription :</span> -->
+          <span class="input-label">Discription :</span>
           <textarea placeholder="Discription"></textarea>
         </label>
         <label class="item item-input item-stacked-label">
@@ -88,10 +93,9 @@
         </label>
       </div>
     </div>
-    <div class="padding">
-      <button class="button button-positive button-block" ng-click="closetransition();">
-       Submit
-      </button>
-    </div>
+
+      <div class="setting-down text-center">
+       <button class="button button-small button-assertive uppercase submit-pop" ng-click="closetransition();">submit</button>
+     </div>
   </ion-content>
 </ion-modal-view>

@@ -1,103 +1,52 @@
 <div>
-    <!--<ion-header-bar class="bar-positive bar bar-header">
-        <h1 class="title">Edit Milestone</h1>
+  <div class="popup-head">
+    <ion-header-bar class="bar-positive bar bar-header">
+        <h1 class="title">Add Expense Detail</h1>
         <div class="buttons">
-            <button class="button button-clear ion-close" ng-click="closeMilestoneEdit()"></button>
+            <button class="button button-clear ion-close" ng-click="closePaymentEdit()"></button>
         </div>
-    </ion-header-bar>-->
+    </ion-header-bar>
+  </div>
+
     <div class="milestone-popup">
-
-        <ion-tabs class="tabs-positive tabs-icon-top has-header">
-
+<ion-tabs class="tabs-positive tabs-icon-top">
   <ion-tab title="Details" icon-on="ion-ios-compose" icon-off="ion-ios-compose-outline">
     <div class="tab-mile">
-    <div class="card">
-
-      <div class="list">
-        <div class="row">
-            <div class="col">
-              <h5>Payment Date</h5>
-            </div>
-            <div class="col">
-              <h5>Value Released</h5>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col">
-              <h5>12.06.2016</h5>
-            </div>
-            <div class="col">
-              <h5>₹ 5,00,000</h5>
-            </div>
-        </div>
-      </div>
-      <div class="">
-        <label class="item item-input item-stacked-label">
-          <!-- <span class="input-label">Discription :</span> -->
-          <textarea placeholder="Discription"></textarea>
-        </label>
-      </div>
-      <div class="padding">
-          <button class="button button-positive button-block" ng-click="closePaymentEdit();">
-  submit
-  </button>
-      </div>
-    </div>
-    </div>
-           <!-- <ul class="list">
-
-            <li>
-
- <label class="item item-input item-stacked-label">
-    <input type="text" placeholder="Payment Short Description">
-  </label>
-            </li>
- <li>
- <label class="item item-input item-stacked-label">
-    <input type="text" placeholder=" Payment Detailed Description">
-  </label>
- </li>
-  <li>
- <label class="item item-input item-stacked-label">
-    <input type="text" placeholder=" Payment Date">
-  </label>
- </li>
-   <li>
- <label class="item item-input item-stacked-label">
-    <input type="text" placeholder=" Value Released (In Rs)">
-  </label>
- </li>
-  <li>
-     <label class="item item-input item-stacked-label">
-           <select class="work-order ">
-                <option selected="true" value="" disabled>Choose Vendor</option>
-                <option >Ruchira Padave</option>
-                 <option > Ganesh Kothavale</option>
-
+      <ion-content>
+        <ul class="list">
+          <li>
+             <label class="item item-input item-stacked-label">
+               <select class="work-order ">
+                     <option selected="true" value="" disabled>Choose Vendor</option>
+                     <option>Ruchira Padave</option>
+                     <option>Ganesh Kothavale</option>
               </select>
-     </label>
+             </label>
+          </li>
+          <li>
 
-  </li>
+          <label class="item item-input item-stacked-label">
+            <!-- <span class="input-label">Value Allocated</span> -->
+            <input type="text" placeholder="Value Allocated">
+          </label>
+          </li>
 
-                 <li class="item item-toggle">
-                Status
-                <label class="toggle tp19 toggle-balanced">
-       <input type="checkbox">
-       <div class="track">
-         <div class="handle"></div>
-       </div>
-     </label>
-            </li>
-</ul> -->
-        <!-- <div class="padding">
-            <button class="button button-positive button-block" ng-click="closetransition();">
-  Save
-</button>
-        </div> -->
+        </ul>
+
+
+          <div class="setting-down text-center">
+           <button class="button  button-assertive uppercase submit-pop" ng-click="closePaymentEdit();">submit</button>
+         </div>
+        </ion-content>
+
+    </div>
+
 
   </ion-tab>
 
   <ion-tab title="Photos" icon-on="ion-ios-camera" icon-off="ion-ios-camera-outline">
+    <div class="tab-mile">
+      <ion-content>
  <div class="photos">
           <div class="row" >
          <div class="col">
@@ -172,9 +121,14 @@
 
      </div>
  </div>
+</ion-content>
+
+</div>
   </ion-tab>
 
   <ion-tab title="Comments" icon-on="ion-ios-more" icon-off="ion-ios-more-outline">
+    <div class="tab-mile">
+      <ion-content>
       <ion-list >
           <ion-item class="comment-section">
  <div class="listings">
@@ -190,6 +144,9 @@
 </div>
           </ion-item>
       </ion-list>
+    </ion-content>
+
+    </div>
 
   </ion-tab>
 

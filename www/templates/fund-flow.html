@@ -58,51 +58,115 @@
           <div class="table-amount">
             <div class="card">
               <div class="tables">
-                <div class="p5">
-                  <label class="bold">Installment 1</label>
+                <div class="instlmnt">
+                  <label class="bold">Installment 1: 40%</label>
                 </div>
                 <table>
                   <tbody>
+                    <thead>
+                      <tr>
+
+                        <th class="bt0 br0 bl0">
+                          Amount
+                        </th>
+                        <th class="bt0 br0 bl0">
+                          Sent date
+                        </th>
+                        <th class="bt0 br0 bl0">
+                          Recd date
+                        </th>
+                        <th class="bt0 br0 bl0">
+                          Details
+                        </th>
+                      </tr>
+                    </thead>
+
                     <tr>
-                      <th colspan="2" class="bold dark text-left bt0 bl0">
-                        40%
-                      </th>
-                      <th class="bt0 br0 bl0">
-                        AMOUNT
-                      </th>
-                      <th class="bt0 br0 bl0">
-                        STATUS
-                      </th>
-                      <th class="bt0 br0 bl0">
-                        DATE
-                      </th>
-                      <th class="bt0 br0 bl0">
-                        DETAILS
-                      </th>
-                    </tr>
-                    <tr>
-                      <th colspan="2" class="text-left bl0">
+                      <th colspan="4" class="text-center bb0 bl0">
                         CENTER RELEASE
                       </th>
-                      <td>
+
+                    </tr>
+                    <tr>
+
+                      <td class="bb0">
                         ₹24,00,000
                       </td>
-                      <td>
-                        <label class="toggle toggle-balanced">
+                      <td class="bb0">
+                        22.10.2016
+                      </td>
+                      <td class="bb0">
+                        10.11.2016
+                      </td>
+                      <td class="bb0">
+                        <label class="toggle toggle-balanced fund-btns">
                          <input type="checkbox">
                          <div class="track">
                            <div class="handle"></div>
                          </div>
                        </label>
+                       <button class="button button-icon  ion-camera grey btn-custom-icon fund-btns">
+                         <button class="button button-icon   ion-custom-comment btn-cmnt fund-btns"  ng-click=" openComment(); "></button>
+
                       </td>
-                      <td>
-                        22.09.2016
-                      </td>
-                      <td class="text-center">
-                        <button class="button button-icon ion-camera grey btn-custom-icon">
-                      </td>
-                    </tr>
-                    <tr>
+
+                     </tr>
+                     <tr>
+                       <th colspan="4" class="text-center bb0 bl0">
+                         STATE RELEASE
+                       </th>
+                     </tr>
+                     <tr>
+
+                       <td class="bb0">
+                         ₹24,00,000
+                       </td>
+                       <td class="bb0">
+                         22.10.2016
+                       </td>
+                       <td class="bb0">
+                         10.11.2016
+                       </td>
+                       <td class="bb0">
+                         <label class="toggle toggle-balanced fund-btns">
+                          <input type="checkbox">
+                          <div class="track">
+                            <div class="handle"></div>
+                          </div>
+                        </label>
+                        <button class="button button-icon  ion-camera grey btn-custom-icon fund-btns">
+                          <button class="button button-icon  ion-custom-comment btn-cmnt fund-btns"  ng-click=" openComment(); "></button>
+
+                       </td>
+
+                      </tr>
+                      <tr>
+
+                        <td class="bb0">
+                          ₹24,00,000
+                        </td>
+                        <td class="bb0">
+                          22.10.2016
+                        </td>
+                        <td class="bb0">
+                          10.11.2016
+                        </td>
+                        <td class="bb0">
+                          <label class="toggle toggle-balanced fund-btns">
+                           <input type="checkbox">
+                           <div class="track">
+                             <div class="handle"></div>
+                           </div>
+                         </label>
+                         <button class="button button-icon ion-camera grey btn-custom-icon fund-btns">
+                           <button class="button button-icon ion-custom-comment btn-cmnt fund-btns"  ng-click=" openComment(); "></button>
+
+                        </td>
+
+                       </tr>
+
+
+                    <!--<tr>
                       <th rowspan="2" class="state-release bl0">
                         <div class="rotate-state">
                           STATE RELEASE
@@ -150,7 +214,7 @@
                       <td class="text-center">
                         <button class="button button-icon ion-camera grey btn-custom-icon">
                       </td>
-                    </tr>
+                    </tr> -->
                     <!--<tr>
                       <th colspan="2" class="text-left bl0 bb0">
                         FUND UTILIZATION
@@ -169,6 +233,19 @@
                     </tr>-->
                   </tbody>
                 </table>
+                <div class="row">
+                  <div class="col text-center">
+                    <label class="tbl-btm ">Expected: <br>₹40,00,000</label>
+                  </div>
+                  <div class="col text-center">
+                    <label class="tbl-btm ">Actual: <br>₹40,00,000</label>
+                  </div>
+                  <div class="col text-center">
+                    <label class="tbl-btm ">Pending: <br>₹0</label>
+                  </div>
+
+
+                </div>
               </div>
             </div>
           </div>
@@ -186,7 +263,7 @@
           <i class="ion ion-shuffle"></i> Fund Flow
         </a>
         <a class="tab-item" ui-sref="app.milestones">
-          <i class="ion ion-calendar"></i> Projects
+          <i class="ion ion-social-buffer"></i> Projects
         </a>
         <!-- <a class="tab-item" ui-sref="app.utilization">
           <i class="ion ion-bag"></i> Utilization

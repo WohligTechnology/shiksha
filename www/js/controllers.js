@@ -333,17 +333,17 @@ $scope.onsubmit =function(){
   $scope.closeComment = function() {
     $scope.comment.hide();
   };
-  $ionicModal.fromTemplateUrl('templates/modal/transition.html', {
+  $ionicModal.fromTemplateUrl('templates/modal/transaction.html', {
     scope: $scope,
     animation: 'slide-in-up'
   }).then(function(modal) {
-    $scope.transition = modal;
+    $scope.transaction = modal;
   });
-  $scope.opentransition = function() {
-    $scope.transition.show();
+  $scope.opentransaction = function() {
+    $scope.transaction.show();
   };
-  $scope.closetransition = function() {
-    $scope.transition.hide();
+  $scope.closetransaction = function() {
+    $scope.transaction.hide();
   };
 $scope.priceSlider = 150;
   $scope.showPayment = function () {
