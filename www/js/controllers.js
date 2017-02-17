@@ -79,7 +79,6 @@ img:'img/venkman.jpg',
 
 .controller('HomeCtrl', function($scope, $stateParams ,$ionicPopup,$state,$ionicTabsDelegate,$ionicPopover) {
 
-
   $scope.filters = function () {
     if ($ionicTabsDelegate.selectedIndex() == 0){
 // Perform some action
