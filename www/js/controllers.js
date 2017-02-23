@@ -1,4 +1,4 @@
-angular.module('starter.controllers', ["chart.js"])
+angular.module('starter.controllers', ['starter.services',"chart.js"])
 
 
 .controller('AppCtrl', function($scope, $ionicModal, $timeout,$ionicPopup) {
@@ -77,7 +77,41 @@ img:'img/venkman.jpg',
 
 })
 
-.controller('HomeCtrl', function($scope, $stateParams ,$ionicPopup,$state,$ionicTabsDelegate,$ionicPopover) {
+.controller('HomeCtrl', function($scope, $stateParams ,MyServices ,$ionicPopup,$state,$ionicTabsDelegate,$ionicPopover) {
+
+ MyServices.getProjectReport(function(data) {
+  console.log("project",data);
+  $scope.getProjectReport=data;
+});
+MyServices.findAllPab(function(data) {
+  console.log("findAllPab",data);
+ $scope.pab=data;
+  
+});
+ MyServices.findAllState(function(data) {
+  console.log("findAllState",data);
+   $scope.state=data;
+
+});
+ MyServices.findAllComponents(function(data) {
+  console.log("findAllComponents",data);
+   $scope.components=data;
+
+});
+ MyServices.findAllInstituteDashBoard(function(data) {
+  console.log("findAllInstituteDashBoard",data);
+   $scope.institute=data;
+
+});
+   $scope.filterSubmit = function (formData) {
+     console.log("filterSubmit is called"+formData.pab)
+      MyServices.getFilteredProjectReport(formData,function(data) {
+        console.log("filtered data"+data)
+          $ionicLoading.hide();
+        
+        });
+//$scope.filter.close();
+};
 
   $scope.filters = function () {
     if ($ionicTabsDelegate.selectedIndex() == 0){
@@ -113,7 +147,7 @@ $scope.onsubmit =function(){
     'Andhra Pradesh', 'Arunachal Pradesh', 'Assam', 'Bihar', 'Chhattisgarh', 'Goa', 'Gujarat'
   ];
     $scope.status = [
-    'Active', 'On-Hold ', 'Completed'
+    'Active', 'OnHold ', 'Completed'
   ];
   $scope.options = {
     segmentShowStroke: false

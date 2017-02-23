@@ -18,11 +18,9 @@
     <div class="infra-college">
 <label class="item item-input ">
            <div class="custom-select">
-              <select class="gender" ng-model="" >
+              <select class="gender" ng-model="filter.pab" ng-options="p.name for p in pab.data track by p._id">
                  <option selected="true" value="" disabled>Filter by PAB</option>
-                 <option >PAB 7</option>
-                 <option >PAB 8</option>
-                 <option >PAB 9</option>
+               
               </select>
            </div>
         </label>
@@ -30,7 +28,7 @@
                  <div class="infra-college">
              <label class="item item-input ">
                         <div class="custom-select">
-                           <select class="gender" ng-model="filter.state" ng-options="in for in in states">
+                           <select class="gender" ng-model="filter.state"  ng-options="s.name for s in state.data track by s._id">
                               <option ng-selected="true" value="" disabled>Filter by State</option>
                               <!--<ng-option ng-repeat="institution in ins track by $index" value="{{ins}}">{{ins}}</option>-->
                            </select>
@@ -40,7 +38,7 @@
          <div class="infra-college">
                 <label class="item item-input ">
                         <div class="custom-select">
-                           <select class="gender" ng-model="filter.institute" ng-options="ins for ins in institution">
+                           <select class="gender" ng-model="filter.institute"  ng-options="i.name for i in institute.data track by i._id">
                               <option ng-selected="true" value="" disabled>Filter by Institute</option>
                               <!--<ng-option ng-repeat="institution in ins track by $index" value="{{ins}}">{{ins}}</option>-->
                            </select>
@@ -57,16 +55,14 @@
         <div class="infra-college">
     <label class="item item-input ">
                <div class="custom-select">
-                  <select class="gender" ng-model="" >
+                  <select class="gender" ng-model="filter.components" ng-options="i.name for i in components.data track by i._id" >
                      <option selected="true" value="" disabled>Filter by Component</option>
-                     <option >Component 1</option>
-                     <option >Component 2</option>
-                     <option >Component 3</option>
+                   
                   </select>
                </div>
             </label>
 </div>
          <div class="setting-down">
-                          <button class="button button-small button-assertive uppercase submit-pop" ng-click="closePopup();">submit</button>
+                          <button class="button button-small button-assertive uppercase submit-pop" ng-click="filterSubmit(filter);">submit</button>
                         </div>
 </div>
