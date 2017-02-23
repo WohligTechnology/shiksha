@@ -13,6 +13,7 @@ angular.module('starter.services', [])
           method: "POST"
         }).success(callback);
       },
+     
        getFilteredProjectReport: function(formData,callback) {
         return $http({
           url: adminurl + 'Project/getProjectReport',

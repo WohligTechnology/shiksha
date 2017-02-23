@@ -104,10 +104,28 @@ MyServices.findAllPab(function(data) {
 
 });
    $scope.filterSubmit = function (formData) {
-     console.log("filterSubmit is called"+formData.pab)
-      MyServices.getFilteredProjectReport(formData,function(data) {
-        console.log("filtered data"+data)
-          $ionicLoading.hide();
+     $scope.filter={};
+     console.log("filterSubmit is called",formData);
+     if(formData.pab._id){
+      $scope.filter.pab= formData.pab._id;
+     }
+     if(formData.state._id){
+     $scope.filter.state= formData.state._id;
+     }
+     if(formData.institute._id){
+      $scope.filter.institute= formData.institute._id;
+     }
+     
+     if(formData.components._id){
+      $scope.filter.components= formData.components._id;
+     }
+    
+
+     console.log("filterSubmit is called",formData);
+     console.log("filterSubmit is fdg called",$scope.filter);
+
+      MyServices.getFilteredProjectReport($scope.filter,function(data) {
+        console.log("filtered data",data)
         
         });
 //$scope.filter.close();
