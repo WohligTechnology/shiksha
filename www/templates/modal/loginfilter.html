@@ -1,6 +1,6 @@
 <ion-modal-view>
   <ion-header-bar class="bar-positive bar bar-header">
-    <h1 class="title">select Access point</h1>
+    <h1 class="title">Select Access Point</h1>
     <div class="buttons">
       <button class="button button-clear ion-close" ng-click="closeAccess()"></button>
     </div>
@@ -8,41 +8,35 @@
   <ion-content>
     <div class="list">
         <ion-list>
-        <ion-radio ng-model="choice" ng-value="'Center'">Center</ion-radio>
-        <ion-radio ng-model="choice" ng-value="'State'">State</ion-radio>
-        <ion-radio ng-model="choice" ng-value="'Institute'">Institute</ion-radio>
+        <ion-radio ng-model="Access" value="Center">Center</ion-radio>
+        <ion-radio ng-model="Access" value="State">State</ion-radio>
+        <ion-radio ng-model="Access" value="Institute">Institute</ion-radio>
         </ion-list>
-
         <div class="list">
 
-        <label class="item item-input item-select">
+        <label class="item item-input item-select" ng-show="Access === 'Center'">
             <div class="input-label">
             Center
             </div>
-            <select>
-            <option>Blue</option>
-            <option selected>Green</option>
-            <option>Red</option>
+          <select class="gender" ng-model="filter.Access" ng-options="centers.name for centers in filter.center " >
+                <option selected="true" value="" disabled>Center</option>
+            
             </select>
         </label>
-          <label class="item item-input item-select">
+          <label class="item item-input item-select" ng-show="Access === 'State'">
             <div class="input-label">
             State
             </div>
-            <select>
-            <option>Blue</option>
-            <option selected>Green</option>
-            <option>Red</option>
+           <select class="gender" ng-model="filter.Access" ng-options="states.name for states in filter.state " >
+                <option selected="true" value="" disabled>State</option>  
             </select>
           </label>
-          <label class="item item-input item-select">
+          <label class="item item-input item-select" ng-show="Access === 'Institute'">
             <div class="input-label">
             Institute
             </div>
-            <select>
-            <option>Blue</option>
-            <option selected>Green</option>
-            <option>Red</option>
+           <select class="gender" ng-model="filter.Access" ng-options="institutes.name for institutes in filter.institute " >
+                <option selected="true" value="" disabled>Institute</option>  
             </select>
         </label>
 

@@ -25,6 +25,7 @@ angular.module('starter.controllers', ['starter.services',"chart.js"])
       MyServices.login(formData,function(data) {
           console.log("login",data);
           if(data){
+            $scope.filter=data.data;
              $scope.loginAccess();
           }
       
