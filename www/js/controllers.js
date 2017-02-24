@@ -363,6 +363,8 @@ $scope.filter = $ionicPopup.show({
 })
 
 .controller('ProjectCtrl', function($scope, $stateParams) {
+  console.log($stateParams.componentId)
+  $scope.componentId=$stateParams.componentId
   $scope.colors = ["#88c057", "#d8dcde"];
   $scope.override = {
     borderColor: ['#88c057', '#d8dcde']
@@ -377,6 +379,8 @@ $scope.filter = $ionicPopup.show({
 })
 
 .controller('FundFlowCtrl', function($scope, $stateParams) {
+    $scope.componentId=$stateParams.componentId
+
   $scope.complete = {
     center: 30,
     state: 40,
@@ -384,7 +388,13 @@ $scope.filter = $ionicPopup.show({
   };
 })
 
-.controller('MilestonesCtrl', function($scope, $stateParams, $ionicModal) {
+.controller('MilestonesCtrl', function($scope, $stateParams,MyServices, $ionicModal) {
+    console.log("$scope.componentId   "+$stateParams.componentId);
+$scope.id=$stateParams.componentId;
+ MyServices.getAllprojectOfComponent($scope.id,function(data) {
+  $scope.getAllprojectOfComponent=data;
+  console.log($scope.getAllprojectOfComponent);
+});
   $ionicModal.fromTemplateUrl('templates/modal/comment.html', {
     scope: $scope,
     animation: 'slide-in-up'
@@ -489,6 +499,7 @@ $scope.priceSlider = 150;
 })
 
 .controller('UtilizationCtrl', function($scope, $stateParams, $ionicModal) {
+
   $ionicModal.fromTemplateUrl('templates/modal/fund-utilization-add.html', {
     scope: $scope,
     animation: 'slide-in-up'
@@ -545,4 +556,7 @@ $scope.priceSlider = 150;
   };
 })
 
-.controller('ProjectPhotosCtrl', function($scope, $stateParams) {});
+.controller('ProjectPhotosCtrl', function($scope, $stateParams) {
+      $scope.componentId=$stateParams.componentId
+
+});

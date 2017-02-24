@@ -43,7 +43,8 @@
                            TOTAL ALLOCATION
                         </h5>
                         <h3 class="text-center bold f16 home-data">
-                         {{getProjectReport.data.complete[0].totalAllocation}} Lacs
+                         <!--{{getProjectReport.data.totalComponentsFundAllocation.totalFundAllocation/100000 | number:0 }} Lacs-->
+                            {{getProjectReport.data.totalComponentsFundAllocation.totalFundAllocation}} Lacs
                         </h3>
                     </div>
                 </div>
@@ -229,7 +230,7 @@
                     </div>-->
                     </div>
               <div class="no-pad">
-                <div class="paddings" ui-sref="app.project">
+                <div class="paddings" ui-sref="app.project({ componentId: fundInstitute._id.componentId})">
                   <div class="card-institute-head">
                     <div class="bg-blue">
                       <div class="row pd0 bb">
@@ -255,7 +256,7 @@
                         <div class="col-33 bl">
                           <div class="upgrade">
                             <div class="text-center allocation-made project-right">₹ (in lacs)
-                              <h4 class="bold">{{fundInstitute.totalAllocation}}</h4> Allocation
+                              <h4 class="bold">{{fundInstitute.totalComponentAllocation}}</h4> Allocation
                             </div>
                           </div>
                         </div>
