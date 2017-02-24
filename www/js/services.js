@@ -1,4 +1,4 @@
-var adminurl = "http://192.168.0.20/api/";
+var adminurl = "http://192.168.0.10/api/";
 var imgpath = adminurl + "/uploads/";
 
 

@@ -105,30 +105,40 @@ MyServices.findAllPab(function(data) {
 });
    $scope.filterSubmit = function (formData) {
      $scope.filter={};
-     console.log("filterSubmit is called",formData);
-     if(formData.pab._id){
+
+     if(angular.isObject(formData.pab)){
+                //  console.log("filterSubmit is called for pab",formData.pab);
       $scope.filter.pab= formData.pab._id;
+
      }
-     if(formData.state._id){
+     if(angular.isObject(formData.state)){
+                     // console.log("filterSubmit is called",formData.state);
      $scope.filter.state= formData.state._id;
+
      }
-     if(formData.institute._id){
+     if(angular.isObject(formData.institute)){
+                //  console.log("filterSubmit is called",formData.institute);
       $scope.filter.institute= formData.institute._id;
+
      }
      
-     if(formData.components._id){
+     if(angular.isObject(formData.components)){
+                 // console.log("filterSubmit is called",formData.components);
       $scope.filter.components= formData.components._id;
      }
+     if(formData.status){
+                        // console.log("filterSubmit is called status",formData.status);
+        $scope.filter.status= formData.status;
+     }
     
-
-     console.log("filterSubmit is called",formData);
-     console.log("filterSubmit is fdg called",$scope.filter);
+    // console.log("filterSubmit is fdg called",$scope.filter);
 
       MyServices.getFilteredProjectReport($scope.filter,function(data) {
-        console.log("filtered data",data)
+          console.log("filtered data",data);
+         $scope.filter.close();
         
-        });
-//$scope.filter.close();
+      });
+      
 };
 
   $scope.filters = function () {
@@ -152,11 +162,11 @@ $scope.filter = $ionicPopup.show({
   $scope.closePopup = function () {
       $scope.filter.close();
     }
-$scope.onsubmit =function(){
-  $state.go('app.state');
-    $scope.closePopup();
+// $scope.onsubmit =function(){
+//   $state.go('app.state');
+//     $scope.closePopup();
 
-}
+// }
 
  $scope.institution = [
     'Institue of Chemical Technology', 'Mahatma Phule Krishi Vidyapeeth', 'Shivaji University', 'Solapur University', 'Tata Institue of Social Sciences', 'Tilal Maharastra University', 'University of Mumbai', 'Savitribai Phule Pune University'
