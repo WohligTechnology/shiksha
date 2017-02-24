@@ -79,8 +79,8 @@ img:'img/venkman.jpg',
 
 .controller('HomeCtrl', function($scope, $stateParams ,MyServices ,$ionicPopup,$state,$ionicTabsDelegate,$ionicPopover) {
 
- MyServices.getProjectReport(function(data) {
-  console.log("project",data);
+ MyServices.getProjectReport(null,function(data) {
+  console.log("project  ",data);
   $scope.getProjectReport=data;
 });
 MyServices.findAllPab(function(data) {
@@ -133,7 +133,7 @@ MyServices.findAllPab(function(data) {
     
     // console.log("filterSubmit is fdg called",$scope.filter);
 
-      MyServices.getFilteredProjectReport($scope.filter,function(data) {
+      MyServices.getProjectReport($scope.filter,function(data) {
           console.log("filtered data",data);
          $scope.filter.close();
         

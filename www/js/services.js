@@ -7,14 +7,14 @@ angular.module('starter.services', [])
   .factory('MyServices', function($http) {
      return {
     
-       getProjectReport: function(callback) {
-        return $http({
-          url: adminurl + 'Project/getProjectReport',
-          method: "POST"
-        }).success(callback);
-      },
+      //  getProjectReport: function(callback) {
+      //   return $http({
+      //     url: adminurl + 'Project/getProjectReport',
+      //     method: "POST"
+      //   }).success(callback);
+      // },
      
-       getFilteredProjectReport: function(formData,callback) {
+       getProjectReport: function(formData,callback) {
         return $http({
           url: adminurl + 'Project/getProjectReport',
           method: "POST",
