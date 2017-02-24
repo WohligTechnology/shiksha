@@ -104,38 +104,41 @@ MyServices.findAllPab(function(data) {
 
 });
    $scope.filterSubmit = function (formData) {
-     $scope.filter={};
+     $scope.filterCriteria={};
 
      if(angular.isObject(formData.pab)){
                 //  console.log("filterSubmit is called for pab",formData.pab);
-      $scope.filter.pab= formData.pab._id;
+      $scope.filterCriteria.pab= formData.pab._id;
 
      }
      if(angular.isObject(formData.state)){
                      // console.log("filterSubmit is called",formData.state);
-     $scope.filter.state= formData.state._id;
+     $scope.filterCriteria.state= formData.state._id;
 
      }
      if(angular.isObject(formData.institute)){
                 //  console.log("filterSubmit is called",formData.institute);
-      $scope.filter.institute= formData.institute._id;
+      $scope.filterCriteria.institute= formData.institute._id;
 
      }
      
      if(angular.isObject(formData.components)){
                  // console.log("filterSubmit is called",formData.components);
-      $scope.filter.components= formData.components._id;
+      $scope.filterCriteria.components= formData.components._id;
      }
      if(formData.status){
                         // console.log("filterSubmit is called status",formData.status);
-        $scope.filter.status= formData.status;
+        $scope.filterCriteria.status= formData.status;
      }
     
-    // console.log("filterSubmit is fdg called",$scope.filter);
+    // console.log("filterSubmit is fdg called",$scope.filterCriteria);
 
-      MyServices.getProjectReport($scope.filter,function(data) {
+      MyServices.getProjectReport($scope.filterCriteria,function(data) {
           console.log("filtered data",data);
+          if(data){
          $scope.filter.close();
+
+          }
         
       });
       

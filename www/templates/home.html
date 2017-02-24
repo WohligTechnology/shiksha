@@ -207,8 +207,7 @@
             <div class="clearfix"></div>
           </div>
           <div class="card-institue no-space pb110">
-
-            <div ng-repeat="fundInstitute in fundInstitutes" class="card card-institute-detail  " ng-class="">
+            <div ng-repeat="fundInstitute in getProjectReport.data.institute" class="card card-institute-detail  " ng-class="">
              <div class="infra-college no-pad {{fundInstitute.classStatus}}">
                <!--<div class="top-div">
             <div class="row">
@@ -237,33 +236,33 @@
                         <div class="col-66 ">
                           <div class="inside-head triangle-up">
                             <div class="item-note dark">ID: 2244</div>
-                            <div class="bold">{{fundInstitute.pab}}</div>
+                            <div class="bold">{{fundInstitute._id.pab}}</div>
                           </div>
                         </div>
                         <div class="col-33">
-                          <div class="text-center uppercase inside-head bl">{{fundInstitute.status}}</div>
+                          <div class="text-center uppercase inside-head bl">{{fundInstitute._id.componentStatus}}</div>
                         </div>
                       </div>
                       <div class="row pd0 mtop">
                         <div class="col-66 ">
                           <div class="upgrade">
-                            <div class="f16 pb15">Shivaji University</div>
+                            <div class="f16 pb15">{{fundInstitute._id.institute}}</div>
 
-                            <div class="bold f16 uppercase">Maharashtra</div>
+                            <div class="bold f16 uppercase">{{fundInstitute._id.state.name}}</div>
 
                         </div>
                         </div>
                         <div class="col-33 bl">
                           <div class="upgrade">
                             <div class="text-center allocation-made project-right">₹ (in lacs)
-                              <h4 class="bold">100</h4> Allocation
+                              <h4 class="bold">{{fundInstitute.totalAllocation}}</h4> Allocation
                             </div>
                           </div>
                         </div>
                       </div>
                     </div>
                     <div class="infra-college bold">
-                      INFRASTRUCTURE GRANT TO COLLEGE
+                      {{fundInstitute._id.component| uppercase}}
                     </div>
                   </div>
                   <div class="clearfix"></div>
