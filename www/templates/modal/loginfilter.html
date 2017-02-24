@@ -1,0 +1,52 @@
+<ion-modal-view>
+  <ion-header-bar class="bar-positive bar bar-header">
+    <h1 class="title">select Access point</h1>
+    <div class="buttons">
+      <button class="button button-clear ion-close" ng-click="closeComment()"></button>
+    </div>
+  </ion-header-bar>
+  <ion-content>
+    <div class="list">
+        <ion-list>
+        <ion-radio ng-model="choice" ng-value="'Center'">Center</ion-radio>
+        <ion-radio ng-model="choice" ng-value="'State'">State</ion-radio>
+        <ion-radio ng-model="choice" ng-value="'Institute'">Institute</ion-radio>
+        </ion-list>
+
+        <div class="list">
+
+        <label class="item item-input item-select">
+            <div class="input-label">
+            Center
+            </div>
+            <select>
+            <option>Blue</option>
+            <option selected>Green</option>
+            <option>Red</option>
+            </select>
+        </label>
+          <label class="item item-input item-select">
+            <div class="input-label">
+            State
+            </div>
+            <select>
+            <option>Blue</option>
+            <option selected>Green</option>
+            <option>Red</option>
+            </select>
+          </label>
+          <label class="item item-input item-select">
+            <div class="input-label">
+            Institute
+            </div>
+            <select>
+            <option>Blue</option>
+            <option selected>Green</option>
+            <option>Red</option>
+            </select>
+        </label>
+
+        </div>
+    </div>
+  </ion-content>
+</ion-modal-view>
