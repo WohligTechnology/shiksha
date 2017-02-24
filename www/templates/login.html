@@ -3,19 +3,22 @@
     <h2 class="text-center rusa-title bold">RUSA</h2>
     <h5 class="text-center fund bold">FUND TRACKER</h5>
     <h4 class="text-center sign-in">SIGN IN</h4>
-    <form action="">
+    <form action="" ng-submit="login(formdata)" name="formLogin">
       <div class="list login-form">
         <label class="item item-input login border-login">
           <span class="input-label login-text" >Username:</span>
-          <input type="text" class="input-text">
+          <input type="text" class="input-text" ng-model="formdata.username"  name="uname" required>
         </label>
+       <p class="error-msg" ng-show="formLogin.uname.$error.required && formLogin.uname.$touched">Please Enter Your Username.</p>
         <label class="item item-input login">
           <span class="input-label login-text">Password:</span>
-          <input type="password" class="input-text">
+          <input type="password" class="input-text" ng-model="formdata.password" name="password" required>
         </label>
+        <p class="error-msg" ng-show="formLogin.password.$error.required && formLogin.password.$touched">Please Enter Your password</p>
+
       </div>
       <div class="text-center">
-        <button class="button button-stable text-center login-button " ui-sref="app.home">
+        <button class="button button-stable text-center login-button " type="submit">
           Login
         </button>
       </div>

@@ -1,4 +1,4 @@
-var adminurl = "http://192.168.0.10/api/";
+var adminurl = "http://192.168.0.13/api/";
 var imgpath = adminurl + "/uploads/";
 
 
@@ -13,7 +13,14 @@ angular.module('starter.services', [])
       //     method: "POST"
       //   }).success(callback);
       // },
-     
+         login: function(formData,callback) {
+        return $http({
+          url: adminurl + 'User/LoginUser',
+          method: "POST",
+           withCredentials: true,
+          data: formData
+        }).success(callback);
+      },
        getProjectReport: function(formData,callback) {
         return $http({
           url: adminurl + 'Project/getProjectReport',

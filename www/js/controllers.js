@@ -18,7 +18,32 @@ angular.module('starter.controllers', ['starter.services',"chart.js"])
 
 .controller('PlaylistCtrl', function($scope, $stateParams) {})
 
-.controller('LoginCtrl', function($scope, $stateParams) {})
+.controller('LoginCtrl', function($scope, $stateParams,MyServices,$ionicModal) {
+
+   $scope.login = function (formData) {
+   console.log("hello login");
+      MyServices.login(formData,function(data) {
+          console.log("login",data);
+          if(data){
+             $scope.loginAccess();
+          }
+      
+      });   
+};
+  $ionicModal.fromTemplateUrl('templates/modal/loginfilter.html', {
+    scope: $scope,
+    // animation: 'slide-in-up'
+  }).then(function(modal) {
+    $scope.Access = modal;
+  });
+  $scope.loginAccess = function() {
+    $scope.Access.show();
+  };
+  $scope.closeAccess= function() {
+    $scope.Access.hide();
+  };
+
+})
 
 .controller('SearchCtrl', function($scope, $stateParams) {})
 
