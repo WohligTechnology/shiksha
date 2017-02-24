@@ -52,7 +52,19 @@ angular.module('starter.services', [])
           url: adminurl + 'Institute/findAllInstituteDashBoard',
           method: "POST"
         }).success(callback);
-      }
+      },
+        getAllprojectOfComponent: function(componentId,callback) {
+          var id ={
+            id : componentId
+          }
+        return $http({
+          url: adminurl + 'Project/getAllprojectOfComponent',
+          method: "POST",
+           withCredentials: true,
+          data: id
+        }).success(callback);
+      },
+     
   
      };
   });

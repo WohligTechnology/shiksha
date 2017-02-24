@@ -107,7 +107,7 @@ angular.module('starter', ['ionic', 'starter.controllers','starter.services'])
   })
 
   .state('app.project', {
-    url: '/project',
+    url: '/project/:componentId',
     views: {
       'menuContent': {
         templateUrl: 'templates/project.html',
@@ -117,7 +117,7 @@ angular.module('starter', ['ionic', 'starter.controllers','starter.services'])
   })
 
   .state('app.fundFlow', {
-    url: '/fund-flow',
+    url: '/fund-flow/:componentId',
     views: {
       'menuContent': {
         templateUrl: 'templates/fund-flow.html',
@@ -127,7 +127,7 @@ angular.module('starter', ['ionic', 'starter.controllers','starter.services'])
   })
 
   .state('app.milestones', {
-    url: '/milestones',
+    url: '/milestones/:componentId',
     views: {
       'menuContent': {
         templateUrl: 'templates/milestones.html',
@@ -147,7 +147,7 @@ angular.module('starter', ['ionic', 'starter.controllers','starter.services'])
   })
 
   .state('app.projectPhotos', {
-    url: '/project-photos',
+    url: '/project-photos/:componentId',
     views: {
       'menuContent': {
         templateUrl: 'templates/project-photos.html',

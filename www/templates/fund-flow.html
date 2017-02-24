@@ -256,19 +256,19 @@
   <ion-footer>
     <div class="tabs-custom">
       <div class="tabs tabs-icon-top">
-        <a class="tab-item" ui-sref="app.project">
+        <a class="tab-item" ui-sref="app.project({ componentId: componentId})">
           <i class="ion ion-ios-timer"></i> Overview
         </a>
-        <a class="tab-item calm" ui-sref="app.fundFlow">
+        <a class="tab-item calm" ui-sref="app.fundFlow({ componentId: componentId})">
           <i class="ion ion-shuffle"></i> Fund Flow
         </a>
-        <a class="tab-item" ui-sref="app.milestones">
+        <a class="tab-item" ui-sref="app.milestones({ componentId: componentId})">
           <i class="ion ion-social-buffer"></i> Projects
         </a>
         <!-- <a class="tab-item" ui-sref="app.utilization">
           <i class="ion ion-bag"></i> Utilization
         </a> -->
-        <a class="tab-item" ui-sref="app.projectPhotos">
+        <a class="tab-item" ui-sref="app.projectPhotos({ componentId: componentId})">
           <i class="ion  ion-android-camera"></i> Media
         </a>
       </div>
