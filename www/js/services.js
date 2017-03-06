@@ -1,4 +1,5 @@
-var adminurl = "http://192.168.0.13/api/";
+// var adminurl = "http://192.168.0.13/api/";
+var adminurl = "https://rusa.thegraylab.com/api/";//server
 var imgpath = adminurl + "/uploads/";
 
 
@@ -24,6 +25,14 @@ angular.module('starter.services', [])
        getProjectReport: function(formData,callback) {
         return $http({
           url: adminurl + 'Project/getProjectReport',
+          method: "POST",
+           withCredentials: true,
+          data: formData
+        }).success(callback);
+      },
+         getTransactionReport: function(formData,callback) {
+        return $http({
+          url: adminurl + 'Transaction/getTransactionReport',
           method: "POST",
            withCredentials: true,
           data: formData
@@ -58,7 +67,7 @@ angular.module('starter.services', [])
             id : componentId
           }
         return $http({
-          url: adminurl + 'Project/getAllprojectOfComponent',
+          url: adminurl + 'ProjectExpense/getAllprojectOfComponent',
           method: "POST",
            withCredentials: true,
           data: id

@@ -9,27 +9,41 @@ angular.module('starter.controllers', ['starter.services',"chart.js"])
       scope: $scope,
 
     });
+
   }
 
   $scope.closePopup = function () {
       $scope.filter.close();
     }
+
 })
 
 .controller('PlaylistCtrl', function($scope, $stateParams) {})
 
-.controller('LoginCtrl', function($scope, $stateParams,MyServices,$ionicModal) {
+.controller('LoginCtrl', function($scope, $stateParams,$ionicPopup,$state,MyServices,$ionicModal) {
+  $scope.showAlert = function() {
+    var alertPopup = $ionicPopup.alert({
+      title: 'oops!',
+      template: 'Sorry You have entered wrong username & password '
 
+    });
+
+    alertPopup.then(function(res) {
+      // $state.go('app.task');
+    });
+  };
    $scope.login = function (formData) {
-   console.log("hello login");
       MyServices.login(formData,function(data) {
           console.log("login",data);
-          if(data){
+          if(data.value){
             $scope.filter=data.data;
-             $scope.loginAccess();
+            //  $scope.loginAccess();
+            $state.go('app.home');
+          }else{
+            $scope.showAlert();
           }
-      
-      });   
+
+      });
 };
   $ionicModal.fromTemplateUrl('templates/modal/loginfilter.html', {
     scope: $scope,
@@ -103,77 +117,288 @@ img:'img/venkman.jpg',
 
 })
 
-.controller('HomeCtrl', function($scope, $stateParams ,MyServices ,$ionicPopup,$state,$ionicTabsDelegate,$ionicPopover) {
+.controller('HomeCtrl', function($scope, $stateParams ,MyServices  ,$filter, $timeout,$ionicPopup,$state,$ionicTabsDelegate,$ionicPopover) {
+  $scope.toasts = function (msg) {
+    $scope.msg=msg;
+    $scope.toast = $ionicPopup.show({
+      templateUrl: 'templates/modal/toast.html',
+      scope: $scope,
+    });
+    $timeout(function () {
+    $scope.closePopuptoast();
+  }, 5000);
+  }
 
- MyServices.getProjectReport(null,function(data) {
-  console.log("project  ",data);
-  $scope.getProjectReport=data;
-});
+  $scope.selectedPab = "";
+  $scope.selectedState = "";
+  $scope.AllComponents = "";
+  $scope.AllInstitutes = "";
+  $scope.filteredComponents = {};
+  $scope.filteredComponentsNew = {};
+  $scope.totalUtilizedPercentage = 0;
+  $scope.count = 0;
+  var dropDownData = {
+    pab: "",
+    state: "",
+    component: "",
+    institute: ""
+  };
+  $scope.DashboardAllData = {};
+
+
+  function loadData(dropDownData) {
+
+    MyServices.getProjectReport(dropDownData,function(data) {
+     console.log("project  ",data);
+     $scope.filteredComponents = data.data;
+     $scope.getProjectReport=data;
+
+     //getTransactionReport api start
+
+   MyServices.getTransactionReport(dropDownData,function(data) {
+      $scope.filteredComponentsNew = data.data;
+     console.log("project transaction  ",data);
+     $scope.getTransactionReport=data;
+     $scope.totalFundAllocation=$scope.getProjectReport.data.totalComponentsFundAllocation.totalFundAllocation;
+     $scope.totalFundRelease1=$scope.getTransactionReport.data.totalReleaseAndUtilization.totalFundRelease1;
+     $scope.totalUtilization1=$scope.getTransactionReport.data.totalReleaseAndUtilization.totalUtilization1;
+     $scope.percent_utilized=  $filter('number')(($scope.totalUtilization1/$scope.totalFundRelease1)*100, 2);
+     $scope.percent_Release=  $filter('number')(($scope.totalFundRelease1/$scope.totalFundAllocation)*100, 2);
+
+
+     if($scope.percent_utilized &&  $scope.percent_Release){
+     $scope.labels = [$scope.percent_utilized+"% Fund Utilization", $scope.percent_utilized+"% Fund Release", ""];
+     $scope.data = [$scope.percent_utilized,  $scope.percent_Release, 15];
+     }
+
+
+        // console.log("filteredComponents", $scope.filteredComponents);
+        // console.log("filteredComponentsNew", $scope.filteredComponentsNew);
+
+        $scope.DashboardAllData = angular.extend({}, $scope.filteredComponents, $scope.filteredComponentsNew);
+        console.log("DashboardAllData",$scope.DashboardAllData);
+
+        // console.log("filteredComponentsNew", $scope.filteredComponentsNew);
+        $scope.centerReleasePerComp = $scope.DashboardAllData.centerReleasePerComponent;
+        $scope.stateReleasePerComp = $scope.DashboardAllData.stateReleasePerComponent;
+        $scope.delayedProPerComp = $scope.DashboardAllData.totalDelayedProjectsPerComponent;
+        // console.log($scope.centerReleasePerComp);
+        // console.log($scope.stateReleasePerComp);
+        // console.log($scope.delayedProPerComp);
+
+
+
+        // to get totalDelayedProjectsPerComponent in institute array
+        angular.forEach($scope.DashboardAllData.institute, function (inst, index) {
+          if ($scope.delayedProPerComp != "No data founds") {
+            //when we get 0 records from Db we canno't make any operation
+
+            angular.forEach($scope.DashboardAllData.totalDelayedProjectsPerComponent, function (tdppc, index) {
+              if (inst._id.componentId == tdppc._id.componentId) {
+                inst.totalDelayedProjectsPerComponent = tdppc.totalDelayedProjectsPerComponent;
+              } else {
+                if (inst.totalDelayedProjectsPerComponent != null) {
+                  console.log("inside totalDelayedProjectsPerComponent");
+                } else {
+                  // if it is null then make it 0 to display on table
+                  inst.totalDelayedProjectsPerComponent = 0;
+                }
+              }
+            });
+          } else {
+            // Don't compare it with 1st object put direct 0 in institute
+            inst.totalDelayedProjectsPerComponent = null;
+            inst.totalDelayedProjectsPerComponent = 0;
+          }
+        });
+
+        // to get centerReleasePerComponent in institute array
+        angular.forEach($scope.DashboardAllData.institute, function (inst, index) {
+
+          if ($scope.centerReleasePerComp != "No data founds") {
+            angular.forEach($scope.DashboardAllData.centerReleasePerComponent, function (crpc, index) {
+              if (inst._id.componentId == crpc._id.componentId) {
+                inst.centerReleasePerComponent = crpc.centerComponentRelease;
+              } else {
+                if (inst.centerReleasePerComponent != null) {
+                  console.log("inside centerReleasePerComponent");
+                } else {
+                  inst.centerReleasePerComponent = 0;
+                }
+              }
+            });
+          } else {
+            inst.centerReleasePerComponent = null;
+            inst.centerReleasePerComponent = 0;
+          }
+        });
+
+
+        // to get stateReleasePerComponent in institute array
+        angular.forEach($scope.DashboardAllData.institute, function (inst, index) {
+
+          if ($scope.stateReleasePerComp != "No data founds") {
+            angular.forEach($scope.DashboardAllData.stateReleasePerComponent, function (srpc, index) {
+              if (inst._id.componentId == srpc._id.componentId) {
+                inst.stateReleasePerComponent = srpc.stateComponentRelease;
+              } else {
+                if (inst.stateReleasePerComponent != null) {
+                  console.log("inside stateReleasePerComponent");
+                } else {
+                  inst.stateReleasePerComponent = 0;
+                }
+              }
+            });
+          } else {
+            inst.stateReleasePerComponent = null;
+            inst.stateReleasePerComponent = 0;
+          }
+        });
+
+
+        // to get transactionsPerComponents in institute array
+        angular.forEach($scope.DashboardAllData.institute, function (inst, index) {
+
+          angular.forEach($scope.DashboardAllData.transactionsPerComponents, function (tpc, index) {
+
+
+            if (inst._id.componentId == tpc._id.componentId) {
+              inst.amountUtilizedPerComponent = tpc._id.amountUtilizedPerComponent;
+              // inst.amountUtilizedPercentagePerComponent = tpc._id.amountUtilizedPercentagePerComponent;
+              console.log("totalComponentRelease", tpc.totalComponentRelease);
+              inst.amountUtilizedPercentagePerComponent = (tpc._id.amountUtilizedPerComponent * 100) / tpc.totalComponentRelease;
+              console.log("count", $scope.count);
+            } else {
+              if (inst.amountUtilizedPerComponent != null && inst.amountUtilizedPercentagePerComponent != null) {
+                console.log("inside transactionsPerComponents");
+              } else {
+                inst.amountUtilizedPerComponent = 0;
+                inst.amountUtilizedPercentagePerComponent = 0;
+                console.log("count inside", $scope.count);
+              }
+            }
+          });
+        });
+         console.log("Updated object", $scope.DashboardAllData);
+      });
+
+    });
+
+
+  }
+
+  loadData(dropDownData);
+   console.log("Updated object111", $scope.DashboardAllData);
+
+  //
+  // $scope.getAllDashboardData = function (item) {
+  //   console.log(item);
+  //   // var id = angular.element(event.target).data('id');
+  //   // console.log(id);
+  //
+  //   if (id == "pab") {
+  //     dropDownData.pab = item.pab._id;
+  //     loadData(dropDownData);
+  //   } else if (id == "state") {
+  //     dropDownData.state = item._id;
+  //     loadData(dropDownData);
+  //   } else if (id == "component") {
+  //     dropDownData.component = item._id;
+  //     loadData(dropDownData);
+  //   } else if (id == "institute") {
+  //     dropDownData.institute = item._id;
+  //     loadData(dropDownData);
+  //   }
+  //
+  //   // console.log(dropDownData);
+  // };
+
+
+  $scope.closePopuptoast = function () {
+      $scope.toast.close();
+    }
+//  MyServices.getProjectReport(null,function(data) {
+//   console.log("project  ",data);
+//   if(data){
+//   $scope.getProjectReport=data;
+//
+//   //getTransactionReport api start
+//
+//    MyServices.getTransactionReport(null,function(data) {
+//   console.log("project transaction  ",data);
+//    if(data){
+//   $scope.getTransactionReport=data;
+//   $scope.totalFundAllocation=$scope.getProjectReport.data.totalComponentsFundAllocation.totalFundAllocation;
+//   $scope.totalFundRelease1=$scope.getTransactionReport.data.totalReleaseAndUtilization.totalFundRelease1;
+//   $scope.totalUtilization1=$scope.getTransactionReport.data.totalReleaseAndUtilization.totalUtilization1;
+//   $scope.percent_utilized=  $filter('number')(($scope.totalUtilization1/$scope.totalFundRelease1)*100, 2);
+//   $scope.percent_Release=  $filter('number')(($scope.totalFundRelease1/$scope.totalFundAllocation)*100, 2);
+//
+//
+//   if($scope.percent_utilized &&  $scope.percent_Release){
+//   $scope.labels = [$scope.percent_utilized+"% Fund Utilization", $scope.percent_utilized+"% Fund Release", ""];
+//   $scope.data = [$scope.percent_utilized,  $scope.percent_Release, 15];
+//   }
+//   }
+// });
+//
+//
+// //getTransactionReport api end
+//   }
+//
+// });
+
+
+//filter api start
 MyServices.findAllPab(function(data) {
-  console.log("findAllPab",data);
  $scope.pab=data;
-  
 });
  MyServices.findAllState(function(data) {
-  console.log("findAllState",data);
    $scope.state=data;
-
 });
  MyServices.findAllComponents(function(data) {
-  console.log("findAllComponents",data);
    $scope.components=data;
-
 });
  MyServices.findAllInstituteDashBoard(function(data) {
-  console.log("findAllInstituteDashBoard",data);
    $scope.institute=data;
-
 });
-   $scope.filterSubmit = function (formData) {
-     $scope.filterCriteria={};
-
-     if(angular.isObject(formData.pab)){
-                //  console.log("filterSubmit is called for pab",formData.pab);
-      $scope.filterCriteria.pab= formData.pab._id;
-
-     }
-     if(angular.isObject(formData.state)){
-                     // console.log("filterSubmit is called",formData.state);
-     $scope.filterCriteria.state= formData.state._id;
-
-     }
-     if(angular.isObject(formData.institute)){
-                //  console.log("filterSubmit is called",formData.institute);
-      $scope.filterCriteria.institute= formData.institute._id;
-
-     }
-     
-     if(angular.isObject(formData.components)){
-                 // console.log("filterSubmit is called",formData.components);
-      $scope.filterCriteria.components= formData.components._id;
-     }
-     if(formData.status){
-                        // console.log("filterSubmit is called status",formData.status);
-        $scope.filterCriteria.status= formData.status;
-     }
-    
-    // console.log("filterSubmit is fdg called",$scope.filterCriteria);
-
-      MyServices.getProjectReport($scope.filterCriteria,function(data) {
-          console.log("filtered data",data);
-          if(data){
-         $scope.filter.close();
-
-          }
-        
-      });
-      
+$scope.filterSubmit = function (formData) {
+  console.log("filter");
+  $scope.filterCriteria={};
+  if(angular.isObject(formData.pab)){
+   $scope.filterCriteria.pab= formData.pab._id;
+  }
+  if(angular.isObject(formData.state)){
+  $scope.filterCriteria.state= formData.state._id;
+  }
+  if(angular.isObject(formData.institute)){
+   $scope.filterCriteria.institute= formData.institute._id;
+  }
+  if(angular.isObject(formData.components)){
+   $scope.filterCriteria.components= formData.components._id;
+  }
+  if(formData.status){
+     $scope.filterCriteria.status= formData.status;
+  }
+  $scope.filter.close();
+  loadData($scope.filterCriteria);
+  //  MyServices.getProjectReport($scope.filterCriteria,function(data) {
+  //      console.log("filtered data",data);
+  //      if(data){
+  //     $scope.filter.close();
+  //      }
+  //  });
 };
 
+//filter api end
+
+
+
+
+
   $scope.filters = function () {
-    if ($ionicTabsDelegate.selectedIndex() == 0){
-// Perform some action
-$scope.filter = $ionicPopup.show({
+if ($ionicTabsDelegate.selectedIndex() == 0){
+  $scope.filter = $ionicPopup.show({
   templateUrl: 'templates/modal/projectfilter.html',
   cssClass: 'filter-pop',
   scope: $scope
@@ -191,21 +416,9 @@ $scope.filter = $ionicPopup.show({
   $scope.closePopup = function () {
       $scope.filter.close();
     }
-// $scope.onsubmit =function(){
-//   $state.go('app.state');
-//     $scope.closePopup();
 
-// }
 
- $scope.institution = [
-    'Institue of Chemical Technology', 'Mahatma Phule Krishi Vidyapeeth', 'Shivaji University', 'Solapur University', 'Tata Institue of Social Sciences', 'Tilal Maharastra University', 'University of Mumbai', 'Savitribai Phule Pune University'
-  ];
-  $scope.states = [
-    'Andhra Pradesh', 'Arunachal Pradesh', 'Assam', 'Bihar', 'Chhattisgarh', 'Goa', 'Gujarat'
-  ];
-    $scope.status = [
-    'Active', 'OnHold ', 'Completed'
-  ];
+
   $scope.options = {
     segmentShowStroke: false
   };
@@ -213,14 +426,12 @@ $scope.filter = $ionicPopup.show({
   $scope.override = {
     borderColor: ['#4b64ff', '#91a4af', '#d8dcde']
   };
-  $scope.labels = ["75% Fund Utilization", "", ""];
-  $scope.data = [75, 20, 15];
+
+
 
     $scope.card = {};
   $scope.cardopen = function(index, flag) {
-    console.log("hi");
     $scope.card[index] = flag;
-    console.log($scope.card);
   };
 
   $scope.showtab = true;
@@ -229,18 +440,25 @@ $scope.filter = $ionicPopup.show({
   //   borderColor: ['#4b64ff', '#91a4af', '#d8dcde']
   // };
 
-  $scope.labels = ["75% Fund Utilization", "", ""];
-  $scope.data = [75, 20, 15];
+
 
   $scope.options1 = {
     segmentShowStroke: false
   };
-  // $scope.colors1 = ['#003366', '#f5f5f5', '#0099cb'];
-  // $scope.override1 = {
-  //   borderColor: ['#003366', '#f5f5f5', '#0099cb']
-  // };
+  $scope.colors0 = ["#003366", "#0099cc", "#ffffff"];
+  $scope.override0 = {
+    borderColor: ["#003366", "#0099cc", "#ffffff"]
+  };
+  $scope.colors1 = ["#6d5303", "#c3ad6a", "#ffffff"];
+  $scope.override1 = {
+    borderColor: ["#6d5303", "#c3ad6a", "#ffffff"]
+  };
+  $scope.colors2 = ["#525050", "#ada8a8", "#ffffff"];
+  $scope.override2 = {
+    borderColor:["#525050", "#ada8a8", "#ffffff"]
+  };
   $scope.labels1 = ["", "", ""];
-  // $scope.data1 = [30, 55, 15];
+  $scope.data1 = [30, 55, 15];
   $scope.options = {
     segmentShowStroke: false
   };

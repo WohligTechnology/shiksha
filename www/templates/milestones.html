@@ -149,7 +149,7 @@
               </div>
             </div>
             <div class="">
-              <div class="card util-card padding spacings">
+              <div class="card util-card padding spacings" ng-repeat="project in getAllprojectOfComponent.data">
                 <div class="">
                   <div class="row ">
                      <div class="relative">
@@ -163,7 +163,7 @@
 
                   </div>
                   <div class="row">
-                    <div class="col util-content bold">Repair of existing library room / Civil work</div>
+                    <div class="col util-content bold">{{project.projectType_data.name}}</div>
                     <button class="button button-icon ion-android-more-vertical more more-button" ng-click="openUtilizationEdit();"></button>
                   </div>
                   <!-- <div class="util-row"> -->
@@ -180,11 +180,11 @@
                     </div>
                   </div>
                        <div class="row">
-                    <div class="col-50 util-content bold pd5">Library</div>
+                    <div class="col-50 util-content bold pd5">{{project.assetType_data.name}}</div>
 
                     <div class="col-50 util-content bold pd5">
                       <p class="bold">
-                       23.3.2017
+                      {{project.dueDate |date}}
                       </p>
                     </div>
                   </div>
@@ -193,7 +193,7 @@
                     <div class="col-50 util-header pd5">Amount of Work<span class="for-badge"><i class="badge badge-one">1</i></span></div>
                   </div>
                   <div class="row">
-                    <div class="col-50 util-content bold pd5">₹ 10,00,000</div>
+                    <div class="col-50 util-content bold pd5">₹ {{project.valueOfProject}}</div>
 
                     <div class="col-50 util-content bold pd5">
                        <div class="item-note">
@@ -209,7 +209,7 @@
                     <div class="col-50 util-content bold pd5">15.10.2016</div>
                   </div>-->
                 </div>
-                <div class="tab-custom tab-border" ng-init="tab=1" ng-if="payment">
+                <div class="tab-custom tab-border" ng-init="tab=1" ng-if="payment[$index]">
                   <ul class="tabs-util">
                       <li class="uppercase text-center" ng-click="tab = 1" ng-class="{active:tab == 1}">
                           Expenses
@@ -366,10 +366,10 @@
                   </div> -->
                 </div>
                 <div class="padding-horizontal">
-                  <button class="button button-icon ion-chevron-up item-note btn-down btn-custom-icon" ng-click="hidePayment()" ng-if="payment"></button>
+                  <button class="button button-icon ion-chevron-up item-note btn-down btn-custom-icon" ng-click="hidePayment()" ng-if="payment[$index]"></button>
                 </div>
                 <div class="padding-horizontal">
-                  <button class="button button-icon ion-chevron-down item-note btn-down btn-custom-icon" ng-click="showPayment()" ng-if="!payment"></button>
+                  <button class="button button-icon ion-chevron-down item-note btn-down btn-custom-icon" ng-click="showPayment()" ng-if="!payment[$index]"></button>
                 </div>
               </div>
             </div>

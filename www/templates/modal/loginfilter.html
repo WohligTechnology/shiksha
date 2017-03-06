@@ -6,12 +6,13 @@
     </div>
   </ion-header-bar>
   <ion-content>
-    <div class="list">
-        <ion-list>
-        <ion-radio ng-model="Access" value="Center">Center</ion-radio>
-        <ion-radio ng-model="Access" value="State">State</ion-radio>
-        <ion-radio ng-model="Access" value="Institute">Institute</ion-radio>
-        </ion-list>
+    <div class="">
+        <div class="row">
+            <div class="col loginfilter"><ion-radio ng-model="Access" value="Center">Center</ion-radio></div>
+            <div class="col loginfilter"><ion-radio ng-model="Access" value="State" >State</ion-radio></div>
+            <div class="col loginfilter" ><ion-radio ng-model="Access" value="Institute" >Institute</ion-radio></div>
+        </div>
+   
         <div class="list">
 
         <label class="item item-input item-select" ng-show="Access === 'Center'">

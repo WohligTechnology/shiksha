@@ -263,13 +263,16 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#19075e', end
 .input-text {
   color: white!important;
 }
-
+.error-msg{
+  color: white;
+  margin-left: 30px;
+}
 .login-button {
   color: #3300ff!important;
   background-color: white!important;
-  padding: 8px 80px;
+  padding: 0px 50px;
   border-radius: 35px;
-  font-size: 30px;
+  font-size: 22px;
   margin-top: 30px;
 }
 
@@ -691,7 +694,7 @@ button.button.button-icon.button-clear {
 .fund-dot ul li {
   line-height: 2;
   color: #006699;
-  font-size: 12px;
+  font-size: 10px;
 }
 .bg-sky-blue {
   background: #006699;
@@ -2086,42 +2089,42 @@ button.button.button-icon.util-camera {
 
 .projecttype{ width: 98%;}
 
-.card-institute-detail:nth-of-type(1){
-.bg-blue{
-  background-color: #00baff;
-}
-.infra-college{
-  background-color: #00abeb;
-  // border-top: 1px solid #0099d4;
+// .card-institute-detail:nth-of-type(1){
+// .bg-blue{
+//   background-color: #00baff;
+// }
+// .infra-college{
+//    background-color: #00abeb;
+//   //  border-top: 1px solid #0099d4;
 
-}
-.bg-footer-card{
-  background-color: #006699;
-}
-}
-.card-institute-detail:nth-of-type(2){
-.bg-blue{
-  background-color: #ffdd07;
-}
-.infra-college{
-  background-color: #efcc07;
-}
-.bg-footer-card{
-  background-color: #977202;
-}
-}
+// }
+// .bg-footer-card{
+//   background-color: #006699;
+// }
+// }
+// .card-institute-detail:nth-of-type(2){
+// .bg-blue{
+//   background-color: #ffdd07;
+// }
+// .infra-college{
+//   background-color: #efcc07;
+// }
+// .bg-footer-card{
+//   background-color: #977202;
+// }
+// }
 
-.card-institute-detail:nth-of-type(3){
-.bg-blue{
-  background-color: #d9dcdb;
-}
-.infra-college{
-  background-color: #c8cccb;
-}
-.bg-footer-card{
-  background-color: #6f6f6f;
-}
-}
+// .card-institute-detail:nth-of-type(3){
+// .bg-blue{
+//   background-color: #d9dcdb;
+// }
+// .infra-college{
+//   background-color: #c8cccb;
+// }
+// .bg-footer-card{
+//   background-color: #6f6f6f;
+// }
+// }
 
 .resize{ resize:none; }
 
@@ -2432,24 +2435,7 @@ color:#d8dcde;
   font-size: 22px;
 }
 
-.blue-dark{
-  color:#003366!important;
-}
-.yellow-dark{
-  color:#6d5303!important;
-}
-.grey-dark{
-  color: #525050!important;
-}
-.blue-light{
-  color: #0099cc!important;
-}
-.yellow-light{
-  color: #c3ad6a!important;
-}
-.grey-light{
-  color:#ada8a8!important;
-}
+
 .mile-tab{
   text-align: center;
   background-color: #3300ff;
@@ -2512,5 +2498,108 @@ label{
 .edit-btn{
 &:before {
       font-size: 18px!important;
+  }
+}
+// .loginfilter .item-radio .item-content{
+//   text-align: center;
+//   padding: 10px;
+//   background: #f7f7f7;
+
+// }
+
+.loginfilter{
+  background: #f7f7f7;
+  border-radius: 10px;
+  margin: 2px;
+ .item-radio .item-content{
+  text-align: center;
+  padding: 10px;
+  background: transparent;
+  border:none;
+}
+.item{
+    border: none;
+    background: transparent;
+}
+.item-radio input:checked + .radio-content .radio-icon{
+  background: $positive;
+  color: white
+}
+.item-radio input:checked + .radio-content .item-content{
+  background: $positive;
+  color: white
+}
+}
+.item-radio .radio-icon {
+  display: none;
+}
+input:-webkit-autofill {
+    -webkit-box-shadow: 0 0 0 1000px white inset !important;
+}
+
+// .blue-dark{
+//   color:#003366!important;
+// }
+// .yellow-dark{
+//   color:#6d5303!important;
+// }
+// .grey-dark{
+//   color: #525050!important;
+// }
+// .blue-light{
+//   color: #0099cc!important;
+// }
+// .yellow-light{
+//   color: #c3ad6a!important;
+// }
+// .grey-light{
+//   color:#ada8a8!important;
+// }
+.card-institue {
+  .card-institute-detail:nth-child(3n+1){
+    background-color: #00baff;
+    .infra-college {
+      background-color: #00abeb;
+    }
+
+    .dot1{
+      color:#003366!important;
+    }
+    .dot2{
+        color: #0099cc!important;
+    }
+    .bg-footer-card{
+          background-color: #006699;
+        }
+  }
+  .card-institute-detail:nth-child(3n+2){
+    background-color: #ffdd07;
+    .infra-college {
+      background-color: #efcc07;
+    }
+     .dot1{
+      color:#6d5303!important;
+    }
+    .dot2{
+      color: #c3ad6a!important;
+    }
+   .bg-footer-card{
+  background-color: #977202;
+}
+  }
+  .card-institute-detail:nth-child(3n+3){
+    background-color: #d9dcdb;
+    .infra-college {
+      background-color: #c8cccb;
+    }
+     .dot1{
+        color: #525050!important;
+    }
+    .dot2{
+        color:#ada8a8!important;
+    }
+    .bg-footer-card{
+      background-color: #6f6f6f;
+    }
   }
 }
