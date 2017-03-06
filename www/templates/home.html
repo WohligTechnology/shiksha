@@ -243,7 +243,7 @@
                                 <li class="project-right"><i class="ion-record dot1" ></i> Centre share released: {{fundInstitute.centerReleasePerComponent/100000 | number: 2}} / {{(fundInstitute.totalComponentAllocation *(fundInstitute._id.centerShare/100) )/100000 | number:2}}</li>
                                 <li class="project-right"><i class="ion-record dot2" ></i> State share released: {{fundInstitute.stateReleasePerComponent /100000 | number: 2}} / {{(fundInstitute.totalComponentAllocation *(fundInstitute._id.stateShare/100))/100000 | number:2}}</li>
                                 <li class="project-right"> <i class="ion-record fund-dot3"></i>
-                                  <span class="item-note"><span class="badge badge-fund"> 1 </span></span>Fund utilization: {{fundInstitute.amountUtilizedPerComponent/100000 | number: 2}} / {{fundInstitute.centerReleasePerComponent+fundInstitute.stateReleasePerComponent/100000 | number:2}} </li>
+                                  <span class="item-note"><span class="badge badge-fund"> 1 </span></span>Fund utilization: {{fundInstitute.amountUtilizedPerComponent/100000 | number: 2}} / {{(fundInstitute.centerReleasePerComponent+fundInstitute.stateReleasePerComponent)/100000 | number:2}} </li>
                               </ul>
                             </div>
                           </div>
