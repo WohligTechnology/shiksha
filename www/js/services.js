@@ -1,5 +1,5 @@
 // var adminurl = "http://192.168.0.13/api/";
-var adminurl = "https://rusabeta.wohlig.com/api/";//server
+var adminurl = "httpgit ://rusabeta.wohlig.com/api/";//server
 var imgpath = adminurl + "/uploads/";
 
 
