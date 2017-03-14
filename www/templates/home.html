@@ -11,7 +11,7 @@
       </button>
       <!-- <button class="button button-icon button-clear search-btn ion-android-search" ui-sref="app.search">
       </button> -->
-      <button class="button button-icon button-clear ion-android-more-vertical settings-btn padings" >
+      <button class="button button-icon button-clear ion-android-more-vertical settings-btn padings">
       </button>
     </ion-nav-buttons>
   </ion-nav-bar>
@@ -29,51 +29,51 @@
               </div>
             </div>
           </div>-->
-           <!-- <div class="item-note toggle-institute filtering">
+          <!-- <div class="item-note toggle-institute filtering">
               <div class="button icon-left ion-funnel filter" ng-click="filters();">Filter</div>
             </div> -->
-             <!--<div class="clearfix"></div>-->
+          <!--<div class="clearfix"></div>-->
           <div class="mid-div">
-           <div class="row overview-mid">
-                <div class="col-60">
-                    <div class="funds-all">
+            <div class="row overview-mid">
+              <div class="col-60">
+                <div class="funds-all">
 
-                        <h5 class="text-center allocated-size stable ">
-                           <i class="ion-record release col2"></i>
-                           TOTAL ALLOCATION
-                        </h5>
-                        <h3 class="text-center bold f16 home-data">
-                         {{getProjectReport.data.totalComponentsFundAllocation.totalFundAllocation/100000 | number:2 }} Lacs
-                            <!--{{getProjectReport.data.totalComponentsFundAllocation.totalFundAllocation}} Lacs-->
-                        </h3>
-                    </div>
+                  <h5 class="text-center allocated-size stable ">
+                    <i class="ion-record release col2"></i> TOTAL ALLOCATION
+                  </h5>
+                  <h3 class="text-center bold f16 home-data">
+                    {{getProjectReport.data.totalComponentsFundAllocation.totalFundAllocation/100000 | number:2 }} Lacs
+                    <!--{{getProjectReport.data.totalComponentsFundAllocation.totalFundAllocation}} Lacs-->
+                  </h3>
                 </div>
-                <div class="col-40">
-                    <div class="padding top pad-change">
-                        <div class="recordings">
-                            <p class="stable f12 text-center"><i class="ion-record release col1"></i>FUNDS RELEASED</p>
+              </div>
+              <div class="col-40">
+                <div class="padding top pad-change">
+                  <div class="recordings">
+                    <p class="stable f12 text-center"><i class="ion-record release col1"></i>FUNDS RELEASED</p>
 
-                            <div class="text-center ">
-                                <p class="f16 bold">{{getTransactionReport.data.totalReleaseAndUtilization.totalFundRelease1/100000 | number:2 }} Lacs</p>
-                            </div>
-                        </div>
-
+                    <div class="text-center ">
+                      <p class="f16 bold">{{getTransactionReport.data.totalReleaseAndUtilization.totalFundRelease1/100000 | number:2 }} Lacs</p>
                     </div>
-                    <div class="padding recordings pad-change">
-                        <p class="stable f12 text-center"><i class="ion-record release col3"></i>FUNDS UTILIZED</p>
+                  </div>
 
-                        <div class="text-center ">
-
-                            <p class="f16 bold ">{{getTransactionReport.data.totalReleaseAndUtilization.totalUtilization1/100000 | number:2 }} Lacs</p>
-                        </div>
-                    </div>
                 </div>
+                <div class="padding recordings pad-change">
+                  <p class="stable f12 text-center"><i class="ion-record release col3"></i>FUNDS UTILIZED</p>
+
+                  <div class="text-center ">
+
+                    <p class="f16 bold ">{{getTransactionReport.data.totalReleaseAndUtilization.totalUtilization1/100000 | number:2 }} Lacs</p>
+                  </div>
+                </div>
+              </div>
             </div>
 
             <div class="padding chart-home">
-              <canvas id="doughnut" class="chart chart-doughnut noborder" chart-data="data" chart-labels="labels" chart-colors="colors" chart-dataset-override="override" style="border:none;">
+              <canvas id="doughnut" class="chart chart-doughnut noborder" chart-data="data" chart-labels="labels" chart-colors="colors"
+                chart-dataset-override="override" style="border:none;">
               </canvas>
-            <h5 class="f16">
+              <h5 class="f16">
                 {{percent_utilized}}% Fund Utilization
               </h5>
             </div>
@@ -81,80 +81,80 @@
 
           </div>
 
-                <div class="components ">
-                  <div class="row">
-                    <div class="col-60">
-                  <h5 class="footer-head">COMPONENTS</h5>
-                    </div>
-                    <div class="col-40 bleft">
+          <div class="components ">
+            <div class="row">
+              <div class="col-60">
+                <h5 class="footer-head">COMPONENTS</h5>
+              </div>
+              <div class="col-40 bleft">
                 <div class="padding top padding-tops">
-                          <div class="row">
-                            <div class="col">
-                              <p class="pull-left home-label">TOTAL</p>
-                            </div>
-                            <div class="col">
-                              <p class="pull-left home-content bold home-data f16"> {{getProjectReport.data.totalComponents.count}} </p>
-                            </div>
-
-                          </div>
-
-
+                  <div class="row">
+                    <div class="col">
+                      <p class="pull-left home-label">TOTAL</p>
                     </div>
-              <div class="<pa></pa>dding top padding-tops">
-
-                          <div class="row">
-                            <div class="col">
-                              <p class="pull-left home-label">DELAYED</p>
-                            </div>
-                            <div class="col">
-                              <p class="pull-left delayed bold  f16"> {{getProjectReport.data.totalComponents.count - getProjectReport.data.inTimeComponents.inTimeComponentsCount}}</p>
-                            </div>
-
-                          </div>
-
+                    <div class="col">
+                      <p class="pull-left home-content bold home-data f16"> {{getProjectReport.data.totalComponents.count}} </p>
                     </div>
 
-    </div>
-  </div>
-</div>
-<div class="clearfix"></div>
+                  </div>
 
-<div class="components bgs">
-  <div class="row">
-    <div class="col-60">
-   <h5 class="footer-head">PROJECTS</h5>
-    </div>
-    <div class="col-40 bleft">
-       <!--<h5 class="padding-tops">Funds Release</h5>-->
- <div class="padding top padding-tops">
-   <div class="row">
-     <div class="col">
-       <p class="pull-left home-label">TOTAL</p>
-     </div>
-     <div class="col">
-       <p class="pull-left home-content bold home-data f16"> {{getProjectReport.data.totalProjects.count}} </p>
-     </div>
-   </div>
-      </div>
-        <div class="padding ">
-          <div class="row">
-            <div class="col">
-              <p class="pull-left home-label">DELAYED</p>
-            </div>
-            <div class="col">
-              <p class="pull-left delayed bold  f16">{{getProjectReport.data.totalDelayedProjects.totalDelayedProjects}}</p>
+
+                </div>
+                <div class="<pa></pa>dding top padding-tops">
+
+                  <div class="row">
+                    <div class="col">
+                      <p class="pull-left home-label">DELAYED</p>
+                    </div>
+                    <div class="col">
+                      <p class="pull-left delayed bold  f16"> {{getProjectReport.data.totalComponents.count - getProjectReport.data.inTimeComponents.inTimeComponentsCount}}</p>
+                    </div>
+
+                  </div>
+
+                </div>
+
+              </div>
             </div>
           </div>
-      </div>
-    </div>
-  </div>
-</div>
-<div class="clearfix"></div>
+          <div class="clearfix"></div>
+
+          <div class="components bgs">
+            <div class="row">
+              <div class="col-60">
+                <h5 class="footer-head">PROJECTS</h5>
+              </div>
+              <div class="col-40 bleft">
+                <!--<h5 class="padding-tops">Funds Release</h5>-->
+                <div class="padding top padding-tops">
+                  <div class="row">
+                    <div class="col">
+                      <p class="pull-left home-label">TOTAL</p>
+                    </div>
+                    <div class="col">
+                      <p class="pull-left home-content bold home-data f16"> {{getProjectReport.data.totalProjects.count}} </p>
+                    </div>
+                  </div>
+                </div>
+                <div class="padding ">
+                  <div class="row">
+                    <div class="col">
+                      <p class="pull-left home-label">DELAYED</p>
+                    </div>
+                    <div class="col">
+                      <p class="pull-left delayed bold  f16">{{getProjectReport.data.totalDelayedProjects.totalDelayedProjects}}</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="clearfix"></div>
         </div>
       </ion-content>
     </ion-tab>
-        <!--<ion-tab title="PROJECTs">-->
-          <ion-tab title="FUND ALLOCATIONS">
+    <!--<ion-tab title="PROJECTs">-->
+    <ion-tab title="FUND ALLOCATIONS">
       <ion-content class="tabs-content bg-grey-light has-tabs-top has-notabs has-tabs tabs-content">
         <div class="pb50">
           <div class="padding">
@@ -167,7 +167,7 @@
 
 
               <div class="no-pad">
-                <div class="paddings" ui-sref="app.project({ componentId: fundInstitute._id.componentId})">
+                <div class="paddings" ui-sref="app.overview({ componentId: fundInstitute._id.componentId})">
                   <div class="card-institute-head">
                     <div class="bg-blue">
                       <div class="row pd0 bb">
@@ -188,13 +188,13 @@
 
                             <div class="bold f16 uppercase">{{fundInstitute._id.stateName}}</div>
 
-                        </div>
+                          </div>
                         </div>
                         <div class="col-33 bl">
                           <div class="upgrade">
                             <div class="text-center allocation-made project-right">₹ (in lacs)
                               <!-- <h4 class="bold">{{fundInstitute._id.totalComponentAllocation/100000 | number:0}}</h4> Allocation -->
-                               <h4 class="bold">{{fundInstitute.totalComponentAllocation/100000 | number:2}}</h4> Allocation
+                              <h4 class="bold">{{fundInstitute.totalComponentAllocation/100000 | number:2}}</h4> Allocation
 
                             </div>
                           </div>
@@ -229,21 +229,30 @@
                         <div class="col-66">
                           <div class="padding">
                             <div class="text-center project-right">Fund Utilization - ₹ (in lacs)</div>
-                            <div class="chart-home institute-chart pd15" >
+                            <div class="chart-home institute-chart pd15">
 
-                              <canvas id="doughnut" ng-if="$index%3===0" class="chart chart-doughnut" chart-data="data1" chart-labels="labels1" chart-colors="colors0" chart-dataset-override="override0"></canvas>
-                              <canvas id="doughnut" ng-if="$index%3===1" class="chart chart-doughnut" chart-data="data1" chart-labels="labels1" chart-colors="colors1" chart-dataset-override="override1"></canvas>
-                              <canvas id="doughnut" ng-if="$index%3===2" class="chart chart-doughnut" chart-data="data1" chart-labels="labels1" chart-colors="colors2" chart-dataset-override="override2"></canvas>
+                              <canvas id="doughnut" ng-if="$index%3===0" class="chart chart-doughnut" chart-data="data1" chart-labels="labels1" chart-colors="colors0"
+                                chart-dataset-override="override0"></canvas>
+                              <canvas id="doughnut" ng-if="$index%3===1" class="chart chart-doughnut" chart-data="data1" chart-labels="labels1" chart-colors="colors1"
+                                chart-dataset-override="override1"></canvas>
+                              <canvas id="doughnut" ng-if="$index%3===2" class="chart chart-doughnut" chart-data="data1" chart-labels="labels1" chart-colors="colors2"
+                                chart-dataset-override="override2"></canvas>
                               <h5 class="f16 bold card-50">
                                 {{fundInstitute.amountUtilizedPercentagePerComponent | number :2}}%
                               </h5>
                             </div>
                             <div class="fund-dot">
                               <ul>
-                                <li class="project-right"><i class="ion-record dot1" ></i> Centre share released: {{fundInstitute.centerReleasePerComponent/100000 | number: 2}} / {{(fundInstitute.totalComponentAllocation *(fundInstitute._id.centerShare/100) )/100000 | number:2}}</li>
-                                <li class="project-right"><i class="ion-record dot2" ></i> State share released: {{fundInstitute.stateReleasePerComponent /100000 | number: 2}} / {{(fundInstitute.totalComponentAllocation *(fundInstitute._id.stateShare/100))/100000 | number:2}}</li>
+                                <li class="project-right"><i class="ion-record dot1"></i> Centre share released: {{fundInstitute.centerReleasePerComponent/100000
+                                  | number: 2}} / {{(fundInstitute.totalComponentAllocation *(fundInstitute._id.centerShare/100)
+                                  )/100000 | number:2}}</li>
+                                <li class="project-right"><i class="ion-record dot2"></i> State share released: {{fundInstitute.stateReleasePerComponent
+                                  /100000 | number: 2}} / {{(fundInstitute.totalComponentAllocation *(fundInstitute._id.stateShare/100))/100000
+                                  | number:2}}</li>
                                 <li class="project-right"> <i class="ion-record fund-dot3"></i>
-                                  <span class="item-note"><span class="badge badge-fund"> 1 </span></span>Fund utilization: {{fundInstitute.amountUtilizedPerComponent/100000 | number: 2}} / {{(fundInstitute.centerReleasePerComponent+fundInstitute.stateReleasePerComponent)/100000 | number:2}} </li>
+                                  <span class="item-note"><span class="badge badge-fund"> 1 </span></span>Fund utilization:
+                                  {{fundInstitute.amountUtilizedPerComponent/100000 | number: 2}} / {{(fundInstitute.centerReleasePerComponent+fundInstitute.stateReleasePerComponent)/100000
+                                  | number:2}} </li>
                               </ul>
                             </div>
                           </div>

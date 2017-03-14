@@ -14,7 +14,7 @@
                   </label>
             </span>
           <div class="infra-div">
-            <div class="infra-project bold">Infrastructure Grant to college</div>
+            <div class="infra-project bold">{{fundflow.totalFundAllocationReleaseUlitize.componentName}}</div>
             <!--<div>
               <label for="" class="dark">Upgradation of library</label>
             </div>-->
@@ -27,24 +27,24 @@
             <div class="col-66">
               <div class="">
                 <span class="item-note">
-                 <label for="" class="dark bold">40%</label>
+                 <label for="" class="dark bold">{{(fundflow.totalFundAllocationReleaseUlitize.totalFundRelease/fundflow.totalFundAllocationReleaseUlitize.totalAllocation*100)}}%</label>
               </span>
                 <p class="bold">Total funds received</p>
               </div>
               <div class="custom-slide-flow">
                 <div class="complete"></div>
-                <div class="begin-state" style="width:{{complete.state}}%"></div>
-                <div class="begin-center" style="width:{{complete.center}}%"></div>
+                <div class="begin-state" style="width:{{(fundflow.totalStateRelease.totalStateRelease/fundflow.totalFundAllocationReleaseUlitize.totalAllocation*100 |number:2)}}%"></div>
+                <div class="begin-center" style="width:{{(fundflow.totalCenterRelease.totalCenterRelease/fundflow.totalFundAllocationReleaseUlitize.totalAllocation*100 |number:2)}}%"></div>
               </div>
               <div class="">
-                <div class="rectangle" style="width:calc({{complete.institute}}% - 40px);display: inline-block;"></div>
-                <label for="" class="balanced">50%</label>
+                <div class="rectangle" style="width:calc({{(fundflow.totalFundAllocationReleaseUlitize.totalUtilizedFund/fundflow.totalFundAllocationReleaseUlitize.totalAllocation*100 |number:2)}}% - 40px);display: inline-block;"></div>
+                <label for="" class="balanced">{{(fundflow.totalFundAllocationReleaseUlitize.totalUtilizedFund/fundflow.totalFundAllocationReleaseUlitize.totalAllocation*100 |number:2)}}%</label>
               </div>
             </div>
             <div class="col-33">
               <div class="padding-horizontal">
-                <p class="bold">₹ 40,00,000</p>
-                <p class="grey">₹ 100,00,000</p>
+                <p class="bold">₹ {{fundflow.totalFundAllocationReleaseUlitize.totalFundRelease}}</p>
+                <p class="grey">₹ {{fundflow.totalFundAllocationReleaseUlitize.totalAllocation}}</p>
               </div>
             </div>
           </div>
@@ -87,16 +87,16 @@
                       </th>
 
                     </tr>
-                    <tr>
+                    <tr ng-repeat="centerR in fundflow.allCenterTransaction">
 
                       <td class="bb0">
-                        ₹24,00,000
+                        ₹{{centerR._id.amount}}
                       </td>
                       <td class="bb0">
-                        22.10.2016
+                        {{centerR._id.transactionReceived | date : 'dd.MM.yyyy'}}
                       </td>
                       <td class="bb0">
-                        10.11.2016
+                        {{centerR._id.transactionSent | date : 'dd.MM.yyyy'}}
                       </td>
                       <td class="bb0">
                         <label class="toggle toggle-balanced fund-btns">
@@ -116,16 +116,16 @@
                          STATE RELEASE
                        </th>
                      </tr>
-                     <tr>
+                     <tr ng-repeat="centerR in fundflow.allStateTransaction">
 
                        <td class="bb0">
-                         ₹24,00,000
+                         ₹{{centerR._id.amount}}
                        </td>
                        <td class="bb0">
-                         22.10.2016
+                         {{centerR._id.transactionReceived | date : 'dd.MM.yyyy'}}
                        </td>
                        <td class="bb0">
-                         10.11.2016
+                         {{centerR._id.transactionReceived | date : 'dd.MM.yyyy'}}
                        </td>
                        <td class="bb0">
                          <label class="toggle toggle-balanced fund-btns">
@@ -140,7 +140,7 @@
                        </td>
 
                       </tr>
-                      <tr>
+                      <!-- <tr>
 
                         <td class="bb0">
                           ₹24,00,000
@@ -163,7 +163,7 @@
 
                         </td>
 
-                       </tr>
+                       </tr> -->
 
 
                     <!--<tr>
@@ -235,13 +235,13 @@
                 </table>
                 <div class="row">
                   <div class="col text-center">
-                    <label class="tbl-btm ">Expected: <br>₹40,00,000</label>
+                    <label class="tbl-btm ">Expected: <br>₹{{fundflow.totalFundAllocationReleaseUlitize.totalAllocation}}</label>
                   </div>
                   <div class="col text-center">
-                    <label class="tbl-btm ">Actual: <br>₹40,00,000</label>
+                    <label class="tbl-btm ">Actual: <br>₹{{fundflow.totalFundAllocationReleaseUlitize.totalFundRelease}}</label>
                   </div>
                   <div class="col text-center">
-                    <label class="tbl-btm ">Pending: <br>₹0</label>
+                    <label class="tbl-btm ">Pending: <br>₹{{fundflow.totalFundAllocationReleaseUlitize.totalAllocation - fundflow.totalFundAllocationReleaseUlitize.totalFundRelease}}</label>
                   </div>
 
 
@@ -256,7 +256,7 @@
   <ion-footer>
     <div class="tabs-custom">
       <div class="tabs tabs-icon-top">
-        <a class="tab-item" ui-sref="app.project({ componentId: componentId})">
+        <a class="tab-item" ui-sref="app.overview({ componentId: componentId})">
           <i class="ion ion-ios-timer"></i> Overview
         </a>
         <a class="tab-item calm" ui-sref="app.fundFlow({ componentId: componentId})">

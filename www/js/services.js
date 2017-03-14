@@ -1,5 +1,5 @@
-// var adminurl = "http://192.168.0.13/api/";
-var adminurl = "httpgit ://rusabeta.wohlig.com/api/";//server
+var adminurl = "http://192.168.0.02/api/";
+// var adminurl = "http://rusabeta.wohlig.com/api/";//server
 var imgpath = adminurl + "/uploads/";
 
 
@@ -7,7 +7,7 @@ var imgpath = adminurl + "/uploads/";
 angular.module('starter.services', [])
   .factory('MyServices', function($http) {
      return {
-    
+
       //  getProjectReport: function(callback) {
       //   return $http({
       //     url: adminurl + 'Project/getProjectReport',
@@ -28,6 +28,28 @@ angular.module('starter.services', [])
           method: "POST",
            withCredentials: true,
           data: formData
+        }).success(callback);
+      },
+       componentFundflow: function(id,callback) {
+         var data ={
+           id : id
+         }
+        return $http({
+          url: adminurl + 'Transaction/componentFundflow',
+          method: "POST",
+           withCredentials: true,
+          data: data
+        }).success(callback);
+      },
+       componentOverview : function(id,callback) {
+         var data ={
+           id : id
+         }
+        return $http({
+          url: adminurl + 'Transaction/componentOverview',
+          method: "POST",
+           withCredentials: true,
+          data: data
         }).success(callback);
       },
          getTransactionReport: function(formData,callback) {
@@ -73,7 +95,7 @@ angular.module('starter.services', [])
           data: id
         }).success(callback);
       },
-     
-  
+
+
      };
   });

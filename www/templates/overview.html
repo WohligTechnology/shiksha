@@ -14,7 +14,7 @@
                       </label>
                 </span>
               <div class="infra-div">
-                <div class="infra-project bold">Infrastructure Grant to college</div>
+                <div class="infra-project bold">{{overview._id.componentName}}</div>
                 <!--<div>
                   <label for="" class="dark">Upgradation of library</label>
                 </div>-->
@@ -29,7 +29,7 @@
                            FUNDS ALLOCATED
                         </h5>
                         <h3 class="text-center bold f16 home-data">
-                          ₹ 100,00,000
+                          ₹ {{overview.totalAllocationForComponent}}
                         </h3>
                     </div>
                 </div>
@@ -40,7 +40,7 @@
                             <p class="stable f12 text-center">PAB NO</p>
 
                             <div class="text-center ">
-                                <p class="f16 bold">8</p>
+                                <p class="f16 bold">{{pabName}}</p>
                             </div>
                         </div>
                     </div>
@@ -50,7 +50,7 @@
 
                             <div class="text-center ">
 
-                                <p class="f16 bold">₹ 40,00,000</p>
+                                <p class="f16 bold">₹ {{overview.totalAmountRelease}}</p>
                             </div>
                         </div>
                 </div>
@@ -61,7 +61,7 @@
                         <div class="bold f16">Latest fund inflow</div>
                     </div>
                     <div class="col-33">
-                        <div class="bold f16 text-center">₹ 16,00,000</div>
+                        <div class="bold f16 text-center">₹ {{overview.latestAmountRelease}}</div>
                     </div>
                 </div>
             </div>
@@ -104,7 +104,7 @@
     <ion-footer>
         <div class="tabs-custom ">
             <div class="tabs tabs-icon-top">
-                <a class="tab-item calm" ui-sref="app.project({ componentId: componentId})">
+                <a class="tab-item calm" ui-sref="app.overview({ componentId: componentId})">
                     <i class="ion-custom ion-ios-timer"></i> Overview
                 </a>
                 <a class="tab-item" ui-sref="app.fundFlow({ componentId: componentId})">
