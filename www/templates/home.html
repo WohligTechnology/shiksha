@@ -163,7 +163,8 @@
             <div class="clearfix"></div>
           </div>
           <div class="card-institue no-space pb110">
-            <div ng-repeat="fundInstitute in DashboardAllData.institute track by $index" class="card card-institute-detail  " ng-class="">
+            
+            <div ng-repeat="fundInstitute in DashboardAllData.institute track by $index" class="card card-institute-detail  " ng-class="" ng-if="DashboardAllData.institute !== 'No data founds'">
 
 
               <div class="no-pad">

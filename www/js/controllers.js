@@ -64,7 +64,18 @@ angular.module('starter.controllers', ['starter.services', "chart.js"])
 
   .controller('PhotoGalleryCtrl', function ($scope, $stateParams) {})
 
-  .controller('VendorListCtrl', function ($scope, $stateParams, $ionicModal) {
+  .controller('VendorListCtrl', function ($scope, $stateParams,MyServices, $ionicModal) {
+    $scope.formData={};
+    $scope.formData.type="Institute";
+    $scope.formData.type_id="58a27f8fe146a5042e43312f";
+
+    MyServices.getAllVendorList($scope.formData, function (data) {
+
+      if (data.value) {
+        $scope.vendorlist = data.data.vendor;
+      }
+
+    });
 
     $ionicModal.fromTemplateUrl('templates/modal/vendordetail.html', {
       scope: $scope,
@@ -182,6 +193,7 @@ angular.module('starter.controllers', ['starter.services', "chart.js"])
           $scope.centerReleasePerComp = $scope.DashboardAllData.centerReleasePerComponent;
           $scope.stateReleasePerComp = $scope.DashboardAllData.stateReleasePerComponent;
           $scope.delayedProPerComp = $scope.DashboardAllData.totalDelayedProjectsPerComponent;
+          $scope.transactionPerComp = $scope.DashboardAllData.transactionsPerComponents;
           // console.log($scope.centerReleasePerComp);
           // console.log($scope.stateReleasePerComp);
           // console.log($scope.delayedProPerComp);
@@ -258,7 +270,7 @@ angular.module('starter.controllers', ['starter.services', "chart.js"])
 
           // to get transactionsPerComponents in institute array
           angular.forEach($scope.DashboardAllData.institute, function (inst, index) {
-
+              if ($scope.transactionPerComp != "No data founds") {
             angular.forEach($scope.DashboardAllData.transactionsPerComponents, function (tpc, index) {
 
 
@@ -278,8 +290,14 @@ angular.module('starter.controllers', ['starter.services', "chart.js"])
                 }
               }
             });
+          } else {
+            inst.amountUtilizedPerComponent = null;
+             inst.amountUtilizedPercentagePerComponent = null;
+             inst.amountUtilizedPerComponent = 0;
+             inst.amountUtilizedPercentagePerComponent = 0;
+          }
           });
-          console.log("Updated object", $scope.DashboardAllData);
+          // console.log("Updated object", $scope.DashboardAllData);
         });
 
       });
@@ -629,7 +647,6 @@ angular.module('starter.controllers', ['starter.services', "chart.js"])
     $scope.componentId = $stateParams.componentId;
     MyServices.componentFundflow($scope.componentId, function (data) {
       $scope.fundflow = data.data;
-        console.log($scope.fundflow);
     });
     $scope.complete = {
       center: 30,
@@ -638,13 +655,63 @@ angular.module('starter.controllers', ['starter.services', "chart.js"])
     };
   })
 
-  .controller('MilestonesCtrl', function ($scope, $stateParams, MyServices, $ionicModal) {
+  .controller('MilestonesCtrl', function ($scope, $stateParams, MyServices,$rootScope, $ionicModal) {
     console.log("$scope.componentId   " + $stateParams.componentId);
-    $scope.id = $stateParams.componentId;
-    MyServices.getAllprojectOfComponent($scope.id, function (data) {
-      $scope.getAllprojectOfComponent = data;
-      console.log($scope.getAllprojectOfComponent);
+    $scope.componentId = $stateParams.componentId;
+    MyServices.componentProjects($scope.componentId, function (data) {
+      $scope.componentProjects = data.data;
+      console.log($scope.componentProjects);
     });
+    MyServices.findAllProjectType( function (data) {
+      $scope.findAllProjectType = data.data;
+      console.log($scope.findAllProjectType);
+    });
+    MyServices.findAllAssetType( function (data) {
+      $scope.findAllAssetType = data.data;
+      console.log($scope.findAllAssetType);
+    });
+    $scope.formData={};
+    $scope.formData.type="Institute";
+    $scope.formData.type_id="58a27f8fe146a5042e43312f";
+    MyServices.getAllVendorList($scope.formData, function (data) {
+
+      if (data.value) {
+        $scope.vendorlist = data.data.vendor;
+      }
+
+    });
+    $scope.project={};
+    $scope.project.components =$stateParams.componentId;
+
+    $scope.createprojectFun =function(project){
+      $scope.project =project;
+      $scope.project.components =$scope.componentId;
+
+      MyServices.createProject($scope.project, function (data) {
+        $scope.project = data.data;
+        console.log($scope.project);
+        if (data.value) {
+          $scope.closeCreate();
+        }
+      });
+    }
+    $scope.EditprojectFun =function(project){
+      $scope.project =project;
+      $scope.project.components =$scope.componentId;
+      $scope.project._id =$rootScope.id;
+      console.log(project);
+
+      MyServices.updateProject($scope.project, function (data) {
+        $scope.project = data.data;
+        console.log($scope.project);
+        if (data.value) {
+          $scope.closeEdit();
+        }
+      });
+    }
+
+
+
     $ionicModal.fromTemplateUrl('templates/modal/comment.html', {
       scope: $scope,
       animation: 'slide-in-up'
@@ -670,12 +737,15 @@ angular.module('starter.controllers', ['starter.services', "chart.js"])
       $scope.transaction.hide();
     };
     $scope.priceSlider = 150;
-    $scope.showPayment = function () {
-      $scope.payment = true;
+    $scope.payment = {};
+
+    $scope.showPayment = function (index, flag) {
+      console.log(index,flag);
+      $scope.payment[index] = flag;
     }
-    $scope.hidePayment = function () {
-      $scope.payment = false;
-    }
+    // $scope.hidePayment = function () {
+    //   $scope.payment = false;
+    // }
 
     $ionicModal.fromTemplateUrl('templates/modal/milestone-add.html', {
       scope: $scope,
@@ -728,7 +798,9 @@ angular.module('starter.controllers', ['starter.services', "chart.js"])
     }).then(function (modal) {
       $scope.modalutil = modal;
     });
-    $scope.openUtilizationEdit = function () {
+    $scope.openUtilizationEdit = function (id) {
+      console.log(id);
+      $rootScope.id=id;
       $scope.modalutil.show();
     };
     $scope.closeUtilizationEdit = function () {
@@ -745,6 +817,24 @@ angular.module('starter.controllers', ['starter.services', "chart.js"])
     };
     $scope.closeCreate = function () {
       $scope.createproject.hide();
+    };
+
+    $ionicModal.fromTemplateUrl('templates/modal/editproject.html', {
+      scope: $scope,
+      // animation: 'slide-in-up'
+    }).then(function (modal) {
+      $scope.Editproject = modal;
+    });
+    $scope.openEdit = function () {
+      MyServices.ProjectGetOne($rootScope.id, function (data) {
+        $scope.project = data.data;
+        console.log($scope.project);
+
+      });
+      $scope.Editproject.show();
+    };
+    $scope.closeEdit = function () {
+      $scope.Editproject.hide();
     };
   })
 
@@ -806,7 +896,12 @@ angular.module('starter.controllers', ['starter.services', "chart.js"])
     };
   })
 
-  .controller('ProjectPhotosCtrl', function ($scope, $stateParams) {
-    $scope.componentId = $stateParams.componentId
+  .controller('ProjectPhotosCtrl', function ($scope, $stateParams,MyServices) {
+    $scope.componentId = $stateParams.componentId;
+    MyServices.getComponentAllPhotos($scope.componentId, function (data) {
+      if (data.value) {
+      }
+    });
+
 
   });

@@ -1,4 +1,4 @@
-var adminurl = "http://192.168.0.02/api/";
+var adminurl = "http://192.168.0.24/api/";
 // var adminurl = "http://rusabeta.wohlig.com/api/";//server
 var imgpath = adminurl + "/uploads/";
 
@@ -84,15 +84,79 @@ angular.module('starter.services', [])
           method: "POST"
         }).success(callback);
       },
-        getAllprojectOfComponent: function(componentId,callback) {
+      getAllVendorList: function(formData,callback) {
+        return $http({
+          url: adminurl + 'vendor/getAllVendorList',
+          method: "POST",
+          data: formData
+        }).success(callback);
+      },
+      createProject: function(formData,callback) {
+        return $http({
+          url: adminurl + 'Project/save',
+          method: "POST",
+          data: formData
+        }).success(callback);
+      },
+      ProjectGetOne: function(id,callback) {
+        var Data={
+          _id :id
+        }
+        return $http({
+          url: adminurl + 'Project/getOne',
+          method: "POST",
+          data: Data
+        }).success(callback);
+      },
+      updateProject: function(Data,callback) {
+        return $http({
+          url: adminurl + 'Project/updateProject',
+          method: "POST",
+          data: Data
+        }).success(callback);
+      },
+      vendorAllocation: function(Data,callback) {
+        return $http({
+          url: adminurl + 'projectExpense/vendorAllocation',
+          method: "POST",
+          data: Data
+        }).success(callback);
+      },
+      getComponentAllPhotos: function(id,callback) {
+        var Data={
+          _id :id
+        }
+        return $http({
+          url: adminurl + 'project/getComponentAllPhotos',
+          method: "POST",
+          data: Data
+        }).success(callback);
+      },
+        componentProjects: function(componentId,callback) {
           var id ={
-            id : componentId
+            component : componentId
           }
         return $http({
-          url: adminurl + 'ProjectExpense/getAllprojectOfComponent',
+          url: adminurl + 'ProjectExpense/componentProjects',
           method: "POST",
            withCredentials: true,
           data: id
+        }).success(callback);
+      },
+        findAllProjectType: function(callback) {
+
+        return $http({
+          url: adminurl + 'projectType/findAllProjectType',
+          method: "POST",
+           withCredentials: true,
+        }).success(callback);
+      },
+        findAllAssetType: function(callback) {
+
+        return $http({
+          url: adminurl + 'assetType/findAllAssetType',
+          method: "POST",
+           withCredentials: true,
         }).success(callback);
       },
 

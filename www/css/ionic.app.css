@@ -10713,11 +10713,18 @@ input[type=range]:focus::-webkit-slider-runnable-track {
     border-radius: 6px; }
   .custom-slide-flow .begin-center,
   .custom-slide-flow .begin-state {
-    margin-top: -15px; }
+    margin-top: -15px;
+    position: relative;
+    z-index: 2; }
   .custom-slide-flow .begin-state {
     background: #40bad5; }
   .custom-slide-flow .begin-center {
-    background: #3300ff; }
+    background: #3300ff;
+    position: relative;
+    z-index: 2; }
+
+.ng-zind {
+  z-index: 3 !important; }
 
 .rectangle {
   height: 5px;

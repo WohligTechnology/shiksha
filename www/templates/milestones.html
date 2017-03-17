@@ -14,7 +14,7 @@
                   </label>
             </span>
           <div class="infra-div">
-            <div class="infra-project bold">Infrastructure Grant to college</div>
+            <div class="infra-project bold">{{componentProjects[0].componentName}}</div>
             <!--<div>
               <label for="" class="dark">Upgradation of library</label>
             </div>-->
@@ -149,7 +149,7 @@
         </div>
       </div>
       <div class="">
-        <div class="card util-card padding spacings" ng-repeat="project in getAllprojectOfComponent.data">
+        <div class="card util-card padding spacings" ng-repeat="project in componentProjects">
           <div class="">
             <div class="row ">
               <div class="relative">
@@ -163,8 +163,8 @@
 
             </div>
             <div class="row">
-              <div class="col util-content bold">{{project.projectType_data.name}}</div>
-              <button class="button button-icon ion-android-more-vertical more more-button" ng-click="openUtilizationEdit();"></button>
+              <div class="col util-content bold">{{project.projectType}}</div>
+              <button class="button button-icon ion-android-more-vertical more more-button" ng-click="openUtilizationEdit(project.projectId);"></button>
             </div>
             <!-- <div class="util-row"> -->
 
@@ -180,7 +180,7 @@
               </div>
             </div>
             <div class="row">
-              <div class="col-50 util-content bold pd5">{{project.assetType_data.name}}</div>
+              <div class="col-50 util-content bold pd5">{{project.assetType}}</div>
 
               <div class="col-50 util-content bold pd5">
                 <p class="bold">
@@ -193,14 +193,14 @@
               <div class="col-50 util-header pd5">Amount of Work<span class="for-badge"><i class="badge badge-one">1</i></span></div>
             </div>
             <div class="row">
-              <div class="col-50 util-content bold pd5">₹ {{project.valueOfProject}}</div>
+              <div class="col-50 util-content bold pd5">₹ {{project.totalValue}}</div>
 
               <div class="col-50 util-content bold pd5">
                 <div class="item-note">
                   <button class="button button-icon ion-android-share-alt links"></button>
                 </div>
                 <p class="bold">
-                  40%
+                  {{project.amountOfWork}}%
                 </p>
               </div>
             </div>
@@ -232,10 +232,10 @@
                   <div class="col util-header text-center">
                   </div>
                 </div>
-                <div class="row util-row">
-                  <div class="col-25 util-content bold fs12">Neha</div>
-                  <div class="col-25 util-content bold text-center fs12">₹ 5,00,000</div>
-                  <div class="col-25 util-content bold text-center fs12">₹ 5,00,000</div>
+                <div class="row util-row" ng-repeat="vendor in project.vendor">
+                  <div class="col-25 util-content bold fs12">{{vendor.vendorName}}</div>
+                  <div class="col-25 util-content bold text-center fs12">₹ {{vendor.vendorAllocation}}</div>
+                  <div class="col-25 util-content bold text-center fs12">₹ {{vendor.vendorReleased}}</div>
                   <div class="col-25 tag text-center">
                     <div class="item-note">
                       <div class="tags">
@@ -246,20 +246,7 @@
                     </div>
                   </div>
                 </div>
-                <div class="row util-row">
-                  <div class="col-25 util-content bold fs12">Riya</div>
-                  <div class="col-25 util-content bold text-center fs12">₹ 5,00,000</div>
-                  <div class="col-25 util-content bold text-center fs12">₹ 5,00,000</div>
-                  <div class="col-25 tag text-center">
-                    <div class="item-note">
-                      <div class="tags">
-                        <div class="add-tag" ng-click="openMilestoneEdit();">
-                          <img src="img/tags.png" alt="">
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
+
               </div>
             </div>
             <!-- <div ng-show="tab == 2">
@@ -365,11 +352,12 @@
                     <button class="button button-icon ion-chevron-up item-note btn-down btn-custom-icon"></button>
                   </div> -->
           </div>
+
           <div class="padding-horizontal">
-            <button class="button button-icon ion-chevron-up item-note btn-down btn-custom-icon" ng-click="hidePayment()" ng-if="payment[$index]"></button>
+            <button class="button button-icon ion-chevron-up item-note btn-down btn-custom-icon" ng-click="showPayment($index,false)" ng-if="payment[$index]"></button>
           </div>
           <div class="padding-horizontal">
-            <button class="button button-icon ion-chevron-down item-note btn-down btn-custom-icon" ng-click="showPayment()" ng-if="!payment[$index]"></button>
+            <button class="button button-icon ion-chevron-down item-note btn-down btn-custom-icon" ng-click="showPayment($index,true)" ng-if="!payment[$index]"></button>
           </div>
         </div>
       </div>

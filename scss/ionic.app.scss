@@ -1271,13 +1271,22 @@ input[type=range]:focus::-webkit-slider-runnable-track {
   .begin-center,
   .begin-state {
     margin-top: -15px;
+    position: relative;
+    z-index: 2;
   }
   .begin-state {
     background: $royal;
+
   }
   .begin-center {
     background: $positive;
+    position: relative;
+    z-index: 2;
   }
+}
+
+.ng-zind{
+  z-index: 3!important;
 }
 
 .rectangle {

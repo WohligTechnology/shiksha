@@ -1,12 +1,12 @@
 <ion-modal-view>
     <ion-header-bar class="bar-positive bar bar-header">
-         <h1 class="title">Create Project</h1>
+         <h1 class="title">Edit Project</h1>
     <div class="buttons">
-      <button class="button button-clear ion-close" ng-click="closeCreate();"></button>
+      <button class="button button-clear ion-close" ng-click="closeEdit();"></button>
     </div>
     </ion-header-bar>
     <ion-content>
-      <form class="" ng-submit="createproject(project)">
+      <form class="" ng-submit="EditprojectFun(project)">
 
 
         <ion-list>
@@ -14,9 +14,9 @@
                 <!--<div class="input-label">
        Project Type
       </div>-->
-                <select class="projecttype work-order" ng-model="project.projectType" ng-options="p.name for p in findAllProjectType track by p._id" required>
+                <select class="projecttype work-order" ng-model="project.projectType" ng-options="p.name for p in findAllProjectType track by p._id" >
 
-                     <option selected="true" value="" disabled>Project Type</option>
+                     <option selected="true" value="" disabled>{{project.projectType}}</option>
 
                   </select>
             </ion-item>
@@ -24,8 +24,8 @@
                     <!--<div class="input-label">
       Asset type
       </div>-->
-                <select class="projecttype work-order" ng-model="project.assetType" ng-options="p.name for p in findAllAssetType track by p._id" required >
-                    <option selected="true" value="" disabled>Asset type</option>
+                <select class="projecttype work-order" ng-model="project.assetType" ng-options="p.name for p in findAllAssetType track by p._id"  >
+                    <option selected="true" value="" disabled>{{project.assetType}}</option>
                     <!-- <option value="">Academic Buildings</option>
                     <option value="">Administrative Buildings</option>
                     <option value="">Auditorium</option>
@@ -59,21 +59,21 @@
                   </select>
             </ion-item>
             <ion-item>
-                  <input type="text" placeholder=" Total Value (In Rs)" required ng-model="project.valueOfProject">
+                  <input type="text" placeholder=" Total Value (In Rs)"  ng-model="project.valueOfProject">
 
             </ion-item>
              <ion-item>
-                   <input type="text" placeholder="Amount of Work (In %)" required ng-model="project.amountOfWork">
+                   <input type="text" placeholder="Amount of Work (In %)"  ng-model="project.amountOfWork">
 
             </ion-item>
              <ion-item>
-               <input placeholder="Due Date" class="textbox-n" type="text" onfocus="(this.type='date')" onfocusout="(this.type='text')" id="date" required ng-model="project.dueDate">
+               <input placeholder="Due Date" class="textbox-n" type="text" onfocus="(this.type='date')" onfocusout="(this.type='text')" id="date"  ng-model="project.dueDate |date ">
             </ion-item>
         </ion-list>
         <div class="padding">
       <button class="button button-positive button-block" type="submit">
       <!-- <button class="button button-positive button-block" ng-click="closeCreate();"> -->
-  Create
+  Update
 </button>
     </div>
     </form>
