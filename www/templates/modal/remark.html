@@ -1,0 +1,19 @@
+<ion-modal-view>
+    <ion-header-bar class="bar-positive bar bar-header">
+        <h1 class="title">Remark</h1>
+        <div class="buttons">
+            <button class="button button-clear ion-close" ng-click="closeRemark()"></button>
+        </div>
+    </ion-header-bar>
+    <ion-content>
+        <div class="list" >
+            <div class="item" >
+                <!-- <img src="img/venkman.jpg"> -->
+                <h3 class="remark"><span class="title">Remark</span> : <span class="value">{{remark}}</span></h3>
+                <p class="remark"><span class="title">By</span> : <span class="value">{{type}}</span></p>
+                <p class="remark"><span class="title">Installment No.</span> : <span class="value">{{installment}}</span></p>
+                <!-- <p>Date : {{notes.timestamp | date}}</p> -->
+            </div>
+        </div>
+    </ion-content>
+</ion-modal-view>

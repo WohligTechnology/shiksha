@@ -27,7 +27,7 @@
             <div class="col-66">
               <div class="">
                 <span class="item-note">
-                 <label for="" class="dark bold">{{(fundflow.totalFundAllocationReleaseUlitize.totalFundRelease/fundflow.totalFundAllocationReleaseUlitize.totalAllocation*100)}}%</label>
+                 <label for="" class="dark bold">{{(fundflow.totalFundAllocationReleaseUlitize.totalFundRelease/fundflow.totalFundAllocationReleaseUlitize.totalAllocation*100) | number:2}}%</label>
               </span>
                 <p class="bold">Total funds received</p>
               </div>
@@ -37,14 +37,15 @@
                 <div class="begin-center" ng-class="{'ng-zind': {{(fundflow.totalStateRelease.totalStateRelease/fundflow.totalFundAllocationReleaseUlitize.totalAllocation*100 |number:2)}}>{{(fundflow.totalCenterRelease.totalCenterRelease/fundflow.totalFundAllocationReleaseUlitize.totalAllocation*100 |number:2)}}}"  style="width:{{(fundflow.totalCenterRelease.totalCenterRelease/fundflow.totalFundAllocationReleaseUlitize.totalAllocation*100 |number:2)}}%"></div>
               </div>
               <div class="">
-                <div class="rectangle" style="width:calc({{(fundflow.totalFundAllocationReleaseUlitize.totalUtilizedFund/fundflow.totalFundAllocationReleaseUlitize.totalAllocation*100 |number:2)}}% - 40px);display: inline-block;"></div>
+                <div class="rectangle" style="width:calc({{(fundflow.totalFundAllocationReleaseUlitize.totalUtilizedFund/fundflow.totalFundAllocationReleaseUlitize.totalAllocation*100 |number:2)}}% );display: inline-block;"></div>
+                <!-- <div class="rectangle" style="width:calc({{(fundflow.totalFundAllocationReleaseUlitize.totalUtilizedFund/fundflow.totalFundAllocationReleaseUlitize.totalAllocation*100 |number:2)}}% - 20px);display: inline-block;"></div> -->
                 <label for="" class="balanced">{{(fundflow.totalFundAllocationReleaseUlitize.totalUtilizedFund/fundflow.totalFundAllocationReleaseUlitize.totalAllocation*100 |number:2)}}%</label>
               </div>
             </div>
             <div class="col-33">
               <div class="padding-horizontal">
-                <p class="bold">₹ {{fundflow.totalFundAllocationReleaseUlitize.totalFundRelease}}</p>
-                <p class="grey">₹ {{fundflow.totalFundAllocationReleaseUlitize.totalAllocation}}</p>
+                <p class="bold">₹ {{fundflow.totalFundAllocationReleaseUlitize.totalFundRelease/100000 | number:2}}Lacs</p>
+                <p class="grey">₹ {{fundflow.totalFundAllocationReleaseUlitize.totalAllocation/100000 | number:2}}Lacs</p>
               </div>
             </div>
           </div>
@@ -55,11 +56,13 @@
               <li> <i class="ion ion-record balanced"></i>Utilization by Institue</li>
             </ul>
           </div>
-          <div class="table-amount">
+          <div class="table-amount" ng-if="fundflow.allCenterTransaction[0]._id">
             <div class="card">
               <div class="tables">
                 <div class="instlmnt">
-                  <label class="bold">Installment 1: 40%</label>
+                  <label class="bold">Installment 1</label>
+                  <!-- <label class="bold">Installment {{$index}}</label> -->
+                  <!-- <label class="bold">Installment 1: 40%</label> -->
                 </div>
                 <table>
                   <tbody>
@@ -90,7 +93,7 @@
                     <tr ng-repeat="centerR in fundflow.allCenterTransaction">
 
                       <td class="bb0">
-                        ₹{{centerR._id.amount}}
+                        ₹{{centerR._id.amount/100000 | number:2}}Lacs
                       </td>
                       <td class="bb0">
                         {{centerR._id.transactionReceived | date : 'dd.MM.yyyy'}}
@@ -99,47 +102,67 @@
                         {{centerR._id.transactionSent | date : 'dd.MM.yyyy'}}
                       </td>
                       <td class="bb0">
-                        <label class="toggle toggle-balanced fund-btns">
+                        <!-- <label class="toggle toggle-balanced fund-btns">
                          <input type="checkbox">
                          <div class="track">
                            <div class="handle"></div>
                          </div>
-                       </label>
-                       <button class="button button-icon  ion-camera grey btn-custom-icon fund-btns">
-                         <button class="button button-icon   ion-custom-comment btn-cmnt fund-btns"  ng-click=" openComment(); "></button>
+                       </label> -->
+                       <button class="button button-icon  ion-camera grey btn-custom-icon fund-btns" ng-click="openImage(centerR._id.transactionPhoto[0].photo)">
+                         <button class="button button-icon   ion-custom-comment btn-cmnt fund-btns"  ng-click=" openRemark(centerR._id.transactionRemark,centerR._id.type,1); "></button>
+                         <!-- <button class="button button-icon   ion-custom-comment btn-cmnt fund-btns"  ng-click=" openRemark(centerR._id.transactionRemark,centerR._id.type,$index); "></button> -->
 
                       </td>
 
                      </tr>
-                     <tr>
-                       <th colspan="4" class="text-center bb0 bl0">
-                         STATE RELEASE
-                       </th>
-                     </tr>
-                     <tr ng-repeat="centerR in fundflow.allStateTransaction">
+                     <div class="" ng-if="fundflow.allStateTransaction[0]._id">
+                       <tr >
+                         <th colspan="4" class="text-center bb0 bl0">
+                           STATE RELEASE
+                         </th>
+                       </tr>
+                       <tr ng-repeat="centerR in fundflow.allStateTransaction">
 
-                       <td class="bb0">
-                         ₹{{centerR._id.amount}}
-                       </td>
-                       <td class="bb0">
-                         {{centerR._id.transactionReceived | date : 'dd.MM.yyyy'}}
-                       </td>
-                       <td class="bb0">
-                         {{centerR._id.transactionReceived | date : 'dd.MM.yyyy'}}
-                       </td>
-                       <td class="bb0">
-                         <label class="toggle toggle-balanced fund-btns">
-                          <input type="checkbox">
-                          <div class="track">
-                            <div class="handle"></div>
-                          </div>
-                        </label>
-                        <button class="button button-icon  ion-camera grey btn-custom-icon fund-btns">
-                          <button class="button button-icon  ion-custom-comment btn-cmnt fund-btns"  ng-click=" openComment(); "></button>
+                         <td class="bb0">
+                           <div class="" ng-if="fundflow.allStateTransaction[0]._id">
+                             ₹{{centerR._id.amount/100000 | number:2}}Lacs
+                           </div>
+                           <div class="" ng-if="!fundflow.allStateTransaction[0]._id">
+                             ₹0
+                           </div>
+                         </td>
+                         <td class="bb0">
+                           <div class="" ng-if="fundflow.allStateTransaction[0]._id">
+                             {{centerR._id.transactionReceived | date : 'dd.MM.yyyy'}}
+                           </div>
+                           <div class="" ng-if="!fundflow.allStateTransaction[0]._id">
+                             -
+                           </div>
+                         </td>
+                         <td class="bb0">
+                           <div class="" ng-if="fundflow.allStateTransaction[0]._id">
+                             {{centerR._id.transactionReceived | date : 'dd.MM.yyyy'}}
+                           </div>
+                           <div class="" ng-if="!fundflow.allStateTransaction[0]._id">
+                             -
+                           </div>
+                         </td>
+                         <td class="bb0">
+                           <!-- <label class="toggle toggle-balanced fund-btns">
+                            <input type="checkbox">
+                            <div class="track">
+                              <div class="handle"></div>
+                            </div>
+                          </label> -->
+                          <button class="button button-icon  ion-camera grey btn-custom-icon fund-btns" ng-click="openImage(centerR._id.transactionPhoto[0].photo)">
+                            <button class="button button-icon  ion-custom-comment btn-cmnt fund-btns"  ng-click=" openRemark(centerR._id.transactionRemark,centerR._id.type,1); "></button>
+                            <!-- <button class="button button-icon  ion-custom-comment btn-cmnt fund-btns"  ng-click=" openRemark(centerR._id.transactionRemark,centerR._id.type,$index); "></button> -->
 
-                       </td>
+                         </td>
 
-                      </tr>
+                        </tr>
+                     </div>
+
                       <!-- <tr>
 
                         <td class="bb0">
@@ -234,6 +257,7 @@
                   </tbody>
                 </table>
                 <div class="row">
+
                   <div class="col text-center">
                     <label class="tbl-btm ">Expected: <br>₹{{fundflow.totalFundAllocationReleaseUlitize.totalAllocation}}</label>
                   </div>

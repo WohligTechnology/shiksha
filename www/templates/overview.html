@@ -14,7 +14,7 @@
                       </label>
                 </span>
               <div class="infra-div">
-                <div class="infra-project bold">{{overview._id.componentName}}</div>
+                <div class="infra-project bold">{{overview.componentDetail._id.componentName}}</div>
                 <!--<div>
                   <label for="" class="dark">Upgradation of library</label>
                 </div>-->
@@ -29,7 +29,7 @@
                            FUNDS ALLOCATED
                         </h5>
                         <h3 class="text-center bold f16 home-data">
-                          ₹ {{overview.totalAllocationForComponent}}
+                          ₹ {{overview.componentDetail._id.totalAllocationForComponent/100000 | number :2}} Lacs
                         </h3>
                     </div>
                 </div>
@@ -50,7 +50,7 @@
 
                             <div class="text-center ">
 
-                                <p class="f16 bold">₹ {{overview.totalAmountRelease}}</p>
+                                <p class="f16 bold">₹ {{overview.componentDetail.totalAmountRelease/100000 | number :2}} Lacs</p>
                             </div>
                         </div>
                 </div>
@@ -61,7 +61,7 @@
                         <div class="bold f16">Latest fund inflow</div>
                     </div>
                     <div class="col-33">
-                        <div class="bold f16 text-center">₹ {{overview.latestAmountRelease}}</div>
+                        <div class="bold f16 text-center">₹ {{overview.componentLatestFundFlow.latestReleasedAmount/100000 | number :2}} Lacs</div>
                     </div>
                 </div>
             </div>
@@ -70,7 +70,7 @@
                     <canvas id="doughnut" class="chart chart-doughnut" chart-data="data" chart-labels="labels" chart-colors="colors" chart-dataset-override="override">
                     </canvas>
                     <h5 class="f24 dark-grey">
-                        40%
+                        {{overview.componentDetail._id.componentWorkStatus}}%
                     </h5>
                 </div>
                 <p class="text-center energized bold f16 uppercase bold">Work Completed</p>
@@ -91,9 +91,9 @@
                 </div>
                 <div class="padding-horizontal">
                     <div class="custom-slide-projects">
-                        <div class="allocated-bar" style="width:{{funds.allocated}}%"></div>
-                        <div class="received-bar" style="width:{{funds.received}}%"></div>
-                        <div class="made-bar" style="width:{{funds.value}}%"> 50%</div>
+                        <div class="allocated-bar" style="width:100%"></div>
+                        <div class="received-bar" style="width:{{overview.componentDetail.totalAmountRelease/overview.componentDetail._id.totalAllocationForComponent*100}}%"></div>
+                        <div class="made-bar" style="width:{{overview.componentDetail._id.totalUtilizationForComponent/overview.componentDetail._id.totalAllocationForComponent*100}}%"> {{overview.componentDetail._id.totalUtilizationForComponent/overview.componentDetail.totalAmountRelease*100 | number:0}}%</div>
                     </div>
                 </div>
             </div>

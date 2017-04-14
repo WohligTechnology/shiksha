@@ -1,158 +1,59 @@
-<div>
-  <div class="popup-head">
+<ion-modal-view>
     <ion-header-bar class="bar-positive bar bar-header">
-        <h1 class="title">Add Expense Detail</h1>
-        <div class="buttons">
-            <button class="button button-clear ion-close" ng-click="closePaymentEdit()"></button>
-        </div>
+         <h1 class="title">Add Work Order Detail</h1>
+    <div class="buttons">
+      <button class="button button-clear ion-close" ng-click="closePaymentEdit();"></button>
+    </div>
     </ion-header-bar>
-  </div>
+    <ion-content class="">
+      <form class="" ng-submit="addAllocation(allocationData1,projectId);">
 
-    <div class="milestone-popup">
-<ion-tabs class="tabs-positive tabs-icon-top">
-  <ion-tab title="Details" icon-on="ion-ios-compose" icon-off="ion-ios-compose-outline">
-    <div class="tab-mile">
-      <ion-content>
-        <ul class="list">
-          <li>
-             <label class="item item-input item-stacked-label">
-               <select class="work-order ">
-                     <option selected="true" value="" disabled>Choose Vendor</option>
-                     <option>Ruchira Padave</option>
-                     <option>Ganesh Kothavale</option>
+      <ul class="list">
+        <li>
+           <label class="item item-input item-stacked-label">
+
+            <select class="work-order " ng-model="allocationData1.vendorid" ng-options="centers.name for centers in vendorlist track by centers._id" >
+                  <option selected="true" value="" disabled>Choose Vendor</option>
+
               </select>
-             </label>
-          </li>
-          <li>
+           </label>
+        </li>
+        <li>
 
-          <label class="item item-input item-stacked-label">
-            <!-- <span class="input-label">Value Allocated</span> -->
-            <input type="text" placeholder="Value Allocated">
-          </label>
-          </li>
+        <label class="item item-input item-stacked-label">
+          <span class="input-label">Value Allocated</span>
+          <input type="text" placeholder="Value Allocated" required ng-model="allocationData1.allocation">
+        </label>
+        <label class="item item-input item-stacked-label">
+          <span class="input-label">Value Allocated</span>
+          <!-- <input type="text" placeholder="Issue Date" required ng-model="allocationData1.allocation"> -->
+          <input placeholder="Issue Date" class="textbox-n" type="text" required onfocus="(this.type='date')" onfocusout="(this.type='text')" required id="date"  ng-model="allocationData1.issueDate |date ">
 
-        </ul>
+        </label>
+        <label class="item item-input item-stacked-label">
+          <span class="input-label">Due Date</span>
+          <input placeholder="Due Date" class="textbox-n" type="text" onfocus="(this.type='date')" onfocusout="(this.type='text')" required id="date"  ng-model="allocationData1.DueDate |date ">
+        </label>
+        <label class="item item-input item-stacked-label">
+          <span class="input-label">Description</span>
+          <textarea type="text" placeholder="Description"></textarea>
+        </label>
+        <label class=" item-input">
+            <div class="input-label">Upload work-order copy</div>
+              <input type="file" value="" accept="application/vnd.ms-excel,image/jpeg,image/gif,image/png,application/pdf,image/x-eps">
 
+        </label>
 
-          <div class="setting-down text-center">
-           <button class="button  button-assertive uppercase submit-pop" ng-click="closePaymentEdit();">submit</button>
-         </div>
-        </ion-content>
+        </li>
 
-    </div>
-
-
-  </ion-tab>
-
-  <ion-tab title="Photos" icon-on="ion-ios-camera" icon-off="ion-ios-camera-outline">
-    <div class="tab-mile">
-      <ion-content>
- <div class="photos">
-          <div class="row" >
-         <div class="col">
-   <div class="image-grid">
-    <img src="img/venkman.jpg" alt="image-grid">
-              </div>
-         </div>
-          <div class="col">
-              <div class="image-grid">
-    <img src="img/venkman.jpg" alt="image-grid">
-              </div>
-
-         </div>
-          <div class="col">
-              <div class="image-grid">
-    <img src="img/venkman.jpg" alt="image-grid">
-              </div>
-         </div>
-          <div class="col">
-             <div class="image-grid">
-    <img src="img/venkman.jpg" alt="image-grid">
-              </div>
-         </div>
-
-     </div>
-          <div class="row" >
-         <div class="col">
-   <div class="image-grid">
-    <img src="img/venkman.jpg" alt="image-grid">
-              </div>
-         </div>
-          <div class="col">
-              <div class="image-grid">
-    <img src="img/venkman.jpg" alt="image-grid">
-              </div>
-
-         </div>
-          <div class="col">
-              <div class="image-grid">
-    <img src="img/venkman.jpg" alt="image-grid">
-              </div>
-         </div>
-          <div class="col">
-             <div class="image-grid">
-    <img src="img/venkman.jpg" alt="image-grid">
-              </div>
-         </div>
-
-     </div>
-     <div class="row" >
-         <div class="col">
-   <div class="image-grid">
-    <img src="img/venkman.jpg" alt="image-grid">
-              </div>
-         </div>
-          <div class="col">
-              <div class="image-grid">
-    <img src="img/venkman.jpg" alt="image-grid">
-              </div>
-
-         </div>
-          <div class="col">
-              <div class="image-grid">
-    <img src="img/venkman.jpg" alt="image-grid">
-              </div>
-         </div>
-          <div class="col">
-             <div class="image-grid">
-    <img src="img/venkman.jpg" alt="image-grid">
-              </div>
-         </div>
-
-     </div>
- </div>
-</ion-content>
-
-</div>
-  </ion-tab>
-
-  <ion-tab title="Comments" icon-on="ion-ios-more" icon-off="ion-ios-more-outline">
-    <div class="tab-mile">
-      <ion-content>
-      <ion-list >
-          <ion-item class="comment-section">
- <div class="listings">
-       <label>Comment:</label>
-  <label class="item item-input comment-text">
-    <textarea class="resize" placeholder="Comments"></textarea>
-  </label>
-   <div class="padding">
-            <button class="button button-positive button-block">
-  Submit
-</button>
-        </div>
-</div>
-          </ion-item>
-      </ion-list>
-    </ion-content>
-
-    </div>
-
-  </ion-tab>
-
-</ion-tabs>
+      </ul>
 
 
+        <div class="setting-down text-center">
+         <button class="button  button-assertive uppercase submit-pop" type="submit" >submit</button>
+       </div>
+     </form>
 
-    </div>
-</div>
+      </ion-content>
+
+</ion-modal-view>

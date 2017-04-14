@@ -1,27 +1,27 @@
 <ion-view view-title="Project">
-  <ion-content class="bg-light-blue  has-tabs has-footer">
-    <div class="">
-      <div class="card top-card">
-        <div class="item item-text-wrap">
-          <span class="item-note custom-radio">
+    <ion-content class="bg-light-blue  has-tabs has-footer">
+        <div class="">
+            <div class="card top-card">
+                <div class="item item-text-wrap">
+                    <span class="item-note custom-radio">
                   <label class=" item-toggle">
                     <label class="toggle toggle-energized">
-                        <input type="checkbox">
+                        <input type="checkbox" disabled>
                         <div class="track">
                         <div class="handle icon-lock"></div>
                         </div>
                     </label>
                   </label>
             </span>
-          <div class="infra-div">
-            <div class="infra-project bold">{{componentProjects[0].componentName}}</div>
-            <!--<div>
+                    <div class="infra-div">
+                        <div class="infra-project bold">{{componentProjects[0].componentName}}</div>
+                        <!--<div>
               <label for="" class="dark">Upgradation of library</label>
             </div>-->
-          </div>
-        </div>
-      </div>
-      <!--<div class="bar-sucess padding-horizontal progress-div">
+                    </div>
+                </div>
+            </div>
+            <!--<div class="bar-sucess padding-horizontal progress-div">
         <div class="">
 
           <h5 class="bold"> </h5>
@@ -31,7 +31,7 @@
           <div class="begin-complete" style="width:{{complete.value}}%"></div>
         </div>
       </div>-->
-      <!-- <div class="progress-div">
+            <!-- <div class="progress-div">
               <div class="">
                 <label for="" class="bold"> Total work completed</label>
                  <span class="item-note bold dark">40%</span>
@@ -42,7 +42,7 @@
                 <div class="mark-make" style="left: calc({{complete.value}}% - 20px);">{{complete.value}}%</div>
               </div>
             </div> -->
-      <!-- <div class="card what-use">
+            <!-- <div class="card what-use">
         <div class="padding-horizontal mile-card">
           <div class=" clearfix col util-header pdb0">
             Project Type
@@ -85,7 +85,7 @@
 
 
 
-      <!--<div class="card what-use">
+            <!--<div class="card what-use">
         <div class="padding-horizontal mile-card">
           <div class="header clearfix">
             Project Type
@@ -128,128 +128,132 @@
           </div>
         </div>
       </div>-->
-      <!--<div class="card unallocate">
+            <!--<div class="card unallocate">
         <div class="padding-horizontal mile-card text-center">
           <p>UNALLOCATED MILESTONES</p>
           <span class="medium">20%</p>
                 </div>
             </div>-->
-    </div>
-    <div class="">
-
-      <div class="progress-div">
+        </div>
         <div class="">
-          <label for="" class="bold"> Fund Utilization for Work Orders</label>
-          <label for="" class="rupee bold">₹ 20,00,000</label>
-        </div>
-        <div class="custom-slide-miles utilization-margn">
-          <div class="complete"></div>
-          <div class="begin-complete" style="width:{{complete.value}}%"></div>
-          <div class="mark-make" style="left: calc({{complete.value}}% - 20px);">{{complete.value}}%</div>
-        </div>
-      </div>
-      <div class="">
-        <div class="card util-card padding spacings" ng-repeat="project in componentProjects">
-          <div class="">
-            <div class="row ">
-              <div class="relative">
-                <div class="col util-header pdb0">Project Type</div>
 
-                <!-- <div class="mile-card">
+            <div class="progress-div">
+                <div class="">
+                    <label for="" class="bold"> Fund Utilization for Work Orders</label>
+                    <label for="" class="rupee bold">₹ {{fundUtil/100000 | number:2}}Lacs</label>
+                </div>
+                <div class="custom-slide-miles utilization-margn">
+                    <div class="complete"></div>
+                    <div class="begin-complete" style="width:{{fundUtil/totalamt*100}}%" ng-if="totalamt!=0"></div>
+                    <div class="mark-make" style="left: calc({{fundUtil/totalamt*100}}% - 25px);" ng-if="totalamt!=0">{{fundUtil/totalamt*100| number:0 }}%</div>
+                    <div class="mark-make" style="left: calc(0% - 25px);" ng-if="totalamt==0">0%</div>
+                </div>
+            </div>
+            <div class="project-bt">
+                <div class="card util-card padding spacings" ng-repeat="project in componentProjects">
+                    <div class="">
+                        <div class="row ">
+                            <!-- <div class="relative"> -->
+                            <div class="col util-header pdb0">Project Type</div>
+                            <div class="col util-header pdb0" ng-if="project.projectStatus">Status : <span class="util-content bold">{{project.projectStatus}}</span></div>
+
+                            <!-- <div class="mile-card">
                         <button class="button button-icon ion ion-link btnshare"></button>
                     </div> -->
-              </div>
+                            <!-- </div> -->
 
 
-            </div>
-            <div class="row">
-              <div class="col util-content bold">{{project.projectType}}</div>
-              <button class="button button-icon ion-android-more-vertical more more-button" ng-click="openUtilizationEdit(project.projectId);"></button>
-            </div>
-            <!-- <div class="util-row"> -->
+                        </div>
+                        <div class="row">
+                            <div class="col util-content bold">{{project.projectType}}</div>
+                            <button class="button button-icon ion-android-more-vertical more more-button" ng-click="openUtilizationEdit(project.projectId);"></button>
+                        </div>
+                        <!-- <div class="util-row"> -->
 
-            <div class="row">
-              <div class="col-50 util-header pd5">Asset Creation</div>
-              <div class="col-50 util-header pd5">
+                        <div class="row">
+                            <div class="col-50 util-header pd5">Asset Creation</div>
+                            <div class="col-50 util-header pd5">
 
-                <div class="item-note">
-                  <button class="button button-icon ion-camera util-camera pr0"></button>
-                </div>
-                <p class="mg0 util-header">Due Date</p>
+                                <div class="item-note">
+                                    <!-- <button class="button button-icon ion-camera util-camera pr0" ng-click="openPhotos();"></button> -->
+                                    <!-- <button class="button icon ion-camera util-camera pr0 button-icon" ng-click="openPhotos(project.projectId);"></button> -->
+                                    <!-- <button type="button" name="button"></button> -->
+                                </div>
+                                <p class="mg0 util-header">Due Date</p>
 
-              </div>
-            </div>
-            <div class="row">
-              <div class="col-50 util-content bold pd5">{{project.assetType}}</div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-50 util-content bold pd5">{{project.assetType}}</div>
 
-              <div class="col-50 util-content bold pd5">
-                <p class="bold">
-                  {{project.dueDate |date}}
-                </p>
-              </div>
-            </div>
-            <div class="row">
-              <div class="col-50 util-header pd5">Total Value</div>
-              <div class="col-50 util-header pd5">Amount of Work<span class="for-badge"><i class="badge badge-one">1</i></span></div>
-            </div>
-            <div class="row">
-              <div class="col-50 util-content bold pd5">₹ {{project.totalValue}}</div>
+                            <div class="col-50 util-content bold pd5">
+                                <p class="bold">
+                                    {{project.dueDate |date}}
+                                </p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-50 util-header pd5">Total Value</div>
+                            <!-- <div class="col-50 util-header pd5">Amount of Work<span class="for-badge"><i class="badge badge-one">1</i></span></div> -->
+                            <div class="col-50 util-header pd5">Amount of Work</div>
+                        </div>
+                        <div class="row">
+                            <div class="col-50 util-content bold pd5">₹ {{project.totalValue/100000|number:2}}Lacs</div>
 
-              <div class="col-50 util-content bold pd5">
-                <div class="item-note">
+                            <div class="col-50 util-content bold pd5">
+                                <!-- <div class="item-note">
                   <button class="button button-icon ion-android-share-alt links"></button>
-                </div>
-                <p class="bold">
-                  {{project.amountOfWork}}%
-                </p>
-              </div>
-            </div>
-            <!--<div class="row">
+                </div> -->
+                                <p class="bold">
+                                    {{project.amountOfWork}}%
+                                </p>
+                            </div>
+                        </div>
+                        <!--<div class="row">
                     <div class="col-50 util-content bold pd5">Alpha Contractores Private.LTD,Mumbai</div>
                     <div class="col-50 util-content bold pd5">15.10.2016</div>
                   </div>-->
-          </div>
-          <div class="tab-custom tab-border" ng-init="tab=1" ng-if="payment[$index]">
-            <ul class="tabs-util">
-              <li class="uppercase text-center" ng-click="tab = 1" ng-class="{active:tab == 1}">
-                Expenses
-              </li>
-              <!-- <li class="uppercase text-center" ng-click="tab = 2" ng-class="{active:tab == 2}">
+                    </div>
+                    <div class="tab-custom tab-border" ng-init="tab=1" ng-if="payment[$index]">
+                        <ul class="tabs-util">
+                            <li class="uppercase text-center" ng-click="tab = 1" ng-class="{active:tab == 1}">
+                                Work-order
+                            </li>
+                            <!-- <li class="uppercase text-center" ng-click="tab = 2" ng-class="{active:tab == 2}">
                           <span class="for-badge bold">
                             Milestones <i class="badge badge-one">1</i>
                           </span>
                       </li> -->
-              <li class="uppercase text-center" ng-click="tab = 2" ng-class="{active:tab == 2}">
-                Notes
-              </li>
-            </ul>
-            <div ng-show="tab == 1">
-              <div class="row-main-util">
-                <div class="row util-row">
-                  <div class="col-25 util-header fs12">Vender</div>
-                  <div class="col-25 util-header text-center fs12">Allocation</div>
-                  <div class="col-25 util-header text-center fs12">Released</div>
-                  <div class="col util-header text-center">
-                  </div>
-                </div>
-                <div class="row util-row" ng-repeat="vendor in project.vendor">
-                  <div class="col-25 util-content bold fs12">{{vendor.vendorName}}</div>
-                  <div class="col-25 util-content bold text-center fs12">₹ {{vendor.vendorAllocation}}</div>
-                  <div class="col-25 util-content bold text-center fs12">₹ {{vendor.vendorReleased}}</div>
-                  <div class="col-25 tag text-center">
-                    <div class="item-note">
-                      <div class="tags">
-                        <div class="add-tag" ng-click="openMilestoneEdit();">
-                          <img src="img/tags.png" alt="">
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
+                            <li class="uppercase text-center" ng-click="tab = 2" ng-class="{active:tab == 2}">
+                                Notes
+                            </li>
+                        </ul>
+                        <div ng-show="tab == 1">
+                            <div class="row-main-util">
+                                <!-- <div class="comment-button">
+                                  <button class="button button-small button-assertive view-pop item-note" ng-click="opentransaction()"><i class="ion ion-plus"></i> Transaction</button>
+                                </div> -->
+                                <div class="row util-row">
+                                    <div class="col-25 util-header fs12 ">Vendor</div>
+                                    <div class="col-25 util-header text-center fs12">Allocation</div>
+                                    <div class="col-25 util-header text-center fs12">Released</div>
+                                    <div class="col-25 util-header text-center fs12">Transaction</div>
+                                </div>
+                                <div class="row util-row" ng-repeat="vendor in project.vendor" ng-if="vendor.vendorId">
+                                    <div class="col-25 util-content bold fs12 vendor-name" ng-click="openMilestoneEdit();">{{vendor.vendorName}}</div>
+                                    <div class="col-25 util-content bold text-center fs12" ng-click="openMilestoneEdit();">₹ {{vendor.vendorAllocation/100000|number:2}}Lacs</div>
+                                    <div class="col-25 util-content bold text-center fs12" ng-click="openMilestoneEdit();">₹ {{vendor.vendorReleased/100000|number:2}}Lacs</div>
+                                    <div class="col-25 ">
+                                        <div class="add-tag add-transaction " ng-click="opentransaction()">
+                                            <!-- <img src="img/transaction.png" alt=""> -->
+                                            <i class="ion ion-plus-round"></i>
+                                        </div>
+                                    </div>
+                                </div>
 
-              </div>
-            </div>
-            <!-- <div ng-show="tab == 2">
+                            </div>
+                        </div>
+                        <!-- <div ng-show="tab == 2">
                     <div class="row-main-util">
                       <div class="row util-row">
                         <div class="col-20 util-header">%Work</div>
@@ -301,20 +305,24 @@
 
                     </div>
                   </div> -->
-            <div ng-show="tab == 2">
-              <div class="">
-                <div class="item comment">
-                  <label class="item item-input">
-                         <textarea placeholder="Comments"></textarea>
-                       </label>
-                </div>
-              </div>
-              <div class="comment-button">
-                <button class="button button-small button-assertive submit-pop pull-left">Comment</button>
-                <button class="button button-small button-assertive submit-pop item-note">View all</button>
-              </div>
+                        <div ng-show="tab == 2">
+                            <form class="" ng-submit="commentNotes(project.projectId,comment.text)">
+                                <div class="">
+                                    <div class="item comment">
+                                        <label class="item item-input">
+                           <textarea placeholder="Comments" ng-model="comment.text" required></textarea>
+                         </label>
+                                    </div>
+                                </div>
+                                <div class="comment-button">
+                                    <button class="button button-small button-assertive view-pop pull-left" type="submit" ng-disabled="!comment.text">Comment</button>
+                            </form>
+                            <button class="button button-small button-assertive view-pop item-note" ng-click="viewAll(project.projectId)">View all</button>
+                            </div>
 
-              <!-- <div class="row-main-util">
+
+
+                            <!-- <div class="row-main-util">
                       <div class="row util-row">
                         <div class="col-33 util-header">Payment Date</div>
                         <div class="col-33 util-header">Value Released</div>
@@ -347,51 +355,51 @@
                         </div>
                       </div>
                     </div> -->
-            </div>
-            <!-- <div class="padding-horizontal">
+                        </div>
+                        <!-- <div class="padding-horizontal">
                     <button class="button button-icon ion-chevron-up item-note btn-down btn-custom-icon"></button>
                   </div> -->
-          </div>
+                    </div>
 
-          <div class="padding-horizontal">
-            <button class="button button-icon ion-chevron-up item-note btn-down btn-custom-icon" ng-click="showPayment($index,false)" ng-if="payment[$index]"></button>
-          </div>
-          <div class="padding-horizontal">
-            <button class="button button-icon ion-chevron-down item-note btn-down btn-custom-icon" ng-click="showPayment($index,true)" ng-if="!payment[$index]"></button>
-          </div>
+                    <div class="padding-horizontal">
+                        <button class="button button-icon ion-chevron-up item-note btn-down btn-custom-icon" ng-click="showPayment($index,false)" ng-if="payment[$index]"></button>
+                    </div>
+                    <div class="padding-horizontal">
+                        <button class="button button-icon ion-chevron-down item-note btn-down btn-custom-icon" ng-click="showPayment($index,true)" ng-if="!payment[$index]"></button>
+                    </div>
+                </div>
+            </div>
         </div>
-      </div>
-    </div>
-  </ion-content>
+    </ion-content>
 
 
-  <ion-footer>
-    <div class="float-button" ng-click="openCreate();">
-      <a class="content ">
-        <i class="ion ion-plus "> </i>
-      </a>
-    </div>
-    <div class="tabs-custom ">
-      <div class="tabs tabs-icon-top">
-        <a class="tab-item" ui-sref="app.overview({ componentId: componentId})">
-          <i class="ion ion-ios-timer"></i> Overview
-        </a>
-        <a class="tab-item" ui-sref="app.fundFlow({ componentId: componentId})">
-          <i class="ion ion-shuffle"></i> Fund Flow
-        </a>
-        <a class="tab-item calm" ui-sref="app.milestones({ componentId: componentId})">
-          <!--<i class="ion ion-calendar"></i> Milestones-->
-          <i class="ion ion-social-buffer"></i> projects
+    <ion-footer>
+        <div class="float-button" ng-click="openCreate();">
+            <a class="content ">
+                <i class="ion ion-plus "> </i>
+            </a>
+        </div>
+        <div class="tabs-custom ">
+            <div class="tabs tabs-icon-top">
+                <a class="tab-item" ui-sref="app.overview({ componentId: componentId})">
+                    <i class="ion ion-ios-timer"></i> Overview
+                </a>
+                <a class="tab-item" ui-sref="app.fundFlow({ componentId: componentId})">
+                    <i class="ion ion-shuffle"></i> Fund Flow
+                </a>
+                <a class="tab-item calm" ui-sref="app.milestones({ componentId: componentId})">
+                    <!--<i class="ion ion-calendar"></i> Milestones-->
+                    <i class="ion ion-social-buffer"></i> projects
 
-        </a>
-        <!-- <a class="tab-item" ui-sref="app.utilization">
+                </a>
+                <!-- <a class="tab-item" ui-sref="app.utilization">
                     <i class="ion ion-bag"></i> Utilization
                 </a> -->
-        <a class="tab-item" ui-sref="app.projectPhotos({ componentId: componentId})">
-          <!--<i class="ion  ion-android-camera"></i> Photos-->
-          <i class="ion  ion-android-camera"></i> media
-        </a>
-      </div>
-    </div>
-  </ion-footer>
+                <a class="tab-item" ui-sref="app.projectPhotos({ componentId: componentId})">
+                    <!--<i class="ion  ion-android-camera"></i> Photos-->
+                    <i class="ion  ion-android-camera"></i> media
+                </a>
+            </div>
+        </div>
+    </ion-footer>
 </ion-view>

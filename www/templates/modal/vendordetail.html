@@ -1,42 +1,58 @@
 <ion-modal-view>
-  <ion-header-bar class="bar-positive bar bar-header">
-    <h1 class="title">Add Vendor </h1>
-    <div class="buttons">
-      <button class="button button-clear ion-close" ng-click="closeVendor()"></button>
-    </div>
-  </ion-header-bar>
-  <ion-content>
-    <div class="list vendordetails">
-          <ion-list>
-        <ion-item >
-            <input type="text" placeholder="Company Name">
-        </ion-item>
-        <ion-item >
-            <input type="text" placeholder="Contact Person Name">
-        </ion-item>
-        <ion-item >
-           <input type="text" placeholder="Pan No.">
-        </ion-item>
-          <ion-item >
-              <input type="text" placeholder="Mobile No.">
+    <ion-header-bar class="bar-positive bar bar-header">
+        <h1 class="title">Add Vendor </h1>
+        <div class="buttons">
+            <button class="button button-clear ion-close" ng-click="closeVendor()"></button>
+        </div>
+    </ion-header-bar>
+    <ion-content>
+        <form class="" ng-submit="addVendorsubmit(formData1)">
 
-       
-        </ion-item>
-         <ion-item >
- <input type="text" placeholder="Email id">
+            <div class="list vendordetails">
+                <ion-list>
+                    <ion-item>
+                      <div class="input-label">
+                        Company Name
+                      </div>
+                        <input type="text" placeholder="Company Name" required ng-model="formData1.compnay_name">
+                    </ion-item>
+                    <ion-item>
+                      <div class="input-label">
+                        Contact Person Name
+                      </div>
+                        <input type="text" placeholder="Contact Person Name" required ng-model="formData1.contact_person">
+                    </ion-item>
+                    <ion-item>
+                      <div class="input-label">
+                          Pan No.
+                      </div>
+                        <input type="text" placeholder="Pan No." required ng-model="formData1.pan_no">
+                    </ion-item>
+                    <ion-item>
+                      <div class="input-label">
+                          Mobile No.
+                      </div>
+                        <input type="text" placeholder="Mobile No." ng-model="formData1.mobile" required only-Digits maxlength="10" minlength="10">
+                    </ion-item>
+                    <ion-item>
+                      <div class="input-label">
+                          Email id
+                      </div>
+                        <input type="email" placeholder="Email id" required ng-model="formData1.email">
+                    </ion-item>
 
-        </ion-item>
+                </ion-list>
+                <!--<label class="item item-input item-stacked-label">
+                      <span class="input-label">Comment</span>
+                      <textarea type="text" placeholder=""> </textarea>
+                    </label>-->
+            </div>
+            <div class="padding">
+                <button class="button button-positive button-block" type="submit" ng-disabled="!formData1">
+                Save
+                </button>
+            </div>
 
-      </ion-list>
-      <!--<label class="item item-input item-stacked-label">
-    <span class="input-label">Comment</span>
-    <textarea type="text" placeholder=""> </textarea>
-  </label>-->
-    </div>
-    <div class="padding">
-      <button class="button button-positive button-block" ng-click="closeVendor();">
- Save
-</button>
-    </div>
-  </ion-content>
+        </form>
+    </ion-content>
 </ion-modal-view>

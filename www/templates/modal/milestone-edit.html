@@ -1,308 +1,250 @@
 <div>
-  <div class="popup-head">
-    <ion-header-bar class="bar-positive bar bar-header">
-        <h1 class="title">Edit Milestone</h1>
-        <div class="buttons">
-            <button class="button button-clear ion-close" ng-click="closeMilestoneEdit()"></button>
-        </div>
-    </ion-header-bar>
-  </div>
+    <div class="popup-head">
+        <ion-header-bar class="bar-positive bar bar-header">
+            <h1 class="title">Transaction</h1>
+            <div class="buttons">
+                <button class="button button-clear ion-close" ng-click="closeMilestoneEdit()"></button>
+            </div>
+        </ion-header-bar>
+    </div>
 
     <div class="milestone-popup">
 
-        <ion-tabs class="tabs-positive tabs-icon-top has-header">
-  <ion-tab title="Details" icon-on="ion-ios-compose" icon-off="ion-ios-compose-outline">
-    <ion-content>
-      <div class="card">
+        <ion-tabs class="tabs-positive tabs-icon-top has-header ">
+            <ion-tab title="Details" icon-on="ion-ios-compose" icon-off="ion-ios-compose-outline">
+                <div class="tab-mile">
 
-        <a class="button button-icon icon ion-edit item-note edit-btn"></a>
-        <div class="clearfix">
+                    <ion-content class="top-93 bt-0">
 
-        </div>
+                        <div class="card">
+                            <a class="button button-icon icon ion-edit item-note edit-btn"></a>
+                            <div class="clearfix">
+                            </div>
+                            <div class="milestone-add">
+                                <ul class="list">
+                                    <!-- <div class="range-div">
+                                        <label class="">Amount of work :</label>
+                                        <div class=" range range-assertive">
+                                            <div class="custom-slide" style="width:{{user.value}}%"></div>
+                                            <input type="range" min="0" max="{{user.max}}" value="{{user.min}}" ng-model="user.value">
+                                            <div class="text-right">
+                                                {{user.value}}%
+                                            </div>
+                                        </div>
+                                    </div> -->
+                                    <!-- <li class="item item-input item-stacked-label">
+                                        <span class="input-label">Item Details</span>
+                                        <input type="text" placeholder="Item Details">
+                                    </li> -->
+                                    <li class="item item-input item-stacked-label">
+                                        <span class="input-label">Payment Date</span>
+                                        <input type="text" onfocus="(this.type='date')" onfocusout="(this.type='text')" id="date" placeholder="Payment Date">
+                                    </li>
+                                    <li class="item item-input item-stacked-label">
+                                        <span class="input-label">Value Released</span>
+                                        <input type="number" placeholder="Value Released">
+                                    </li>
+                                    <li class="item item-input item-stacked-label">
+                                        <span class="input-label">Description</span>
+                                        <textarea type="text" placeholder="Description"> </textarea>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
 
-        <ul class="list">
-            <li>
-               <label class="item item-input item-stacked-label">
-                 <span class="input-label">Choose Vendor</span>
-                 <select class="work-order ">
-                       <option selected="true" value="" disabled>Choose Vendor</option>
-                       <option>Ruchira Padave</option>
-                       <option>Ganesh Kothavale</option>
-                </select>
-               </label>
-            </li>
-            <li>
-            <label class="item item-input item-stacked-label">
-              <span class="input-label">Value Allocated</span>
-              <input type="text" placeholder="Value Allocated">
-            </label>
-            </li>
-          </ul>
-      </div>
-      <div class="card">
-      <a class="button button-icon icon ion-edit item-note edit-btn"></a>
-      <div class="clearfix">
-      </div>
-        <div class="milestone-add">
-          <ul class="list">
-            <div class="range-div">
-              <label class="">Amount of work :</label>
-              <div class=" range range-assertive">
-                <div class="custom-slide" style="width:{{user.value}}%"></div>
-                <input type="range" min="0" max="{{user.max}}" value="{{user.min}}"  ng-model="user.value">
-                <div class="text-right">
-                  {{user.value}}%
+
+                        <div class="card">
+                            <a class="button button-icon icon ion-edit item-note edit-btn"></a>
+                            <div class="clearfix">
+                            </div>
+                            <div class="milestone-add">
+                                <ul class="list">
+                                    <!-- <div class="range-div">
+                                        <label class="">Amount of work :</label>
+                                        <div class=" range range-assertive">
+                                            <div class="custom-slide" style="width:{{user.value}}%"></div>
+                                            <input type="range" min="0" max="{{user.max}}" value="{{user.min}}" ng-model="user.value">
+                                            <div class="text-right">
+                                                {{user.value}}%
+                                            </div>
+                                        </div>
+                                    </div> -->
+                                    <!-- <li class="item item-input item-stacked-label">
+                                        <span class="input-label">Item Details</span>
+                                        <input type="text" placeholder="Item Details">
+                                    </li> -->
+                                    <li class="item item-input item-stacked-label">
+                                        <span class="input-label">Payment Date</span>
+                                        <input type="text" onfocus="(this.type='date')" onfocusout="(this.type='text')" id="date" placeholder="Payment Date">
+                                    </li>
+                                    <li class="item item-input item-stacked-label">
+                                        <span class="input-label">Value Released</span>
+                                        <input type="number" placeholder="Value Released">
+                                    </li>
+                                    <li class="item item-input item-stacked-label">
+                                        <span class="input-label">Description</span>
+                                        <textarea type="text" placeholder="Description"> </textarea>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <!-- <div class="setting-down text-center">
+                            <button class="button  button-assertive uppercase submit-pop" ng-click="closePaymentEdit();">submit</button>
+                        </div> -->
+                    </ion-content>
+
                 </div>
-              </div>
-            </div>
-            <li class="item item-input item-stacked-label">
-              <span class="input-label">Item Details</span>
-              <input type="text" placeholder="Item Details" >
-            </li>
-            <li class="item item-input item-stacked-label">
-              <span class="input-label">Payment Date</span>
-              <input type="text"onfocus="(this.type='date')" onfocusout="(this.type='text')" id="date" placeholder="Payment Date">
-            </li>
-            <li class="item item-input item-stacked-label">
-              <span class="input-label">Value Released</span>
-              <input type="number" placeholder="Value Released">
-            </li>
-            <li class="item item-input item-stacked-label">
-              <span class="input-label">Description</span>
-              <textarea type="text" placeholder="Description"> </textarea>
-            </li>
-          </ul>
-        </div>
-      </div>
-      <div class="card">
-      <a class="button button-icon icon ion-edit item-note edit-btn"></a>
-      <div class="clearfix">
-      </div>
-        <div class="milestone-add">
-          <ul class="list">
-            <div class="range-div">
-              <label class="">Amount of work :</label>
-              <div class=" range range-assertive">
-                <div class="custom-slide" style="width:{{user.value}}%"></div>
-                <input type="range" min="0" max="{{user.max}}" value="{{user.min}}"  ng-model="user.value">
-                <div class="text-right">
-                  {{user.value}}%
-                </div>
-              </div>
-            </div>
-            <li class="item item-input item-stacked-label">
-              <span class="input-label">Item Details</span>
-              <input type="text" placeholder="Item Details" >
-            </li>
-            <li class="item item-input item-stacked-label">
-              <span class="input-label">Payment Date</span>
-              <input type="text"onfocus="(this.type='date')" onfocusout="(this.type='text')" id="date" placeholder="Payment Date">
-            </li>
-            <li class="item item-input item-stacked-label">
-              <span class="input-label">Value Released</span>
-              <input type="number" placeholder="Value Released">
-            </li>
-            <li class="item item-input item-stacked-label">
-              <span class="input-label">Description</span>
-              <textarea type="text" placeholder="Description"> </textarea>
-            </li>
-          </ul>
-        </div>
-      </div>
-      <div class="card">
-      <a class="button button-icon icon ion-edit item-note edit-btn"></a>
-      <div class="clearfix">
-      </div>
-        <div class="milestone-add">
-          <ul class="list">
-            <div class="range-div">
-              <label class="">Amount of work :</label>
-              <div class=" range range-assertive">
-                <div class="custom-slide" style="width:{{user.value}}%"></div>
-                <input type="range" min="0" max="{{user.max}}" value="{{user.min}}"  ng-model="user.value">
-                <div class="text-right">
-                  {{user.value}}%
-                </div>
-              </div>
-            </div>
-            <li class="item item-input item-stacked-label">
-              <span class="input-label">Item Details</span>
-              <input type="text" placeholder="Item Details" >
-            </li>
-            <li class="item item-input item-stacked-label">
-              <span class="input-label">Payment Date</span>
-              <input type="text"onfocus="(this.type='date')" onfocusout="(this.type='text')" id="date" placeholder="Payment Date">
-            </li>
-            <li class="item item-input item-stacked-label">
-              <span class="input-label">Value Released</span>
-              <input type="number" placeholder="Value Released">
-            </li>
-            <li class="item item-input item-stacked-label">
-              <span class="input-label">Description</span>
-              <textarea type="text" placeholder="Description"> </textarea>
-            </li>
-          </ul>
-        </div>
-      </div>
-      <div class="card">
-      <a class="button button-icon icon ion-edit item-note edit-btn"></a>
-      <div class="clearfix">
-      </div>
-        <div class="milestone-add">
-          <ul class="list">
-            <div class="range-div">
-              <label class="">Amount of work :</label>
-              <div class=" range range-assertive">
-                <div class="custom-slide" style="width:{{user.value}}%"></div>
-                <input type="range" min="0" max="{{user.max}}" value="{{user.min}}"  ng-model="user.value">
-                <div class="text-right">
-                  {{user.value}}%
-                </div>
-              </div>
-            </div>
-            <li class="item item-input item-stacked-label">
-              <span class="input-label">Item Details</span>
-              <input type="text" placeholder="Item Details" >
-            </li>
-            <li class="item item-input item-stacked-label">
-              <span class="input-label">Payment Date</span>
-              <input type="text"onfocus="(this.type='date')" onfocusout="(this.type='text')" id="date" placeholder="Payment Date">
-            </li>
-            <li class="item item-input item-stacked-label">
-              <span class="input-label">Value Released</span>
-              <input type="number" placeholder="Value Released">
-            </li>
-            <li class="item item-input item-stacked-label">
-              <span class="input-label">Description</span>
-              <textarea type="text" placeholder="Description"> </textarea>
-            </li>
-          </ul>
-        </div>
-      </div>
-      <div class="setting-down text-center">
-       <button class="button  button-assertive uppercase submit-pop" ng-click="closePaymentEdit();">submit</button>
-     </div>
-    </ion-content>
 
-
-            </ion-content>
-            <ion-footer>
+                <!-- <ion-footer>
                <div class="float-button" ng-click="opentransaction();">
                 <a class="content ">
                     <i class="ion ion-plus "> </i>
                 </a>
               </div>
-            </ion-footer>
+            </ion-footer> -->
 
-  </ion-tab>
+            </ion-tab>
 
-  <ion-tab title="Photos" icon-on="ion-ios-camera" icon-off="ion-ios-camera-outline">
-    <div class="tab-mile">
+            <ion-tab title="Photos" icon-on="ion-ios-camera" icon-off="ion-ios-camera-outline">
+                <div class="tab-mile">
 
 
-      <ion-content>
- <div class="photos">
-          <div class="row" >
-         <div class="col">
-   <div class="image-grid">
-    <img src="img/venkman.jpg" alt="image-grid">
-              </div>
-         </div>
-          <div class="col">
-              <div class="image-grid">
-    <img src="img/venkman.jpg" alt="image-grid">
-              </div>
+                    <ion-content class="top-93 bt-0">
+                        <div class="photos">
+                            <div class="row">
+                                <div class="col">
+                                    <div class="image-grid">
+                                        <img src="img/venkman.jpg" alt="image-grid">
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="image-grid">
+                                        <img src="img/venkman.jpg" alt="image-grid">
+                                    </div>
 
-         </div>
-          <div class="col">
-              <div class="image-grid">
-    <img src="img/venkman.jpg" alt="image-grid">
-              </div>
-         </div>
-          <div class="col">
-             <div class="image-grid">
-    <img src="img/venkman.jpg" alt="image-grid">
-              </div>
-         </div>
+                                </div>
+                                <div class="col">
+                                    <div class="image-grid">
+                                        <img src="img/venkman.jpg" alt="image-grid">
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="image-grid">
+                                        <img src="img/venkman.jpg" alt="image-grid">
+                                    </div>
+                                </div>
 
-     </div>
-          <div class="row" >
-         <div class="col">
-   <div class="image-grid">
-    <img src="img/venkman.jpg" alt="image-grid">
-              </div>
-         </div>
-          <div class="col">
-              <div class="image-grid">
-    <img src="img/venkman.jpg" alt="image-grid">
-              </div>
+                            </div>
+                            <div class="row">
+                                <div class="col">
+                                    <div class="image-grid">
+                                        <img src="img/venkman.jpg" alt="image-grid">
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="image-grid">
+                                        <img src="img/venkman.jpg" alt="image-grid">
+                                    </div>
 
-         </div>
-          <div class="col">
-              <div class="image-grid">
-    <img src="img/venkman.jpg" alt="image-grid">
-              </div>
-         </div>
-          <div class="col">
-             <div class="image-grid">
-    <img src="img/venkman.jpg" alt="image-grid">
-              </div>
-         </div>
+                                </div>
+                                <div class="col">
+                                    <div class="image-grid">
+                                        <img src="img/venkman.jpg" alt="image-grid">
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="image-grid">
+                                        <img src="img/venkman.jpg" alt="image-grid">
+                                    </div>
+                                </div>
 
-     </div>
-     <div class="row" >
-         <div class="col">
-   <div class="image-grid">
-    <img src="img/venkman.jpg" alt="image-grid">
-              </div>
-         </div>
-          <div class="col">
-              <div class="image-grid">
-    <img src="img/venkman.jpg" alt="image-grid">
-              </div>
+                            </div>
+                            <div class="row">
+                                <div class="col">
+                                    <div class="image-grid">
+                                        <img src="img/venkman.jpg" alt="image-grid">
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="image-grid">
+                                        <img src="img/venkman.jpg" alt="image-grid">
+                                    </div>
 
-         </div>
-          <div class="col">
-              <div class="image-grid">
-    <img src="img/venkman.jpg" alt="image-grid">
-              </div>
-         </div>
-          <div class="col">
-             <div class="image-grid">
-    <img src="img/venkman.jpg" alt="image-grid">
-              </div>
-         </div>
+                                </div>
+                                <div class="col">
+                                    <div class="image-grid">
+                                        <img src="img/venkman.jpg" alt="image-grid">
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="image-grid">
+                                        <img src="img/venkman.jpg" alt="image-grid">
+                                    </div>
+                                </div>
 
-     </div>
- </div>
-   </ion-content>
-   </div>
-  </ion-tab>
+                            </div>
+                        </div>
+                    </ion-content>
+                </div>
+            </ion-tab>
 
-  <ion-tab title="Comments" icon-on="ion-ios-more" icon-off="ion-ios-more-outline">
-    <div class="tab-mile">
-      <ion-content>
-      <ion-list >
-          <ion-item class="comment-section">
- <div class="listings">
-       <label>Comment:</label>
-  <label class="item item-input comment-text">
-    <textarea class="resize" placeholder="Comments"></textarea>
-  </label>
-   <div class="padding">
-            <button class="button button-positive button-block" ng-click="closeMilestoneEdit()">
-  Submit
-</button>
-        </div>
-</div>
-          </ion-item>
-      </ion-list>
-    </ion-content>
-    </div>
+            <ion-tab title="Comments" icon-on="ion-ios-more" icon-off="ion-ios-more-outline">
+                <div class="tab-mile">
+                    <ion-content class="top-93 bt-0">
+                        <ion-list>
+                            <ion-item class="comment-section">
+                                <div class="listings">
+                                    <label>Comment:</label>
+                                    <label class="item item-input comment-text">
+                                      <textarea class="resize" placeholder="Comments"></textarea>
+                                    </label>
+                                    <div class="padding">
+                                        <button class="button button-positive button-block" ng-click="closeMilestoneEdit()">
+                                          Submit
+                                        </button>
+                                    </div>
+                                </div>
+                            </ion-item>
+                        </ion-list>
+                    </ion-content>
+                </div>
 
-  </ion-tab>
+            </ion-tab>
+            <ion-tab title="Work Order" icon-on="ion-code-working" icon-off="ion-code-working">
+                <div class="tab-mile">
+                    <ion-content class="top-93 bt-0">
+                        <div class="card">
 
-</ion-tabs>
+                            <a class="button button-icon icon ion-edit item-note edit-btn"></a>
+                            <div class="clearfix">
+
+                            </div>
+
+                            <ul class="list">
+                                <li>
+                                    <label class="item item-input item-stacked-label">
+                                       <span class="input-label">Choose Vendor</span>
+                                       <select class="work-order ">
+                                             <option selected="true" value="" disabled>Choose Vendor</option>
+                                             <option>Ruchira Padave</option>
+                                             <option>Ganesh Kothavale</option>
+                                      </select>
+                                     </label>
+                                </li>
+                                <li>
+                                    <label class="item item-input item-stacked-label">
+                                      <span class="input-label">Value Allocated</span>
+                                      <input type="text" placeholder="Value Allocated">
+                                    </label>
+                                </li>
+                            </ul>
+                        </div>
+                    </ion-content>
+                </div>
+
+            </ion-tab>
+
+        </ion-tabs>
 
 
 

@@ -43,7 +43,7 @@
         <ion-item nav-clear menu-close ui-sref="app.home" ui-sref-active="active">
           <i class="ion-custom ion-android-home"></i> Home
         </ion-item>
-        <ion-item nav-clear menu-close ui-sref="app.state" ui-sref-active="active">
+        <ion-item nav-clear menu-close ui-sref="app.home" ui-sref-active="active">
           <i class="ion-custom ion-ios-compose"></i> Data Inputs
         </ion-item>
         <ion-item nav-clear menu-close ui-sref="app.home" ui-sref-active="active">
@@ -69,7 +69,7 @@
     </ion-content>
     </div>
     <ion-footer-bar align-title="left" class="bar-assertive side-footer ">
-      <div class="log-out" ui-sref="login">
+      <div class="log-out" ng-click="logout()">
         <i class="ion-custom ion-log-out"></i> Logout
       </div>
     </ion-footer-bar>

@@ -1,7 +1,26 @@
 <ion-view view-title="Photo Gallery">
 
     <ion-content>
-      <div class="row photos">
+      <!-- <div class="row photos" ng-repeat="pic in allPhotos">
+        <div class="col-33" ng-repeat="data in pic">
+          <div class="gallery">
+            <img src="img/fundpic.jpg" alt="">
+            <img ng-src="{{img/fundpic.jpg}}" alt="">
+          </div>
+        </div>
+
+      </div> -->
+      <div class="row photos" ng-repeat="pic in allPhotos1">
+        <div class="col-33"  ng-repeat="data in pic">
+          <div class="gallery" ng-click="openImage(data.photo)">
+
+            <img ng-src="img/fundpic.jpg" alt="" ng-if="!data.photo">
+            <img ng-src="{{data.photo | uploadpath}}" alt="" ng-if="data.photo">
+          </div>
+        </div>
+      </div>
+
+      <!-- <div class="row photos">
         <div class="col-33" ui-sref="photogallery">
           <div class="gallery">
             <img src="img/fundpic.jpg" alt="">
@@ -17,41 +36,7 @@
             <img src="img/fundpic2.jpg" alt="">
         </div>
         </div>
-      </div>
-      <div class="row photos">
-        <div class="col-33" ui-sref="photogallery">
-          <div class="gallery">
-            <img src="img/fundpic3.jpg" alt="">
-          </div>
-        </div>
-        <div class="col-33">
-          <div class="gallery">
-            <img src="img/fundpic2.jpg" alt="">
-          </div>
-        </div>
-        <div class="col-33">
-          <div class="gallery">
-            <img src="img/fundpic1.jpg" alt="">
-        </div>
-        </div>
-      </div>
-      <div class="row photos">
-        <div class="col-33" ui-sref="photogallery">
-          <div class="gallery">
-            <img src="img/fundpic.jpg" alt="">
-          </div>
-        </div>
-        <div class="col-33">
-          <div class="gallery">
-            <img src="img/fundpic1.jpg" alt="">
-          </div>
-        </div>
-        <!-- <div class="col-33">
-          <div class="gallery">
-            <img src="img/fundpic2.jpg" alt="">
-        </div>
-        </div> -->
-      </div>
+      </div> -->
         <!-- <ion-gallery ion-gallery-items="photos" ng-if="photos"></ion-gallery>
         <ion-infinite-scroll on-infinite="loadMorePolls()" ng-if="keepscrolling" distance="25%" >
         </ion-infinite-scroll> -->

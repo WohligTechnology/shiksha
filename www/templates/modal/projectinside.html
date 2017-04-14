@@ -26,17 +26,17 @@
           </div>
        </label>
     </div>
-        <div class="infra-college">
+        <div class="infra-college"  ng-if="acceslevel.Access!='State' && acceslevel.Access!='Institute'">
     <label class="item item-input ">
                <div class="custom-select">
-                  <select class="gender" ng-model="filter.state"  ng-options="s.name for s in state.data track by s._id">
+                  <select class="gender" ng-model="filter.state"  ng-options="s.name for s in state.data track by s._id" ng-change="getins(filter.state._id)">
                               <option ng-selected="true" value="" disabled>Filter by State</option>
                               <!--<ng-option ng-repeat="institution in ins track by $index" value="{{ins}}">{{ins}}</option>-->
                            </select>
                </div>
             </label>
 </div>
-<div class="infra-college">
+<div class="infra-college" ng-if="acceslevel.Access!='Institute'">
        <label class="item item-input ">
                <div class="custom-select">
                   <select class="gender" ng-model="filter.institute"  ng-options="i.name for i in institute.data track by i._id">
@@ -67,11 +67,14 @@
 <div class="infra-college">
 <label class="item item-input ">
        <div class="custom-select">
-          <select class="gender" ng-model="filter.status" ng-options="in for in in status">
+          <select class="gender" ng-model="filter.status" >
              <option ng-selected="true" value="" disabled>Filter by status</option>
-             <select class="" name="">
+             <option value="Active">Active</option>
+             <option value="Completed">Completed</option>
+             <option value="Cancelled">Cancelled</option>
+             <option value="OnHold">OnHold</option>
 
-             </select>
+
              <!--<ng-option ng-repeat="institution in ins track by $index" value="{{ins}}">{{ins}}</option>-->
           </select>
        </div>

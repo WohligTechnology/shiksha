@@ -1,0 +1,25 @@
+<ion-modal-view>
+    <ion-header-bar class="bar-positive bar bar-header">
+        <h1 class="title">Image</h1>
+        <div class="buttons">
+            <button class="button button-clear ion-close" ng-click="closeImage()"></button>
+        </div>
+    </ion-header-bar>
+    <!-- <ion-content> -->
+    <div ng-if="image">
+        <ion-content class="padding" scroll="false">
+
+            <ion-scroll zooming="true" direction="xy" delegate-handle="zoom-pane" class="zoom-pane" min-zoom="1" scrollbar-x="false" scrollbar-y="false">
+                <img ng-src="{{image|uploadpath}}">
+            </ion-scroll>
+
+        </ion-content>
+        <!-- <ion-scroll zooming="true" direction="xy" style="width: 500px; height: 500px">
+                <div style="width: 5000px; height: 5000px; background: url({{image}})repeat"></div>
+            </ion-scroll> -->
+    </div>
+    <div ng-if="!image">
+        <p class="any-p">No image found</p>
+    </div>
+    <!-- </ion-content> -->
+</ion-modal-view>

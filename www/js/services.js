@@ -1,6 +1,8 @@
-var adminurl = "http://192.168.0.24/api/";
+// var adminurl = "http://192.168.0.108/api/";
 // var adminurl = "http://rusabeta.wohlig.com/api/";//server
-var imgpath = adminurl + "/uploads/";
+var adminurl = "https://rusa.thegraylab.com/api/";//server
+var imgurl = adminurl + "upload/";
+var imgpath = imgurl + "readFile?file=";
 
 
 
@@ -30,9 +32,10 @@ angular.module('starter.services', [])
           data: formData
         }).success(callback);
       },
+
        componentFundflow: function(id,callback) {
          var data ={
-           id : id
+           component : id
          }
         return $http({
           url: adminurl + 'Transaction/componentFundflow',
@@ -43,7 +46,7 @@ angular.module('starter.services', [])
       },
        componentOverview : function(id,callback) {
          var data ={
-           id : id
+           component : id
          }
         return $http({
           url: adminurl + 'Transaction/componentOverview',
@@ -55,6 +58,58 @@ angular.module('starter.services', [])
          getTransactionReport: function(formData,callback) {
         return $http({
           url: adminurl + 'Transaction/getTransactionReport',
+          method: "POST",
+           withCredentials: true,
+          data: formData
+        }).success(callback);
+      },
+         getComponentsNotAvailInProject: function(formData,callback) {
+        return $http({
+          url: adminurl + 'Project/getComponentsNotAvailInProject',
+          method: "POST",
+           withCredentials: true,
+          data: formData
+        }).success(callback);
+      },
+        findAllInstituteDashBoard: function(id,callback) {
+          var data ={
+            state:id
+          }
+          // console.log(data);
+        return $http({
+          url: adminurl + 'Institute/findAllInstituteDashBoard',
+          method: "POST",
+           withCredentials: true,
+          data: data
+        }).success(callback);
+      },
+         addProjectPhotos: function(formData,callback) {
+        return $http({
+          url: adminurl + 'project/addProjectPhotos',
+          method: "POST",
+           withCredentials: true,
+          data: formData
+        }).success(callback);
+      },
+         changeStatus: function(formData,callback) {
+        return $http({
+          url: adminurl + 'Project/changeStatus',
+          method: "POST",
+           withCredentials: true,
+          data: formData
+        }).success(callback);
+      },
+         getProjectAllNotes: function(formData,callback) {
+        return $http({
+          url: adminurl + 'Project/getProjectAllNotes',
+          method: "POST",
+           withCredentials: true,
+          data: formData
+        }).success(callback);
+      },
+         addProjectNotes: function(formData,callback) {
+        return $http({
+          url: adminurl + 'Project/addProjectNotes',
           method: "POST",
            withCredentials: true,
           data: formData
@@ -78,12 +133,12 @@ angular.module('starter.services', [])
           method: "POST"
         }).success(callback);
       },
-       findAllInstituteDashBoard: function(callback) {
-        return $http({
-          url: adminurl + 'Institute/findAllInstituteDashBoard',
-          method: "POST"
-        }).success(callback);
-      },
+      //  findAllInstituteDashBoard: function(callback) {
+      //   return $http({
+      //     url: adminurl + 'Institute/findAllInstituteDashBoard',
+      //     method: "POST"
+      //   }).success(callback);
+      // },
       getAllVendorList: function(formData,callback) {
         return $http({
           url: adminurl + 'vendor/getAllVendorList',
@@ -91,9 +146,23 @@ angular.module('starter.services', [])
           data: formData
         }).success(callback);
       },
+      addVendor: function(formData,callback) {
+        return $http({
+          url: adminurl + 'vendor/addVendor',
+          method: "POST",
+          data: formData
+        }).success(callback);
+      },
+      vendorAllocation: function(formData,callback) {
+        return $http({
+          url: adminurl + 'projectExpense/vendorAllocation',
+          method: "POST",
+          data: formData
+        }).success(callback);
+      },
       createProject: function(formData,callback) {
         return $http({
-          url: adminurl + 'Project/save',
+          url: adminurl + 'Project/addProjectFromApp',
           method: "POST",
           data: formData
         }).success(callback);
@@ -124,12 +193,19 @@ angular.module('starter.services', [])
       },
       getComponentAllPhotos: function(id,callback) {
         var Data={
-          _id :id
+          componentId :id
         }
         return $http({
           url: adminurl + 'project/getComponentAllPhotos',
           method: "POST",
           data: Data
+        }).success(callback);
+      },
+      getProjectAllPhotos: function(data,callback) {
+        return $http({
+          url: adminurl + 'Project/getProjectAllPhotos',
+          method: "POST",
+          data: data
         }).success(callback);
       },
         componentProjects: function(componentId,callback) {
@@ -138,6 +214,17 @@ angular.module('starter.services', [])
           }
         return $http({
           url: adminurl + 'ProjectExpense/componentProjects',
+          method: "POST",
+           withCredentials: true,
+          data: id
+        }).success(callback);
+      },
+        getProjectsNotAvailInProjectExpense: function(componentId,callback) {
+          var id ={
+            component : componentId
+          }
+        return $http({
+          url: adminurl + 'ProjectExpense/getProjectsNotAvailInProjectExpense',
           method: "POST",
            withCredentials: true,
           data: id

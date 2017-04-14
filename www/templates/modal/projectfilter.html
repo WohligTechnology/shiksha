@@ -16,7 +16,7 @@
 <div class="filter-options animate-if">
     <div class="ion-close closure" ng-click="closePopup();"></div>
     <div class="infra-college">
-<label class="item item-input ">
+        <label class="item item-input ">
            <div class="custom-select">
               <select class="gender" ng-model="filter.pab" ng-options="p.name for p in pab.data track by p._id">
                  <option selected="true" value="" disabled>Filter by PAB</option>
@@ -24,36 +24,36 @@
               </select>
            </div>
         </label>
-</div>
-                 <div class="infra-college">
-             <label class="item item-input ">
+    </div>
+    <div class="infra-college" ng-if="acceslevel.Access!='State' && acceslevel.Access!='Institute'">
+        <label class="item item-input ">
                         <div class="custom-select">
-                           <select class="gender" ng-model="filter.state"  ng-options="s.name for s in state.data track by s._id">
+                           <select class="gender" ng-model="filter.state"  ng-options="s.name for s in state.data track by s._id" ng-change="getins(filter.state._id)">
                               <option ng-selected="true" value="" disabled>Filter by State</option>
                               <!--<ng-option ng-repeat="institution in ins track by $index" value="{{ins}}">{{ins}}</option>-->
                            </select>
                         </div>
                      </label>
-        </div>
-         <div class="infra-college">
-                <label class="item item-input ">
+    </div>
+    <div class="infra-college">
+        <label class="item item-input " ng-if="acceslevel.Access!='Institute'">
                         <div class="custom-select">
-                           <select class="gender" ng-model="filter.institute"  ng-options="i.name for i in institute.data track by i._id">
+                           <select class="gender" ng-model="filter.institute"  ng-options="i.name for i in institute.data track by i._id" >
                               <option ng-selected="true" value="" disabled>Filter by Institute</option>
                               <!--<ng-option ng-repeat="institution in ins track by $index" value="{{ins}}">{{ins}}</option>-->
                            </select>
                         </div>
                      </label>
-          <!--<div class="bar  item-input-inset search-bar">
+        <!--<div class="bar  item-input-inset search-bar">
             <label class="item-input-wrapper">
           <input type="search" placeholder="Filter by Institute ">
           <i class="icon ion-ios-search-strong placeholder-icon"></i>
         </label>
           </div>-->
-        </div>
+    </div>
 
-        <div class="infra-college">
-    <label class="item item-input ">
+    <div class="infra-college">
+        <label class="item item-input ">
                <div class="custom-select">
                   <select class="gender" ng-model="filter.components" ng-options="i.name for i in components.data track by i._id" >
                      <option selected="true" value="" disabled>Filter by Component</option>
@@ -61,8 +61,8 @@
                   </select>
                </div>
             </label>
-</div>
-         <div class="setting-down">
-                          <button class="button button-small button-assertive uppercase submit-pop" ng-click="filterSubmit(filter);">submit</button>
-                        </div>
+    </div>
+    <div class="setting-down">
+        <button class="button button-small button-assertive uppercase submit-pop" ng-click="filterSubmit(filter);">submit</button>
+    </div>
 </div>
