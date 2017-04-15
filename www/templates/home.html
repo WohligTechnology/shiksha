@@ -152,8 +152,9 @@
                     </div>
                     <div class="card-institue no-space pb110">
                         <div ng-repeat="fundInstitute in InstituePagination track by $index" class="card card-institute-detail" ng-class="{'activeStatus':fundInstitute._id.componentStatus=='Active','onHoldStatus':fundInstitute._id.componentStatus=='OnHold','completedStatus':fundInstitute._id.componentStatus=='Completed'}"
-                            ng-if="DashboardAllData.institute !== 'No data founds'">
+                            ng-if="DashboardAllData.institute !== 'No data founds' && fundInstitute">
                             <div class="no-pad">
+                                
                                 <div class="paddings" ui-sref="app.overview({ componentId: fundInstitute._id.componentId})">
                                     <div class="card-institute-head">
                                         <div class="bg-blue">

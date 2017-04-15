@@ -237,18 +237,19 @@
                                     <div class="col-25 util-header fs12 ">Vendor</div>
                                     <div class="col-25 util-header text-center fs12">Allocation</div>
                                     <div class="col-25 util-header text-center fs12">Released</div>
-                                    <div class="col-25 util-header text-center fs12">Transaction</div>
+                                    <!--<div class="col-25 util-header text-center fs12">Transaction</div>-->
                                 </div>
                                 <div class="row util-row" ng-repeat="vendor in project.vendor" ng-if="vendor.vendorId">
-                                    <div class="col-25 util-content bold fs12 vendor-name" ng-click="openMilestoneEdit();">{{vendor.vendorName}}</div>
-                                    <div class="col-25 util-content bold text-center fs12" ng-click="openMilestoneEdit();">₹ {{vendor.vendorAllocation/100000|number:2}}Lacs</div>
-                                    <div class="col-25 util-content bold text-center fs12" ng-click="openMilestoneEdit();">₹ {{vendor.vendorReleased/100000|number:2}}Lacs</div>
-                                    <div class="col-25 ">
+                                    <div class="col-25 util-content bold fs12 vendor-name">{{vendor.vendorName}}</div>
+                                    <div class="col-25 util-content bold text-center fs12">₹ {{vendor.vendorAllocation/100000|number:2}}Lacs</div>
+                                    <div class="col-25 util-content bold text-center fs12">₹ {{vendor.vendorReleased/100000|number:2}}Lacs</div>
+                                    <!-- Removed  ng-click="openMilestoneEdit();" -->
+                                    <!--<div class="col-25 ">
                                         <div class="add-tag add-transaction " ng-click="opentransaction()">
-                                            <!-- <img src="img/transaction.png" alt=""> -->
+                                             <img src="img/transaction.png" alt="">
                                             <i class="ion ion-plus-round"></i>
                                         </div>
-                                    </div>
+                                    </div>-->
                                 </div>
 
                             </div>
