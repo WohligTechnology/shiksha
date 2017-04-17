@@ -550,6 +550,7 @@ angular.module('starter.controllers', ['starter.services', 'ngCordova', 'highcha
                         // $scope.totCompFundAllo = 0;
 
                     });
+                    $scope.$broadcast('scroll.infiniteScrollComplete');
 
                 });
 
@@ -575,6 +576,7 @@ angular.module('starter.controllers', ['starter.services', 'ngCordova', 'highcha
         dropDownData.endData = dropDownData.endData + 5;
 
         loadData(dropDownData);
+        // $scope.$broadcast('scroll.infiniteScrollComplete');
     };
     console.log("Updated object111", $scope.DashboardAllData);
     $scope.closePopuptoast = function() {
@@ -608,27 +610,41 @@ angular.module('starter.controllers', ['starter.services', 'ngCordova', 'highcha
         });
     }
     $scope.filterSubmit = function(formData) {
-
+      var dropDownData = {
+          pab: "",
+          state: "",
+          component: "",
+          institute: "",
+          startData: 0,
+          endData: 5
+      };
         $scope.InstituePagination = null;
-        console.log("filter");
+
+        console.log("filter",formData);
         $scope.filterCriteria = {};
         if (angular.isObject(formData.pab)) {
-            $scope.filterCriteria.pab = formData.pab._id;
+            // $scope.filterCriteria.pab = formData.pab._id;
+            dropDownData.pab = formData.pab._id;
         }
         if (angular.isObject(formData.state)) {
-            $scope.filterCriteria.state = formData.state._id;
+            dropDownData.state = formData.state._id;
         }
         if (angular.isObject(formData.institute)) {
-            $scope.filterCriteria.institute = formData.institute._id;
+            // $scope.filterCriteria.institute = formData.institute._id;
+            dropDownData.institute = formData.institute._id;
         }
         if (angular.isObject(formData.components)) {
-            $scope.filterCriteria.components = formData.components._id;
+            // $scope.filterCriteria.components = formData.components._id;
+            dropDownData.components = formData.components._id;
         }
         if (formData.status) {
-            $scope.filterCriteria.componentStatus = formData.status;
+            // $scope.filterCriteria.componentStatus = formData.status;
+          dropDownData.componentStatus = formData.status;
         }
         $scope.filter.close();
-        loadData($scope.filterCriteria);
+        console.log("filter",dropDownData);
+
+        loadData(dropDownData);
         //  MyServices.getProjectReport($scope.filterCriteria,function(data) {
         //      console.log("filtered data",data);
         //      if(data){
