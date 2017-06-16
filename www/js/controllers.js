@@ -307,277 +307,37 @@ angular.module('starter.controllers', ['starter.services', 'ngCordova', 'highcha
         $scope.config.series[0].data[0].y = release1;
         $scope.config.series[1].data[0].y = util1;
     }
-
+    $scope.overviewChartshow = false;
     // $scope.overviewChart = {};
+    MyServices.getDashboardData({}, function(data) {
+        $scope.DashboardAllData = data.data;
+        console.log($scope.DashboardAllData);
 
 
-    function loadData(dropDownData) {
-        // console.log("inside loadData");
-        MyServices.getProjectReport(dropDownData, function(data) {
-            console.log("project  ", data);
-            $scope.filteredComponents = data.data;
-            $scope.getProjectReport = data;
-            //getTransactionReport api start
-            MyServices.getTransactionReport(dropDownData, function(data) {
-                $scope.filteredComponentsNew = data.data;
-                console.log("project transaction  ", data);
-                $scope.getTransactionReport = data
-                console.log("allocation", $scope.getProjectReport.data.totalComponentsFundAllocation.totalFundAllocation);
-                // $scope.totalFundAllocation = $scope.getProjectReport.data.totalComponentsFundAllocation.totalFundAllocation;
-                // console.log("allocation",$scope.totalFundAllocation);
+        $scope.percent_utilized = _.round(($scope.DashboardAllData.getFundUtilized[0].totalFundUtilized / $scope.DashboardAllData.getTotalFundReleased[0].totalFundReleased) * 100, 2);
+        $scope.percent_Release = _.round(($scope.DashboardAllData.getTotalFundReleased[0].totalFundReleased / $scope.DashboardAllData.getTotalFundAllocation[0].totalFundAllocation) * 100, 2);
 
-                // $scope.totalFundRelease1 = $scope.getTransactionReport.data.totalReleaseAndUtilization.totalFundRelease1;
-                // $scope.totalUtilization1 = $scope.getTransactionReport.data.totalReleaseAndUtilization.totalUtilization1;
-                // console.log("hello release",$scope.totalFundRelease1 ,$scope.totalFundAllocation);
-                // $scope.percent_utilized = _.round(($scope.totalUtilization1 / $scope.totalFundRelease1) * 100, 2);
-                // $scope.percent_Release = _.round(($scope.totalFundRelease1 / $scope.totalFundAllocation) * 100, 2);
-                //
-                // $rootScope.overviewChart.series[0].data[0].y = 100;
-                // $rootScope.overviewChart.series[1].data[0].y = $scope.percent_Release;
-                // $rootScope.overviewChart.series[2].data[0].y = $scope.percent_utilized;
-                // console.log("% release",$scope.percent_utilized, $scope.percent_Release);
-                // $scope.overviewChartshow = true;
+        $rootScope.overviewChart.series[0].data[0].y = 100;
+        $rootScope.overviewChart.series[1].data[0].y = $scope.percent_Release;
+        $rootScope.overviewChart.series[2].data[0].y =_.round(($scope.DashboardAllData.getFundUtilized[0].totalFundUtilized / $scope.DashboardAllData.getTotalFundAllocation[0].totalFundAllocation) * 100, 2);
+        console.log($scope.percent_utilized,$rootScope.overviewChart.series[2].data[0].y);
+        $scope.overviewChartshow = true;
+    });
+    MyServices.componentData({}, function(data) {
+        $scope.componentData = data.data;
+        console.log($scope.componentData);
 
-                $scope.DashboardAllData = angular.extend({}, $scope.filteredComponents, $scope.filteredComponentsNew);
-                console.log("DashboardAllData", $scope.DashboardAllData);
-                // console.log("filteredComponentsNew", $scope.filteredComponentsNew);
-                $scope.centerReleasePerComp = $scope.DashboardAllData.centerReleasePerComponent;
-                $scope.stateReleasePerComp = $scope.DashboardAllData.stateReleasePerComponent;
-                $scope.delayedProPerComp = $scope.DashboardAllData.totalDelayedProjectsPerComponent;
-                $scope.transactionPerComp = $scope.DashboardAllData.transactionsPerComponents;
-
-                $scope.totalStateReleasedAmount = $scope.DashboardAllData.totalStateRelease.totalStateRelease - $scope.DashboardAllData.totalCenterRelease.totalCenterRelease;
-                $scope.totalReleasedAmount = $scope.DashboardAllData.totalCenterRelease.totalCenterRelease + $scope.totalStateReleasedAmount;
-
-                // to get totalDelayedProjectsPerComponent in institute array
-                angular.forEach($scope.DashboardAllData.institute, function(inst, index) {
-                    if ($scope.delayedProPerComp != 0) {
-                        //when we get 0 records from Db we canno't make any operation
-
-                        angular.forEach($scope.DashboardAllData.totalDelayedProjectsPerComponent, function(tdppc, index) {
-                            if (inst._id.componentId == tdppc._id.componentId) {
-                                inst.totalDelayedProjectsPerComponent = tdppc.totalDelayedProjectsPerComponent;
-                            } else {
-                                if (inst.totalDelayedProjectsPerComponent != null) {
-                                    // console.log("test");
-                                } else {
-                                    // if it is null then make it 0 to display on table
-                                    inst.totalDelayedProjectsPerComponent = 0;
-                                }
-                            }
-                        });
-                    } else {
-                        // Don't compare it with 1st object put direct 0 in institute
-                        inst.totalDelayedProjectsPerComponent = null;
-                        inst.totalDelayedProjectsPerComponent = 0;
-                    }
-                });
-
-                // to get centerReleasePerComponent in institute array
-                angular.forEach($scope.DashboardAllData.institute, function(inst, index) {
-
-                    if ($scope.centerReleasePerComp != 0) {
-                        angular.forEach($scope.DashboardAllData.centerReleasePerComponent, function(crpc, index) {
-                            if (inst._id.componentId == crpc._id.componentId) {
-                                inst.centerReleasePerComponent = crpc.centerComponentRelease;
-                            } else {
-                                if (inst.centerReleasePerComponent != null) {
-                                    // console.log("test");
-                                } else {
-                                    inst.centerReleasePerComponent = 0;
-                                }
-                            }
-                        });
-                    } else {
-                        inst.centerReleasePerComponent = null;
-                        inst.centerReleasePerComponent = 0;
-                    }
-                });
-
-                // to get stateReleasePerComponent in institute array
-                angular.forEach($scope.DashboardAllData.institute, function(inst, index) {
-                    if ($scope.stateReleasePerComp != 0) {
-                        angular.forEach($scope.DashboardAllData.stateReleasePerComponent, function(srpc, index) {
-                            if (inst._id.componentId == srpc._id.componentId) {
-                                inst.stateReleasePerComponent = srpc.stateComponentRelease;
-                            } else {
-                                if (inst.stateReleasePerComponent != null) {
-                                    // console.log("test");
-                                } else {
-                                    inst.stateReleasePerComponent = 0;
-                                }
-                            }
-                        });
-                    } else {
-                        inst.stateReleasePerComponent = null;
-                        inst.stateReleasePerComponent = 0;
-                    }
-                });
-
-                // to get transactionsPerComponents in institute array
-                angular.forEach($scope.DashboardAllData.institute, function(inst, index) {
-                    if ($scope.transactionPerComp != 0) {
-                        angular.forEach($scope.DashboardAllData.transactionsPerComponents, function(tpc, index) {
-                            if (inst._id.componentId == tpc._id.componentId) {
-                                inst.amountUtilizedPerComponent = tpc._id.amountUtilizedPerComponent;
-                                // inst.amountUtilizedPercentagePerComponent = tpc._id.amountUtilizedPercentagePerComponent;
-                                // console.log("totalComponentRelease", tpc.totalComponentRelease);
-                                inst.amountUtilizedPercentagePerComponent = (tpc._id.amountUtilizedPerComponent * 100) / tpc.totalComponentRelease;
-                                // console.log("count", $scope.count);
-                            } else {
-                                if (inst.amountUtilizedPerComponent != null && inst.amountUtilizedPercentagePerComponent != null) {
-                                    // console.log("test");
-                                } else {
-                                    inst.amountUtilizedPerComponent = 0;
-                                    inst.amountUtilizedPercentagePerComponent = 0;
-                                    // console.log("count inside", $scope.count);
-                                }
-                            }
-                        });
-                    } else {
-                        inst.amountUtilizedPerComponent = null;
-                        inst.amountUtilizedPercentagePerComponent = null;
-                        inst.amountUtilizedPerComponent = 0;
-                        inst.amountUtilizedPercentagePerComponent = 0;
-                    }
-
-                });
-
-                console.log("after merge 1st & 2nd APIs.  DashboardAllData --> filteredComponents + filteredComponentsNew", $scope.DashboardAllData);
-
-                // when component is not available in project & transaction table
-                MyServices.getComponentsNotAvailInProject(dropDownData, function(data) {
-
-                    $scope.getNewComponents = data.data;
-
-                    console.log("Dashboadr Data 3rd API, getComponentsNotAvailInProject", $scope.getNewComponents);
-
-                    $scope.totCompFundAllo = 0;
-                    $scope.totCenterAllocation = 0;
-                    $scope.newCompLength = $scope.getNewComponents.length;
-                    $scope.temp = 0;
+    });
 
 
-                    if ($scope.getNewComponents.length == 0) {
-
-                        console.log("||||||||||||||||||||||||||||||||||||||| $scope.getNewComponents is null, inside if  |||||||||||||||||||||||||||||||||||");
-                        $scope.InstituePagination = _.concat($scope.InstituePagination, $scope.DashboardAllData.institute);
-                        console.log("$scope.InstituePagination", $scope.InstituePagination);
-                    }
-
-                    angular.forEach($scope.getNewComponents, function(getNewComp, index) {
-
-                        getNewComp.amountUtilizedPerComponent = 0;
-                        getNewComp.amountUtilizedPercentagePerComponent = 0;
-                        getNewComp.centerReleasePerComponent = 0;
-                        getNewComp.stateReleasePerComponent = 0;
-                        getNewComp.totalComponentProjects = 0;
-                        getNewComp.totalDelayedProjectsPerComponent = 0;
-
-                        if (!isNaN(getNewComp.totalComponentAllocation) && !isNaN(getNewComp._id.centerShare)) {
-                            $scope.totCompFundAllo = $scope.totCompFundAllo + getNewComp.totalComponentAllocation;
-                            // $scope.totCenterAllocation = $scope.totCenterAllocation + ($scope.totCompFundAllo * getNewComp._id.centerShare / 100);
-
-                            $scope.totCenterAllocation = $scope.totCenterAllocation + (getNewComp.totalComponentAllocation * getNewComp._id.centerShare / 100);
-
-                            // it may give push eror in case of no data found
-                            // we have to send [] in callback instead of "NO data founds"
-
-                            $scope.DashboardAllData.institute.push(getNewComp);
-                        }
-
-                        if ($scope.newCompLength - 1 == $scope.temp) {
-
-
-                            console.log("-----------------------------------------------------------------");
-                            console.log("$scope.newCompLength", $scope.newCompLength);
-                            console.log("-----------------------------------------------------------------");
-
-                            console.log("%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% $scope.DashboardAllData.totalComponentsFundAllocation.totalFundAllocation %%%%%%%%%%%%%%%%%%%%%%%%%%%%%", $scope.DashboardAllData.totalComponentsFundAllocation.totalFundAllocation);
-
-                            console.log("-----------------------------------------------------------------");
-                            console.log("$scope.totCompFundAllocation", $scope.totCompFundAllo);
-                            console.log("-----------------------------------------------------------------");
-
-                            console.log("%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% $scope.DashboardAllData.totalCenterAndStateAllocation.centerShare %%%%%%%%%%%%%%%%%%%%%%%%%%%%%", $scope.DashboardAllData.totalCenterAndStateAllocation.centerShare);
-
-                            console.log("-----------------------------------------------------------------");
-                            console.log("$scope.totCenterAllocation", $scope.totCenterAllocation);
-                            console.log("-----------------------------------------------------------------");
-
-                            $scope.DashboardAllData.totalComponentsFundAllocation.totalFundAllocation = $scope.DashboardAllData.totalComponentsFundAllocation.totalFundAllocation + $scope.totCompFundAllo;
-
-                            $scope.DashboardAllData.totalCenterAndStateAllocation.centerShare = $scope.DashboardAllData.totalCenterAndStateAllocation.centerShare + $scope.totCenterAllocation;
-
-                            $scope.DashboardAllData.totalCenterAndStateAllocation.stateShare = $scope.DashboardAllData.totalCenterAndStateAllocation.stateShare + ($scope.totCompFundAllo - $scope.totCenterAllocation);
-
-                            $scope.DashboardAllData.totalComponents.count = $scope.DashboardAllData.totalComponents.count + $scope.getNewComponents.length;
-
-                            $scope.DashboardAllData.inTimeComponents.inTimeComponentsCount = $scope.getNewComponents.length;
-
-                            // $scope.DashboardAllData.totalReleaseAndUtilization.totalFundRelease1 = 0;
-                            // $scope.DashboardAllData.totalCenterRelease.totalCenterRelease = 0;
-                            // $scope.DashboardAllData.totalReleaseAndUtilization.totalfundUtizedPercent1 = 0;
-                            // $scope.DashboardAllData.totalReleaseAndUtilization.totalUtilization1 = 0;
-
-                            console.log("DashboardAllData after updating allocation", $scope.DashboardAllData);
-                            console.log("$scope.DashboardAllData.totalComponentsFundAllocation.totalFundAllocation", $scope.DashboardAllData.totalComponentsFundAllocation.totalFundAllocation);
-
-                            console.log("$scope.DashboardAllData.totalCenterAndStateAllocation.centerShare", $scope.DashboardAllData.totalCenterAndStateAllocation.centerShare);
-
-                            console.log("$scope.DashboardAllData.totalCenterAndStateAllocation.stateShare", $scope.DashboardAllData.totalCenterAndStateAllocation.stateShare);
-
-                            console.log("after merge  DashboardAllData with --> 3rd API getComponentsNotAvailInProject", $scope.DashboardAllData);
-                            $scope.totalFundRelease1 = $scope.getTransactionReport.data.totalReleaseAndUtilization.totalFundRelease1;
-                            $scope.totalUtilization1 = $scope.getTransactionReport.data.totalReleaseAndUtilization.totalUtilization1;
-                            console.log("hello release", $scope.DashboardAllData.totalComponentsFundAllocation.totalFundAllocation);
-                            $scope.percent_utilized = _.round(($scope.totalUtilization1 / $scope.totalFundRelease1) * 100, 2);
-                            $scope.percent_Release = _.round(($scope.totalFundRelease1 / $scope.DashboardAllData.totalComponentsFundAllocation.totalFundAllocation) * 100, 2);
-
-                            $rootScope.overviewChart.series[0].data[0].y = 100;
-                            $rootScope.overviewChart.series[1].data[0].y = $scope.percent_Release;
-                            $rootScope.overviewChart.series[2].data[0].y = $scope.percent_utilized;
-                            console.log("% release", $scope.percent_utilized, $scope.percent_Release);
-                            $scope.overviewChartshow = true;
-
-                            $scope.DashboardAllData.institute.push(getNewComp);
-
-                            $scope.InstituePagination = _.concat($scope.InstituePagination, $scope.DashboardAllData.institute);
-                            console.log("$scope.InstituePagination", $scope.InstituePagination);
-                        }
-
-                        $scope.temp++;
-                        // $scope.totCompFundAllo = 0;
-
-                    });
-                    $scope.$broadcast('scroll.infiniteScrollComplete');
-
-                });
-
-                console.log("DashboardAllData after updating allocation", $scope.DashboardAllData);
-                console.log("hiiii $scope.DashboardAllData.totalComponentsFundAllocation.totalFundAllocation", $scope.DashboardAllData.totalComponentsFundAllocation.totalFundAllocation);
-
-                console.log("hiiii $scope.DashboardAllData.totalCenterAndStateAllocation.centerShare", $scope.DashboardAllData.totalCenterAndStateAllocation.centerShare);
-
-                console.log("hiiii $scope.DashboardAllData.totalCenterAndStateAllocation.stateShare", $scope.DashboardAllData.totalCenterAndStateAllocation.stateShare);
-
-                console.log("hiiii after merge  DashboardAllData with --> 3rd API getComponentsNotAvailInProject", $scope.DashboardAllData);
-                // console.log("*************** after done with all the things DashboardAllData is **********************", $scope.DashboardAllData);
-            });
-        });
-    }
-
-
-    loadData(dropDownData);
-
-    $scope.loadMore = function() {
-        console.log("inside loadMore");
-        dropDownData.startData = dropDownData.startData + 5;
-        dropDownData.endData = dropDownData.endData + 5;
-
-        loadData(dropDownData);
-        // $scope.$broadcast('scroll.infiniteScrollComplete');
-    };
+    // $scope.loadMore = function() {
+    //     console.log("inside loadMore");
+    //     dropDownData.startData = dropDownData.startData + 5;
+    //     dropDownData.endData = dropDownData.endData + 5;
+    //
+    //     loadData(dropDownData);
+    //     // $scope.$broadcast('scroll.infiniteScrollComplete');
+    // };
     console.log("Updated object111", $scope.DashboardAllData);
     $scope.closePopuptoast = function() {
             $scope.toast.close();
@@ -610,17 +370,17 @@ angular.module('starter.controllers', ['starter.services', 'ngCordova', 'highcha
         });
     }
     $scope.filterSubmit = function(formData) {
-      var dropDownData = {
-          pab: "",
-          state: "",
-          component: "",
-          institute: "",
-          startData: 0,
-          endData: 5
-      };
+        var dropDownData = {
+            pab: "",
+            state: "",
+            component: "",
+            institute: "",
+            startData: 0,
+            endData: 5
+        };
         $scope.InstituePagination = null;
 
-        console.log("filter",formData);
+        console.log("filter", formData);
         $scope.filterCriteria = {};
         if (angular.isObject(formData.pab)) {
             // $scope.filterCriteria.pab = formData.pab._id;
@@ -639,10 +399,10 @@ angular.module('starter.controllers', ['starter.services', 'ngCordova', 'highcha
         }
         if (formData.status) {
             // $scope.filterCriteria.componentStatus = formData.status;
-          dropDownData.componentStatus = formData.status;
+            dropDownData.componentStatus = formData.status;
         }
         $scope.filter.close();
-        console.log("filter",dropDownData);
+        console.log("filter", dropDownData);
 
         loadData(dropDownData);
         //  MyServices.getProjectReport($scope.filterCriteria,function(data) {

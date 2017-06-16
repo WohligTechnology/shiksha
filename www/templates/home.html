@@ -41,7 +41,7 @@
                                     <i class="ion-record release col2"></i> TOTAL ALLOCATION
                                   </h5>
                                     <h3 class="text-center bold f16 home-data">
-                                    {{getProjectReport.data.totalComponentsFundAllocation.totalFundAllocation/10000000 | number:2 }} Cr
+                                    {{DashboardAllData.getTotalFundAllocation[0].totalFundAllocation/10000000 | number:2 }} Cr
                                     <!--{{getProjectReport.data.totalComponentsFundAllocation.totalFundAllocation}} Lacs-->
                                   </h3>
                                 </div>
@@ -53,7 +53,7 @@
 
                                         <div class="text-center ">
                                             <!-- <p class="f16 bold">{{getTransactionReport.data.totalReleaseAndUtilization.totalFundRelease1/10000000 | number:2 }} Cr</p> -->
-                                            <p class="f16 bold">{{totalReleasedAmount/10000000 | number:2 }} Cr</p>
+                                            <p class="f16 bold">{{DashboardAllData.getTotalFundReleased[0].totalFundReleased/10000000 | number:2 }} Cr</p>
                                         </div>
                                     </div>
 
@@ -63,7 +63,7 @@
 
                                     <div class="text-center ">
 
-                                        <p class="f16 bold ">{{getTransactionReport.data.totalReleaseAndUtilization.totalUtilization1/10000000 | number:2 }} Cr</p>
+                                        <p class="f16 bold ">{{DashboardAllData.getFundUtilized[0].totalFundUtilized/10000000 | number:2 }} Cr</p>
                                     </div>
                                 </div>
                             </div>
@@ -90,7 +90,7 @@
                                             <p class="pull-left home-label">TOTAL</p>
                                         </div>
                                         <div class="col">
-                                            <p class="pull-left home-content bold home-data f16"> {{getProjectReport.data.totalComponents.count}} </p>
+                                            <p class="pull-left home-content bold home-data f16"> {{DashboardAllData.getTotalComponents[0].totalComponents}} </p>
                                         </div>
                                     </div>
                                 </div>
@@ -100,7 +100,7 @@
                                             <p class="pull-left home-label">DELAYED</p>
                                         </div>
                                         <div class="col">
-                                            <p class="pull-left delayed bold  f16"> {{getProjectReport.data.totalComponents.count - getProjectReport.data.inTimeComponents.inTimeComponentsCount}}</p>
+                                            <p class="pull-left delayed bold  f16"> {{DashboardAllData.getTotalDelayedComponent[0].totalDelayedProjects}}</p>
                                         </div>
                                     </div>
                                 </div>
@@ -122,7 +122,7 @@
                                             <p class="pull-left home-label">TOTAL</p>
                                         </div>
                                         <div class="col">
-                                            <p class="pull-left home-content bold home-data f16"> {{getProjectReport.data.totalProjects.count}} </p>
+                                            <p class="pull-left home-content bold home-data f16">{{DashboardAllData.getTotalProjects[0].totalProjects}}  </p>
                                         </div>
                                     </div>
                                 </div>
@@ -132,7 +132,7 @@
                                             <p class="pull-left home-label">DELAYED</p>
                                         </div>
                                         <div class="col">
-                                            <p class="pull-left delayed bold  f16">{{getProjectReport.data.totalDelayedProjects.totalDelayedProjects}}</p>
+                                            <p class="pull-left delayed bold  f16">{{DashboardAllData.getTotalDelayedProject[0].totalDelayedProjects}}</p>
                                         </div>
                                     </div>
                                 </div>

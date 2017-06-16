@@ -1,4 +1,5 @@
-var adminurl = "http://192.168.0.22/api/";
+var adminurl = "http://192.168.0.9/api/";
+// var adminurl = "http://rusa.wohlig.co.in/api/";//server
 // var adminurl = "http://rusabeta.wohlig.com/api/";//server
 // var adminurl = "https://rusa.thegraylab.com/api/";//server
 var imgurl = adminurl + "upload/";
@@ -24,9 +25,33 @@ angular.module('starter.services', [])
           data: formData
         }).success(callback);
       },
+         userSearch: function(formData,callback) {
+        return $http({
+          url: adminurl + 'User/search',
+          method: "POST",
+           withCredentials: true,
+          data: formData
+        }).success(callback);
+      },
        getProjectReport: function(formData,callback) {
         return $http({
           url: adminurl + 'Project/getProjectReport',
+          method: "POST",
+           withCredentials: true,
+          data: formData
+        }).success(callback);
+      },
+    getDashboardData: function(formData,callback) {
+        return $http({
+          url: adminurl + 'components/getDashboardData',
+          method: "POST",
+           withCredentials: true,
+          data: formData
+        }).success(callback);
+      },
+    componentData: function(formData,callback) {
+        return $http({
+          url: adminurl + 'components/componentData',
           method: "POST",
            withCredentials: true,
           data: formData
