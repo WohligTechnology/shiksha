@@ -1,6 +1,6 @@
-// var adminurl = "http://192.168.0.108/api/";
+var adminurl = "http://192.168.0.22/api/";
 // var adminurl = "http://rusabeta.wohlig.com/api/";//server
-var adminurl = "https://rusa.thegraylab.com/api/";//server
+// var adminurl = "https://rusa.thegraylab.com/api/";//server
 var imgurl = adminurl + "upload/";
 var imgpath = imgurl + "readFile?file=";
 
