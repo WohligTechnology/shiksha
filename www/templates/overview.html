@@ -29,7 +29,7 @@
                            FUNDS ALLOCATED
                         </h5>
                         <h3 class="text-center bold f16 home-data">
-                          ₹ {{overview.componentDetail._id.totalAllocationForComponent/100000 | number :2}} Lacs
+                          ₹ {{overview.allocationAmount/100000 | number :2}} Lacs
                         </h3>
                     </div>
                 </div>
@@ -40,19 +40,17 @@
                             <p class="stable f12 text-center">PAB NO</p>
 
                             <div class="text-center ">
-                                <p class="f16 bold">{{pabName}}</p>
+                                <p class="f16 bold">{{overview.pabno.name}}</p>
                             </div>
                         </div>
                     </div>
 
-                        <div class="padding recordings pad-change">
-                            <p class="stable f12 text-center">RECEIVED TO DATE</p>
-
-                            <div class="text-center ">
-
-                                <p class="f16 bold">₹ {{overview.componentDetail.totalAmountRelease/100000 | number :2}} Lacs</p>
-                            </div>
+                    <div class="padding recordings pad-change">
+                        <p class="stable f12 text-center">RECEIVED TO DATE</p>
+                        <div class="text-center ">
+                             <p class="f16 bold">₹ {{overview.retVal.FundReleased/100000 | number :2}} Lacs</p>
                         </div>
+                    </div>
                 </div>
             </div>
             <div class="box ">
@@ -61,7 +59,7 @@
                         <div class="bold f16">Latest fund inflow</div>
                     </div>
                     <div class="col-33">
-                        <div class="bold f16 text-center">₹ {{overview.componentLatestFundFlow.latestReleasedAmount/100000 | number :2}} Lacs</div>
+                        <div class="bold f16 text-center">₹ {{overview.transaction[0].amount/100000 | number :2}} Lacs</div>
                     </div>
                 </div>
             </div>
@@ -92,8 +90,9 @@
                 <div class="padding-horizontal">
                     <div class="custom-slide-projects">
                         <div class="allocated-bar" style="width:100%"></div>
-                        <div class="received-bar" style="width:{{overview.componentDetail.totalAmountRelease/overview.componentDetail._id.totalAllocationForComponent*100}}%"></div>
-                        <div class="made-bar" style="width:{{overview.componentDetail._id.totalUtilizationForComponent/overview.componentDetail._id.totalAllocationForComponent*100}}%"> {{overview.componentDetail._id.totalUtilizationForComponent/overview.componentDetail.totalAmountRelease*100 | number:0}}%</div>
+                        <div class="received-bar" style="width:{{overview.retVal.FundReleased/overview.allocationAmount*100}}%"></div>
+                        <div class="made-bar" style="width:{{overview.retVal.getFundUtilized/overview.allocationAmount*100}}%"> 
+                        {{overview.retVal.getFundUtilized/overview.retVal.FundReleased*100 | number:0}}%</div>
                     </div>
                 </div>
             </div>

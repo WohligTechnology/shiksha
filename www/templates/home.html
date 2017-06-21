@@ -3,16 +3,12 @@
         <!--<ion-nav-back-button>
     </ion-nav-back-button>-->
         <ion-nav-buttons side="left">
-            <button class="button button-icon button-clear ion-navicon" menu-toggle="left">
-      </button>
+            <button class="button button-icon button-clear ion-navicon" menu-toggle="left"></button>
         </ion-nav-buttons>
         <ion-nav-buttons side="right">
-            <button class="button button-icon button-clear search-btn ion-funnel padings" ng-click="filters();">
-      </button>
-            <!-- <button class="button button-icon button-clear search-btn ion-android-search" ui-sref="app.search">
-      </button> -->
-            <button class="button button-icon button-clear ion-android-more-vertical settings-btn padings">
-      </button>
+            <button class="button button-icon button-clear search-btn ion-funnel padings" ng-click="filters();"></button>
+            <!-- <button class="button button-icon button-clear search-btn ion-android-search" ui-sref="app.search"></button> -->
+            <button class="button button-icon button-clear ion-android-more-vertical settings-btn padings"></button>
         </ion-nav-buttons>
     </ion-nav-bar>
     <ion-tabs class="tab-button tab-header has-header tabs-top">
@@ -20,30 +16,30 @@
             <ion-content class="has-tabs-top has-notabs has-tabs tabs-content">
                 <div class="">
                     <!--<div class="top-div">
-            <div class="row">
-              <div class="col h5-border">
-                <h5>450 <label for="">Projects to-date</label></h5>
-              </div>
-              <div class="col">
-                <h5>76 <label for="">Active Projects</label></h5>
-              </div>
-            </div>
-          </div>-->
+                            <div class="row">
+                                <div class="col h5-border">
+                                    <h5>450 <label for="">Projects to-date</label></h5>
+                                </div>
+                                <div class="col">
+                                    <h5>76 <label for="">Active Projects</label></h5>
+                                </div>
+                            </div>
+                        </div>-->
                     <!-- <div class="item-note toggle-institute filtering">
-                        <div class="button icon-left ion-funnel filter" ng-click="filters();">Filter</div>
-                      </div> -->
+                            <div class="button icon-left ion-funnel filter" ng-click="filters();">Filter</div>
+                        </div> -->
                     <!--<div class="clearfix"></div>-->
                     <div class="mid-div">
                         <div class="row overview-mid">
                             <div class="col-60">
                                 <div class="funds-all">
                                     <h5 class="text-center allocated-size stable ">
-                                    <i class="ion-record release col2"></i> TOTAL ALLOCATION
-                                  </h5>
+                                        <i class="ion-record release col2"></i> TOTAL ALLOCATION
+                                    </h5>
                                     <h3 class="text-center bold f16 home-data">
-                                    {{DashboardAllData.getTotalFundAllocation[0].totalFundAllocation/10000000 | number:2 }} Cr
-                                    <!--{{getProjectReport.data.totalComponentsFundAllocation.totalFundAllocation}} Lacs-->
-                                  </h3>
+                                        {{DashboardAllData.getTotalFundAllocation[0].totalFundAllocation/10000000 | number:2 }} Cr
+                                        <!--{{getProjectReport.data.totalComponentsFundAllocation.totalFundAllocation}} Lacs-->
+                                    </h3>
                                 </div>
                             </div>
                             <div class="col-40">
@@ -53,7 +49,8 @@
 
                                         <div class="text-center ">
                                             <!-- <p class="f16 bold">{{getTransactionReport.data.totalReleaseAndUtilization.totalFundRelease1/10000000 | number:2 }} Cr</p> -->
-                                            <p class="f16 bold">{{DashboardAllData.getTotalFundReleased[0].totalFundReleased/10000000 | number:2 }} Cr</p>
+                                            <p class="f16 bold">{{DashboardAllData.getTotalFundReleased[0].totalFundReleased/10000000 | number:2
+                                                }} Cr</p>
                                         </div>
                                     </div>
 
@@ -68,13 +65,13 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="chart-outside " >
-                            <highchart id="gauge" class="meter-viewer"  config="overviewChart" style="width: 400px; height: 400px; margin: 0 auto" ng-if="overviewChartshow"></highchart>
+                        <div class="chart-outside ">
+                            <highchart id="gauge" class="meter-viewer" config="overviewChart" style="width: 400px; height: 400px; margin: 0 auto" ng-if="overviewChartshow"></highchart>
                             <!-- <canvas id="doughnut" class="chart chart-doughnut noborder" chart-data="data" chart-labels="labels" chart-colors="colors"
                               chart-dataset-override="override" style="border:none;">
                             </canvas> -->
                             <h5 class="mid-label text-center" ng-if="overviewChartshow">
-                              {{percent_utilized}}%<br> Fund Utilization
+                                {{percent_utilized}}%<br> Fund Utilization
                             </h5>
                         </div>
                     </div>
@@ -122,7 +119,7 @@
                                             <p class="pull-left home-label">TOTAL</p>
                                         </div>
                                         <div class="col">
-                                            <p class="pull-left home-content bold home-data f16">{{DashboardAllData.getTotalProjects[0].totalProjects}}  </p>
+                                            <p class="pull-left home-content bold home-data f16">{{DashboardAllData.getTotalProjects[0].totalProjects}} </p>
                                         </div>
                                     </div>
                                 </div>
@@ -151,8 +148,7 @@
                         <div class="clearfix"></div>
                     </div>
                     <div class="card-institue no-space pb110">
-                        <div ng-repeat="fundInstitute in componentData track by $index" class="card card-institute-detail" ng-class="{'activeStatus':fundInstitute.status=='Active','onHoldStatus':fundInstitute.status=='OnHold','completedStatus':fundInstitute.status=='Completed'}"
-                            >
+                        <div ng-repeat="fundInstitute in componentData track by $index" class="card card-institute-detail" ng-class="{'activeStatus':fundInstitute.status=='Active','onHoldStatus':fundInstitute.status=='OnHold','completedStatus':fundInstitute.status=='Completed'}">
                             <div class="no-pad">
 
                                 <div class="paddings" ui-sref="app.overview({ componentId: fundInstitute._id.componentId})">
@@ -216,7 +212,7 @@
                                         <div class="bg-blue">
                                             <div class="row">
                                                 <div class="col">
-                                                <!-- <div class="col-66"> -->
+                                                    <!-- <div class="col-66"> -->
                                                     <div class="padding">
                                                         <div class="text-center project-right">Fund Utilization - ₹ (in lacs)</div>
                                                         <div class="chart-home institute-chart ">
@@ -231,19 +227,26 @@
                                                                 <canvas id="doughnut" ng-if="$index%3===2" class="chart chart-doughnut" chart-data="data1" chart-labels="labels1" chart-colors="colors2"
                                                                   chart-dataset-override="override2"></canvas> -->
                                                             <h5 class="f16 bold card-50">
-                                                              {{fundInstitute.retVal.getFundUtilized/fundInstitute.retVal.FundReleased *100 | number :2}}%
+                                                                {{fundInstitute.retVal.getFundUtilized/fundInstitute.retVal.FundReleased *100 | number :2}}%
                                                             </h5>
                                                         </div>
                                                         <div class="fund-dot">
                                                             <ul>
 
 
-                                                                <li class="project-right"><i class="ion-record dot1"></i> Total Fund released:{{(fundInstitute.retVal.FundReleased/100000)|number :2}} /{{fundInstitute.allocationAmount/100000
-                                                                    |number :2}}</li>
-                                                                <li class="project-right ma10"> Centre share released: {{fundInstitute.retVal.centerShare/100000 | number: 2}} / {{(fundInstitute.centerShare )/100000 | number:2}}</li>
-                                                                <li class="project-right ma10"> State share released: {{(fundInstitute.retVal.FundReleased /100000) -(fundInstitute.retVal.centerShare/100000) | number: 2}} / {{(fundInstitute.stateShare)/100000 | number:2}}</li>
+                                                                <li class="project-right"><i class="ion-record dot1"></i> Total Fund released:{{(fundInstitute.retVal.FundReleased/100000)|number
+                                                                    :2}} /{{fundInstitute.allocationAmount/100000 |number
+                                                                    :2}}
+                                                                </li>
+                                                                <li class="project-right ma10"> Centre share released: {{fundInstitute.retVal.centerShare/100000
+                                                                    | number: 2}} / {{(fundInstitute.centerShare )/100000
+                                                                    | number:2}}</li>
+                                                                <li class="project-right ma10"> State share released: {{(fundInstitute.retVal.FundReleased
+                                                                    /100000) -(fundInstitute.retVal.centerShare/100000) |
+                                                                    number: 2}} / {{(fundInstitute.stateShare)/100000 | number:2}}</li>
                                                                 <li class="project-right"> <i class="ion-record fund-dot3"></i>
-                                                                    <span class="item-note"></span>Fund utilization: {{fundInstitute.retVal.getFundUtilized/100000 | number: 2}} / {{(fundInstitute.retVal.FundReleased)/100000
+                                                                    <span class="item-note"></span>Fund utilization: {{fundInstitute.retVal.getFundUtilized/100000
+                                                                    | number: 2}} / {{(fundInstitute.retVal.FundReleased)/100000
                                                                     | number:2}} </li>
                                                             </ul>
                                                         </div>
@@ -255,7 +258,7 @@
                                                             <div class="text-center project-right">Work Status</div>
                                                             <div class="text-center">
                                                                 <div class="white-box">
-                                                                    <div class="outer-capsule" >
+                                                                    <div class="outer-capsule">
 
 
 
@@ -307,7 +310,7 @@
                     </div>
                 </div>
                 <ion-infinite-scroll on-infinite="loadMore()" distance="10%">
-                 </ion-infinite-scroll>
+                </ion-infinite-scroll>
             </ion-content>
         </ion-tab>
 

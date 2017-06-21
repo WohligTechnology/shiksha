@@ -1,5 +1,5 @@
 <ion-view view-title="Fund flow">
-  <ion-content class="bg-light-blue" >
+  <ion-content class="bg-light-blue">
     <div class="pb50" ng-if="fundflow">
       <div class="card top-card">
         <div class="item item-text-wrap">
@@ -14,7 +14,7 @@
                   </label>
             </span>
           <div class="infra-div">
-            <div class="infra-project bold">{{fundflow.totalFundAllocationReleaseUlitize.componentName}}</div>
+            <div class="infra-project bold">{{fundflow.keycomponents.name}}</div>
             <!--<div>
               <label for="" class="dark">Upgradation of library</label>
             </div>-->
@@ -27,25 +27,27 @@
             <div class="col-66">
               <div class="">
                 <span class="item-note">
-                 <label for="" class="dark bold">{{(fundflow.totalFundAllocationReleaseUlitize.totalFundRelease/fundflow.totalFundAllocationReleaseUlitize.totalAllocation*100) | number:2}}%</label>
-              </span>
+                 <label for="" class="dark bold">{{(fundflow.retVal.FundReleased/fundflow.allocationAmount*100) | number:2}}%</label>
+                </span>
                 <p class="bold">Total funds received</p>
               </div>
               <div class="custom-slide-flow">
                 <div class="complete"></div>
-                <div class="begin-state"  ng-class="{'ng-zind': {{(fundflow.totalStateRelease.totalStateRelease/fundflow.totalFundAllocationReleaseUlitize.totalAllocation*100 |number:2)}}<{{(fundflow.totalCenterRelease.totalCenterRelease/fundflow.totalFundAllocationReleaseUlitize.totalAllocation*100 |number:2)}}}" style="width:{{(fundflow.totalStateRelease.totalStateRelease/fundflow.totalFundAllocationReleaseUlitize.totalAllocation*100 |number:2)}}%"></div>
-                <div class="begin-center" ng-class="{'ng-zind': {{(fundflow.totalStateRelease.totalStateRelease/fundflow.totalFundAllocationReleaseUlitize.totalAllocation*100 |number:2)}}>{{(fundflow.totalCenterRelease.totalCenterRelease/fundflow.totalFundAllocationReleaseUlitize.totalAllocation*100 |number:2)}}}"  style="width:{{(fundflow.totalCenterRelease.totalCenterRelease/fundflow.totalFundAllocationReleaseUlitize.totalAllocation*100 |number:2)}}%"></div>
+                <div class="begin-state" ng-class="{'ng-zind': {{(fundflow.totalFundDetail.totalStateReleased/fundflow.allocationAmount*100 |number:2)}}<{{(fundflow.totalFundDetail.totalCenterReleased/fundflow.allocationAmount*100 |number:2)}}}"
+                  style="width:{{(fundflow.totalFundDetail.totalStateReleased/fundflow.allocationAmount*100 |number:2)}}%"></div>
+                <div class="begin-center" ng-class="{'ng-zind': {{(fundflow.totalFundDetail.totalStateReleased/fundflow.allocationAmount*100 |number:2)}}>{{(fundflow.totalFundDetail.totalCenterReleased/fundflow.allocationAmount*100 |number:2)}}}"
+                  style="width:{{(fundflow.totalFundDetail.totalCenterReleased/fundflow.allocationAmount*100 |number:2)}}%"></div>
               </div>
               <div class="">
-                <div class="rectangle" style="width:calc({{(fundflow.totalFundAllocationReleaseUlitize.totalUtilizedFund/fundflow.totalFundAllocationReleaseUlitize.totalAllocation*100 |number:2)}}% );display: inline-block;"></div>
+                <div class="rectangle" style="width:calc({{(fundflow.totalFundDetail.totalFundUtilized/fundflow.allocationAmount*100 |number:2)}}% );display: inline-block;"></div>
                 <!-- <div class="rectangle" style="width:calc({{(fundflow.totalFundAllocationReleaseUlitize.totalUtilizedFund/fundflow.totalFundAllocationReleaseUlitize.totalAllocation*100 |number:2)}}% - 20px);display: inline-block;"></div> -->
-                <label for="" class="balanced">{{(fundflow.totalFundAllocationReleaseUlitize.totalUtilizedFund/fundflow.totalFundAllocationReleaseUlitize.totalAllocation*100 |number:2)}}%</label>
+                <label for="" class="balanced">{{(fundflow.totalFundDetail.totalFundUtilized/fundflow.totalFundDetail.allocationAmount*100 |number:2)}}%</label>
               </div>
             </div>
             <div class="col-33">
               <div class="padding-horizontal">
-                <p class="bold">₹ {{fundflow.totalFundAllocationReleaseUlitize.totalFundRelease/100000 | number:2}}Lacs</p>
-                <p class="grey">₹ {{fundflow.totalFundAllocationReleaseUlitize.totalAllocation/100000 | number:2}}Lacs</p>
+                <p class="bold">₹ {{fundflow.totalFundDetail.totalFundReleased/100000 | number:2}}Lacs</p>
+                <p class="grey">₹ {{fundflow.allocationAmount/100000 | number:2}}Lacs</p>
               </div>
             </div>
           </div>
@@ -56,206 +58,113 @@
               <li> <i class="ion ion-record balanced"></i>Utilization by Institue</li>
             </ul>
           </div>
-          <div class="table-amount" ng-if="fundflow.allCenterTransaction[0]._id">
+          <div class="table-amount" ng-repeat="(key, value) in fundflow.transaction">
             <div class="card">
               <div class="tables">
                 <div class="instlmnt">
-                  <label class="bold">Installment 1</label>
-                  <!-- <label class="bold">Installment {{$index}}</label> -->
-                  <!-- <label class="bold">Installment 1: 40%</label> -->
+                  <label class="bold">{{key}}</label>
                 </div>
-                <table>
-                  <tbody>
-                    <thead>
-                      <tr>
+                <div ng-repeat="(key1, value1) in value ">
 
-                        <th class="bt0 br0 bl0">
-                          Amount
-                        </th>
-                        <th class="bt0 br0 bl0">
-                          Sent date
-                        </th>
-                        <th class="bt0 br0 bl0">
-                          Recd date
-                        </th>
-                        <th class="bt0 br0 bl0">
-                          Details
-                        </th>
-                      </tr>
-                    </thead>
-
-                    <tr>
-                      <th colspan="4" class="text-center bb0 bl0">
-                        CENTER RELEASE
-                      </th>
-
-                    </tr>
-                    <tr ng-repeat="centerR in fundflow.allCenterTransaction">
-
-                      <td class="bb0">
-                        ₹{{centerR._id.amount/100000 | number:2}}Lacs
-                      </td>
-                      <td class="bb0">
-                        {{centerR._id.transactionReceived | date : 'dd.MM.yyyy'}}
-                      </td>
-                      <td class="bb0">
-                        {{centerR._id.transactionSent | date : 'dd.MM.yyyy'}}
-                      </td>
-                      <td class="bb0">
-                        <!-- <label class="toggle toggle-balanced fund-btns">
-                         <input type="checkbox">
-                         <div class="track">
-                           <div class="handle"></div>
-                         </div>
-                       </label> -->
-                       <button class="button button-icon  ion-camera grey btn-custom-icon fund-btns" ng-click="openImage(centerR._id.transactionPhoto[0].photo)">
-                         <button class="button button-icon   ion-custom-comment btn-cmnt fund-btns"  ng-click=" openRemark(centerR._id.transactionRemark,centerR._id.type,1); "></button>
-                         <!-- <button class="button button-icon   ion-custom-comment btn-cmnt fund-btns"  ng-click=" openRemark(centerR._id.transactionRemark,centerR._id.type,$index); "></button> -->
-
-                      </td>
-
-                     </tr>
-                     <div class="" ng-if="fundflow.allStateTransaction[0]._id">
-                       <tr >
-                         <th colspan="4" class="text-center bb0 bl0">
-                           STATE RELEASE
-                         </th>
-                       </tr>
-                       <tr ng-repeat="centerR in fundflow.allStateTransaction">
-
-                         <td class="bb0">
-                           <div class="" ng-if="fundflow.allStateTransaction[0]._id">
-                             ₹{{centerR._id.amount/100000 | number:2}}Lacs
-                           </div>
-                           <div class="" ng-if="!fundflow.allStateTransaction[0]._id">
-                             ₹0
-                           </div>
-                         </td>
-                         <td class="bb0">
-                           <div class="" ng-if="fundflow.allStateTransaction[0]._id">
-                             {{centerR._id.transactionReceived | date : 'dd.MM.yyyy'}}
-                           </div>
-                           <div class="" ng-if="!fundflow.allStateTransaction[0]._id">
-                             -
-                           </div>
-                         </td>
-                         <td class="bb0">
-                           <div class="" ng-if="fundflow.allStateTransaction[0]._id">
-                             {{centerR._id.transactionReceived | date : 'dd.MM.yyyy'}}
-                           </div>
-                           <div class="" ng-if="!fundflow.allStateTransaction[0]._id">
-                             -
-                           </div>
-                         </td>
-                         <td class="bb0">
-                           <!-- <label class="toggle toggle-balanced fund-btns">
-                            <input type="checkbox">
-                            <div class="track">
-                              <div class="handle"></div>
-                            </div>
-                          </label> -->
-                          <button class="button button-icon  ion-camera grey btn-custom-icon fund-btns" ng-click="openImage(centerR._id.transactionPhoto[0].photo)">
-                            <button class="button button-icon  ion-custom-comment btn-cmnt fund-btns"  ng-click=" openRemark(centerR._id.transactionRemark,centerR._id.type,1); "></button>
-                            <!-- <button class="button button-icon  ion-custom-comment btn-cmnt fund-btns"  ng-click=" openRemark(centerR._id.transactionRemark,centerR._id.type,$index); "></button> -->
-
-                         </td>
-
+                  <table ng-if="key1 === 'Center To State'">
+                    <tbody> 
+                      <thead>
+                        <tr>
+                          <th colspan="4" class="text-center bb0 bl0">
+                            CENTER RELEASE
+                          </th>
                         </tr>
-                     </div>
-
-                      <!-- <tr>
-
+                        <tr>
+                          <th class="bt0 br0 bl0">
+                            Amount
+                          </th>
+                          <th class="bt0 br0 bl0">
+                            Sent date
+                          </th>
+                          <th class="bt0 br0 bl0">
+                            Recd date
+                          </th>
+                          <th class="bt0 br0 bl0">
+                            Details
+                          </th>
+                        </tr>
+                      </thead>
+                      <tr ng-repeat="tra in value1">
+                        <!--<td class="bb0">
+                          ₹{{23232/100000 | number:2}}Lacs
+                        </td>-->
                         <td class="bb0">
-                          ₹24,00,000
+                          {{tra.amount}}
                         </td>
                         <td class="bb0">
-                          22.10.2016
+                          {{tra.transactionSent | date : 'dd.MM.yyyy'}}
                         </td>
                         <td class="bb0">
-                          10.11.2016
+                          {{tra.transactionReceived | date : 'dd.MM.yyyy'}}
                         </td>
                         <td class="bb0">
-                          <label class="toggle toggle-balanced fund-btns">
-                           <input type="checkbox">
-                           <div class="track">
-                             <div class="handle"></div>
-                           </div>
-                         </label>
-                         <button class="button button-icon ion-camera grey btn-custom-icon fund-btns">
-                           <button class="button button-icon ion-custom-comment btn-cmnt fund-btns"  ng-click=" openComment(); "></button>
-
-                        </td>
-
-                       </tr> -->
-
-
-                    <!--<tr>
-                      <th rowspan="2" class="state-release bl0">
-                        <div class="rotate-state">
-                          STATE RELEASE
-                        </div>
-                      </th>
-                      <th class="text-left pr-10">
-                        CENTRE SHARE
-                      </th>
-                      <td>
-                        ₹24,00,000
-                      </td>
-                      <td>
-                        <label class="toggle toggle-balanced">
-                 <input type="checkbox">
-                 <div class="track">
-                   <div class="handle"></div>
-                 </div>
-               </label>
-                      </td>
-                      <td>
-                        05.10.2016
-                      </td>
-                      <td class="text-center">
-                      <button class="button button-icon ion-camera grey btn-custom-icon">
-                      </td>
-                    </tr>
-                    <tr>
-                      <th class="text-left pr-10 bl0">
-                        STATE SHARE
-                      </th>
-                      <td>
-                        ₹16,00,000
-                      </td>
-                      <td>
-                        <label class="toggle toggle-assertive">
-                 <input type="checkbox">
-                 <div class="track">
-                   <div class="handle"></div>
-                 </div>
-               </label>
-                      </td>
-                      <td>
-                        26.11.2016
-                      </td>
-                      <td class="text-center">
-                        <button class="button button-icon ion-camera grey btn-custom-icon">
-                      </td>
-                    </tr> -->
-                    <!--<tr>
-                      <th colspan="2" class="text-left bl0 bb0">
-                        FUND UTILIZATION
-                      </th>
-                      <td colspan="3" class="bb0 td-bottom">
-                        <div class="padding-horizontal">
-                          <div class="discount ">
-                            <div class="rectangle" style="width:{{complete.institute}}%"></div>
-                            <div class="mark-make" style="left: calc({{complete.institute}}% - 15px);">50%</div>
+                          <!-- <label class="toggle toggle-balanced fund-btns">
+                          <input type="checkbox">
+                          <div class="track">
+                            <div class="handle"></div>
                           </div>
-                        </div>
-                      </td>
-                      <td class="bb0">
-                        ₹20,00,000
-                      </td>
-                    </tr>-->
-                  </tbody>
-                </table>
+                        </label> -->
+                          <button class="button button-icon  ion-camera grey btn-custom-icon fund-btns" ng-click="openImage(centerR._id.transactionPhoto[0].photo)">
+                          <button class="button button-icon   ion-custom-comment btn-cmnt fund-btns"  ng-click=" openRemark(centerR._id.transactionRemark,centerR._id.type,1); "></button>
+                          <!-- <button class="button button-icon   ion-custom-comment btn-cmnt fund-btns"  ng-click=" openRemark(centerR._id.transactionRemark,centerR._id.type,$index); "></button> -->
+
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+
+                  <table ng-if="key1 === 'State To Institute'">
+                    <tbody ng-repeat="tra in value1">
+                      <thead>
+                        <tr>
+                          <th colspan="4" class="text-center bb0 bl0">
+                            STATE RELEASE
+                          </th>
+                        </tr>
+                        <tr>
+                          <th class="bt0 br0 bl0">
+                            Amount
+                          </th>
+                          <th class="bt0 br0 bl0">
+                            Sent date
+                          </th>
+                          <th class="bt0 br0 bl0">
+                            Recd date
+                          </th>
+                          <th class="bt0 br0 bl0">
+                            Details
+                          </th>
+                        </tr>
+                      </thead>
+                      <tr ng-repeat="tra in value1">
+                        <!--<td class="bb0">
+                          ₹{{23232/100000 | number:2}}Lacs
+                        </td>-->
+                        <td class="bb0">
+                          {{tra.amount}}
+                        </td>
+                        <td class="bb0">
+                          {{tra.transactionReceived | date : 'dd.MM.yyyy'}}
+                        </td>
+                        <td class="bb0">
+                          {{tra.transactionSent | date : 'dd.MM.yyyy'}}
+                        </td>
+                        <td class="bb0">
+                          <button class="button button-icon  ion-camera grey btn-custom-icon fund-btns" ng-click="openImage(centerR._id.transactionPhoto[0].photo)">
+                          <button class="button button-icon   ion-custom-comment btn-cmnt fund-btns"  ng-click=" openRemark(centerR._id.transactionRemark,centerR._id.type,1); "></button>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+
+                  <!-- here is table -->
+
+                </div>
                 <div class="row">
 
                   <div class="col text-center">
@@ -272,11 +181,23 @@
                 </div>
               </div>
             </div>
+
+
           </div>
         </div>
       </div>
     </div>
   </ion-content>
+
+
+
+
+
+
+
+
+
+
   <ion-footer>
     <div class="tabs-custom">
       <div class="tabs tabs-icon-top">

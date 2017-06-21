@@ -733,20 +733,31 @@ angular.module('starter.controllers', ['starter.services', 'ngCordova', 'highcha
 .controller('OverviewCtrl', function($scope, $stateParams, MyServices) {
 
     $scope.componentId = $stateParams.componentId;
-    MyServices.componentOverview($scope.componentId, function(data) {
-        $scope.overview = data.data;
-        if ($scope.overview.componentDetail._id.pabName) {
-            $scope.pabName = $scope.overview.componentDetail._id.pabName.split('#')[1];
-            $scope.labels = [$scope.overview.componentDetail._id.componentWorkStatus + "% Work Completed", ""];
-            $scope.data = [$scope.overview.componentDetail._id.componentWorkStatus, 100 - $scope.overview.componentDetail._id.componentWorkStatus];
+    var dropDownData = {
+        pab: "",
+        state: "",
+        component: "",
+        institute: "",
+        page: 1
+    };
+    dropDownData.component = $stateParams.componentId;
 
-        }
+    MyServices.componentData(dropDownData, function(data) {
+        $scope.overview = data.data.compList[0];
+        console.log("***** inside componentData *****", $scope.overview);
+
+        // if ($scope.overview.componentDetail._id.pabName) {
+        //     $scope.pabName = $scope.overview.componentDetail._id.pabName.split('#')[1];
+        //     $scope.labels = [$scope.overview.componentDetail._id.componentWorkStatus + "% Work Completed", ""];
+        //     $scope.data = [$scope.overview.componentDetail._id.componentWorkStatus, 100 - $scope.overview.componentDetail._id.componentWorkStatus];
+        // }
+
     });
+
     $scope.colors = ["#88c057", "#d8dcde"];
     $scope.override = {
         borderColor: ['#88c057', '#d8dcde']
     };
-
 
     $scope.funds = {
         allocated: 100,
@@ -757,6 +768,7 @@ angular.module('starter.controllers', ['starter.services', 'ngCordova', 'highcha
 
 .controller('FundFlowCtrl', function($scope, $stateParams, MyServices, $ionicModal) {
     $scope.componentId = $stateParams.componentId;
+
     MyServices.componentFundflow($scope.componentId, function(data) {
         $scope.fundflow = data.data;
     });
@@ -795,6 +807,7 @@ angular.module('starter.controllers', ['starter.services', 'ngCordova', 'highcha
         state: 40,
         institute: 50
     };
+
 })
 
 .controller('MilestonesCtrl', function($scope, $stateParams, MyServices, $rootScope, $ionicModal, $ionicActionSheet, $cordovaCamera, $ionicLoading, $cordovaFileTransfer, $cordovaImagePicker) {
