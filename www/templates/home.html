@@ -151,8 +151,8 @@
                         <div class="clearfix"></div>
                     </div>
                     <div class="card-institue no-space pb110">
-                        <div ng-repeat="fundInstitute in InstituePagination track by $index" class="card card-institute-detail" ng-class="{'activeStatus':fundInstitute._id.componentStatus=='Active','onHoldStatus':fundInstitute._id.componentStatus=='OnHold','completedStatus':fundInstitute._id.componentStatus=='Completed'}"
-                            ng-if="DashboardAllData.institute !== 'No data founds' && fundInstitute">
+                        <div ng-repeat="fundInstitute in componentData track by $index" class="card card-institute-detail" ng-class="{'activeStatus':fundInstitute.status=='Active','onHoldStatus':fundInstitute.status=='OnHold','completedStatus':fundInstitute.status=='Completed'}"
+                            >
                             <div class="no-pad">
 
                                 <div class="paddings" ui-sref="app.overview({ componentId: fundInstitute._id.componentId})">
@@ -162,19 +162,19 @@
                                                 <div class="col-66 ">
                                                     <div class="inside-head triangle-up">
                                                         <!-- <div class="item-note dark">ID: 2244</div> -->
-                                                        <div class="bold">{{fundInstitute._id.pab}}</div>
+                                                        <div class="bold">{{fundInstitute.pabno.name}}</div>
                                                     </div>
                                                 </div>
                                                 <div class="col-33">
-                                                    <div class="text-center uppercase inside-head bl">{{fundInstitute._id.componentStatus}}</div>
+                                                    <div class="text-center uppercase inside-head bl">{{fundInstitute.status}}</div>
                                                 </div>
                                             </div>
                                             <div class="row pd0 mtop">
                                                 <div class="col-66 ">
                                                     <div class="upgrade">
-                                                        <div class="f16 pb15">{{fundInstitute._id.institute}}</div>
+                                                        <div class="f16 pb15">{{fundInstitute.institute.name}}</div>
 
-                                                        <div class="bold f16 uppercase">{{fundInstitute._id.stateName}}</div>
+                                                        <div class="bold f16 uppercase">{{fundInstitute.state.name}}</div>
 
                                                     </div>
                                                 </div>
@@ -182,7 +182,7 @@
                                                     <div class="upgrade">
                                                         <div class="text-center allocation-made project-right">₹ (in lacs)
                                                             <!-- <h4 class="bold">{{fundInstitute._id.totalComponentAllocation/100000 | number:0}}</h4> Allocation -->
-                                                            <h4 class="bold">{{fundInstitute.totalComponentAllocation/100000 | number:2}}</h4> Allocation
+                                                            <h4 class="bold">{{fundInstitute.allocationAmount/100000 | number:2}}</h4> Allocation
 
                                                         </div>
                                                     </div>
@@ -190,7 +190,7 @@
                                             </div>
                                         </div>
                                         <div class="infra-college bold">
-                                            {{fundInstitute._id.component| uppercase}}
+                                            {{fundInstitute.keycomponents.name| uppercase}}
                                         </div>
                                     </div>
                                     <div class="clearfix"></div>
@@ -199,8 +199,8 @@
                                     <div class="row pd0" ng-if="!card[$index]">
                                         <div class="col-66">
                                             <div class="ecommerce">
-                                                <span class="for-badge"><button class="button button-icon ion-custom-ecommerce {{fundInstitute.classcommerce}}"></button> </span>
-                                                <!-- <span class="for-badge"><button class="button button-icon ion-custom-ecommerce {{fundInstitute.classcommerce}}"></button> <span class="badge badge-one">1</span></span> -->
+                                                <!-- <span class="for-badge"><button class="button button-icon ion-custom-ecommerce {{fundInstitute.classcommerce}}"></button> </span> -->
+                                                <span class="for-badge"><button class="button button-icon ion-custom-ecommerce {{fundInstitute.classcommerce}}"></button> <span class="badge badge-one">{{fundInstitute.retVal.totalDelayedProjects}}</span></span>
                                             </div>
                                         </div>
                                         <div class="col-33">
@@ -220,7 +220,7 @@
                                                     <div class="padding">
                                                         <div class="text-center project-right">Fund Utilization - ₹ (in lacs)</div>
                                                         <div class="chart-home institute-chart ">
-                                                            <div class="chart-div" ng-init='initConfig(pieChart,((fundInstitute.centerReleasePerComponent/100000)+(fundInstitute.stateReleasePerComponent/100000)),(fundInstitute.amountUtilizedPerComponent/100000),(fundInstitute.totalComponentAllocation/100000))'>
+                                                            <div class="chart-div" ng-init='initConfig(pieChart,((fundInstitute.retVal.FundReleased/100000)),(fundInstitute.retVal.getFundUtilized/100000),(fundInstitute.allocationAmount/100000))'>
                                                                 <highchart id="gauge" class="meter-viewer" config="config" style="width: 400px; height: 400px; margin: 0 auto"></highchart>
                                                             </div>
 
@@ -231,56 +231,56 @@
                                                                 <canvas id="doughnut" ng-if="$index%3===2" class="chart chart-doughnut" chart-data="data1" chart-labels="labels1" chart-colors="colors2"
                                                                   chart-dataset-override="override2"></canvas> -->
                                                             <h5 class="f16 bold card-50">
-                                                              {{fundInstitute.amountUtilizedPercentagePerComponent | number :2}}%
+                                                              {{fundInstitute.retVal.getFundUtilized/fundInstitute.retVal.FundReleased *100 | number :2}}%
                                                             </h5>
                                                         </div>
                                                         <div class="fund-dot">
                                                             <ul>
 
 
-                                                                <li class="project-right"><i class="ion-record dot1"></i> Total Fund released:{{((fundInstitute.centerReleasePerComponent/100000 )+(fundInstitute.stateReleasePerComponent /100000-fundInstitute.centerReleasePerComponent/100000))|number :2}} /{{fundInstitute.totalComponentAllocation/100000
+                                                                <li class="project-right"><i class="ion-record dot1"></i> Total Fund released:{{(fundInstitute.retVal.FundReleased/100000)|number :2}} /{{fundInstitute.allocationAmount/100000
                                                                     |number :2}}</li>
-                                                                <li class="project-right ma10"> Centre share released: {{fundInstitute.centerReleasePerComponent/100000 | number: 2}} / {{(fundInstitute.totalComponentAllocation *(fundInstitute._id.centerShare/100) )/100000 | number:2}}</li>
-                                                                <li class="project-right ma10"> State share released: {{(fundInstitute.stateReleasePerComponent /100000) -(fundInstitute.centerReleasePerComponent/100000) | number: 2}} / {{(fundInstitute.totalComponentAllocation *(fundInstitute._id.stateShare/100))/100000 | number:2}}</li>
+                                                                <li class="project-right ma10"> Centre share released: {{fundInstitute.retVal.centerShare/100000 | number: 2}} / {{(fundInstitute.centerShare )/100000 | number:2}}</li>
+                                                                <li class="project-right ma10"> State share released: {{(fundInstitute.retVal.FundReleased /100000) -(fundInstitute.retVal.centerShare/100000) | number: 2}} / {{(fundInstitute.stateShare)/100000 | number:2}}</li>
                                                                 <li class="project-right"> <i class="ion-record fund-dot3"></i>
-                                                                    <span class="item-note"></span>Fund utilization: {{fundInstitute.amountUtilizedPerComponent/100000 | number: 2}} / {{(fundInstitute.centerReleasePerComponent+fundInstitute.stateReleasePerComponent)/100000
+                                                                    <span class="item-note"></span>Fund utilization: {{fundInstitute.retVal.getFundUtilized/100000 | number: 2}} / {{(fundInstitute.retVal.FundReleased)/100000
                                                                     | number:2}} </li>
                                                             </ul>
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <!-- <div class="col-33 bl rl">
+                                                <div class="col-33 bl rl">
                                                     <div class="padding">
                                                         <div class="bar-status">
                                                             <div class="text-center project-right">Work Status</div>
                                                             <div class="text-center">
                                                                 <div class="white-box">
-                                                                    <div class="outer-capsule">
+                                                                    <div class="outer-capsule" >
 
 
 
-                                                                        <div class="capsule-bar" ng-if="(fundInstitute._id.componentWorkStatus/10 | number:0)>=10 "></div>
-                                                                        <div class="capsule-bar" ng-if="(fundInstitute._id.componentWorkStatus/10 | number:0)>=9 "></div>
-                                                                        <div class="capsule-bar" ng-if="(fundInstitute._id.componentWorkStatus/10 | number:0)>=8 "></div>
-                                                                        <div class="capsule-bar" ng-if="(fundInstitute._id.componentWorkStatus/10 | number:0)>=7 "></div>
-                                                                        <div class="capsule-bar" ng-if="(fundInstitute._id.componentWorkStatus/10 | number:0)>=6 "></div>
-                                                                        <div class="capsule-bar" ng-if="(fundInstitute._id.componentWorkStatus/10 | number:0)>=5 "></div>
-                                                                        <div class="capsule-bar" ng-if="(fundInstitute._id.componentWorkStatus/10 | number:0)>=4 "></div>
-                                                                        <div class="capsule-bar" ng-if="(fundInstitute._id.componentWorkStatus/10 | number:0)>=3 "></div>
-                                                                        <div class="capsule-bar" ng-if="(fundInstitute._id.componentWorkStatus/10 | number:0)>=2 "></div>
-                                                                        <div class="capsule-bar" ng-if="(fundInstitute._id.componentWorkStatus/10 | number:0)>=1 "></div>
+                                                                        <div class="capsule-bar" ng-if="(fundInstitute.workCompleted/10 | number:0)>=10 "></div>
+                                                                        <div class="capsule-bar" ng-if="(fundInstitute.workCompleted/10 | number:0)>=9 "></div>
+                                                                        <div class="capsule-bar" ng-if="(fundInstitute.workCompleted/10 | number:0)>=8 "></div>
+                                                                        <div class="capsule-bar" ng-if="(fundInstitute.workCompleted/10 | number:0)>=7 "></div>
+                                                                        <div class="capsule-bar" ng-if="(fundInstitute.workCompleted/10 | number:0)>=6 "></div>
+                                                                        <div class="capsule-bar" ng-if="(fundInstitute.workCompleted/10 | number:0)>=5 "></div>
+                                                                        <div class="capsule-bar" ng-if="(fundInstitute.workCompleted/10 | number:0)>=4 "></div>
+                                                                        <div class="capsule-bar" ng-if="(fundInstitute.workCompleted/10 | number:0)>=3 "></div>
+                                                                        <div class="capsule-bar" ng-if="(fundInstitute.workCompleted/10 | number:0)>=2 "></div>
+                                                                        <div class="capsule-bar" ng-if="(fundInstitute.workCompleted/10 | number:0)>=1 "></div>
                                                                     </div>
                                                                 </div>
                                                             </div>
-                                                            <div class="text-center bold dark f16 ">{{fundInstitute._id.componentWorkStatus}}%</div>
+                                                            <div class="text-center bold dark f16 ">{{fundInstitute.workCompleted}}%</div>
                                                         </div>
 
                                                     </div>
                                                     <div class="cert-bottom">
                                                         <div class="text-center project-right">Ut. Cert.</div>
-                                                        <div class="text-center bold dark f16">0</div>
+                                                        <div class="text-center bold dark f16">{{fundInstitute.utilizationCertificates.length}}</div>
                                                     </div>
-                                                </div> -->
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
@@ -288,8 +288,8 @@
                                         <div class="row pd0">
                                             <div class="col-66">
                                                 <div class="ecommerce">
-                                                    <span class="for-badge"><button class="button button-icon ion-custom-ecommerce"></button> </span>
-                                                    <!-- <span class="for-badge"><button class="button button-icon ion-custom-ecommerce"></button> <span class="badge badge-one">1</span></span> -->
+                                                    <!-- <span class="for-badge"><button class="button button-icon ion-custom-ecommerce"></button> </span> -->
+                                                    <span class="for-badge"><button class="button button-icon ion-custom-ecommerce"></button> <span class="badge badge-one">{{fundInstitute.retVal.totalDelayedProjects}}</span></span>
                                                 </div>
                                             </div>
                                             <div class="col-33">

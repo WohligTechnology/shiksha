@@ -279,8 +279,7 @@ angular.module('starter.controllers', ['starter.services', 'ngCordova', 'highcha
         state: "",
         component: "",
         institute: "",
-        startData: 0,
-        endData: 5
+        page: 1
     };
     var filter = $.jStorage.get("filter");
     if (filter.Access == "State") {
@@ -309,35 +308,45 @@ angular.module('starter.controllers', ['starter.services', 'ngCordova', 'highcha
     }
     $scope.overviewChartshow = false;
     // $scope.overviewChart = {};
-    MyServices.getDashboardData({}, function(data) {
+    $scope.loadData = function(dropDownData) {
+
+    MyServices.getDashboardData(dropDownData, function(data) {
         $scope.DashboardAllData = data.data;
         console.log($scope.DashboardAllData);
 
+        if ($scope.DashboardAllData) {
+          $scope.percent_utilized = _.round(($scope.DashboardAllData.getFundUtilized[0].totalFundUtilized / $scope.DashboardAllData.getTotalFundReleased[0].totalFundReleased) * 100, 2);
+          $scope.percent_Release = _.round(($scope.DashboardAllData.getTotalFundReleased[0].totalFundReleased / $scope.DashboardAllData.getTotalFundAllocation[0].totalFundAllocation) * 100, 2);
 
-        $scope.percent_utilized = _.round(($scope.DashboardAllData.getFundUtilized[0].totalFundUtilized / $scope.DashboardAllData.getTotalFundReleased[0].totalFundReleased) * 100, 2);
-        $scope.percent_Release = _.round(($scope.DashboardAllData.getTotalFundReleased[0].totalFundReleased / $scope.DashboardAllData.getTotalFundAllocation[0].totalFundAllocation) * 100, 2);
+          $rootScope.overviewChart.series[0].data[0].y = 100;
+          $rootScope.overviewChart.series[1].data[0].y = $scope.percent_Release;
+          $rootScope.overviewChart.series[2].data[0].y =_.round(($scope.DashboardAllData.getFundUtilized[0].totalFundUtilized / $scope.DashboardAllData.getTotalFundAllocation[0].totalFundAllocation) * 100, 2);
+          console.log($scope.percent_utilized,$rootScope.overviewChart.series[2].data[0].y);
+          $scope.overviewChartshow = true;
+        }
 
-        $rootScope.overviewChart.series[0].data[0].y = 100;
-        $rootScope.overviewChart.series[1].data[0].y = $scope.percent_Release;
-        $rootScope.overviewChart.series[2].data[0].y =_.round(($scope.DashboardAllData.getFundUtilized[0].totalFundUtilized / $scope.DashboardAllData.getTotalFundAllocation[0].totalFundAllocation) * 100, 2);
-        console.log($scope.percent_utilized,$rootScope.overviewChart.series[2].data[0].y);
-        $scope.overviewChartshow = true;
+
     });
-    MyServices.componentData({}, function(data) {
-        $scope.componentData = data.data;
+    MyServices.componentData(dropDownData, function(data) {
+        $scope.componentData = data.data.compList;
         console.log($scope.componentData);
 
     });
+    $scope.$broadcast('scroll.infiniteScrollComplete');
+
+  }
 
 
-    // $scope.loadMore = function() {
-    //     console.log("inside loadMore");
-    //     dropDownData.startData = dropDownData.startData + 5;
-    //     dropDownData.endData = dropDownData.endData + 5;
-    //
-    //     loadData(dropDownData);
-    //     // $scope.$broadcast('scroll.infiniteScrollComplete');
-    // };
+  $scope.loadData(dropDownData);
+
+
+    $scope.loadMore = function() {
+        console.log("inside loadMore");
+        dropDownData.page = dropDownData.page + 1;
+
+        $scope.loadData(dropDownData);
+        // $scope.$broadcast('scroll.infiniteScrollComplete');
+    };
     console.log("Updated object111", $scope.DashboardAllData);
     $scope.closePopuptoast = function() {
             $scope.toast.close();
@@ -404,7 +413,7 @@ angular.module('starter.controllers', ['starter.services', 'ngCordova', 'highcha
         $scope.filter.close();
         console.log("filter", dropDownData);
 
-        loadData(dropDownData);
+        $scope.loadData(dropDownData);
         //  MyServices.getProjectReport($scope.filterCriteria,function(data) {
         //      console.log("filtered data",data);
         //      if(data){

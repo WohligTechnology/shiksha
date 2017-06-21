@@ -1,4 +1,4 @@
-var adminurl = "http://192.168.0.9/api/";
+var adminurl = "http://192.168.0.16/api/";
 // var adminurl = "http://rusa.wohlig.co.in/api/";//server
 // var adminurl = "http://rusabeta.wohlig.com/api/";//server
 // var adminurl = "https://rusa.thegraylab.com/api/";//server
@@ -154,7 +154,7 @@ angular.module('starter.services', [])
       },
        findAllComponents: function(callback) {
         return $http({
-          url: adminurl + 'Components/findAllComponents',
+          url: adminurl + 'Keycomponents/findAllKeyComponents',
           method: "POST"
         }).success(callback);
       },
