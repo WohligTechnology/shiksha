@@ -1,4 +1,5 @@
 <ion-view view-title="Fund flow">
+  
   <ion-content class="bg-light-blue">
     <div class="pb50" ng-if="fundflow">
       <div class="card top-card">
@@ -12,7 +13,7 @@
                         </div>
                     </label>
                   </label>
-            </span>
+          </span>
           <div class="infra-div">
             <div class="infra-project bold">{{fundflow.keycomponents.name}}</div>
             <!--<div>
@@ -27,13 +28,13 @@
             <div class="col-66">
               <div class="">
                 <span class="item-note">
-                 <label for="" class="dark bold">{{(fundflow.retVal.FundReleased/fundflow.allocationAmount*100) | number:2}}%</label>
+                 <label for="" class="dark bold">{{(fundflow.totalFundDetail.totalFundReleased/fundflow.allocationAmount*100) | number:2}}%</label>
                 </span>
                 <p class="bold">Total funds received</p>
               </div>
               <div class="custom-slide-flow">
                 <div class="complete"></div>
-                <div class="begin-state" ng-class="{'ng-zind': {{(fundflow.totalFundDetail.totalStateReleased/fundflow.allocationAmount*100 |number:2)}}<{{(fundflow.totalFundDetail.totalCenterReleased/fundflow.allocationAmount*100 |number:2)}}}"
+                <div class="begin-state" ng-class="{'ng-bind': {{(fundflow.totalFundDetail.totalStateReleased/fundflow.allocationAmount*100 |number:2)}}<{{(fundflow.totalFundDetail.totalCenterReleased/fundflow.allocationAmount*100 |number:2)}}}"
                   style="width:{{(fundflow.totalFundDetail.totalStateReleased/fundflow.allocationAmount*100 |number:2)}}%"></div>
                 <div class="begin-center" ng-class="{'ng-zind': {{(fundflow.totalFundDetail.totalStateReleased/fundflow.allocationAmount*100 |number:2)}}>{{(fundflow.totalFundDetail.totalCenterReleased/fundflow.allocationAmount*100 |number:2)}}}"
                   style="width:{{(fundflow.totalFundDetail.totalCenterReleased/fundflow.allocationAmount*100 |number:2)}}%"></div>
@@ -41,7 +42,7 @@
               <div class="">
                 <div class="rectangle" style="width:calc({{(fundflow.totalFundDetail.totalFundUtilized/fundflow.allocationAmount*100 |number:2)}}% );display: inline-block;"></div>
                 <!-- <div class="rectangle" style="width:calc({{(fundflow.totalFundAllocationReleaseUlitize.totalUtilizedFund/fundflow.totalFundAllocationReleaseUlitize.totalAllocation*100 |number:2)}}% - 20px);display: inline-block;"></div> -->
-                <label for="" class="balanced">{{(fundflow.totalFundDetail.totalFundUtilized/fundflow.totalFundDetail.allocationAmount*100 |number:2)}}%</label>
+                <label for="" class="balanced">{{(fundflow.totalFundDetail.totalFundUtilized/fundflow.allocationAmount*100 |number:2)}}%</label>
               </div>
             </div>
             <div class="col-33">
@@ -62,12 +63,12 @@
             <div class="card">
               <div class="tables">
                 <div class="instlmnt">
-                  <label class="bold">{{key}}</label>
+                  <label class="bold" ng-if="key == 'undefined'">Installment -</label>
+                  <label class="bold" ng-if="key != 'undefined">Installment {{key}}</label>
                 </div>
                 <div ng-repeat="(key1, value1) in value ">
-
                   <table ng-if="key1 === 'Center To State'">
-                    <tbody> 
+                    <tbody>
                       <thead>
                         <tr>
                           <th colspan="4" class="text-center bb0 bl0">
@@ -109,17 +110,16 @@
                             <div class="handle"></div>
                           </div>
                         </label> -->
-                          <button class="button button-icon  ion-camera grey btn-custom-icon fund-btns" ng-click="openImage(centerR._id.transactionPhoto[0].photo)">
-                          <button class="button button-icon   ion-custom-comment btn-cmnt fund-btns"  ng-click=" openRemark(centerR._id.transactionRemark,centerR._id.type,1); "></button>
+                          <button class="button button-icon ion-camera grey btn-custom-icon fund-btns" ng-click="openImage(tra.photos)"></button>
+                          <button class="button button-icon ion-custom-comment btn-cmnt fund-btns" ng-click="openRemark(tra.remarks)"></button>
                           <!-- <button class="button button-icon   ion-custom-comment btn-cmnt fund-btns"  ng-click=" openRemark(centerR._id.transactionRemark,centerR._id.type,$index); "></button> -->
 
                         </td>
                       </tr>
                     </tbody>
                   </table>
-
                   <table ng-if="key1 === 'State To Institute'">
-                    <tbody ng-repeat="tra in value1">
+                    <tbody>
                       <thead>
                         <tr>
                           <th colspan="4" class="text-center bb0 bl0">
@@ -155,48 +155,31 @@
                           {{tra.transactionSent | date : 'dd.MM.yyyy'}}
                         </td>
                         <td class="bb0">
-                          <button class="button button-icon  ion-camera grey btn-custom-icon fund-btns" ng-click="openImage(centerR._id.transactionPhoto[0].photo)">
-                          <button class="button button-icon   ion-custom-comment btn-cmnt fund-btns"  ng-click=" openRemark(centerR._id.transactionRemark,centerR._id.type,1); "></button>
+                          <button class="button button-icon  ion-camera grey btn-custom-icon fund-btns" ng-click="openImage(tra.photos)">
+                          <button class="button button-icon   ion-custom-comment btn-cmnt fund-btns"  ng-click="openRemark(tra.remarks)"></button>
                         </td>
                       </tr>
                     </tbody>
                   </table>
-
-                  <!-- here is table -->
-
                 </div>
                 <div class="row">
-
                   <div class="col text-center">
-                    <label class="tbl-btm ">Expected: <br>₹{{fundflow.totalFundAllocationReleaseUlitize.totalAllocation}}</label>
+                    <label class="tbl-btm ">Expected: <br>₹{{fundflow.allocationAmount}}</label>
                   </div>
                   <div class="col text-center">
-                    <label class="tbl-btm ">Actual: <br>₹{{fundflow.totalFundAllocationReleaseUlitize.totalFundRelease}}</label>
+                    <label class="tbl-btm ">Actual: <br>₹{{fundflow.totalFundDetail.totalStateReleased}}</label>
                   </div>
                   <div class="col text-center">
-                    <label class="tbl-btm ">Pending: <br>₹{{fundflow.totalFundAllocationReleaseUlitize.totalAllocation - fundflow.totalFundAllocationReleaseUlitize.totalFundRelease}}</label>
+                    <label class="tbl-btm ">Pending: <br>₹{{fundflow.allocationAmount - fundflow.totalFundDetail.totalStateReleased}}</label>
                   </div>
-
-
                 </div>
               </div>
             </div>
-
-
           </div>
         </div>
       </div>
     </div>
   </ion-content>
-
-
-
-
-
-
-
-
-
 
   <ion-footer>
     <div class="tabs-custom">
@@ -219,4 +202,5 @@
       </div>
     </div>
   </ion-footer>
+
 </ion-view>

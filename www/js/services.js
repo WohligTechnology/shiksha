@@ -201,7 +201,7 @@ angular.module('starter.services', [])
           component: componentId
         }
         return $http({
-          url: adminurl + 'ProjectExpense/componentProjects',
+          url: adminurl + 'project/componentProjects',
           method: "POST",
           withCredentials: true,
           data: id

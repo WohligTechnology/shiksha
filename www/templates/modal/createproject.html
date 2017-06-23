@@ -6,83 +6,39 @@
         </div>
     </ion-header-bar>
     <ion-content>
-        <form class="" ng-submit="createprojectFun(CreateProject)">
-
-
+        <!-- <pre>{{formData | json}}</pre> -->
+        <form class="" ng-submit="createprojectFun(formData)">
             <ion-list>
                 <ion-item>
-                    <div class="input-label">
-                        Project Type
-                    </div>
-                    <select class="projecttype work-order" ng-model="CreateProject.projectType" ng-options="p.name for p in findAllProjectType track by p._id" required>
-
-                     <option selected="true" value="" disabled>Project Type</option>
-
-                  </select>
+                    <div class="input-label">Project Type</div>
+                    <select class="projecttype work-order" ng-model="formData.projectType" ng-options="p.name for p in findAllProjectType track by p._id" required>
+                         <option selected="true" value="" disabled>Project Type</option>
+                    </select>
                 </ion-item>
                 <ion-item>
-                    <div class="input-label">
-                        Asset type
-                    </div>
-                    <select class="projecttype work-order" ng-model="CreateProject.assetType" ng-options="p.name for p in findAllAssetType track by p._id" required>
+                    <div class="input-label">Asset type</div>
+                    <select class="projecttype work-order" ng-model="formData.assetType" ng-options="p.name for p in findAllAssetType track by p._id" required>
                     <option selected="true" value="" disabled>Asset type</option>
-                    <!-- <option value="">Academic Buildings</option>
-                    <option value="">Administrative Buildings</option>
-                    <option value="">Auditorium</option>
-                    <option value="">Books/Journals/E-Resources</option>
-                    <option value="">Boys Hostel</option>
-                    <option value="">Boys Toilet</option>
-                    <option value="">Campus development</option>
-                    <option value="">Campus development-Alternate Energy Sources</option>
-                    <option value="">Campus development-Amenities</option>
-                    <option value="">Campus development-Beautification</option>
-                    <option value="">Campus development-Drainage</option>
-                    <option value="">Campus development-Playgrounds</option>
-                    <option value="">Campus development-Water Harvesting</option>
-                    <option value="">Campus development-Water Supply</option>
-                    <option value="">Canteen/Cafeteria</option>
-                    <option value="">Classrooms </option>
-                    <option value="">Common Room for Students</option>
-                    <option value="">Computer Centre</option>
-                    <option value="">Computers</option>
-                    <option value="">Girls Hostel</option>
-                    <option value="">Girls Toilet</option>
-                    <option value="">Laboratory</option>
-                    <option value="">Library</option>
-                    <option value="">Sports facility</option> -->
-                     <!--
-                         ng-model="filter.asset"
-                         <option ng-selected="true" value="" disabled>Asset Type</option>-->
-                     <!--<option> </option>
-                     <option></option>
-                     <option></option>-->
                   </select>
                 </ion-item>
                 <ion-item>
-                    <div class="input-label">
-                        Total Value (In Rs)
-                    </div>
-                    <input type="number" placeholder=" Total Value (In Rs)" required ng-model="CreateProject.valueOfProject">
-
+                    <div class="input-label">Total Value (In Rs)</div>
+                    <input type="number" placeholder=" Total Value (In Rs)" required ng-model="formData.valueOfProject">
                 </ion-item>
                 <ion-item>
-                    <div class="input-label">
-                        Amount of Work (In %)
-                    </div>
-                    <input type="number" placeholder="Amount of Work (In %)" required ng-model="CreateProject.amountOfWork">
+                    <div class="input-label">Amount of Work (In %)</div>
+                    <input type="number" placeholder="Amount of Work (In %)" required ng-model="formData.amountOfWork">
                 </ion-item>
                 <ion-item>
-                    <div class="input-label">
-                        Due Date
-                    </div>
-                    <input placeholder="Due Date" class="textbox-n" type="text" onfocus="(this.type='date')" onfocusout="(this.type='text')" id="date" required ng-model="CreateProject.dueDate">
+                    <div class="input-label">Due Date</div>
+                    <input placeholder="Due Date" class="textbox-n" type="text" onfocus="(this.type='date')" onfocusout="(this.type='text')" id="date" required ng-model="formData.dueDate">
                 </ion-item>
             </ion-list>
             <div class="padding">
                 <button class="button button-positive button-block" type="submit">
-      <!-- <button class="button button-positive button-block" ng-click="closeCreate();"> -->
-  Create
-</button>
+                    <!-- <button class="button button-positive button-block" ng-click="closeCreate();"> -->
+                    Create
+                </button>
             </div>
         </form>
     </ion-content>
