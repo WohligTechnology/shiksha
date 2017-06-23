@@ -1,5 +1,5 @@
 <ion-view view-title="Project Photos">
-    <ion-content class="has-tabs photos-list">
+    <!-- <ion-content class="has-tabs photos-list">
     <div class="">
 
       <div class="row photos" ng-repeat="pic in allPhotos">
@@ -15,35 +15,80 @@
       </div>
 
 
-      <!-- <div class="row photos">
-        <div class="col">
-          <div class="relative">
-            <div class="black-strip">
-                <h4>Album</h4>
-            </div>
-            <img src="img/fundpic2.jpg" alt="">
-          </div>
 
-        </div>
-        <div class="col">
-          <div class="relative">
-            <div class="black-strip">
-                <h4>Album</h4>
-            </div>
-            <img src="img/fundpic3.jpg" alt="">
-          </div>
-
-        </div>
-
-      </div> -->
 
 
       </div>
 
-    </ion-content>
+
+
+    </ion-content> -->
+    <ion-tabs class="tab-button tab-header has-header tabs-top ordertab">
+        <ion-tab title="Projects">
+
+            <ion-content class="  has-tabs-top-pro">
+                <div class="propic">
+
+
+                    <div class="">
+                        <label for="">Asset Type :</label>
+                    </div>
+                    <div class="">
+                        <label for="">Project Type :</label>
+                    </div>
+                    <div class="row photos">
+                        <div class="col-25" ui-sref="app.photogallery({componentId:componentId,projectId:data._id})">
+                            <div class="relative">
+
+                                <div class="pic-pro">
+                                    <img ng-src="img/fundpic.jpg" alt="" ng-if="!data.photos[0].photo">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-25" ui-sref="app.photogallery({componentId:componentId,projectId:data._id})">
+                            <div class="relative">
+
+                                <div class="pic-pro">
+                                    <img ng-src="img/fundpic.jpg" alt="" ng-if="!data.photos[0].photo">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-25" ui-sref="app.photogallery({componentId:componentId,projectId:data._id})">
+                            <div class="relative">
+
+                                <div class="pic-pro">
+                                    <img ng-src="img/fundpic.jpg" alt="" ng-if="!data.photos[0].photo">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-25" ui-sref="app.photogallery({componentId:componentId,projectId:data._id})">
+                            <div class="relative">
+
+                                <div class="pic-pro">
+                                    <img ng-src="img/fundpic.jpg" alt="" ng-if="!data.photos[0].photo">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </ion-content>
+        </ion-tab>
+        <ion-tab title="Transactions">
+
+            <ion-content class="has-header bgearn has-tabs-top-over">
+
+            </ion-content>
+        </ion-tab>
+        <ion-tab title="UC">
+
+            <ion-content class="has-header bgearn has-tabs-top-over">
+
+            </ion-content>
+        </ion-tab>
+    </ion-tabs>
     <ion-footer>
         <div class="tabs-custom">
-              <div class="tabs tabs-icon-top">
+            <div class="tabs tabs-icon-top">
                 <a class="tab-item" ui-sref="app.overview({ componentId: componentId})">
                     <i class="ion ion-ios-timer"></i> Overview
                 </a>
@@ -52,7 +97,7 @@
                 </a>
                 <a class="tab-item" ui-sref="app.milestones({ componentId: componentId})">
                     <!--<i class="ion ion-calendar"></i> Milestones-->
-                       <i class="ion ion-social-buffer"></i> projects
+                    <i class="ion ion-social-buffer"></i> projects
                 </a>
                 <!-- <a class="tab-item" ui-sref="app.utilization">
                     <i class="ion ion-bag"></i> Utilization
