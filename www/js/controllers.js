@@ -1,6 +1,5 @@
 angular.module('starter.controllers', ['starter.services', 'ngCordova', 'highcharts-ng', "chart.js"])
 
-
     .controller('AppCtrl', function ($scope, $ionicModal, $timeout, $ionicPopup, $state) {
         $scope.filters = function () {
             $scope.filter = $ionicPopup.show({
@@ -12,13 +11,11 @@ angular.module('starter.controllers', ['starter.services', 'ngCordova', 'highcha
             $scope.filter.close();
         }
         $scope.logout = function () {
-
             $.jStorage.set('filter', null);
             $.jStorage.deleteKey('filter');
             $.jStorage.flush();
             $state.go('login');
         }
-
     })
 
     .controller('PlaylistCtrl', function ($scope, $stateParams) {})
@@ -72,24 +69,18 @@ angular.module('starter.controllers', ['starter.services', 'ngCordova', 'highcha
 
     .controller('SearchCtrl', function ($scope, $stateParams) {})
 
-
     .controller('VendorListCtrl', function ($scope, $stateParams, MyServices, $ionicModal) {
         $scope.formData = {};
         // $scope.formData.type = "Institute";
         $scope.formData.type = $.jStorage.get('filter').Access;
         $scope.formData.type_id = $.jStorage.get('filter')._id;
 
-
-
         MyServices.getAllVendorList($scope.formData, function (data) {
-
             if (data.value) {
                 $scope.vendorlist = data.data.vendor;
             }
-
         });
         $scope.formData1 = {};
-
         $scope.addVendorsubmit = function (formData) {
             $scope.formData1 = formData;
             $scope.formData1.added_by = $.jStorage.get('filter').Access;
@@ -99,11 +90,9 @@ angular.module('starter.controllers', ['starter.services', 'ngCordova', 'highcha
                     $scope.formData1 = {};
                     $scope.closeVendor();
                     MyServices.getAllVendorList($scope.formData, function (data) {
-
                         if (data.value) {
                             $scope.vendorlist = data.data.vendor;
                         }
-
                     });
                 }
             });
@@ -121,7 +110,6 @@ angular.module('starter.controllers', ['starter.services', 'ngCordova', 'highcha
         $scope.closeVendor = function () {
             $scope.modal.hide();
         };
-
 
         $scope.contacts = [{
             img: 'img/venkman.jpg',
@@ -148,7 +136,6 @@ angular.module('starter.controllers', ['starter.services', 'ngCordova', 'highcha
                 $scope.details = -1;
             }
         };
-
     })
 
     .controller('HomeCtrl', function ($scope, $stateParams, $rootScope, MyServices, $filter, $timeout, $ionicPopup, $state, $ionicTabsDelegate, $ionicPopover) {
@@ -730,7 +717,6 @@ angular.module('starter.controllers', ['starter.services', 'ngCordova', 'highcha
         }, ];
     })
 
-    // 
     .controller('OverviewCtrl', function ($scope, $stateParams, MyServices) {
 
         $scope.componentId = $stateParams.componentId;
@@ -813,12 +799,11 @@ angular.module('starter.controllers', ['starter.services', 'ngCordova', 'highcha
 
     })
 
-    // 
     .controller('MilestonesCtrl', function ($scope, $stateParams, MyServices, $rootScope, $ionicModal, $ionicActionSheet, $cordovaCamera, $ionicLoading, $cordovaFileTransfer, $cordovaImagePicker) {
         $scope.projectNotInProExpense = {};
         console.log("$scope.componentId   " + $stateParams.componentId);
         $scope.componentId = $stateParams.componentId;
-        $scope.temp = "hiiiiiii";
+
         MyServices.componentProjects($scope.componentId, function (data) {
             $scope.fundUtil = 0;
             $scope.totalamt = 0;
@@ -831,21 +816,6 @@ angular.module('starter.controllers', ['starter.services', 'ngCordova', 'highcha
             });
             console.log($scope.componentProjects);
         });
-        // MyServices.getProjectsNotAvailInProjectExpense($scope.componentId, function (data) {
-
-        //     $scope.projectNotInProExpense = data.data;
-        //     console.log("projectNotInProExpense 2nd api call: ", $scope.projectNotInProExpense);
-
-        //     angular.forEach($scope.projectNotInProExpense, function (getNewPro, index) {
-        //         getNewPro.totalAmountReleased = 0;
-        //         getNewPro.vendor = [];
-        //         $scope.componentProjects.push(getNewPro);
-        //     });
-        //     console.log($scope.componentProjects);
-
-        //     console.log("getAllprojectOfComponent final merged data: ", $scope.getAllprojectOfComponent);
-        // });
-
         MyServices.findAllProjectType(function (data) {
             $scope.findAllProjectType = data.data;
             console.log($scope.findAllProjectType);
@@ -854,16 +824,17 @@ angular.module('starter.controllers', ['starter.services', 'ngCordova', 'highcha
             $scope.findAllAssetType = data.data;
             console.log($scope.findAllAssetType);
         });
+
         $scope.formData = {};
         $scope.formData.type = "Institute";
         $scope.formData.type_id = "58a27f8fe146a5042e43312f";
         MyServices.getAllVendorList($scope.formData, function (data) {
-            console.log(data);
+            console.log("****** inside getAllVendorList *****",data);
             if (data.value) {
                 $scope.vendorlist = data.data.vendor;
             }
-
         });
+
         $scope.viewData = {};
         $scope.viewAll = function (id) {
             $scope.viewData.projectId = id;
@@ -898,9 +869,12 @@ angular.module('starter.controllers', ['starter.services', 'ngCordova', 'highcha
             $scope.commentData.componentId = $stateParams.componentId;
             $scope.commentData.added_by = $.jStorage.get('filter')._id;
             $scope.commentData.from = $.jStorage.get('filter').name;
+
+            console.log("*** commentNotes ***", $scope.commentData);
+
             MyServices.addProjectNotes($scope.commentData, function (data) {
                 if (data.value) {
-                    $scope.commentData = null;
+                    $scope.commentData = {};
                     $scope.comment.text = null;
                     console.log(data);
                 }
@@ -941,7 +915,7 @@ angular.module('starter.controllers', ['starter.services', 'ngCordova', 'highcha
             $scope.project = project;
             $scope.project.components = $scope.componentId;
             $scope.project._id = $rootScope.id;
-            console.log(project);
+            console.log("***** EditprojectFun *********", project);
 
             MyServices.updateProject($scope.project, function (data) {
                 $scope.project = data.data;
@@ -1292,7 +1266,7 @@ angular.module('starter.controllers', ['starter.services', 'ngCordova', 'highcha
                 if (data.value) {
                     $scope.hide();
                     $scope.project = data.data;
-                    console.log($scope.project);
+                    console.log("**** inside project openEdit *****", $scope.project);
                 }
             });
             $scope.Editproject.show();
@@ -1313,7 +1287,6 @@ angular.module('starter.controllers', ['starter.services', 'ngCordova', 'highcha
                 console.log("The loading indicator is now hidden");
             });
         };
-
     })
 
     .controller('UtilizationCtrl', function ($scope, $stateParams, $ionicModal) {
@@ -1389,6 +1362,7 @@ angular.module('starter.controllers', ['starter.services', 'ngCordova', 'highcha
 
 
     })
+
     .controller('PhotoGalleryCtrl', function ($scope, $stateParams, MyServices, $ionicModal) {
         $scope.photo = {};
         $scope.photo.componentId = $stateParams.componentId;

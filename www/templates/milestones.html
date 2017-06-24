@@ -147,7 +147,8 @@
                     <div class="begin-complete" style="width:{{componentProjects[0].totalAmountReleased/componentProjects[0].components.allocationAmount*100}}%"
                         ng-if="totalamt!=0"></div>
                     <div class="mark-make" style="left: calc({{componentProjects[0].totalAmountReleased/componentProjects[0].components.allocationAmount*100}}% - 25px);"
-                        ng-if="totalamt!=0">{{componentProjects[0].totalAmountReleased/componentProjects[0].components.allocationAmount*100| number:2 }}%
+                        ng-if="totalamt!=0">{{componentProjects[0].totalAmountReleased/componentProjects[0].components.allocationAmount*100| number:2
+                        }}%
                     </div>
                     <div class="mark-make" style="left: calc(0% - 25px);" ng-if="totalamt==0">0%</div>
                 </div>
@@ -166,7 +167,7 @@
                         </div>
                         <div class="row">
                             <div class="col util-content bold">{{project.projectType.name}}</div>
-                            <button class="button button-icon ion-android-more-vertical more more-button" ng-click="openUtilizationEdit(project.projectId);"></button>
+                            <button class="button button-icon ion-android-more-vertical more more-button" ng-click="openUtilizationEdit(project._id);"></button>
                         </div>
                         <!-- <div class="util-row"> -->
 
@@ -252,60 +253,8 @@
 
                             </div>
                         </div>
-                        <!-- <div ng-show="tab == 2">
-                            <div class="row-main-util">
-                            <div class="row util-row">
-                                <div class="col-20 util-header">%Work</div>
-                                <div class="col-50 util-header">Item Description</div>
-
-                            </div>
-                            <div class="row util-row">
-                                <div class="col-20 util-content bold">50%</div>
-                                <div class="col-50 util-content bold">Clean-up of all areas</div>
-                                <div class="col-30">
-                                <div class="tags">
-                                    <div class="add-tag" ng-click="openMilestoneEdit();">
-                                    <img src="img/tags.png" alt="">
-                                    </div>
-                                </div>
-                                <div class="item-note custom-toggle-utili alignment">
-                                    <label class="toggle toggle-assertive toggle-custom-mile">
-                                                    <input type="checkbox" ng-checked=true>
-                                                    <div class="track">
-                                                        <div class="handle"></div>
-                                                    </div>
-                                            </label>
-                                </div>
-
-
-                                </div>
-                            </div>
-                            <div class="row util-row">
-                                <div class="col-20 util-content bold">50%</div>
-                                <div class="col-50 util-content bold">Clean-up of all areas</div>
-                            <div class="col-30">
-                                <div class="tags">
-                                    <div class="add-tag" ng-click="openMilestoneEdit();">
-                                    <img src="img/tags.png" alt="">
-                                    </div>
-                                </div>
-                                <div class="item-note custom-toggle-utili alignment">
-                                    <label class="toggle toggle-assertive toggle-custom-mile">
-                                                    <input type="checkbox" ng-checked=true>
-                                                    <div class="track">
-                                                        <div class="handle"></div>
-                                                    </div>
-                                            </label>
-                                </div>
-
-
-                                </div>
-                            </div>
-
-                            </div>
-                        </div> -->
                         <div ng-show="tab == 2">
-                            <form class="" ng-submit="commentNotes(project.projectId,comment.text)">
+                            <form class="" ng-submit="commentNotes(project._id,comment.text)">
                                 <div class="">
                                     <div class="item comment">
                                         <label class="item item-input">
@@ -317,48 +266,9 @@
                                     <button class="button button-small button-assertive view-pop pull-left" type="submit" ng-disabled="!comment.text">Comment</button>
                                     <!--</div>-->
                             </form>
-                            <button class="button button-small button-assertive view-pop item-note" ng-click="viewAll(project.projectId)">View all</button>
+                            <button class="button button-small button-assertive view-pop item-note" ng-click="viewAll(project._id)">View all</button>
                             </div>
-
-
-
-                            <!-- <div class="row-main-util">
-                      <div class="row util-row">
-                        <div class="col-33 util-header">Payment Date</div>
-                        <div class="col-33 util-header">Value Released</div>
-                        <div class="col-33 util-header">
-                          Description
                         </div>
-                      </div>
-                      <div class="row util-row">
-                        <div class="col-33 util-content bold">12.06.2016</div>
-                        <div class="col-33 util-content bold">₹ 5,00,000</div>
-                        <div class="col-33">
-                          <div class="item-note">
-                            <button class="button button-icon ion-camera util-camera"></button>
-                          </div>
-                          <div class="util-content bold">
-                            Advance Payment
-                          </div>
-                        </div>
-                      </div>
-                      <div class="row util-row">
-                        <div class="col-33 util-content bold">08.08.2016</div>
-                        <div class="col-33 util-content bold">₹ 5,00,000</div>
-                        <div class="col-33">
-                          <div class="item-note">
-                            <button class="button button-icon ion-camera util-camera stable"></button>
-                          </div>
-                          <div class="util-content bold">
-                            Final Payment
-                          </div>
-                        </div>
-                      </div>
-                    </div> -->
-                        </div>
-                        <!--<div class="padding-horizontal">
-                        <button class="button button-icon ion-chevron-up item-note btn-down btn-custom-icon"></button>
-                    </div>-->
                     </div>
                     <div class="padding-horizontal">
                         <button class="button button-icon ion-chevron-up item-note btn-down btn-custom-icon" ng-click="showPayment($index,false)"

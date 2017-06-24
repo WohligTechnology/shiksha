@@ -160,7 +160,7 @@ angular.module('starter.services', [])
           _id: id
         }
         return $http({
-          url: adminurl + 'Project/getOne',
+          url: adminurl + 'Project/findOneProject',
           method: "POST",
           data: Data
         }).success(callback);

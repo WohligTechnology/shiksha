@@ -7,68 +7,29 @@
     </ion-header-bar>
     <ion-content>
         <form class="" ng-submit="EditprojectFun(project)">
-
-
             <ion-list>
                 <ion-item>
-                    <div class="input-label">
-                        Project Type
-                    </div>
+                    <div class="input-label">Project Type</div>
                     <select class="projecttype work-order" ng-model="project.projectType" ng-options="p.name for p in findAllProjectType track by p._id">
-                     <option selected="true" value="" disabled>{{project.projectType}}</option>
-
-                  </select>
+                        <option selected="true" value="" disabled>{{project.projectType}}</option>
+                    </select>
                 </ion-item>
                 <ion-item>
-                    <div class="input-label">
-                        Asset type
-                    </div>
+                    <div class="input-label">Asset type</div>
                     <select class="projecttype work-order" ng-model="project.assetType" ng-options="p.name for p in findAllAssetType track by p._id">
                     <option selected="true" value="" disabled>{{project.assetType}}</option>
-                    <!-- <option value="">Academic Buildings</option>
-                    <option value="">Administrative Buildings</option>
-                    <option value="">Auditorium</option>
-                    <option value="">Books/Journals/E-Resources</option>
-                    <option value="">Boys Hostel</option>
-                    <option value="">Boys Toilet</option>
-                    <option value="">Campus development</option>
-                    <option value="">Campus development-Alternate Energy Sources</option>
-                    <option value="">Campus development-Amenities</option>
-                    <option value="">Campus development-Beautification</option>
-                    <option value="">Campus development-Drainage</option>
-                    <option value="">Campus development-Playgrounds</option>
-                    <option value="">Campus development-Water Harvesting</option>
-                    <option value="">Campus development-Water Supply</option>
-                    <option value="">Canteen/Cafeteria</option>
-                    <option value="">Classrooms </option>
-                    <option value="">Common Room for Students</option>
-                    <option value="">Computer Centre</option>
-                    <option value="">Computers</option>
-                    <option value="">Girls Hostel</option>
-                    <option value="">Girls Toilet</option>
-                    <option value="">Laboratory</option>
-                    <option value="">Library</option>
-                    <option value="">Sports facility</option> -->
                   </select>
                 </ion-item>
                 <ion-item>
-                  <div class="input-label">
-                    Total Value (In Rs)
-                  </div>
+                  <div class="input-label">Total Value (In Rs)</div>
                     <input type="text" placeholder=" Total Value (In Rs)" ng-model="project.valueOfProject">
-
                 </ion-item>
                 <ion-item>
-                  <div class="input-label">
-                    Total Value (In Rs)
-                  </div>
-                    <input type="text" placeholder="Amount of Work (In %)" ng-model="project.amountOfWork">
-
+                  <div class="input-label">Total Value (In Rs) </div>
+                    <input type="text" placeholder="Amount of Work (In %)" ng-model="project.allocationAmountOfWork">
                 </ion-item>
                 <ion-item>
-                  <div class="input-label">
-                    Due Date
-                  </div>
+                  <div class="input-label">Due Date</div>
                     <input placeholder="Due Date" class="textbox-n" type="text" onfocus="(this.type='date')" onfocusout="(this.type='text')" id="date" ng-model="project.dueDate">
                 </ion-item>
             </ion-list>
