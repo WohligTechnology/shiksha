@@ -261,6 +261,7 @@ angular.module('starter.controllers', ['starter.services', 'ngCordova', 'highcha
         $scope.filteredComponentsNew = {};
         $scope.totalUtilizedPercentage = 0;
         $scope.count = 0;
+        $scope.stopComponent= false;
         $scope.dropDownData = {
 
             pab: "",
@@ -319,6 +320,9 @@ angular.module('starter.controllers', ['starter.services', 'ngCordova', 'highcha
             MyServices.componentData(dropDownData, function (data) {
                 $scope.componentData = data.data.compList;
                 console.log($scope.componentData);
+                if ($scope.componentData.length==0) {
+                  $scope.stopComponent= true;
+                }
                 $scope.$broadcast('scroll.infiniteScrollComplete');
 
 
