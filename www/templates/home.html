@@ -151,7 +151,7 @@
                         <div ng-repeat="fundInstitute in componentData track by $index" class="card card-institute-detail" ng-class="{'activeStatus':fundInstitute.status=='Active','onHoldStatus':fundInstitute.status=='OnHold','completedStatus':fundInstitute.status=='Completed'}">
                             <div class="no-pad">
 
-                                <div class="paddings" ui-sref="app.overview({ componentId: fundInstitute._id.componentId})">
+                                <div class="paddings" ui-sref="app.overview({ componentId: fundInstitute._id})">
                                     <div class="card-institute-head">
                                         <div class="bg-blue">
                                             <div class="row pd0 bb">

@@ -319,9 +319,10 @@ angular.module('starter.controllers', ['starter.services', 'ngCordova', 'highcha
             MyServices.componentData(dropDownData, function (data) {
                 $scope.componentData = data.data.compList;
                 console.log($scope.componentData);
+                $scope.$broadcast('scroll.infiniteScrollComplete');
+
 
             });
-            $scope.$broadcast('scroll.infiniteScrollComplete');
 
         }
 
@@ -383,22 +384,22 @@ angular.module('starter.controllers', ['starter.services', 'ngCordova', 'highcha
             $scope.filterCriteria = {};
             if (angular.isObject(formData.pab)) {
                 // $scope.filterCriteria.pab = formData.pab._id;
-                dropDownData.pab = formData.pab._id;
+                $scope.dropDownData.pab = formData.pab._id;
             }
             if (angular.isObject(formData.state)) {
-                dropDownData.state = formData.state._id;
+                $scope.dropDownData.state = formData.state._id;
             }
             if (angular.isObject(formData.institute)) {
                 // $scope.filterCriteria.institute = formData.institute._id;
-                dropDownData.institute = formData.institute._id;
+                $scope.dropDownData.institute = formData.institute._id;
             }
             if (angular.isObject(formData.components)) {
                 // $scope.filterCriteria.components = formData.components._id;
-                dropDownData.components = formData.components._id;
+                $scope.dropDownData.components = formData.components._id;
             }
             if (formData.status) {
                 // $scope.filterCriteria.componentStatus = formData.status;
-                dropDownData.componentStatus = formData.status;
+                $scope.dropDownData.componentStatus = formData.status;
             }
             $scope.filter.close();
             console.log("filter", $scope.dropDownData);
