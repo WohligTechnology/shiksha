@@ -145,6 +145,8 @@ angular.module('starter.controllers', ['starter.services', 'ngCordova', 'highcha
         $rootScope.percent_utilized = null;
         $rootScope.percent_Release = null;
         $scope.overviewChartshow = false;
+        $scope.componentData=[];
+
 
 
         $scope.toasts = function (msg) {
@@ -297,10 +299,12 @@ angular.module('starter.controllers', ['starter.services', 'ngCordova', 'highcha
             $scope.config.series[1].data[0].y = util1;
         }
         $scope.overviewChartshow = false;
+
         // $scope.overviewChart = {};
         $scope.loadData = function (dropDownData) {
             console.log("========================",dropDownData);
-            MyServices.getDashboardData(dropDownData, function (data) {
+            $scope.dropDownData =dropDownData;
+            MyServices.getDashboardData($scope.dropDownData, function (data) {
                 $scope.DashboardAllData = data.data;
                 console.log($scope.DashboardAllData);
 
@@ -317,11 +321,14 @@ angular.module('starter.controllers', ['starter.services', 'ngCordova', 'highcha
 
 
             });
-            MyServices.componentData(dropDownData, function (data) {
-                $scope.componentData = data.data.compList;
+            MyServices.componentData($scope.dropDownData, function (data) {
+              $scope.compData=data.data.compList;
                 console.log($scope.componentData);
-                if ($scope.componentData.length==0) {
+                $scope.componentData= _.concat($scope.compData , $scope.componentData);
+                if (data.data.compList.length==0) {
                   $scope.stopComponent= true;
+                }else{
+                    $scope.stopComponent= false;
                 }
                 $scope.$broadcast('scroll.infiniteScrollComplete');
 
@@ -335,7 +342,7 @@ angular.module('starter.controllers', ['starter.services', 'ngCordova', 'highcha
 
 
         $scope.loadMore = function () {
-            console.log("inside loadMore");
+            console.log("inside loadMore", $scope.dropDownData);
             $scope.dropDownData.page = $scope.dropDownData.page + 1;
 
             $scope.loadData($scope.dropDownData);
