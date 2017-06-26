@@ -75,15 +75,133 @@
         </ion-tab>
         <ion-tab title="Transactions">
 
-            <ion-content class="has-header bgearn has-tabs-top-over">
+            <ion-content class="has-tabs-top-pro">
+                <div class="propic">
 
+
+                    <div class="">
+                        <label for="">Center to state :</label>
+                    </div>
+                    <!-- <div class="">
+                      <label for="">Project Type :</label>
+                  </div> -->
+                    <div class="row photos">
+                        <div class="col-25" ui-sref="app.photogallery({componentId:componentId,projectId:data._id})">
+                            <div class="relative">
+
+                                <div class="pic-pro">
+                                    <img ng-src="img/fundpic.jpg" alt="" ng-if="!data.photos[0].photo">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-25" ui-sref="app.photogallery({componentId:componentId,projectId:data._id})">
+                            <div class="relative">
+
+                                <div class="pic-pro">
+                                    <img ng-src="img/fundpic.jpg" alt="" ng-if="!data.photos[0].photo">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-25" ui-sref="app.photogallery({componentId:componentId,projectId:data._id})">
+                            <div class="relative">
+
+                                <div class="pic-pro">
+                                    <img ng-src="img/fundpic.jpg" alt="" ng-if="!data.photos[0].photo">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-25" ui-sref="app.photogallery({componentId:componentId,projectId:data._id})">
+                            <div class="relative">
+
+                                <div class="pic-pro">
+                                    <img ng-src="img/fundpic.jpg" alt="" ng-if="!data.photos[0].photo">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </ion-content>
         </ion-tab>
         <ion-tab title="UC">
 
-            <ion-content class="has-header bgearn has-tabs-top-over">
+
+            <ion-content class="top-93 has-footer">
+
+
+
+                <div class="card">
+                    <!-- <a class="button button-icon icon ion-edit item-note edit-btn"></a>
+                    <div class="clearfix">
+                    </div> -->
+                    <div class="milestone-add">
+                        <ul class="list">
+
+                            <li class="item item-input item-stacked-label">
+                                <span class="input-label">Installment no</span>
+                                <input type="text" placeholder="Installment no">
+                            </li>
+                            <li class="item item-input item-stacked-label">
+                                <span class="input-label">Date of UC</span>
+                                <input type="text" onfocus="(this.type='date')" onfocusout="(this.type='text')" id="date" placeholder="Date of UC">
+                            </li>
+                            <li class="item item-input item-stacked-label">
+                                <span class="input-label">Value (in INR)</span>
+                                <input type="number" placeholder="Value (in INR)">
+                            </li>
+                            <li class="item item-input item-stacked-label">
+                                <span class="input-label">Photos</span>
+                                <div class="row photos">
+                                    <div class="col-25" ui-sref="app.photogallery({componentId:componentId,projectId:data._id})">
+                                        <div class="relative">
+
+                                            <div class="pic-pro">
+                                                <img ng-src="img/fundpic.jpg" alt="" ng-if="!data.photos[0].photo">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-25" ui-sref="app.photogallery({componentId:componentId,projectId:data._id})">
+                                        <div class="relative">
+
+                                            <div class="pic-pro">
+                                                <img ng-src="img/fundpic.jpg" alt="" ng-if="!data.photos[0].photo">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-25" ui-sref="app.photogallery({componentId:componentId,projectId:data._id})">
+                                        <div class="relative">
+
+                                            <div class="pic-pro">
+                                                <img ng-src="img/fundpic.jpg" alt="" ng-if="!data.photos[0].photo">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-25" ng-click="openImage()">
+                                        <div class="relative">
+
+                                            <div class="pic-pro">
+                                                <img ng-src="img/fundpic.jpg" alt="" ng-if="!data.photos[0].photo">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
 
             </ion-content>
+
+            </div>
+
+            <ion-footer>
+                <div class="float-button" ng-click="openUcForm();">
+                    <a class="content ">
+                        <i class="ion ion-plus "> </i>
+                    </a>
+                </div>
+            </ion-footer>
+
+        </ion-tab>
         </ion-tab>
     </ion-tabs>
     <ion-footer>
