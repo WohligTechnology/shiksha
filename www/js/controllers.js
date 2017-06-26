@@ -272,11 +272,9 @@ angular.module('starter.controllers', ['starter.services', 'ngCordova', 'highcha
         var filter = $.jStorage.get("filter");
         if (filter.Access == "State") {
             $scope.dropDownData.state = filter._id;
-            console.log(dropDownData);
         }
         if (filter.Access == "Institute") {
             $scope.dropDownData.institute = filter._id;
-            console.log(dropDownData);
 
         }
         $scope.DashboardAllData = {};
