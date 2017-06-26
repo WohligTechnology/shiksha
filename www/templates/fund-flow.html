@@ -1,5 +1,5 @@
 <ion-view view-title="Fund flow">
-  
+
   <ion-content class="bg-light-blue">
     <div class="pb50" ng-if="fundflow">
       <div class="card top-card">
@@ -34,7 +34,7 @@
               </div>
               <div class="custom-slide-flow">
                 <div class="complete"></div>
-                <div class="begin-state" ng-class="{'ng-bind': {{(fundflow.totalFundDetail.totalStateReleased/fundflow.allocationAmount*100 |number:2)}}<{{(fundflow.totalFundDetail.totalCenterReleased/fundflow.allocationAmount*100 |number:2)}}}"
+                <div class="begin-state" ng-class="{'ng-zind': {{(fundflow.totalFundDetail.totalStateReleased/fundflow.allocationAmount*100 |number:2)}}<{{(fundflow.totalFundDetail.totalCenterReleased/fundflow.allocationAmount*100 |number:2)}}}"
                   style="width:{{(fundflow.totalFundDetail.totalStateReleased/fundflow.allocationAmount*100 |number:2)}}%"></div>
                 <div class="begin-center" ng-class="{'ng-zind': {{(fundflow.totalFundDetail.totalStateReleased/fundflow.allocationAmount*100 |number:2)}}>{{(fundflow.totalFundDetail.totalCenterReleased/fundflow.allocationAmount*100 |number:2)}}}"
                   style="width:{{(fundflow.totalFundDetail.totalCenterReleased/fundflow.allocationAmount*100 |number:2)}}%"></div>
