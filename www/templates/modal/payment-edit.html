@@ -11,9 +11,9 @@
       <ul class="list">
         <li>
            <label class="item item-input item-stacked-label">
-
+            <span class="input-label">Choose Vendor</span>
             <select class="work-order " ng-model="allocationData1.vendorid" ng-options="centers.name for centers in vendorlist track by centers._id" >
-                  <option selected="true" value="" disabled>Choose Vendor</option>
+                  <option selected="true" value="" disabled></option>
               </select>
            </label>
         </li>
@@ -24,9 +24,9 @@
           <input type="text" placeholder="Value Allocated" required ng-model="allocationData1.allocation">
         </label>
         <label class="item item-input item-stacked-label">
-          <span class="input-label">Value Allocated</span>
+          <span class="input-label">Issue Date</span>
           <!-- <input type="text" placeholder="Issue Date" required ng-model="allocationData1.allocation"> -->
-          <input placeholder="Issue Date1111" class="textbox-n" type="text" required onfocus="(this.type='date')" onfocusout="(this.type='text')" required id="date"  ng-model="allocationData1.issueDate">
+          <input placeholder="Issue Date" class="textbox-n" type="text" required onfocus="(this.type='date')" onfocusout="(this.type='text')" required id="date"  ng-model="allocationData1.issueDate">
 
         </label>
         <label class="item item-input item-stacked-label">
