@@ -1,0 +1,87 @@
+<ion-modal-view>
+    <ion-header-bar class="bar-positive bar bar-header">
+        <h1 class="title">Create UC </h1>
+        <div class="buttons">
+            <button class="button button-clear ion-close" ng-click="closeUcForm();"></button>
+        </div>
+    </ion-header-bar>
+    <ion-content>
+        <!-- <pre>{{formData | json}}</pre> -->
+        <form class="" ng-submit="createprojectFun(formData)">
+            <div class="milestone-add">
+                <ul class="list">
+
+                    <li class="item item-input item-stacked-label">
+                        <span class="input-label">Installment no</span>
+                        <input type="text" placeholder="Installment no">
+                    </li>
+                    <li class="item item-input item-stacked-label">
+                        <span class="input-label">Date of UC</span>
+                        <input type="text" onfocus="(this.type='date')" onfocusout="(this.type='text')" id="date" placeholder="Date of UC">
+                    </li>
+                    <li class="item item-input item-stacked-label">
+                        <span class="input-label">Value (in INR)</span>
+                        <input type="number" placeholder="Value (in INR)">
+                    </li>
+                    <li class="item item-input item-stacked-label">
+                        <span class="input-label">Upload payment Proof : <button type="button" name="button">Upload Photos</button></span>
+                        <div class="row">
+                            <div class="col">
+                                <div class="image-grid">
+                                    <img src="img/venkman.jpg" alt="image-grid">
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="image-grid">
+                                    <img src="img/venkman.jpg" alt="image-grid">
+                                </div>
+
+                            </div>
+                            <div class="col">
+                                <div class="image-grid">
+                                    <img src="img/venkman.jpg" alt="image-grid">
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="image-grid">
+                                    <img src="img/venkman.jpg" alt="image-grid">
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                                <div class="image-grid">
+                                    <img src="img/venkman.jpg" alt="image-grid">
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="image-grid">
+                                    <img src="img/venkman.jpg" alt="image-grid">
+                                </div>
+
+                            </div>
+                            <div class="col">
+                                <div class="image-grid">
+                                    <img src="img/venkman.jpg" alt="image-grid">
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="image-grid">
+                                    <img src="img/venkman.jpg" alt="image-grid">
+                                </div>
+                            </div>
+
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <div class="padding">
+                <button class="button button-positive button-block" type="submit">
+                    <!-- <button class="button button-positive button-block" ng-click="closeCreate();"> -->
+                    Create
+                </button>
+            </div>
+        </form>
+    </ion-content>
+</ion-modal-view>

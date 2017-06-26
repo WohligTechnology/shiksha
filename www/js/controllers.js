@@ -261,7 +261,8 @@ angular.module('starter.controllers', ['starter.services', 'ngCordova', 'highcha
         $scope.filteredComponentsNew = {};
         $scope.totalUtilizedPercentage = 0;
         $scope.count = 0;
-        var dropDownData = {
+        $scope.dropDownData = {
+
             pab: "",
             state: "",
             component: "",
@@ -270,10 +271,13 @@ angular.module('starter.controllers', ['starter.services', 'ngCordova', 'highcha
         };
         var filter = $.jStorage.get("filter");
         if (filter.Access == "State") {
-            dropDownData.state = filter._id;
+            $scope.dropDownData.state = filter._id;
+            console.log(dropDownData);
         }
         if (filter.Access == "Institute") {
-            dropDownData.institute = filter._id;
+            $scope.dropDownData.institute = filter._id;
+            console.log(dropDownData);
+
         }
         $scope.DashboardAllData = {};
 
@@ -296,7 +300,7 @@ angular.module('starter.controllers', ['starter.services', 'ngCordova', 'highcha
         $scope.overviewChartshow = false;
         // $scope.overviewChart = {};
         $scope.loadData = function (dropDownData) {
-
+            console.log("========================",dropDownData);
             MyServices.getDashboardData(dropDownData, function (data) {
                 $scope.DashboardAllData = data.data;
                 console.log($scope.DashboardAllData);
@@ -324,14 +328,14 @@ angular.module('starter.controllers', ['starter.services', 'ngCordova', 'highcha
         }
 
 
-        $scope.loadData(dropDownData);
+        $scope.loadData($scope.dropDownData);
 
 
         $scope.loadMore = function () {
             console.log("inside loadMore");
-            dropDownData.page = dropDownData.page + 1;
+            $scope.dropDownData.page = $scope.dropDownData.page + 1;
 
-            $scope.loadData(dropDownData);
+            $scope.loadData($scope.dropDownData);
             // $scope.$broadcast('scroll.infiniteScrollComplete');
         };
         console.log("Updated object111", $scope.DashboardAllData);
@@ -366,14 +370,15 @@ angular.module('starter.controllers', ['starter.services', 'ngCordova', 'highcha
             });
         }
         $scope.filterSubmit = function (formData) {
-            var dropDownData = {
-                pab: "",
-                state: "",
-                component: "",
-                institute: "",
-                startData: 0,
-                endData: 5
-            };
+            // $scope.dropDownData = {
+            //     pab: "",
+            //     state: "",
+            //     component: "",
+            //     institute: "",
+            //     startData: 0,
+            //     endData: 5
+            // };
+            $scope.dropDownData.page = 1;
             $scope.InstituePagination = null;
 
             console.log("filter", formData);
@@ -398,9 +403,9 @@ angular.module('starter.controllers', ['starter.services', 'ngCordova', 'highcha
                 dropDownData.componentStatus = formData.status;
             }
             $scope.filter.close();
-            console.log("filter", dropDownData);
+            console.log("filter", $scope.dropDownData);
 
-            $scope.loadData(dropDownData);
+            $scope.loadData($scope.dropDownData);
             //  MyServices.getProjectReport($scope.filterCriteria,function(data) {
             //      console.log("filtered data",data);
             //      if(data){
@@ -1347,7 +1352,7 @@ angular.module('starter.controllers', ['starter.services', 'ngCordova', 'highcha
         };
     })
 
-    .controller('ProjectPhotosCtrl', function ($scope, $stateParams, MyServices) {
+    .controller('ProjectPhotosCtrl', function ($scope, $stateParams,$ionicModal, MyServices) {
         $scope.componentId = $stateParams.componentId;
         // $scope.componentId = "58cd40c43ae8bf6d8be31dd5";
         MyServices.getComponentAllPhotos($scope.componentId, function (data) {
@@ -1358,8 +1363,32 @@ angular.module('starter.controllers', ['starter.services', 'ngCordova', 'highcha
                 $scope.allPhotos = _.chunk($scope.allPhotos, 2);
             }
         });
+        $ionicModal.fromTemplateUrl('templates/modal/imageViewer.html', {
+            scope: $scope,
+            animation: 'slide-in-up'
+        }).then(function (modal) {
+            $scope.imageView = modal;
+        });
+        $scope.openImage = function (image) {
+            $scope.image = image;
+            $scope.imageView.show();
+        };
+        $scope.closeImage = function () {
+            $scope.imageView.hide();
+        };
 
-
+        $ionicModal.fromTemplateUrl('templates/modal/create-ucform.html', {
+            scope: $scope,
+            animation: 'slide-in-up'
+        }).then(function (modal) {
+            $scope.modaladd = modal;
+        });
+        $scope.openUcForm = function () {
+            $scope.modaladd.show();
+        };
+        $scope.closeUcForm = function () {
+            $scope.modaladd.hide();
+        };
 
     })
 
