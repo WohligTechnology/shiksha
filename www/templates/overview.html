@@ -14,7 +14,7 @@
                       </label>
                 </span>
               <div class="infra-div">
-                <div class="infra-project bold">{{overview.componentDetail._id.componentName}}</div>
+                <div class="infra-project bold">{{overview.keycomponents.name}}</div>
                 <!--<div>
                   <label for="" class="dark">Upgradation of library</label>
                 </div>-->
@@ -68,7 +68,7 @@
                     <canvas id="doughnut" class="chart chart-doughnut" chart-data="data" chart-labels="labels" chart-colors="colors" chart-dataset-override="override">
                     </canvas>
                     <h5 class="f24 dark-grey">
-                        {{overview.componentDetail._id.componentWorkStatus}}%
+                        {{overview.workCompleted}}%
                     </h5>
                 </div>
                 <p class="text-center energized bold f16 uppercase bold">Work Completed</p>
@@ -91,7 +91,7 @@
                     <div class="custom-slide-projects">
                         <div class="allocated-bar" style="width:100%"></div>
                         <div class="received-bar" style="width:{{overview.retVal.FundReleased/overview.allocationAmount*100}}%"></div>
-                        <div class="made-bar" style="width:{{overview.retVal.getFundUtilized/overview.allocationAmount*100}}%"> 
+                        <div class="made-bar" style="width:{{overview.retVal.getFundUtilized/overview.allocationAmount*100}}%">
                         {{overview.retVal.getFundUtilized/overview.retVal.FundReleased*100 | number:0}}%</div>
                     </div>
                 </div>

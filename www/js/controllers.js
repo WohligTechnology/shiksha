@@ -737,11 +737,10 @@ angular.module('starter.controllers', ['starter.services', 'ngCordova', 'highcha
             $scope.overview = data.data.compList[0];
             console.log("***** inside componentData *****", $scope.overview);
 
-            // if ($scope.overview.componentDetail._id.pabName) {
-            //     $scope.pabName = $scope.overview.componentDetail._id.pabName.split('#')[1];
-            //     $scope.labels = [$scope.overview.componentDetail._id.componentWorkStatus + "% Work Completed", ""];
-            //     $scope.data = [$scope.overview.componentDetail._id.componentWorkStatus, 100 - $scope.overview.componentDetail._id.componentWorkStatus];
-            // }
+                // $scope.pabName = $scope.overview.componentDetail._id.pabName.split('#')[1];
+                $scope.labels = [$scope.overview.workCompleted + "% Work Completed", ""];
+                $scope.data = [$scope.overview.workCompleted, 100 - $scope.overview.workCompleted];
+
 
         });
 
