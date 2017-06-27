@@ -1,4 +1,4 @@
-var adminurl = "http://192.168.0.17/api/";
+var adminurl = "http://192.168.0.18/api/";
 // var adminurl = "http://wohlig.io/api/";
 // var adminurl = "http://rusa.wohlig.co.in/api/";//server
 // var adminurl = "http://rusabeta.wohlig.com/api/";//server
@@ -38,6 +38,14 @@ angular.module('starter.services', [])
       componentData: function (formData, callback) {
         return $http({
           url: adminurl + 'components/componentData',
+          method: "POST",
+          withCredentials: true,
+          data: formData
+        }).success(callback);
+      },
+      addUcToComponent: function (formData, callback) {
+        return $http({
+          url: adminurl + 'components/addUcToComponent',
           method: "POST",
           withCredentials: true,
           data: formData

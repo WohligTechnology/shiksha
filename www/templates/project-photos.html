@@ -1,4 +1,5 @@
-<ion-view view-title="Project Photos">
+<!-- <ion-view view-title="Project Photos"> -->
+  <ion-view view-title="Project Photos">
     <!-- <ion-content class="has-tabs photos-list">
     <div class="">
 
@@ -27,48 +28,25 @@
         <ion-tab title="Projects">
 
             <ion-content class="  has-tabs-top-pro">
-                <div class="propic">
+                <div class="propic" ng-repeat="pr in projects">
 
 
                     <div class="">
-                        <label for="">Asset Type :</label>
+                        <label for="">Asset Type :{{pr.assetType.name}}</label>
                     </div>
                     <div class="">
-                        <label for="">Project Type :</label>
+                        <label for="">Project Type :{{pr.projectType.name}}</label>
                     </div>
-                    <div class="row photos">
-                        <div class="col-25" ui-sref="app.photogallery({componentId:componentId,projectId:data._id})">
+                    <div class="row photos" ng-repeat="p in pr.photos">
+                        <div class="col-25" ui-sref="app.photogallery({componentId:componentId,projectId:data._id})" ng-repeat="p1 in p">
                             <div class="relative">
 
                                 <div class="pic-pro">
-                                    <img ng-src="img/fundpic.jpg" alt="" ng-if="!data.photos[0].photo">
+                                    <img ng-src="{{p1.photo | uploadpath}}" alt="">
                                 </div>
                             </div>
                         </div>
-                        <div class="col-25" ui-sref="app.photogallery({componentId:componentId,projectId:data._id})">
-                            <div class="relative">
 
-                                <div class="pic-pro">
-                                    <img ng-src="img/fundpic.jpg" alt="" ng-if="!data.photos[0].photo">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-25" ui-sref="app.photogallery({componentId:componentId,projectId:data._id})">
-                            <div class="relative">
-
-                                <div class="pic-pro">
-                                    <img ng-src="img/fundpic.jpg" alt="" ng-if="!data.photos[0].photo">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-25" ui-sref="app.photogallery({componentId:componentId,projectId:data._id})">
-                            <div class="relative">
-
-                                <div class="pic-pro">
-                                    <img ng-src="img/fundpic.jpg" alt="" ng-if="!data.photos[0].photo">
-                                </div>
-                            </div>
-                        </div>
                     </div>
                 </div>
             </ion-content>
@@ -76,48 +54,61 @@
         <ion-tab title="Transactions">
 
             <ion-content class="has-tabs-top-pro">
-                <div class="propic">
+                <div class="propic" ng-if="CenterToState">
 
 
                     <div class="">
-                        <label for="">Center to state :</label>
+                        <label for="">{{CenterToState[0][0].transactionType}} :</label>
                     </div>
-                    <!-- <div class="">
-                      <label for="">Project Type :</label>
-                  </div> -->
-                    <div class="row photos">
-                        <div class="col-25" ui-sref="app.photogallery({componentId:componentId,projectId:data._id})">
+
+                    <div class="row photos" ng-repeat="tr in CenterToState">
+                        <div class="col-25" ui-sref="app.photogallery({componentId:componentId,projectId:data._id})" ng-repeat="t1 in tr">
                             <div class="relative">
 
                                 <div class="pic-pro">
-                                    <img ng-src="img/fundpic.jpg" alt="" ng-if="!data.photos[0].photo">
+                                    <img ng-src="{{t1.file |uploadpath}}" alt="">
                                 </div>
                             </div>
                         </div>
-                        <div class="col-25" ui-sref="app.photogallery({componentId:componentId,projectId:data._id})">
+
+                    </div>
+                </div>
+                <div class="propic" ng-if="StateToInstitute">
+
+
+                    <div class="">
+                        <label for="">{{StateToInstitute[0][0].transactionType}} :</label>
+                    </div>
+
+                    <div class="row photos" ng-repeat="tr in StateToInstitute">
+                        <div class="col-25" ui-sref="app.photogallery({componentId:componentId,projectId:data._id})" ng-repeat="t1 in tr">
                             <div class="relative">
 
                                 <div class="pic-pro">
-                                    <img ng-src="img/fundpic.jpg" alt="" ng-if="!data.photos[0].photo">
+                                    <img ng-src="{{t1.file |uploadpath}}" alt="">
                                 </div>
                             </div>
                         </div>
-                        <div class="col-25" ui-sref="app.photogallery({componentId:componentId,projectId:data._id})">
+
+                    </div>
+                </div>
+                <div class="propic" ng-if="InstituteToVendor">
+
+
+                    <div class="">
+                        <label for="">{{InstituteToVendor[0][0].transactionType}} :</label>
+                    </div>
+
+                    <div class="row photos" ng-repeat="tr in InstituteToVendor">
+                        <div class="col-25" ui-sref="app.photogallery({componentId:componentId,projectId:data._id})" ng-repeat="t1 in tr">
                             <div class="relative">
 
                                 <div class="pic-pro">
-                                    <img ng-src="img/fundpic.jpg" alt="" ng-if="!data.photos[0].photo">
+                                    <img ng-src="{{t1.file |uploadpath}}" alt="">
                                 </div>
                             </div>
                         </div>
-                        <div class="col-25" ui-sref="app.photogallery({componentId:componentId,projectId:data._id})">
-                            <div class="relative">
 
-                                <div class="pic-pro">
-                                    <img ng-src="img/fundpic.jpg" alt="" ng-if="!data.photos[0].photo">
-                                </div>
-                            </div>
-                        </div>
                     </div>
                 </div>
             </ion-content>
@@ -125,70 +116,56 @@
         <ion-tab title="UC">
 
 
-            <ion-content class="top-93 has-footer">
+            <ion-content class="top-93 has-footer ">
 
 
+                <div class="btm-150">
 
-                <div class="card">
-                    <!-- <a class="button button-icon icon ion-edit item-note edit-btn"></a>
+
+                    <div class="card" ng-repeat="formData in utilizationCertificates">
+                        <!-- <a class="button button-icon icon ion-edit item-note edit-btn"></a>
                     <div class="clearfix">
                     </div> -->
-                    <div class="milestone-add">
+
                         <ul class="list">
-
-                            <li class="item item-input item-stacked-label">
-                                <span class="input-label">Installment no</span>
-                                <input type="text" placeholder="Installment no">
-                            </li>
-                            <li class="item item-input item-stacked-label">
-                                <span class="input-label">Date of UC</span>
-                                <input type="text" onfocus="(this.type='date')" onfocusout="(this.type='text')" id="date" placeholder="Date of UC">
-                            </li>
-                            <li class="item item-input item-stacked-label">
-                                <span class="input-label">Value (in INR)</span>
-                                <input type="number" placeholder="Value (in INR)">
-                            </li>
-                            <li class="item item-input item-stacked-label">
-                                <span class="input-label">Photos</span>
-                                <div class="row photos">
-                                    <div class="col-25" ui-sref="app.photogallery({componentId:componentId,projectId:data._id})">
-                                        <div class="relative">
-
-                                            <div class="pic-pro">
-                                                <img ng-src="img/fundpic.jpg" alt="" ng-if="!data.photos[0].photo">
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-25" ui-sref="app.photogallery({componentId:componentId,projectId:data._id})">
-                                        <div class="relative">
-
-                                            <div class="pic-pro">
-                                                <img ng-src="img/fundpic.jpg" alt="" ng-if="!data.photos[0].photo">
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-25" ui-sref="app.photogallery({componentId:componentId,projectId:data._id})">
-                                        <div class="relative">
-
-                                            <div class="pic-pro">
-                                                <img ng-src="img/fundpic.jpg" alt="" ng-if="!data.photos[0].photo">
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-25" ng-click="openImage()">
-                                        <div class="relative">
-
-                                            <div class="pic-pro">
-                                                <img ng-src="img/fundpic.jpg" alt="" ng-if="!data.photos[0].photo">
-                                            </div>
-                                        </div>
+                            <div class="milestone-add">
+                                <!-- <span class="input-label">Installment no : {{formData.installmentNo}}</span>
+                            <span class="input-label">Date of UC : {{formData.date}}</span>
+                            <span class="input-label">Value (in INR):{{formData.amount}}</span>
+                            <span class="input-label">Upload payment Proof : </span>
+                            <div class="row">
+                                <div class="col-25">
+                                    <div class="image-grid">
+                                        <img ng-src="{{formData.images | uploadpath}}">
                                     </div>
                                 </div>
-                            </li>
+                            </div> -->
+
+                                <li class="item item-input item-stacked-label">
+                                    <span class="input-label">Installment no : {{formData.installmentNo}}</span>
+                                    <!-- <input type="text" placeholder="Installment no" ng-model="formData.installmentNo"> -->
+                                </li>
+                                <li class="item item-input item-stacked-label">
+                                    <span class="input-label">Date of UC : {{formData.date | date}}</span>
+                                    <!-- <input type="text" onfocus="(this.type='date')" onfocusout="(this.type='text')" id="date" placeholder="Date of UC" ng-model="formData.date" ng-value="{{formData.date |date}}"> -->
+                                </li>
+                                <li class="item item-input item-stacked-label">
+                                    <span class="input-label">Value (in INR):{{formData.amount}}</span>
+                                    <!-- <input type="number" placeholder="Value (in INR)" ng-model="formData.amount"> -->
+                                </li>
+                                <li class="item item-input item-stacked-label">
+                                    <span class="input-label">Upload payment Proof : </span>
+
+                                    <div class="image-grid">
+                                        <img ng-src="{{formData.images | uploadpath}}">
+                                    </div>
+
+
+                                </li>
                         </ul>
+                        </div>
                     </div>
                 </div>
-
             </ion-content>
 
             </div>
