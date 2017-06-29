@@ -6,7 +6,7 @@
     </div>
     </ion-header-bar>
     <ion-content class="">
-      <form class="" ng-submit="addAllocation(allocationData1,projectId);">
+      <form class="" ng-submit="addAllocation(allocationData1);">
 
       <ul class="list">
         <li>
@@ -31,16 +31,15 @@
         </label>
         <label class="item item-input item-stacked-label">
           <span class="input-label">Due Date</span>
-          <input placeholder="Due Date" class="textbox-n" type="text" onfocus="(this.type='date')" onfocusout="(this.type='text')" required id="date"  ng-model="allocationData1.DueDate">
+          <input placeholder="Due Date" class="textbox-n" type="text" onfocus="(this.type='date')" onfocusout="(this.type='text')" required id="date"  ng-model="allocationData1.dueDate">
         </label>
         <label class="item item-input item-stacked-label">
           <span class="input-label">Description</span>
-          <textarea type="text" placeholder="Description"></textarea>
+          <textarea type="text" ng-model="allocationData1.description" placeholder="Description"></textarea>
         </label>
         <label class=" item-input">
             <div class="input-label">Upload work-order copy</div>
-              <input type="file" value="" accept="application/vnd.ms-excel,image/jpeg,image/gif,image/png,application/pdf,image/x-eps">
-
+              <button type="button" name="button" ng-click="showActionsheet()">Upload Photos</button>
         </label>
 
         </li>

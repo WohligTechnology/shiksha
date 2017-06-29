@@ -862,21 +862,26 @@ angular.module('starter.controllers', ['starter.services', 'ngCordova', 'highcha
         });
     }
     $scope.allocationData = {};
-    $scope.addAllocation = function(formData, id) {
+    $scope.addAllocation = function(formData) {
+
+        console.log("****----- inside addAllocation formData ------********", formData);
+        console.log("****----- inside addAllocation id ------********",$rootScope.id);
+
         $scope.allocationData.project_id = {};
         $scope.allocationData.project_id = $rootScope.id;
-        // $scope.allocation.componentId = $stateParams.componentId;
-        $scope.allocationData.allocation = formData.allocation;
-        $scope.allocationData.vendor_id = formData.vendorid._id;
-        MyServices.vendorAllocation($scope.allocationData, function(data) {
-            if (data.value) {
-                $scope.allocationData = {};
-                $scope.closePaymentEdit();
+        $scope.allocation.vendor_id = formData;
+        $scope.allocationData.allocation = ;
+        // $scope.allocationData.vendor_id = formData.vendorid._id;
 
-            }
-            console.log(data);
-            // $scope.AllNotes=data.data.notes;
-        });
+        // MyServices.vendorAllocation($scope.allocationData, function(data) {
+        //     if (data.value) {
+        //         $scope.allocationData = {};
+        //         $scope.closePaymentEdit();
+
+        //     }
+        //     console.log(data);
+        //     // $scope.AllNotes=data.data.notes;
+        // });
     }
     $scope.commentData = {};
     $scope.commentNotes = function(id, comment) {
@@ -1261,7 +1266,7 @@ angular.module('starter.controllers', ['starter.services', 'ngCordova', 'highcha
         $scope.modalutil = modal;
     });
     $scope.openUtilizationEdit = function(id) {
-        console.log(id);
+        console.log("*** project Id ***",id);
         $rootScope.id = id;
         $scope.modalutil.show();
     };
