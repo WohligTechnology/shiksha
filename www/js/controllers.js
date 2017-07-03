@@ -867,10 +867,12 @@ angular.module('starter.controllers', ['starter.services', 'ngCordova', 'highcha
         console.log("****----- inside addAllocation formData ------********", formData);
         console.log("****----- inside addAllocation id ------********",$rootScope.id);
 
-        $scope.allocationData.project_id = {};
-        $scope.allocationData.project_id = $rootScope.id;
-        $scope.allocation.vendor_id = formData;
-        $scope.allocationData.allocation = ;
+        // $scope.allocationData.project_id = {};
+        // $scope.allocationData.project_id = $rootScope.id;
+        // $scope.allocation.vendor_id = formData.;
+        // $scope.allocationData.allocation = formData;
+        // $scope.allocationData.allocation = formData;
+        // $scope.allocationData.allocation = formData;
         // $scope.allocationData.vendor_id = formData.vendorid._id;
 
         // MyServices.vendorAllocation($scope.allocationData, function(data) {
