@@ -1,8 +1,9 @@
 // var adminurl = "http://192.168.0.18/api/";
-var adminurl = "http://wohlig.io/api/";
+// var adminurl = "http://wohlig.io/api/";
 // var adminurl = "http://rusa.wohlig.co.in/api/";//server
 // var adminurl = "http://rusabeta.wohlig.com/api/";//server
 // var adminurl = "https://rusa.thegraylab.com/api/";//server
+var adminurl = "https://rusamhrd.tiss.edu/api/";//server
 var imgurl = adminurl + "upload/";
 var imgpath = imgurl + "readFile?file=";
 
