@@ -63,11 +63,10 @@
             <div class="card">
               <div class="tables">
                 <div class="instlmnt">
-                  <label class="bold" ng-if="key == 'undefined'">Installment -</label>
-                  <label class="bold" ng-if="key != 'undefined">Installment {{key}}</label>
+                  <label class="bold" >Installment <span ng-if="key!='undefined'">{{key}}</span></label>
                 </div>
-                <div ng-repeat="(key1, value1) in value ">
-                  <table ng-if="key1 === 'Center To State'">
+                <div>
+                  <table>
                     <tbody>
                       <thead>
                         <tr>
@@ -90,12 +89,12 @@
                           </th>
                         </tr>
                       </thead>
-                      <tr ng-repeat="tra in value1">
+                      <tr ng-repeat="tra in value['Center To State']">
                         <!--<td class="bb0">
                           ₹{{23232/100000 | number:2}}Lacs
                         </td>-->
                         <td class="bb0">
-                          {{tra.amount}}
+                          {{tra.amount}} 
                         </td>
                         <td class="bb0">
                           {{tra.transactionSent | date : 'dd.MM.yyyy'}}
@@ -118,7 +117,7 @@
                       </tr>
                     </tbody>
                   </table>
-                  <table ng-if="key1 === 'State To Institute'">
+                  <table>
                     <tbody>
                       <thead>
                         <tr>
@@ -141,12 +140,12 @@
                           </th>
                         </tr>
                       </thead>
-                      <tr ng-repeat="tra in value1">
+                      <tr ng-repeat="tra in value['State To Institute']">
                         <!--<td class="bb0">
                           ₹{{23232/100000 | number:2}}Lacs
                         </td>-->
                         <td class="bb0">
-                          {{tra.amount}}
+                          {{tra.amount}} 
                         </td>
                         <td class="bb0">
                           {{tra.transactionReceived | date : 'dd.MM.yyyy'}}
