@@ -849,8 +849,8 @@ angular.module('starter.controllers', ['starter.services', 'ngCordova', 'highcha
         });
 
         $scope.formData = {};
-        $scope.formData.type = "Institute";
-        $scope.formData.type_id = "58a27f8fe146a5042e43312f";
+        $scope.formData.type = $.jStorage.get('filter').Access;
+        $scope.formData.type_id = $.jStorage.get('filter')._id;
         MyServices.getAllVendorList($scope.formData, function (data) {
             console.log("****** inside getAllVendorList *****", data);
             if (data.value) {
