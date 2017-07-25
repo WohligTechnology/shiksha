@@ -1,0 +1,48 @@
+<ion-modal-view>
+    <ion-header-bar class="bar-positive bar bar-header">
+        <h1 class="title"> Institute contact details</h1>
+        <div class="buttons">
+            <button class="button button-clear ion-close" ng-click="closecallmodal()"></button>
+        </div>
+    </ion-header-bar>
+    <ion-content>
+        <form class="" ng-submit="addVendorsubmit(formData1)">
+
+            <div class="list vendordetails">
+                <ion-list>
+                    <ion-item>
+                        <div class="input-label">
+                            Name : {{formData1.name}}
+                        </div>
+                    </ion-item>
+
+                    <ion-item>
+                        <div class="input-label">
+                            Email id : {{formData1.email}}
+                        </div>
+                    </ion-item>
+
+                    <ion-item>
+                        <div class="input-label">
+                            Mobile No. : {{formData1.mobile}}
+                        </div>
+                    </ion-item>
+                    <ion-item>
+                        <div class="input-label">
+                            Designation : {{formData1.designation}}
+                        </div>
+                    </ion-item>
+
+                </ion-list>
+                <!--<label class="item item-input item-stacked-label">
+                      <span class="input-label">Comment</span>
+                      <textarea type="text" placeholder=""> </textarea>
+                    </label>-->
+            </div>
+            <div class="padding">
+                <a class=" button button-full button-positive" href="tel:{{formData1.mobile}}">Call</a>
+            </div>
+
+        </form>
+    </ion-content>
+</ion-modal-view>

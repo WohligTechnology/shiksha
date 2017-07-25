@@ -1,36 +1,121 @@
 <ion-view view-title="Vendor List">
-    <ion-content>
-        <ion-list>
-            <div class="list">
+    <ion-nav-bar class="bar-positive">
+        <!--<ion-nav-back-button>
+      </ion-nav-back-button>-->
+        <ion-nav-buttons side="left hamburger">
+            <button class="button button-icon button-clear ion-navicon " menu-toggle="left">
+        </button>
+        </ion-nav-buttons>
 
-                <div class="item item-avatar contact-details" ng-repeat="contact in vendorlist track by $index">
+    </ion-nav-bar>
+    <div class="" ng-init="show=0">
 
-                    <div class="vendor-image" ng-click="shows($index);">
-                        <img ng-src="{{contact.img}}" ng-if="contact.img">
-                        <img src="img/venkman.jpg" ng-if="!contact.img">
-                    </div>
-                    <div class="show-hide" ng-click="shows($index);">
 
-                        <div class="detailshow">
-                            <h2>{{contact.organization}}</h2>
-                            <h2>{{contact.username}}</h2>
-                            <h3>{{contact.name}}</h3>
-                        </div>
-                    </div>
-                    <div class="detailhide" ng-show="$index===details">
-                        <p>Pan no:{{contact.pan}}</p>
-                        <p><a href="tel:{{contact.mobile}}">Mobile No.:{{contact.mobile}}</a></p>
-                        <p><a href="mailto:{{contact.email}}">Email id: {{contact.email}}</a></p>
-                    </div>
-                    <div class="icons">
-                        <a href="tel:{{contact.mobile}}"><span class="ion-ios-telephone-outline"></span></a>
-                        <a href="sms:{{contact.mobile}}"><span class="ion-ios-email-outline"></span></a>
-                    </div>
+        <div class="vendorlist">
+            <div class="row">
+                <div class="col-50" ng-click="showhistory(0) " ng-class="{'undercol':show ==0}">
+                    Vendor List
+                </div>
+                <div class="col-50" ng-click="showhistory(1)" ng-class="{'undercol':show ==1}">
+                    My Vendors
                 </div>
             </div>
-        </ion-list>
-    </ion-content>
-    <div class="float-button" ng-click="openVendor();">
+        </div>
+
+        <div class="hasorder-foot" ng-if="show==0">
+            <ion-content class="topvendor">
+                <ion-refresher on-refresh="findAllVendor()">
+                </ion-refresher>
+                <ion-list>
+                    <div class="list">
+
+                        <div class="item item-avatar contact-details" ng-repeat="contact in Allvendorlist track by $index" ng-class="{'lastitem': Allvendorlist.length == $index+1}">
+
+                            <div class="vendor-image" ng-click="shows($index);">
+                                <img ng-src="{{contact.img}}" ng-if="contact.img">
+                                <img src="img/venkman.jpg" ng-if="!contact.img">
+                            </div>
+                            <div class="show-hide" ng-click="shows($index);">
+
+                                <div class="detailshow">
+                                    <h2>{{contact.organization}}</h2>
+                                    <h2>{{contact.username}}</h2>
+                                    <h3>{{contact.name}}</h3>
+                                </div>
+                            </div>
+                            <div class="detailhide" ng-show="$index===details">
+                                <p>Pan no:{{contact.pan}}</p>
+                                <p><a href="tel:{{contact.mobile}}">Mobile No.:{{contact.mobile}}</a></p>
+                                <p><a href="mailto:{{contact.email}}">Email id: {{contact.email}}</a></p>
+                            </div>
+                            <!--<div class="icons">
+                        <a href="tel:{{contact.mobile}}"><span class="ion-ios-telephone-outline"></span></a>
+                        <a href="sms:{{contact.mobile}}"><span class="ion-ios-email-outline"></span></a>
+                    </div>-->
+                            <div class="item-note">
+                                <button class="button button-small  button-positive" ng-click="addVendorToList(contact._id)">Add Vendor</button>
+                                <!--<a class="button button-outline button-positive">Add Vendor</a>-->
+
+                            </div>
+                        </div>
+                    </div>
+                </ion-list>
+            </ion-content>
+        </div>
+        <div class="hasorder-foot" ng-if="show==1">
+
+            <ion-content class="topmyvendor">
+                <ion-refresher on-refresh="getAllVendor(formData)">
+                </ion-refresher>
+                <ion-list>
+                    <div class="list ">
+
+                        <div class="item item-avatar contact-details" ng-repeat="contact in vendorlist track by $index">
+
+                            <div class="vendor-image" ng-click="vendorShows($index);">
+                                <img ng-src="{{contact.img}}" ng-if="contact.img">
+                                <img src="img/venkman.jpg" ng-if="!contact.img">
+                            </div>
+                            <div class="show-hide" ng-click="vendorShows($index);">
+
+                                <div class="detailshow">
+                                    <h2>{{contact.organization}}</h2>
+                                    <h2>{{contact.username}}</h2>
+                                    <h3>{{contact.name}}</h3>
+                                </div>
+                            </div>
+                            <div class="detailhide" ng-show="$index===vendordetail">
+                                <p>Pan no:{{contact.pan}}</p>
+                                <p><a href="tel:{{contact.mobile}}">Mobile No.:{{contact.mobile}}</a></p>
+                                <p><a href="mailto:{{contact.email}}">Email id: {{contact.email}}</a></p>
+                            </div>
+                            <!--<div class="icons">
+                        <a href="tel:{{contact.mobile}}"><span class="ion-ios-telephone-outline"></span></a>
+                        <a href="sms:{{contact.mobile}}"><span class="ion-ios-email-outline"></span></a>
+                    </div>-->
+                            <div class="item-note">
+                                <button class="button button-small  button-positive" ng-click="addVendorToList(contact._id)">Add Vendor</button>
+                                <!--<a class="button button-outline button-positive">Add Vendor</a>-->
+
+                            </div>
+                        </div>
+                    </div>
+                </ion-list>
+            </ion-content>
+        </div>
+
+
+    </div>
+
+    <div class="cust-search" ng-if="show == 0">
+
+        <label class="item item-input">
+           
+          <input type="text" placeholder="Search vendor Pan No./Tintan No." ng-model="vendorData.panOrTintan" ng-change="searchVendor(vendorData)"   maxlength="10" minlength="10">
+          <i class="icon ion-android-search placeholder-icon item-note"></i>
+        </label>
+    </div>
+    <div class="add-vendor" ng-click="openVendor();" ng-if="show == 0">
         <a class="content ">
             <i class="ion ion-plus "> </i>
         </a>

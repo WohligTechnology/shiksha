@@ -8,7 +8,7 @@
         <ion-nav-buttons side="right">
             <button class="button button-icon button-clear search-btn ion-funnel padings" ng-click="filters();"></button>
             <!-- <button class="button button-icon button-clear search-btn ion-android-search" ui-sref="app.search"></button> -->
-            <button class="button button-icon button-clear ion-android-more-vertical settings-btn padings"></button>
+            <!--<button class="button button-icon button-clear ion-android-more-vertical settings-btn padings"></button>-->
         </ion-nav-buttons>
     </ion-nav-bar>
     <ion-tabs class="tab-button tab-header has-header tabs-top">
@@ -37,7 +37,7 @@
                                         <i class="ion-record release col2"></i> TOTAL ALLOCATION
                                     </h5>
                                     <h3 class="text-center bold f16 home-data">
-                                        {{DashboardAllData.getTotalFundAllocation[0].totalFundAllocation/10000000 | number:2 }} Cr
+                                        {{DashboardAllData.getTotalFundAllocation[0].totalFundAllocation/10000000 | indianCurrency }} Cr
                                         <!--{{getProjectReport.data.totalComponentsFundAllocation.totalFundAllocation}} Lacs-->
                                     </h3>
                                 </div>
@@ -48,8 +48,8 @@
                                         <p class="stable f12 text-center"><i class="ion-record release col1"></i>FUNDS RELEASED</p>
 
                                         <div class="text-center ">
-                                            <!-- <p class="f16 bold">{{getTransactionReport.data.totalReleaseAndUtilization.totalFundRelease1/10000000 | number:2 }} Cr</p> -->
-                                            <p class="f16 bold">{{DashboardAllData.getTotalFundReleased[0].totalFundReleased/10000000 | number:2
+                                            <!-- <p class="f16 bold">{{getTransactionReport.data.totalReleaseAndUtilization.totalFundRelease1/10000000 | indianCurrency }} Cr</p> -->
+                                            <p class="f16 bold">{{DashboardAllData.getTotalFundReleased[0].totalFundReleased/10000000 | indianCurrency
                                                 }} Cr</p>
                                         </div>
                                     </div>
@@ -60,7 +60,8 @@
 
                                     <div class="text-center ">
 
-                                        <p class="f16 bold ">{{DashboardAllData.getFundUtilized[0].totalFundUtilized/10000000 | number:2 }} Cr</p>
+                                        <p class="f16 bold ">{{DashboardAllData.getFundUtilized[0].totalFundUtilized/10000000 | indianCurrency
+                                            }} Cr</p>
                                     </div>
                                 </div>
                             </div>
@@ -97,7 +98,7 @@
                                             <p class="pull-left home-label">DELAYED</p>
                                         </div>
                                         <div class="col">
-                                            <p class="pull-left delayed bold  f16"> {{DashboardAllData.getTotalComponents[0].totalComponents}}</p>
+                                            <p class="pull-left delayed bold  f16"> {{DashboardAllData.getTotalComponents[0].totalDelayedComponents || 3}}</p>
                                         </div>
                                     </div>
                                 </div>
@@ -178,7 +179,8 @@
                                                     <div class="upgrade">
                                                         <div class="text-center allocation-made project-right">₹ (in lacs)
                                                             <!-- <h4 class="bold">{{fundInstitute._id.totalComponentAllocation/100000 | number:0}}</h4> Allocation -->
-                                                            <h4 class="bold">{{fundInstitute.allocationAmount/100000 | number:2}}</h4> Allocation
+                                                            <h4 class="bold">{{fundInstitute.allocationAmount/100000 | indianCurrency}}</h4>
+                                                            Allocation
 
                                                         </div>
                                                     </div>
@@ -196,13 +198,13 @@
                                         <div class="col-66">
                                             <div class="ecommerce">
                                                 <!-- <span class="for-badge"><button class="button button-icon ion-custom-ecommerce {{fundInstitute.classcommerce}}"></button> </span> -->
-                                                <span class="for-badge"><button class="button button-icon ion-custom-ecommerce {{fundInstitute.classcommerce}}"></button> <span class="badge badge-one">{{fundInstitute.retVal.totalDelayedProjects}}</span></span>
+                                                <span class="for-badge"><button class="button button-icon ion-custom-ecommerce {{fundInstitute.classcommerce}}"></button> <span class="badge badge-one" ng-if="fundInstitute.retVal.totalDelayedProjects">{{fundInstitute.retVal.totalDelayedProjects}}</span></span>
                                             </div>
                                         </div>
                                         <div class="col-33">
                                             <div class="setting-down triangle-down">
                                                 <button class="button button-icon ion-chevron-down item-note btn-down btn-custom-icon" ng-click="cardopen($index,true)"></button>
-                                                <button class="button button-icon ion-ios-cog btn-down btn-custom-icon " readmores ng-click="cardopen($index,true)"></button>
+                                                <!--<button class="button button-icon ion-ios-cog btn-down btn-custom-icon " readmores ng-click="cardopen($index,true)"></button>-->
                                             </div>
                                         </div>
                                     </div>
@@ -227,27 +229,28 @@
                                                                 <canvas id="doughnut" ng-if="$index%3===2" class="chart chart-doughnut" chart-data="data1" chart-labels="labels1" chart-colors="colors2"
                                                                   chart-dataset-override="override2"></canvas> -->
                                                             <h5 class="f16 bold card-50">
-                                                                {{fundInstitute.retVal.getFundUtilized/fundInstitute.retVal.FundReleased *100 | number :2}}%
+                                                                {{(fundInstitute.retVal.getFundUtilized/fundInstitute.retVal.FundReleased *100 | indianCurrency )|| 0}}%
                                                             </h5>
                                                         </div>
                                                         <div class="fund-dot">
                                                             <ul>
 
 
-                                                                <li class="project-right"><i class="ion-record dot1"></i> Total Fund released:{{(fundInstitute.retVal.FundReleased/100000)|number
-                                                                    :2}} /{{fundInstitute.allocationAmount/100000 |number
+                                                                <li class="project-right"><i class="ion-record dot1"></i> Total Fund released:{{((fundInstitute.retVal.FundReleased/100000)|number
+                                                                    :2)|| 0}} /{{fundInstitute.allocationAmount/100000 |number
                                                                     :2}}
                                                                 </li>
-                                                                <li class="project-right ma10"> Centre share released: {{fundInstitute.retVal.centerShare/100000
-                                                                    | number: 2}} / {{(fundInstitute.centerShare )/100000
-                                                                    | number:2}}</li>
-                                                                <li class="project-right ma10"> State share released: {{(fundInstitute.retVal.FundReleased
+                                                                <li class="project-right ma10"> Centre share released: {{(fundInstitute.retVal.centerShare/100000
+                                                                    | number: 2)||0}} / {{(fundInstitute.centerShare )/100000
+                                                                    | indianCurrency}}</li>
+                                                                <li class="project-right ma10"> State share released: {{((fundInstitute.retVal.FundReleased
                                                                     /100000) -(fundInstitute.retVal.centerShare/100000) |
-                                                                    number: 2}} / {{(fundInstitute.stateShare)/100000 | number:2}}</li>
+                                                                    number: 2) || 0}} / {{(fundInstitute.stateShare)/100000
+                                                                    | indianCurrency}}</li>
                                                                 <li class="project-right"> <i class="ion-record fund-dot3"></i>
-                                                                    <span class="item-note"></span>Fund utilization: {{fundInstitute.retVal.getFundUtilized/100000
-                                                                    | number: 2}} / {{(fundInstitute.retVal.FundReleased)/100000
-                                                                    | number:2}} </li>
+                                                                    <span class="item-note"></span>Fund utilization: {{(fundInstitute.retVal.getFundUtilized/100000
+                                                                    | number: 2) ||0}} / {{(fundInstitute.retVal.FundReleased)/100000
+                                                                    | indianCurrency}} </li>
                                                             </ul>
                                                         </div>
                                                     </div>
@@ -292,12 +295,12 @@
                                             <div class="col-66">
                                                 <div class="ecommerce">
                                                     <!-- <span class="for-badge"><button class="button button-icon ion-custom-ecommerce"></button> </span> -->
-                                                    <span class="for-badge"><button class="button button-icon ion-custom-ecommerce"></button> <span class="badge badge-one">{{fundInstitute.retVal.totalDelayedProjects}}</span></span>
+                                                    <span class="for-badge"><button class="button button-icon ion-custom-ecommerce"></button> <span class="badge badge-one" ng-if="fundInstitute.retVal.totalDelayedProjects">{{fundInstitute.retVal.totalDelayedProjects}}</span></span>
                                                 </div>
                                             </div>
                                             <div class="col-33">
                                                 <div class="setting-down triangle-down">
-                                                    <button class="button button-icon ion-ios-cog btn-down btn-custom-icon" ng-click="cardopen($index,false)"></button>
+                                                    <!--<button class="button button-icon ion-ios-cog btn-down btn-custom-icon" ng-click="cardopen($index,false)"></button>-->
                                                     <button class="button button-icon ion-chevron-up item-note btn-down btn-custom-icon" ng-click="cardopen($index,false)" ng-if="card[$index]"></button>
                                                 </div>
                                             </div>

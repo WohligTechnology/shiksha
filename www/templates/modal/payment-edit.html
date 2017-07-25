@@ -1,57 +1,61 @@
 <ion-modal-view>
-    <ion-header-bar class="bar-positive bar bar-header">
-         <h1 class="title">Add Work Order Detail</h1>
+  <ion-header-bar class="bar-positive bar bar-header">
+    <h1 class="title">Add Work Order Detail</h1>
     <div class="buttons">
       <button class="button button-clear ion-close" ng-click="closePaymentEdit();"></button>
     </div>
-    </ion-header-bar>
-    <ion-content class="">
-      <form class="" ng-submit="addAllocation(allocationData1);">
+  </ion-header-bar>
+  <ion-content class="">
+    <form class="" ng-submit="addAllocation(allocationData);">
 
       <ul class="list">
         <li>
-           <label class="item item-input item-stacked-label">
+          <label class="item item-input item-stacked-label">
             <span class="input-label">Choose Vendor</span>
-            <select class="work-order " ng-model="allocationData1.vendorid" ng-options="centers.name for centers in vendorlist track by centers._id" >
+            <select class="work-order " ng-model="allocationData.vendorid" ng-options="centers.name for centers in vendorlist track by centers._id" >
                   <option selected="true" value="" disabled></option>
               </select>
            </label>
         </li>
         <li>
 
-        <label class="item item-input item-stacked-label">
+          <label class="item item-input item-stacked-label">
           <span class="input-label">Value Allocated</span>
-          <input type="text" placeholder="Value Allocated" required ng-model="allocationData1.allocation">
+          <input type="number" placeholder="Value Allocated" required ng-model="allocationData.allocatedAmount">
         </label>
-        <label class="item item-input item-stacked-label">
+          <label class="item item-input item-stacked-label">
           <span class="input-label">Issue Date</span>
-          <!-- <input type="text" placeholder="Issue Date" required ng-model="allocationData1.allocation"> -->
-          <input placeholder="Issue Date" class="textbox-n" type="text" required onfocus="(this.type='date')" onfocusout="(this.type='text')" required id="date"  ng-model="allocationData1.issueDate">
+          <input placeholder="Issue Date" class="textbox-n" type="text"  onfocus="(this.type='date')" onfocusout="(this.type='text')" required id="date"  ng-model="allocationData.orderIssueDate">
 
         </label>
-        <label class="item item-input item-stacked-label">
+          <label class="item item-input item-stacked-label">
           <span class="input-label">Due Date</span>
-          <input placeholder="Due Date" class="textbox-n" type="text" onfocus="(this.type='date')" onfocusout="(this.type='text')" required id="date"  ng-model="allocationData1.dueDate">
+          <input placeholder="Due Date" class="textbox-n" type="text" onfocus="(this.type='date')" onfocusout="(this.type='text')" required id="date"  ng-model="allocationData.orderDueDate">
         </label>
-        <label class="item item-input item-stacked-label">
+          <!--<label class="item item-input item-stacked-label">
           <span class="input-label">Description</span>
           <textarea type="text" ng-model="allocationData1.description" placeholder="Description"></textarea>
+        </label>-->
+          <label class=" item-input">
+            <div class="input-label">Upload work-order file</div>
+              <button type="button" name="button" ng-click="addCopy(1)">Upload Photos</button>
         </label>
-        <label class=" item-input">
-            <div class="input-label">Upload work-order copy</div>
-              <button type="button" name="button" ng-click="showActionsheet()">Upload Photos</button>
-        </label>
-
+          <div class="row" ng-if="allocationData.orderFile">
+            <div class="col">
+              <div class="image-grid">
+                <img ng-src="{{allocationData.orderFile | uploadpath}}" alt="">
+              </div>
+            </div>
+          </div>
         </li>
-
       </ul>
 
 
-        <div class="setting-down text-center">
-         <button class="button  button-assertive uppercase submit-pop" type="submit" >submit</button>
-       </div>
-     </form>
+      <div class="setting-down text-center">
+        <button class="button  button-assertive uppercase submit-pop" type="submit" ng-disabled="!allocationData ">submit</button>
+      </div>
+    </form>
 
-      </ion-content>
+  </ion-content>
 
 </ion-modal-view>

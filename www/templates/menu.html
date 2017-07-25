@@ -10,15 +10,15 @@
       <ion-nav-buttons side="right ">
         <!-- <button class="button button-icon button-clear search-btn ion-funnel" ng-click="filters();">
         </button> -->
-        <button class="button button-icon  search-btn  pad-certificate padings" ui-sref="app.photogallery">
+        <!--<button class="button button-icon  search-btn  pad-certificate padings" ui-sref="app.photogallery">
           <img src="img/certificate.png" alt="">
-        </button>
-        <button class="button button-icon  search-btn ion-ios-telephone padings" >
+        </button>-->
+        <button class="button button-icon  search-btn ion-ios-telephone padings">
         </button>
         <!-- <button class="button button-icon button-clear search-btn ion-android-search" ui-sref="app.search">
         </button> -->
-        <button class="button button-icon button-clear ion-android-more-vertical settings-btn padings" ng-click="toasts()">
-        </button>
+        <!--<button class="button button-icon button-clear ion-android-more-vertical settings-btn padings" ng-click="toasts()">
+        </button>-->
       </ion-nav-buttons>
     </ion-nav-bar>
     <ion-nav-view name="menuContent"></ion-nav-view>
@@ -29,44 +29,46 @@
     </ion-header-bar>
     <div class="side-menu">
       <ion-item class="bg">
-        <div class="image">
-  <!--<img src="img/ionic.png"  class="img-responsive" alt="profileimage">-->
-</div>
-<div class="image-info">
-  <p>T.Matthew</p>
-  <span>New Delhi</span>
-</div>
+        <div class="proimg">
+          <img src="img/ionic.png" class="img-responsive" alt="profileimage" ng-if="!profile.photo">
+          <img ng-src="{{profile.photo}}" class="img-responsive" alt="profileimage" ng-if="profile.photo">
 
-        </ion-item>
-        <ion-content class="top-spacing">
-      <ion-list>
-        <ion-item nav-clear menu-close ui-sref="app.home" ui-sref-active="active">
-          <i class="ion-custom ion-android-home"></i> Home
-        </ion-item>
-        <ion-item nav-clear menu-close ui-sref="app.home" ui-sref-active="active">
-          <i class="ion-custom ion-ios-compose"></i> Data Inputs
-        </ion-item>
-        <ion-item nav-clear menu-close ui-sref="app.home" ui-sref-active="active">
-          <i class="ion-custom ion-android-notifications"></i> Notifications
-        </ion-item>
-         <ion-item nav-clear menu-close ui-sref="app.projectPhotos" ui-sref-active="active">
-          <i class="ion-custom ion-email"></i> Messages
-        </ion-item>
-        <!--<ion-item nav-clear menu-close ui-sref="app.project" ui-sref-active="active">
+        </div>
+        <div class="image-info">
+          <p>{{profile.name}}</p>
+          <!--<span>New Delhi</span>-->
+        </div>
+
+      </ion-item>
+      <ion-content class="top-spacing">
+        <ion-list>
+          <ion-item nav-clear menu-close ui-sref="app.home" ui-sref-active="active">
+            <i class="ion-custom ion-android-home"></i> Home
+          </ion-item>
+          <!--<ion-item nav-clear menu-close ui-sref="app.home" ui-sref-active="active">
+            <i class="ion-custom ion-ios-compose"></i> Data Inputs
+          </ion-item>-->
+          <!--<ion-item nav-clear menu-close ui-sref="app.home" ui-sref-active="active">
+            <i class="ion-custom ion-android-notifications"></i> Notifications
+          </ion-item>-->
+          <!--<ion-item nav-clear menu-close ui-sref="app.projectPhotos" ui-sref-active="active">
+            <i class="ion-custom ion-email"></i> Messages
+          </ion-item>-->
+          <!--<ion-item nav-clear menu-close ui-sref="app.project" ui-sref-active="active">
           <i class="ion ion-ios-information-outline"></i> Alerts
           <span class="badge badge-assertive msg-badge">2</span>
         </ion-item>-->
-        <!--<ion-item nav-clear menu-close ui-sref="login" ui-sref-active="active">
+          <!--<ion-item nav-clear menu-close ui-sref="login" ui-sref-active="active">
           <i class="ion-custom ion-custom-setting"></i> Setting
         </ion-item>-->
-         <ion-item nav-clear menu-close ui-sref="app.home" ui-sref-active="active">
-          <i class="ion-custom ion-android-compass"></i> App Training
-        </ion-item>
-         <ion-item nav-clear menu-close ui-sref="app.vendorlist" ui-sref-active="active">
-          <i class="ion-custom ion-person-add"></i> Vendor list
-        </ion-item>
-      </ion-list>
-    </ion-content>
+          <!--<ion-item nav-clear menu-close ui-sref="app.home" ui-sref-active="active">
+            <i class="ion-custom ion-android-compass"></i> App Training
+          </ion-item>-->
+          <ion-item nav-clear menu-close ui-sref="app.vendorlist" ui-sref-active="active">
+            <i class="ion-custom ion-person-add"></i> Vendor list
+          </ion-item>
+        </ion-list>
+      </ion-content>
     </div>
     <ion-footer-bar align-title="left" class="bar-assertive side-footer ">
       <div class="log-out" ng-click="logout()">

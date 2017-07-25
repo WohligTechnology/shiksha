@@ -1,24 +1,16 @@
 <!-- <ion-view view-title="Project Photos"> -->
 <ion-view view-title="Project Photos">
     <ion-nav-bar class="bar-positive">
-        <!--<ion-nav-back-button>
-      </ion-nav-back-button>-->
+
         <ion-nav-buttons side="left hamburger">
             <button class="button button-icon button-clear ion-navicon " menu-toggle="left">
         </button>
         </ion-nav-buttons>
         <ion-nav-buttons side="right ">
-            <!-- <button class="button button-icon button-clear search-btn ion-funnel" ng-click="filters();">
-        </button> -->
-            <button class="button button-icon  search-btn  pad-certificate padings" ui-sref="app.photogallery">
-          <img src="img/certificate.png" alt="">
+
+            <button class="button button-icon  search-btn ion-ios-telephone padings" ng-click="opencallmodal(overview.contact)">
         </button>
-            <button class="button button-icon  search-btn ion-ios-telephone padings">
-        </button>
-            <!-- <button class="button button-icon button-clear search-btn ion-android-search" ui-sref="app.search">
-        </button> -->
-            <button class="button button-icon button-clear ion-android-more-vertical settings-btn padings" ng-click="toasts()">
-        </button>
+
         </ion-nav-buttons>
     </ion-nav-bar>
     <!-- <ion-content class="has-tabs photos-list">
@@ -59,11 +51,17 @@
                         <label for="">Project Type :{{pr.projectType.name}}</label>
                     </div>
                     <div class="row photos" ng-repeat="p in pr.photos">
-                        <div class="col-25" ng-click="openImage(p1.photo)" ng-repeat="p1 in p">
-                            <div class="relative">
+                        <div class="col-25" ng-repeat="p1 in p">
+                            <div class="relative" ng-if=" p1.photo.slice(p1.photo.length-3, p1.photo.length) =='pdf'  " ng-click="openPDF(p1.photo)">
 
                                 <div class="pic-pro">
-                                    <img ng-src="{{p1.photo | uploadpath}}" alt="">
+                                    <img src="http://www.freeiconspng.com/uploads/pdf-icon-png-17.png" alt="">
+                                </div>
+                            </div>
+                            <div class="relative" ng-click="openImage(p1.photo)" ng-if=" p1.photo.slice(p1.photo.length-3, p1.photo.length) !='pdf'  ">
+
+                                <div class="pic-pro">
+                                    <img src="{{p1.photo | uploadpath}}" alt="">
                                 </div>
                             </div>
                         </div>
@@ -83,8 +81,14 @@
                     </div>
 
                     <div class="row photos" ng-repeat="tr in CenterToState">
-                        <div class="col-25" ng-click="openImage(t1.file)" ng-repeat="t1 in tr">
-                            <div class="relative">
+                        <div class="col-25" ng-repeat="t1 in tr">
+                            {{t1.photo.slice(t1.photo.length-3, t1.photo.length)}}
+                            <div class="relative" ng-if=" t1.file.slice(t1.file.length-3, t1.file.length) =='pdf'  " ng-click="openPDF(t1.file)">
+                                <div class="pic-pro">
+                                    <img src="http://www.freeiconspng.com/uploads/pdf-icon-png-17.png" alt="">
+                                </div>
+                            </div>
+                            <div class="relative" ng-click="openImage(t1.file)" ng-if=" t1.file.slice(t1.file.length-3, t1.file.length) !='pdf'">
 
                                 <div class="pic-pro">
                                     <img ng-src="{{t1.file |uploadpath}}" alt="">
@@ -102,8 +106,14 @@
                     </div>
 
                     <div class="row photos" ng-repeat="tr in StateToInstitute">
-                        <div class="col-25" ng-click="openImage(t1.file)" ng-repeat="t1 in tr">
-                            <div class="relative">
+                        <div class="col-25" ng-repeat="t1 in tr">
+                            <div class="relative" ng-if=" t1.file.slice(t1.file.length-3, t1.file.length) =='pdf'" ng-click="openPDF(t1.file)">
+
+                                <div class="pic-pro">
+                                    <img src="http://www.freeiconspng.com/uploads/pdf-icon-png-17.png" alt="">
+                                </div>
+                            </div>
+                            <div class="relative" ng-click="openImage(t1.file)" ng-if=" t1.file.slice(t1.file.length-3, t1.file.length) !='pdf'  ">
 
                                 <div class="pic-pro">
                                     <img ng-src="{{t1.file |uploadpath}}" alt="">
@@ -121,8 +131,15 @@
                     </div>
 
                     <div class="row photos" ng-repeat="tr in InstituteToVendor">
-                        <div class="col-25" ng-click="openImage(t1.file)" ng-repeat="t1 in tr">
-                            <div class="relative">
+
+                        <div class="col-25" ng-repeat="t1 in tr">
+                            <div class="relative" ng-if=" t1.file.slice(t1.file.length-3, t1.file.length) =='pdf'  " ng-click="openPDF(t1.file)">
+
+                                <div class="pic-pro">
+                                    <img src="http://www.freeiconspng.com/uploads/pdf-icon-png-17.png" alt="">
+                                </div>
+                            </div>
+                            <div class="relative" ng-click="openImage(t1.file)" ng-if=" t1.file.slice(t1.file.length-3, t1.file.length) !='pdf'  ">
 
                                 <div class="pic-pro">
                                     <img ng-src="{{t1.file |uploadpath}}" alt="">
@@ -150,17 +167,7 @@
 
                         <ul class="list">
                             <div class="milestone-add">
-                                <!-- <span class="input-label">Installment no : {{formData.installmentNo}}</span>
-                            <span class="input-label">Date of UC : {{formData.date}}</span>
-                            <span class="input-label">Value (in INR):{{formData.amount}}</span>
-                            <span class="input-label">Upload payment Proof : </span>
-                            <div class="row">
-                                <div class="col-25">
-                                    <div class="image-grid">
-                                        <img ng-src="{{formData.images | uploadpath}}">
-                                    </div>
-                                </div>
-                            </div> -->
+
 
                                 <li class="item item-input item-stacked-label">
                                     <span class="input-label">Installment no : {{formData.installmentNo}}</span>
@@ -177,7 +184,10 @@
                                 <li class="item item-input item-stacked-label">
                                     <span class="input-label">Upload payment Proof : </span>
 
-                                    <div class="image-grid" ng-click="openImage(formData.images)">
+                                    <div class="image-grid" ng-click="openImage(formData.images)" ng-if=" formData.images.slice(formData.images.length-3, formData.images.length) !='pdf'  ">
+                                        <img ng-src="{{formData.images | uploadpath}}">
+                                    </div>
+                                    <div class="image-grid" ng-click="openPDF(formData.images)" ng-if=" formData.images.slice(formData.images.length-3, formData.images.length) =='pdf'  ">
                                         <img ng-src="{{formData.images | uploadpath}}">
                                     </div>
 
@@ -211,14 +221,14 @@
                 <a class="tab-item" ui-sref="app.fundFlow({ componentId: componentId})">
                     <i class="ion ion-shuffle"></i> Fund Flow
                 </a>
-                <a class="tab-item" ui-sref="app.milestones({ componentId: componentId})">
+                <a class="tab-item" ui-sref="app.project({ componentId: componentId})">
                     <!--<i class="ion ion-calendar"></i> Milestones-->
                     <i class="ion ion-social-buffer"></i> projects
                 </a>
                 <!-- <a class="tab-item" ui-sref="app.utilization">
                     <i class="ion ion-bag"></i> Utilization
                 </a> -->
-                <a class="tab-item calm" ui-sref="app.projectPhotos({ componentId: componentId})">
+                <a class="tab-item calm">
                     <!--<i class="ion  ion-android-camera"></i> Photos-->
                     <i class="ion  ion-android-camera"></i> media
                 </a>

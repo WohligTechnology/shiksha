@@ -1,29 +1,29 @@
 <ion-modal-view>
-    <ion-header-bar class="bar-positive bar bar-header">
-        <h1 class="title">Add/Edit Photos</h1>
-        <div class="buttons">
-            <button class="button button-clear ion-close" ng-click="closePhotos()"></button>
-        </div>
-    </ion-header-bar>
-    <ion-content>
-      <div class="row photos" ng-repeat="pic in allPhotos1">
-        <div class="col-33"  ng-repeat="data in pic">
-          <div class="gallery">
-            <img ng-src="img/fundpic.jpg" alt="" ng-if="!data.photo">
-            <img ng-src="{{data.photo | uploadpath}}" alt="" ng-if="data.photo">
-          </div>
+  <ion-header-bar class="bar-positive bar bar-header">
+    <h1 class="title">Add/Edit Photos</h1>
+    <div class="buttons">
+      <button class="button button-clear ion-close" ng-click="closePhotos()"></button>
+    </div>
+  </ion-header-bar>
+  <ion-content>
+    <div class="row photos" ng-repeat="pic in allPhotos1">
+      <div class="col-33" ng-repeat="data in pic">
+        <div class="gallery">
+          <img ng-src="img/fundpic.jpg" alt="" ng-if="!data.photo">
+          <img ng-src="{{data.photo | uploadpath}}" alt="" ng-if="data.photo">
         </div>
       </div>
-      <!-- <div class="setting-down text-center">
+    </div>
+    <!-- <div class="setting-down text-center">
        <button class="button  button-assertive uppercase submit-pop" ng-click="" >submit</button>
      </div> -->
 
-    </ion-content>
-    <ion-footer>
-       <div class="float-button" ng-click="showActionsheet('Document')">
-        <a class="content ">
-            <i class="ion ion-plus "> </i>
-        </a>
-      </div>
-    </ion-footer>
+  </ion-content>
+  <ion-footer>
+    <div class="float-button" ng-click="addProjectImages()">
+      <a class="content ">
+        <i class="ion ion-plus "> </i>
+      </a>
+    </div>
+  </ion-footer>
 </ion-modal-view>

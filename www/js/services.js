@@ -1,16 +1,16 @@
-var adminurl = "http://192.168.1.122/api/";
+// var adminurl = "http://192.168.1.125/api/";
 // var adminurl = "http://wohlig.io/api/";
 // var adminurl = "http://rusa.wohlig.co.in/api/";//server
 // var adminurl = "http://rusabeta.wohlig.com/api/";//server
 // var adminurl = "https://rusa.thegraylab.com/api/";//server
-// var adminurl = "https://rusamhrd.tiss.edu/api/";//server
+var adminurl = "https://rusamhrd.tiss.edu/api/"; //server
 var imgurl = adminurl + "upload/";
 var imgpath = imgurl + "readFile?file=";
 
 
 
 angular.module('starter.services', [])
-  .factory('MyServices', function ($http) {
+  .factory('MyServices', function ($http, $ionicActionSheet, $ionicActionSheet, $cordovaCamera, $ionicLoading, $cordovaFileTransfer, $cordovaImagePicker) {
     return {
       login: function (formData, callback) {
         return $http({
@@ -69,6 +69,17 @@ angular.module('starter.services', [])
         }
         return $http({
           url: adminurl + 'Transaction/componentOverview',
+          method: "POST",
+          withCredentials: true,
+          data: data
+        }).success(callback);
+      },
+      getTransactions: function (id, callback) {
+        var data = {
+          _id: id
+        }
+        return $http({
+          url: adminurl + 'Transaction/getOne',
           method: "POST",
           withCredentials: true,
           data: data
@@ -143,16 +154,30 @@ angular.module('starter.services', [])
           data: formData
         }).success(callback);
       },
-      addVendor: function (formData, callback) {
+      findAllVendor: function (formData, callback) {
         return $http({
-          url: adminurl + 'vendor/addVendor',
+          url: adminurl + 'vendor/findAllVendor',
           method: "POST",
           data: formData
         }).success(callback);
       },
-      vendorAllocation: function (formData, callback) {
+      getProfile: function (formData, callback) {
         return $http({
-          url: adminurl + 'projectExpense/vendorAllocation',
+          url: adminurl + 'user/getOne',
+          method: "POST",
+          data: formData
+        }).success(callback);
+      },
+      addVendorToGlobalList: function (formData, callback) {
+        return $http({
+          url: adminurl + 'vendor/addVendorToGlobalList',
+          method: "POST",
+          data: formData
+        }).success(callback);
+      },
+      addVendorToList: function (formData, callback) {
+        return $http({
+          url: adminurl + 'vendor/addVendorToList',
           method: "POST",
           data: formData
         }).success(callback);
@@ -183,7 +208,7 @@ angular.module('starter.services', [])
       },
       vendorAllocation: function (Data, callback) {
         return $http({
-          url: adminurl + 'projectExpense/vendorAllocation',
+          url: adminurl + 'projectExpense/vendorWorkOrderAllocation',
           method: "POST",
           data: Data
         }).success(callback);
@@ -234,14 +259,42 @@ angular.module('starter.services', [])
       },
 
 
-
-
-
-
-
       getTransactionReport: function (formData, callback) {
         return $http({
           url: adminurl + 'Transaction/getTransactionReport',
+          method: "POST",
+          withCredentials: true,
+          data: formData
+        }).success(callback);
+      },
+      searchVendor: function (formData, callback) {
+        return $http({
+          url: adminurl + 'vendor/searchVendor',
+          method: "POST",
+          withCredentials: true,
+          data: formData
+        }).success(callback);
+      },
+      getWorkOrderTransactions: function (formData, callback) {
+        return $http({
+          url: adminurl + 'projectExpense/getWorkOrderTransactions',
+          method: "POST",
+          withCredentials: true,
+          data: formData
+        }).success(callback);
+      },
+
+      vendorWorkOrderRelease: function (formData, callback) {
+        return $http({
+          url: adminurl + 'transaction/vendorWorkOrderRelease',
+          method: "POST",
+          withCredentials: true,
+          data: formData
+        }).success(callback);
+      },
+      vendorWorkOrderReleaseUpdate: function (formData, callback) {
+        return $http({
+          url: adminurl + 'transaction/vendorWorkOrderReleaseUpdate',
           method: "POST",
           withCredentials: true,
           data: formData
@@ -281,5 +334,130 @@ angular.module('starter.services', [])
       //     method: "POST"
       //   }).success(callback);
       // },
+
+      //image upload 
+
+
+      showActionsheet: function (maxImage, callback) {
+        var actionsheet = [];
+        $ionicActionSheet.show({
+          //  titleText: 'choose option',
+          buttons: [{
+              text: '<i class="icon ion-ios-camera-outline"></i> Choose from gallery'
+            }, {
+              text: '<i class="icon ion-images"></i> Take from camera'
+            },
+            // {
+            //   text: '<i class="icon ion-document-text"></i> Take from file'
+            // }
+            // ,{
+            //   text: '<i class="icon ion-document-text"></i> <input type="file" value="" accept="application/pdf,application/vnd.ms-excel" class="hw100"> Take from file'
+            // }
+          ],
+          //  destructiveText: 'Delete',
+          cancelText: 'Cancel',
+          cancel: function () {
+            console.log('CANCELLED');
+          },
+          buttonClicked: function (index) {
+            console.log('BUTTON CLICKED', index);
+            if (index === 0) {
+              var options = {
+                maximumImagesCount: maxImage, // Max number of selected images
+                width: 800,
+                height: 800,
+                quality: 80 // Higher is better
+              };
+
+              $cordovaImagePicker.getPictures(options).then(function (results) {
+                console.log(results);
+                var i = 0;
+                _.forEach(results, function (value) {
+                  // $scope.showLoading('Uploading Image...', 10000);
+                  $cordovaFileTransfer.upload(adminurl + 'upload', value)
+                    .then(function (result) {
+                      // Success!
+                      // $scope.hideLoading();
+                      result.response = JSON.parse(result.response);
+                      console.log(result.response.data[0]);
+                      actionsheet.push(result.response.data[0]);
+                      i++;
+                      if (results.length == i) {
+                        callback(actionsheet);
+                      }
+                    }, function (err) {
+                      // Error
+                    }, function (progress) {
+                      // constant progress updates
+                    });
+                });
+
+              }, function (error) {
+                console.log('Error: ' + JSON.stringify(error)); // In case of error
+              });
+            } else if (index === 1) {
+              var cameraOptions = {
+                quality: 90,
+                destinationType: Camera.DestinationType.DATA_URL,
+                sourceType: Camera.PictureSourceType.CAMERA,
+                allowEdit: false,
+                encodingType: 0,
+                targetWidth: 1200,
+                popoverOptions: CameraPopoverOptions,
+                saveToPhotoAlbum: true,
+                correctOrientation: true
+              };
+              $cordovaCamera.getPicture(cameraOptions).then(function (imageData) {
+                var imageSrc = "data:image/jpeg;base64," + imageData;
+                // $scope.showLoading('Uploading Image...', 10000);
+                $cordovaFileTransfer.upload(adminurl + 'upload', imageSrc)
+                  .then(function (result) {
+                    // Success!
+                    // $scope.hideLoading();
+                    result.response = JSON.parse(result.response);
+                    console.log(result.response.data[0]);
+                    actionsheet.push(result.response.data[0]);
+                    callback(actionsheet);
+
+                  }, function (err) {
+                    // Error
+                  }, function (progress) {
+                    // constant progress updates
+                  });
+              }, function (err) {
+                console.log(err);
+              });
+            } else {
+              console.log("hello pdf");
+              var fs = new $fileFactory();
+              $ionicPlatform.ready(function () {
+                fs.getEntriesAtRoot().then(function (result) {
+                  $scope.files = result;
+                }, function (error) {
+                  console.error(error);
+                });
+                $scope.getContents = function (path) {
+                  fs.getEntries(path).then(function (result) {
+                    $scope.files = result;
+                    $scope.files.unshift({
+                      name: "[parent]"
+                    });
+                    fs.getParentDirectory(path).then(function (result) {
+                      result.name = "[parent]";
+                      $scope.files[0] = result;
+                    });
+                  });
+                }
+              });
+            }
+            return true;
+          },
+          destructiveButtonClicked: function () {
+            console.log('DESTRUCT');
+            return true;
+          }
+        });
+        console.log("done");
+      },
     };
   });

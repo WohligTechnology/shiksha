@@ -62,16 +62,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
                     }
                 }
             })
-            .state('app.search', {
-                cache: false,
-                url: '/search',
-                views: {
-                    'menuContent': {
-                        templateUrl: 'templates/search.html',
-                        controller: 'SearchCtrl'
-                    }
-                }
-            })
+
             .state('app.photogallery', {
                 cache: false,
                 url: '/photogallery/:componentId/:projectId',
@@ -100,26 +91,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
                 templateUrl: 'templates/login.html',
                 controller: 'LoginCtrl'
             })
-            .state('app.state', {
-                cache: false,
-                url: '/state',
-                views: {
-                    'menuContent': {
-                        templateUrl: 'templates/state.html',
-                        controller: 'StateCtrl'
-                    }
-                }
-            })
-            .state('app.institute', {
-                cache: false,
-                url: '/institute',
-                views: {
-                    'menuContent': {
-                        templateUrl: 'templates/institute.html',
-                        controller: 'InstituteCtrl'
-                    }
-                }
-            })
+
             .state('app.overview', {
                 cache: false,
                 url: '/overview/:componentId',
@@ -140,26 +112,17 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
                     }
                 }
             })
-            .state('app.milestones', {
+            .state('app.project', {
                 cache: false,
-                url: '/milestones/:componentId',
+                url: '/project/:componentId',
                 views: {
                     'menuContent': {
-                        templateUrl: 'templates/milestones.html',
-                        controller: 'MilestonesCtrl'
+                        templateUrl: 'templates/project.html',
+                        controller: 'ProjetctCtrl'
                     }
                 }
             })
-            .state('app.utilization', {
-                cache: false,
-                url: '/utilization',
-                views: {
-                    'menuContent': {
-                        templateUrl: 'templates/utilization.html',
-                        controller: 'UtilizationCtrl'
-                    }
-                }
-            })
+
             .state('app.projectPhotos', {
                 cache: false,
                 url: '/project-photos/:componentId',
@@ -223,4 +186,23 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
                 }
             }
         };
+    })
+    .filter('indianCurrency', function () {
+        return function (getNumber) {
+            if (!isNaN(getNumber)) {
+                var numberArr = getNumber.toString().split('.');
+                var lastThreeDigits = numberArr[0].substring(numberArr[0].length - 3);
+                var otherDigits = numberArr[0].substring(0, numberArr[0].length - 3);
+                if (otherDigits != '') {
+                    lastThreeDigits = ',' + lastThreeDigits;
+                }
+                var finalNumber = otherDigits.replace(/\B(?=(\d{2})+(?!\d))/g, ",") + lastThreeDigits;
+                if (numberArr.length > 1) {
+                    var getRoundedDecimal = parseInt(numberArr[1].substring(0, 2)) + 1;
+                    finalNumber += "." + getRoundedDecimal;
+                }
+                // return '₹' + finalNumber;
+                return finalNumber;
+            }
+        }
     });

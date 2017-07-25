@@ -1,6 +1,8 @@
 <ion-modal-view>
   <ion-header-bar class="bar-positive bar bar-header">
-    <h1 class="title">Add Transaction </h1>
+    <h1 class="title" ng-if="id != null">Edit Transaction </h1>
+    <h1 class="title" ng-if="id ==null">Add Transaction </h1>
+
     <div class="buttons">
       <button class="button button-clear ion-close" ng-click="closetransaction()"></button>
     </div>
@@ -8,16 +10,16 @@
   <ion-content>
     <div class="list vendordetails">
       <div class="list">
-    <div class="range-div">
-      <label class="">Amount of work :</label>
-      <div class=" range range-assertive">
-        <div class="custom-slide" style="width:{{user.value}}%"></div>
-        <input type="range" min="0" max="{{user.max}}" value="{{user.min}}"  ng-model="user.value">
-        <div class="text-right">
-          {{user.value}}%
-        </div>
-      </div>
-    </div>
+        <!--<div class="range-div">
+          <label class="">Amount of work :</label>
+          <div class=" range range-assertive">
+            <div class="custom-slide" style="width:{{user.value}}%"></div>
+            <input type="range" min="0" max="{{user.max}}" value="{{user.min}}" ng-model="user.value">
+            <div class="text-right">
+              {{user.value}}%
+            </div>
+          </div>
+        </div>-->
 
         <!-- <label class="item item-input item-stacked-label">
           <span class="input-label">Vendor :</span>
@@ -27,76 +29,40 @@
           <span class="input-label">Allocation :</span>
           <input type="text" placeholder="Allocation">
         </label> -->
-
+        <label class="item item-input item-stacked-label">
+          <span class="input-label">Installment No.</span>
+          <input type="number"  placeholder="Installment No." ng-model="transactionData.installment" required>
+        </label>
         <label class="item item-input item-stacked-label">
           <span class="input-label">Payment Sent Date</span>
-          <input type="text"onfocus="(this.type='date')" onfocusout="(this.type='text')" id="date" placeholder="Payment Sent Date">
+          <input type="date" id="date" placeholder="Payment Sent Date" ng-model="transactionData.transactionSent" required>
         </label>
         <label class="item item-input item-stacked-label">
           <span class="input-label">Payment Received Date</span>
-          <input type="text"onfocus="(this.type='date')" onfocusout="(this.type='text')" id="date" placeholder="Payment Received Date" >
+          <input type="date" id="date" placeholder="Payment Received Date" ng-model="transactionData.transactionReceived" required>
           <!-- readonly make it -->
         </label>
 
         <label class="item item-input item-stacked-label">
           <span class="input-label">Value Released (INR) :</span>
-          <input type="text" placeholder="Value Released">
+          <input type="number" placeholder="Value Released" ng-model="transactionData.amount" required>
         </label>
         <label class="item item-input item-stacked-label">
           <span class="input-label">Description :</span>
-          <textarea placeholder="Description"></textarea>
+          <textarea placeholder="Description" ng-model="transactionData.remarks" required></textarea>
         </label>
         <label class="item item-input item-stacked-label">
-          <span class="input-label">Upload payment Proof : <button type="button" name="button">Upload Photos</button></span>
-          <div class="row" >
-         <div class="col">
+          <span class="input-label">Upload payment Proof : <button type="button" name="button" ng-click="addInstallmentProof(1)">Upload Photos</button></span>
+          <div class="row" ng-if="transactionData.file">
+         <div class="col-25">
    <div class="image-grid">
-    <img src="img/venkman.jpg" alt="image-grid">
-              </div>
-         </div>
-          <div class="col">
-              <div class="image-grid">
-    <img src="img/venkman.jpg" alt="image-grid">
-              </div>
-
-         </div>
-          <div class="col">
-              <div class="image-grid">
-    <img src="img/venkman.jpg" alt="image-grid">
-              </div>
-         </div>
-          <div class="col">
-             <div class="image-grid">
-    <img src="img/venkman.jpg" alt="image-grid">
+    <img ng-src="{{transactionData.file | uploadpath}}" alt="">
               </div>
          </div>
 
-     </div>   <div class="row" >
-       <div class="col">
- <div class="image-grid">
-  <img src="img/venkman.jpg" alt="image-grid">
-            </div>
-       </div>
-        <div class="col">
-            <div class="image-grid">
-  <img src="img/venkman.jpg" alt="image-grid">
-            </div>
-
-       </div>
-        <div class="col">
-            <div class="image-grid">
-  <img src="img/venkman.jpg" alt="image-grid">
-            </div>
-       </div>
-        <div class="col">
-           <div class="image-grid">
-  <img src="img/venkman.jpg" alt="image-grid">
-            </div>
-       </div>
-
-   </div>
+     </div> 
         </label>
-        <label class="item item-input item-stacked-label">
+        <!--<label class="item item-input item-stacked-label">
           <span class="input-label">Upload Work Photos : <button type="button" name="button">Upload Photos</button></span>
           <div class="row" >
          <div class="col">
@@ -121,36 +87,14 @@
               </div>
          </div>
 
-     </div>   <div class="row" >
-       <div class="col">
- <div class="image-grid">
-  <img src="img/venkman.jpg" alt="image-grid">
-            </div>
-       </div>
-        <div class="col">
-            <div class="image-grid">
-  <img src="img/venkman.jpg" alt="image-grid">
-            </div>
-
-       </div>
-        <div class="col">
-            <div class="image-grid">
-  <img src="img/venkman.jpg" alt="image-grid">
-            </div>
-       </div>
-        <div class="col">
-           <div class="image-grid">
-  <img src="img/venkman.jpg" alt="image-grid">
-            </div>
-       </div>
-
-   </div>
-        </label>
+     </div>  
+        </label>-->
       </div>
     </div>
 
-      <div class="setting-down text-center">
-       <button class="button button-small button-assertive uppercase submit-pop" ng-click="closetransition();">submit</button>
-     </div>
+    <div class="setting-down text-center">
+      <button class="button button-small button-assertive uppercase submit-pop" ng-click="saveTransaction(transactionData,id);"
+        ng-disabled="!transactionData ">submit</button>
+    </div>
   </ion-content>
 </ion-modal-view>

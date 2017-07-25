@@ -26,19 +26,19 @@
                       <div class="input-label">
                           Pan No.
                       </div>
-                        <input type="text" placeholder="Pan No."  ng-model="formData1.pan_no" ng-required="!(formData1.pan_no || formData1.tintan)">
+                        <input type="text" placeholder="Pan No."  ng-model="formData1.pan_no" ng-required="!(formData1.pan_no || formData1.tintan)" maxlength="10" minlength="10">
                     </ion-item>
                     <ion-item>
                       <div class="input-label">
                           TIntan No.
                       </div>
-                        <input type="text" placeholder="TIntan No."  ng-model="formData1.tintan" ng-required="!(formData1.pan_no || formData1.tintan)">
+                        <input type="text" placeholder="TIntan No."  ng-model="formData1.tintan" ng-required="!(formData1.pan_no || formData1.tintan)" maxlength="10" minlength="10">
                     </ion-item>
                     <ion-item>
                       <div class="input-label">
                           Mobile No.
                       </div>
-                        <input type="text" placeholder="Mobile No." ng-model="formData1.mobile" required only-Digits maxlength="10" minlength="10">
+                        <input type="text" placeholder="Mobile No." ng-model="formData1.mobile" required only-Digits maxlength="10" minlength="10" >
                     </ion-item>
                     <ion-item>
                       <div class="input-label">
