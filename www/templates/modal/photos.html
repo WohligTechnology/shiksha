@@ -8,7 +8,7 @@
   <ion-content>
     <div class="row photos" ng-repeat="pic in allPhotos1">
       <div class="col-33" ng-repeat="data in pic">
-        <div class="gallery">
+        <div class="gallery" ng-click="openImage(data.photo)">
           <img ng-src="img/fundpic.jpg" alt="" ng-if="!data.photo">
           <img ng-src="{{data.photo | uploadpath}}" alt="" ng-if="data.photo">
         </div>

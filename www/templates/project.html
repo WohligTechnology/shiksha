@@ -19,134 +19,20 @@
                     <span class="item-note custom-radio">
                   <label class=" item-toggle">
                     <label class="toggle toggle-energized">
-                        <input type="checkbox" disabled>
+                            <input type="checkbox" ng-checked="overview.status == 'Completed'" disabled>
                         <div class="track">
                         <div class="handle icon-lock"></div>
                         </div>
                     </label>
                   </label>
-            </span>
+          </span>
                     <div class="infra-div">
                         <div class="infra-project bold">{{overview.keycomponents.name}}</div>
-                        <!--<div>
-              <label for="" class="dark">Upgradation of library</label>
-            </div>-->
+
                     </div>
                 </div>
             </div>
-            <!--<div class="bar-sucess padding-horizontal progress-div">
-        <div class="">
 
-          <h5 class="bold"> </h5>
-        </div>
-        <div class="custom-slide-miles">
-          <div class="complete"></div>
-          <div class="begin-complete" style="width:{{complete.value}}%"></div>
-        </div>
-      </div>-->
-            <!-- <div class="progress-div">
-              <div class="">
-                <label for="" class="bold"> Total work completed</label>
-                 <span class="item-note bold dark">40%</span>
-              </div>
-              <div class="custom-slide-miles utilization-margn">
-                <div class="complete"></div>
-                <div class="begin-complete" style="width:{{complete.value}}%"></div>
-                <div class="mark-make" style="left: calc({{complete.value}}% - 20px);">{{complete.value}}%</div>
-              </div>
-            </div> -->
-            <!-- <div class="card what-use">
-        <div class="padding-horizontal mile-card">
-          <div class=" clearfix col util-header pdb0">
-            Project Type
-          </div>
-
-          <p class="display-inline">Preparing RFQ and evaluation</p>
-          <div class="item-note buttons-right button-div">
-            <button class="button button-icon ion-ios-camera"></button>
-            <button class="button button-icon ion-custom-comment" ng-click=" openMilestoneAdd(); "></button>
-            <label class="toggle toggle-assertive toggle-custom-mile">
-                            <input type="checkbox" ng-checked=true>
-                            <div class="track">
-                                <div class="handle"></div>
-                            </div>
-                       </label>
-            <button class="button button-icon ion-android-more-vertical more" ng-click="openUtilizationEdit();"></button>
-          </div>
-
-          <div class="util-row timeline-sec">
-            <div class="row pd0">
-              <div class="col-33 util-header text-center">
-                <p>Amount of work</p>
-              </div>
-              <div class="col-33 util-header text-center">
-                <p>Due date</p>
-              </div>
-              <div class="col-33 util-header text-center">
-                <p>Completion date</p>
-              </div>
-            </div>
-            <div class="row pd0 util-cont">
-              <div class="col-33 util-content bold text-center">40%</div>
-              <div class="col-33 util-content bold text-center">30.9.2016</div>
-              <div class="col-33 util-content bold txt-green text-center">20.10.2016</div>
-            </div>
-          </div>
-        </div>
-      </div> -->
-
-
-
-
-            <!--<div class="card what-use">
-        <div class="padding-horizontal mile-card">
-          <div class="header clearfix">
-            Project Type
-            <button class="button button-icon ion ion-link btnshare"></button>
-          </div>
-<div class="btn-para">
-<p class="display-inline">Repair of existing library room / Civil work</p>
-
-</div>
-
-          <div class="item-note buttons-right button-div light-grey">
-            <button class="button button-icon ion-ios-camera" disabled></button>
-            <button class="button button-icon ion-custom-comment" disabled ng-click=" openComment(); "></button>
-            <label class="toggle toggle-assertive toggle-custom-mile">
-                            <input type="checkbox" ng-checked=true>
-                            <div class="track">
-                                <div class="handle"></div>
-                            </div>
-                       </label>
-            <button class="button button-icon ion-android-more-vertical more" ng-click="openMilestoneEdit();"></button>
-          </div>
-
-          <div class="util-row timeline-sec">
-            <div class="row pd0">
-              <div class="col-33 util-header">
-                <p>Amount of work</p>
-              </div>
-              <div class="col-33 util-header text-center">
-                <p class="mg0">Due date</p>
-              </div>
-              <div class="col-33 util-header">
-                <p>Completion date</p>
-              </div>
-            </div>
-            <div class="row pd0 util-cont">
-              <div class="col-33 util-content medium">40%</div>
-              <div class="col-33 util-content medium text-center">30.9.2016</div>
-              <div class="col-33 util-content medium txt-green"></div>
-            </div>
-          </div>
-        </div>
-      </div>-->
-            <!--<div class="card unallocate">
-        <div class="padding-horizontal mile-card text-center">
-          <p>UNALLOCATED MILESTONES</p>
-          <span class="medium">20%</p>
-                </div>
-            </div>-->
         </div>
         <div class="">
 
@@ -160,38 +46,31 @@
                     <div class="begin-complete" style="width:{{componentProjects[0].totalAmountReleased/componentProjects[0].components.allocationAmount*100}}%"
                         ng-if="totalamt!=0"></div>
                     <div class="mark-make" style="left: calc({{componentProjects[0].totalAmountReleased/componentProjects[0].components.allocationAmount*100}}% - 25px);"
-                        ng-if="totalamt=0">{{componentProjects[0].totalAmountReleased/componentProjects[0].components.allocationAmount*100| number:2
+                        ng-if="totalamt!=0">{{componentProjects[0].totalAmountReleased/componentProjects[0].components.allocationAmount*100| number:2
                         }}%
                     </div>
                     <div class="mark-make" style="left: calc(0% - 10px);" ng-if="totalamt==0">0%</div>
                 </div>
             </div>
             <div class="project-bt">
-                {{componentProjects.length}}
                 <div class="card util-card padding spacings" ng-repeat="project in componentProjects track by $index">
                     <div class="">
                         <div class="row ">
-                            <!-- <div class="relative"> -->
                             <div class="col util-header pdb0">Project Type</div>
                             <div class="col util-header pdb0" ng-if="project.status">Status : <span class="util-content bold">{{project.status}}</span></div>
-                            <!-- <div class="mile-card">
-                                    <button class="button button-icon ion ion-link btnshare"></button>
-                                </div> -->
-                            <!-- </div> -->
+
                         </div>
                         <div class="row">
                             <div class="col util-content bold">{{project.projectType.name}}</div>
-                            <button class="button button-icon ion-android-more-vertical more more-button" ng-click="openUtilizationEdit(project._id);"></button>
+                            <button class="button button-icon ion-android-more-vertical more more-button" ng-click="openUtilizationEdit(project._id);"
+                                ng-if="overview.status != 'Completed'"></button>
                         </div>
-                        <!-- <div class="util-row"> -->
 
                         <div class="row">
                             <div class="col-50 util-header pd5">Asset Creation</div>
                             <div class="col-50 util-header pd5">
                                 <div class="item-note">
-                                    <!-- <button class="button button-icon ion-camera util-camera pr0" ng-click="openPhotos();"></button> -->
-                                    <!-- <button class="button icon ion-camera util-camera pr0 button-icon" ng-click="openPhotos(project.projectId);"></button> -->
-                                    <!-- <button type="button" name="button"></button> -->
+
                                 </div>
                                 <p class="mg0 util-header">Due Date</p>
                             </div>
@@ -206,62 +85,45 @@
                         </div>
                         <div class="row">
                             <div class="col-50 util-header pd5">Total Value</div>
-                            <!-- <div class="col-50 util-header pd5">Amount of Work<span class="for-badge"><i class="badge badge-one">1</i></span></div> -->
                             <div class="col-50 util-header pd5">Amount of Work</div>
                         </div>
                         <div class="row">
                             <div class="col-50 util-content bold pd5">₹ {{project.valueOfProject/100000|number:2}} Lacs</div>
 
                             <div class="col-50 util-content bold pd5">
-                                <!-- <div class="item-note">
-                                        <button class="button button-icon ion-android-share-alt links"></button>
-                                </div> -->
+
                                 <p class="bold">
                                     {{project.completedAmountOfWork}}%
                                 </p>
                             </div>
                         </div>
-                        <!--<div class="row">
-                            <div class="col-50 util-content bold pd5">Alpha Contractores Private.LTD,Mumbai</div>
-                            <div class="col-50 util-content bold pd5">15.10.2016</div>
-                        </div>-->
+
                     </div>
                     <div class="tab-custom tab-border" ng-init="tab=1" ng-if="payment[$index]">
                         <ul class="tabs-util">
                             <li class="uppercase text-center" ng-click="tab = 1" ng-class="{active:tab == 1}">
                                 Work-order
                             </li>
-                            <!-- <li class="uppercase text-center" ng-click="tab = 2" ng-class="{active:tab == 2}">
-                                    <span class="for-badge bold">
-                                        Milestones <i class="badge badge-one">1</i>
-                                    </span>
-                                </li> -->
+
                             <li class="uppercase text-center" ng-click="tab = 2" ng-class="{active:tab == 2}">
                                 Notes
                             </li>
                         </ul>
                         <div ng-show="tab == 1">
                             <div class="row-main-util">
-                                <!-- <div class="comment-button">
-                                        <button class="button button-small button-assertive view-pop item-note" ng-click="opentransaction()"><i class="ion ion-plus"></i> Transaction</button>
-                                    </div> -->
+
                                 <div class="row util-row">
                                     <div class="col-25 util-header fs12 ">Vendor</div>
                                     <div class="col-25 util-header text-center fs12">Allocation</div>
                                     <div class="col-25 util-header text-center fs12">Released</div>
-                                    <!--<div class="col-25 util-header text-center fs12">Add Payment</div>-->
                                 </div>
                                 <div class="row util-row" ng-repeat="proEx in project.projectExpense">
                                     <div class="col-25 util-content bold fs12 vendor-name" ng-click="openMilestoneEdit(proEx,project._id,project.components)">{{proEx.vendor.name}}</div>
                                     <div class="col-25 util-content bold text-center fs12" ng-click="openMilestoneEdit(proEx,project._id,project.components)">₹ {{proEx.allocatedAmount/100000|number:2}}Lacs</div>
                                     <div class="col-25 util-content bold text-center fs12" ng-click="openMilestoneEdit(proEx,project._id,project.components)">₹ {{proEx.VendorReleaseAmount/100000|number:2}}Lacs</div>
-                                    <!-- Removed  ng-click="openMilestoneEdit();" -->
-                                    <div class="col-25 util-content bold text-center fs20" ng-click="openPDF(proEx.orderFile)">
+                                    <div class="col-25 util-content bold text-center fs26" ng-click="openPDF(proEx.orderFile)">
                                         <i class="icon ion-document-text"></i>
-                                        <!--<div class="add-tag add-transaction " ng-click="opentransaction()">
-                                            <img src="img/transaction.png" alt="">
-                                            <i class="ion ion-plus-round"></i>
-                                        </div>-->
+
                                     </div>
                                 </div>
 
@@ -278,7 +140,6 @@
                                 </div>
                                 <div class="comment-button">
                                     <button class="button button-small button-assertive view-pop pull-left" type="submit" ng-disabled="!comment.text">Comment</button>
-                                    <!--</div>-->
                             </form>
                             <button class="button button-small button-assertive view-pop item-note" ng-click="viewAll(project._id)">View all</button>
                             </div>
@@ -299,7 +160,7 @@
 
 
     <ion-footer>
-        <div class="float-button" ng-click="openCreate();">
+        <div class="float-button" ng-click="openCreate();" ng-if="overview.status != 'Completed'">
             <a class="content ">
                 <i class="ion ion-plus"> </i>
             </a>
@@ -313,15 +174,11 @@
                     <i class="ion ion-shuffle"></i> Fund Flow
                 </a>
                 <a class="tab-item calm">
-                    <!--<i class="ion ion-calendar"></i> Milestones-->
                     <i class="ion ion-social-buffer"></i> projects
 
                 </a>
-                <!-- <a class="tab-item" ui-sref="app.utilization">
-                    <i class="ion ion-bag"></i> Utilization
-                </a> -->
+
                 <a class="tab-item" ui-sref="app.projectPhotos({ componentId: componentId})">
-                    <!--<i class="ion  ion-android-camera"></i> Photos-->
                     <i class="ion  ion-android-camera"></i> media
                 </a>
             </div>

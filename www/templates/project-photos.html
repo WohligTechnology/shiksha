@@ -13,30 +13,7 @@
 
         </ion-nav-buttons>
     </ion-nav-bar>
-    <!-- <ion-content class="has-tabs photos-list">
-    <div class="">
 
-      <div class="row photos" ng-repeat="pic in allPhotos">
-        <div class="col-50" ui-sref="app.photogallery({componentId:componentId,projectId:data._id})" ng-repeat="data in pic">
-          <div class="relative">
-            <div class="black-strip">
-                <h4>{{data.projectType.name}}</h4>
-            </div>
-            <img ng-src="img/fundpic.jpg" alt="" ng-if="!data.photos[0].photo">
-            <img ng-src="{{data.photos[0].photo | uploadpath}}" alt="" ng-if="data.photos[0].photo">
-          </div>
-        </div>
-      </div>
-
-
-
-
-
-      </div>
-
-
-
-    </ion-content> -->
     <ion-tabs class="tab-button tab-header has-header tabs-top ordertab">
         <ion-tab title="Projects">
 
@@ -156,44 +133,22 @@
 
             <ion-content class="top-93 has-footer ">
 
-
                 <div class="btm-150">
-
-
                     <div class="card" ng-repeat="formData in utilizationCertificates">
-                        <!-- <a class="button button-icon icon ion-edit item-note edit-btn"></a>
-                    <div class="clearfix">
-                    </div> -->
-
-                        <ul class="list">
-                            <div class="milestone-add">
-
-
-                                <li class="item item-input item-stacked-label">
-                                    <span class="input-label">Installment no : {{formData.installmentNo}}</span>
-                                    <!-- <input type="text" placeholder="Installment no" ng-model="formData.installmentNo"> -->
-                                </li>
-                                <li class="item item-input item-stacked-label">
-                                    <span class="input-label">Date of UC : {{formData.date | date}}</span>
-                                    <!-- <input type="text" onfocus="(this.type='date')" onfocusout="(this.type='text')" id="date" placeholder="Date of UC" ng-model="formData.date" ng-value="{{formData.date |date}}"> -->
-                                </li>
-                                <li class="item item-input item-stacked-label">
-                                    <span class="input-label">Value (in INR):{{formData.amount}}</span>
-                                    <!-- <input type="number" placeholder="Value (in INR)" ng-model="formData.amount"> -->
-                                </li>
-                                <li class="item item-input item-stacked-label">
-                                    <span class="input-label">Upload payment Proof : </span>
-
-                                    <div class="image-grid" ng-click="openImage(formData.images)" ng-if=" formData.images.slice(formData.images.length-3, formData.images.length) !='pdf'  ">
-                                        <img ng-src="{{formData.images | uploadpath}}">
-                                    </div>
-                                    <div class="image-grid" ng-click="openPDF(formData.images)" ng-if=" formData.images.slice(formData.images.length-3, formData.images.length) =='pdf'  ">
-                                        <img ng-src="{{formData.images | uploadpath}}">
-                                    </div>
-
-
-                                </li>
-                        </ul>
+                        <a class="button button-icon icon ion-edit item-note edit-btn" ng-click="openUcForm('Edit' ,formData);" ng-if="overview.status != 'Completed'"></a>
+                        <div class="clearfix">
+                        </div>
+                        <div class="milestone-add">
+                            <div class="">Installment no : {{formData.installmentNo}}</div>
+                            <div class="">Date of UC : {{formData.date | date}}</div>
+                            <div class="">Value (in INR):{{formData.amount | number}}</div>
+                            <div class="">Upload payment Proof : </div>
+                            <div class="image-grid" ng-click="openImage(formData.images)" ng-if=" formData.images.slice(formData.images.length-3, formData.images.length) !='pdf'  ">
+                                <img ng-src="{{formData.images | uploadpath}}">
+                            </div>
+                            <div class="image-grid" ng-click="openPDF(formData.images)" ng-if=" formData.images.slice(formData.images.length-3, formData.images.length) =='pdf'  ">
+                                <img src="http://www.freeiconspng.com/uploads/pdf-icon-png-17.png" alt="">
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -202,8 +157,10 @@
             </div>
 
             <ion-footer>
-                <div class="float-button" ng-click="openUcForm();">
+
+                <div class="float-button" ng-click="openUcForm('Create',{});" ng-if="overview.status != 'Completed'">
                     <a class="content ">
+
                         <i class="ion ion-plus "> </i>
                     </a>
                 </div>

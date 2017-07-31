@@ -98,7 +98,7 @@
                                             <p class="pull-left home-label">DELAYED</p>
                                         </div>
                                         <div class="col">
-                                            <p class="pull-left delayed bold  f16"> {{DashboardAllData.getTotalComponents[0].totalDelayedComponents || 3}}</p>
+                                            <p class="pull-left delayed bold  f16"> {{DashboardAllData.getTotalComponents[0].totalDelayedComponents}}</p>
                                         </div>
                                     </div>
                                 </div>
@@ -149,7 +149,7 @@
                         <div class="clearfix"></div>
                     </div>
                     <div class="card-institue no-space pb110">
-                        <div ng-repeat="fundInstitute in componentData track by $index" class="card card-institute-detail" ng-class="{'activeStatus':fundInstitute.status=='Active','onHoldStatus':fundInstitute.status=='OnHold','completedStatus':fundInstitute.status=='Completed'}">
+                        <div ng-repeat="fundInstitute in componentData track by $index" class="card card-institute-detail" ng-class="{'activeStatus':fundInstitute.status=='Active','onHoldStatus':fundInstitute.status=='OnHold','completedStatus':fundInstitute.status=='Completed','delayedStatus':fundInstitute.status=='Delayed'}">
                             <div class="no-pad">
 
                                 <div class="paddings" ui-sref="app.overview({ componentId: fundInstitute._id})">

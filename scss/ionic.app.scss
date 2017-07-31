@@ -1230,8 +1230,11 @@ input[type=range]:focus::-webkit-slider-runnable-track {
         background: $positive;
         margin-top: -8px;
     }
+    .milestone-add{
+        margin: 0 10px;
+    }
     .mark-make {
-        width: 25px;
+        width: 40px;
         background: #e5e5e5;
         position: relative;
         bottom: -5px;
@@ -1718,9 +1721,18 @@ input[type=range]:focus::-webkit-slider-runnable-track {
     padding-right: 0;
 }
 
+.fs26 {
+    font-size: 26px;
+}
+
 .util-content {
-    color: #333333;
+    color: #858585;
     line-height: 20px;
+}
+
+.duedate {
+    width: 100%;
+    background: transparent!important;
 }
 
 .util-add {
@@ -2665,6 +2677,22 @@ input:-webkit-autofill {
     }
 }
 
+.delayedStatus {
+    background-color: rgba(253, 120, 120, 0.88);
+    .infra-college {
+        background-color: rgba(243, 105, 105, 0.65);
+    }
+    .dot1 {
+        color: #003366!important; // color: #6d5303!important;
+    }
+    .dot2 {
+        color: #c3ad6a!important;
+    }
+    .bg-footer-card {
+        background-color: #e24a4a;
+    }
+}
+
 .completedStatus {
     background-color: #d9dcdb;
     .infra-college {
@@ -2773,6 +2801,13 @@ input:-webkit-autofill {
     }
     .value {
         color: black;
+    }
+}
+
+.remarkmodal {
+    padding: 10px;
+    h4 {
+        color: #666;
     }
 }
 
@@ -2936,6 +2971,7 @@ input:-webkit-autofill {
     position: absolute;
     text-align: center;
     width: 100%;
+    z-index: 1;
     .row {
         padding: 0!important;
         background: #3300ff;
@@ -2976,3 +3012,7 @@ input:-webkit-autofill {
 .lastitem {
     margin-bottom: 20%;
 }
+    input[disabled], select[disabled], textarea[disabled], input[readonly]:not(.cloned-text-input), textarea[readonly]:not(.cloned-text-input), select[readonly]{
+    background-color: transparent!important;
+
+    }

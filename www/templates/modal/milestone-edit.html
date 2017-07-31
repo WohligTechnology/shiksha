@@ -1,112 +1,81 @@
 <div>
     <div class="popup-head">
         <ion-header-bar class="bar-positive bar bar-header">
-            <h1 class="title">Transaction</h1>
+            <h1 class="title">Work Order Detail</h1>
             <div class="buttons">
                 <button class="button button-clear ion-close" ng-click="closeMilestoneEdit()"></button>
             </div>
         </ion-header-bar>
     </div>
 
+    <div ng-init="show =0">
 
-
-    <ion-content class="work-ion">
-        <div class="card" ng-repeat="wO in WorkOrderTransactions">
-            <a class="button button-icon icon ion-edit item-note edit-btn" ng-click="opentransaction(wO._id)"></a>
-            <div class="clearfix">
+        <div class="vendorlist">
+            <div class="row">
+                <div class="col-50" ng-click="showhistory(0);show= 0 " ng-class="{'undercol':show ==0}">
+                    Transactions
+                </div>
+                <div class="col-50" ng-click="showhistory(1);show= 1" ng-class="{'undercol':show ==1}">
+                    Work Order
+                </div>
             </div>
+        </div>
 
-            <ul class="list">
-                <div class="milestone-add">
-                    <li class="item item-input item-stacked-label">
-                        <span class="input-label">Installment : {{wO.installment}}</span>
-                    </li>
-                    <li class="item item-input item-stacked-label">
-                        <span class="input-label">Value Released : {{wO.amount}}</span>
-                    </li>
-                    <li class="item item-input item-stacked-label">
-                        <span class="input-label">Payment Received Date : {{wO.transactionReceived | date}}</span>
-                    </li>
-                    <li class="item item-input item-stacked-label">
-                        <span class="input-label">Payment Sent Date : {{wO.transactionSent | date}}</span>
-                    </li>
-                    <li class="item item-input item-stacked-label">
-                        <span class="input-label">Description</span>
-                        <textarea type="text" placeholder="Description" ng-model="wO.remarks"> </textarea>
-                    </li>
-                    <li class="item item-input item-stacked-label">
-                        <span class="input-label">Payment Proof : </span>
-                        <div class="image-grid">
-                            <img ng-src="{{wO.file | uploadpath}}">
+        <div class="hasorder-foot" ng-if="show==0">
+            <ion-content class="work-ion has-tabs-top">
+                <div class="card" ng-repeat="wO in WorkOrderTransactions">
+                    <a class="button button-icon icon ion-edit item-note edit-btn" ng-click="opentransaction(wO._id)" ng-if="overview.status != 'Completed'"></a>
+                    <div class="clearfix">
+                    </div>
+                    <ul class="list">
+                        <div class="milestone-add">
+                            <div class="">Installment : {{wO.installment}}</div>
+                            <div class="">Value Released : {{wO.amount | number}}</div>
+                            <div class="">Payment Received Date : {{wO.transactionReceived | date}}</div>
+                            <div class="">Payment Sent Date : {{wO.transactionSent | date}}</div>
+                            <!-- <div class="">Description</div>
+                            <textarea type="text" placeholder="Description" ng-model="wO.remarks"> </textarea>
+                            <div class="">Payment Proof : </div>
+                            <div class="image-grid" ng-if=" wO.file.slice(wO.file.length-3, wO.file.length) =='pdf'  " ng-click="openPDF(wO.file)">
+                                <img src="http://www.freeiconspng.com/uploads/pdf-icon-png-17.png" alt="">
+                            </div>
+                            <div class="image-grid" ng-if=" wO.file.slice(wO.file.length-3, wO.file.length) !='pdf'" ng-click="openImage(wO.photo)">
+                                <img ng-src="{{wO.file | uploadpath}}">
+                            </div> -->
+                    </ul>
+                    </div>
+
+
+            </ion-content>
+            </div>
+            <div class="hasorder-foot" ng-if="show==1">
+
+
+                <ion-content class="work-ion has-tabs-top">
+                    <div class="card">
+                        <a class="button button-icon icon ion-edit item-note edit-btn" ng-click="openPaymentEdit(projectID,singleWorkOrder,'Edit')"
+                            ng-if="overview.status != 'Completed'"></a>
+                        <div class="clearfix">
                         </div>
-                    </li>
-            </ul>
-            </div>
-
-
-            <!--<div class="card">
-                <a class="button button-icon icon ion-edit item-note edit-btn"></a>
-                <div class="clearfix">
-                </div>
-                <div class="milestone-add">
-                    <ul class="list">
-
-                        <li class="item item-input item-stacked-label">
-                            <span class="input-label">Payment Date</span>
-                            <input type="text" onfocus="(this.type='date')" onfocusout="(this.type='text')" id="date" placeholder="Payment Date">
-                        </li>
-                        <li class="item item-input item-stacked-label">
-                            <span class="input-label">Value Released</span>
-                            <input type="number" placeholder="Value Released">
-                        </li>
-                        <li class="item item-input item-stacked-label">
-                            <span class="input-label">Description</span>
-                            <textarea type="text" placeholder="Description"> </textarea>
-                        </li>
-                    </ul>
+                        <ul class="">
+                            <div class="milestone-add">
+                                <div class="">Vendor name : {{singleWorkOrder.vendor.name}}</div>
+                                <div class="">Allocated Amount : {{singleWorkOrder.allocatedAmount | number}}</div>
+                                <div class="">Vendor Release Amount : {{singleWorkOrder.VendorReleaseAmount | number:2}}</div>
+                                <div class="">Issue Date: {{singleWorkOrder.orderIssueDate | date}}</div>
+                                <div class="">Due Date : {{singleWorkOrder.orderDueDate | date}}</div>
+                            </div>
+                        </ul>
+                        </div>
+                </ion-content>
                 </div>
             </div>
-
-
-            <div class="card">
-                <a class="button button-icon icon ion-edit item-note edit-btn"></a>
-                <div class="clearfix">
-                </div>
-                <div class="milestone-add">
-                    <ul class="list">
-
-                        <li class="item item-input item-stacked-label">
-                            <span class="input-label">Payment Date</span>
-                            <input type="text" onfocus="(this.type='date')" onfocusout="(this.type='text')" id="date" placeholder="Payment Date">
-                        </li>
-                        <li class="item item-input item-stacked-label">
-                            <span class="input-label">Value Released</span>
-                            <input type="number" placeholder="Value Released">
-                        </li>
-                        <li class="item item-input item-stacked-label">
-                            <span class="input-label">Description</span>
-                            <textarea type="text" placeholder="Description"> </textarea>
-                        </li>
-                    </ul>
-                </div>
-            </div>-->
-            <!-- <div class="setting-down text-center">
-                            <button class="button  button-assertive uppercase submit-pop" ng-click="closePaymentEdit();">submit</button>
-                        </div> -->
-    </ion-content>
-
-
-
-    <ion-footer>
-        <div class="float-button" ng-click="opentransaction(null);">
-            <a class="content ">
+            <ion-footer>
+                <div class="float-button" ng-click="opentransaction(null);" ng-if="show==0 && overview.status != Completed">
+                    <a class="content ">
                 <i class="ion ion-plus "> </i>
             </a>
+                </div>
+            </ion-footer>
         </div>
-    </ion-footer>
-
-
-
-
     </div>
-</div>

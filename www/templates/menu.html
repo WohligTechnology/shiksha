@@ -31,7 +31,7 @@
       <ion-item class="bg">
         <div class="proimg">
           <img src="img/ionic.png" class="img-responsive" alt="profileimage" ng-if="!profile.photo">
-          <img ng-src="{{profile.photo}}" class="img-responsive" alt="profileimage" ng-if="profile.photo">
+          <img ng-src="{{profile.photo |uploadpath}}" class="img-responsive" alt="profileimage" ng-if="profile.photo">
 
         </div>
         <div class="image-info">

@@ -1,4 +1,4 @@
-// var adminurl = "http://192.168.1.125/api/";
+// var adminurl = "http://192.168.1.131/api/";
 // var adminurl = "http://wohlig.io/api/";
 // var adminurl = "http://rusa.wohlig.co.in/api/";//server
 // var adminurl = "http://rusabeta.wohlig.com/api/";//server
@@ -47,6 +47,14 @@ angular.module('starter.services', [])
       addUcToComponent: function (formData, callback) {
         return $http({
           url: adminurl + 'components/addUcToComponent',
+          method: "POST",
+          withCredentials: true,
+          data: formData
+        }).success(callback);
+      },
+      updateUcOfComponent: function (formData, callback) {
+        return $http({
+          url: adminurl + 'components/updateUcOfComponent',
           method: "POST",
           withCredentials: true,
           data: formData
@@ -213,6 +221,13 @@ angular.module('starter.services', [])
           data: Data
         }).success(callback);
       },
+      getWorkOrderToEdit: function (Data, callback) {
+        return $http({
+          url: adminurl + 'projectExpense/getWorkOrderToEdit',
+          method: "POST",
+          data: Data
+        }).success(callback);
+      },
       getComponentAllPhotos: function (id, callback) {
         var Data = {
           componentId: id
@@ -368,32 +383,83 @@ angular.module('starter.services', [])
                 height: 800,
                 quality: 80 // Higher is better
               };
+              cordova.plugins.diagnostic.isCameraAuthorized({
+                successCallback: function (authorized) {
+                  if (authorized == false) {
+                    cordova.plugins.diagnostic.requestCameraAuthorization({
+                      successCallback: function (status) {
+                        $cordovaImagePicker.getPictures(options).then(function (results) {
+                          var i = 0;
+                          $ionicLoading.show({
+                            template: 'Loading...',
+                            duration: 3000
+                          }).then(function () {
+                          });
+                          _.forEach(results, function (value) {
 
-              $cordovaImagePicker.getPictures(options).then(function (results) {
-                console.log(results);
-                var i = 0;
-                _.forEach(results, function (value) {
-                  // $scope.showLoading('Uploading Image...', 10000);
-                  $cordovaFileTransfer.upload(adminurl + 'upload', value)
-                    .then(function (result) {
-                      // Success!
-                      // $scope.hideLoading();
-                      result.response = JSON.parse(result.response);
-                      console.log(result.response.data[0]);
-                      actionsheet.push(result.response.data[0]);
-                      i++;
-                      if (results.length == i) {
-                        callback(actionsheet);
+                            $cordovaFileTransfer.upload(adminurl + 'upload', value)
+                              .then(function (result) {
+                                $ionicLoading.hide().then(function () {
+                                  console.log("The loading indicator is now hidden");
+                                });
+                                result.response = JSON.parse(result.response);
+                                console.log(result.response.data[0]);
+                                actionsheet.push(result.response.data[0]);
+                                i++;
+                                if (results.length == i) {
+                                  callback(actionsheet);
+                                }
+                              }, function (err) {
+                                // Error
+                              }, function (progress) {
+                                // constant progress updates
+                              });
+                          });
+
+                        }, function (error) {
+                          console.log('Error: ' + JSON.stringify(error)); // In case of error
+                        });
+                      },
+                      errorCallback: function (error) {
+                        console.error(error);
                       }
-                    }, function (err) {
-                      // Error
-                    }, function (progress) {
-                      // constant progress updates
                     });
-                });
 
-              }, function (error) {
-                console.log('Error: ' + JSON.stringify(error)); // In case of error
+                  } else {
+                    $cordovaImagePicker.getPictures(options).then(function (results) {
+                      var i = 0;
+                      $ionicLoading.show({
+                        template: 'Loading...',
+                        duration: 3000
+                      }).then(function () {
+                      });
+                      _.forEach(results, function (value) {
+
+                        $cordovaFileTransfer.upload(adminurl + 'upload', value)
+                          .then(function (result) {
+                            $ionicLoading.hide().then(function () {
+                            });
+                            result.response = JSON.parse(result.response);
+                            actionsheet.push(result.response.data[0]);
+                            i++;
+                            if (results.length == i) {
+                              callback(actionsheet);
+                            }
+                          }, function (err) {
+                            // Error
+                          }, function (progress) {
+                            // constant progress updates
+                          });
+                      });
+
+                    }, function (error) {
+                      console.log('Error: ' + JSON.stringify(error)); // In case of error
+                    });
+                  }
+                },
+                errorCallback: function (error) {
+                  console.error("The following error occurred: " + error);
+                }
               });
             } else if (index === 1) {
               var cameraOptions = {
@@ -410,10 +476,17 @@ angular.module('starter.services', [])
               $cordovaCamera.getPicture(cameraOptions).then(function (imageData) {
                 var imageSrc = "data:image/jpeg;base64," + imageData;
                 // $scope.showLoading('Uploading Image...', 10000);
+                $ionicLoading.show({
+                  template: 'Loading...',
+                  duration: 3000
+                }).then(function () {
+                  console.log("The loading indicator is now displayed");
+                });
                 $cordovaFileTransfer.upload(adminurl + 'upload', imageSrc)
                   .then(function (result) {
-                    // Success!
-                    // $scope.hideLoading();
+                    $ionicLoading.hide().then(function () {
+                      console.log("The loading indicator is now hidden");
+                    });
                     result.response = JSON.parse(result.response);
                     console.log(result.response.data[0]);
                     actionsheet.push(result.response.data[0]);

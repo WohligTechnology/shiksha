@@ -1,4 +1,4 @@
-angular.module('starter.controllers', ['starter.services', 'ngCordova', 'highcharts-ng', "chart.js"])
+angular.module('starter.controllers', ['starter.services', 'ngCordova', 'highcharts-ng', "chart.js", "cleave.js"])
 
     .controller('AppCtrl', function ($scope, $ionicModal, $ionicSideMenuDelegate, MyServices, $timeout, $ionicPopup, $state) {
         $scope.filters = function () {
@@ -234,9 +234,6 @@ angular.module('starter.controllers', ['starter.services', 'ngCordova', 'highcha
         $rootScope.percent_Release = null;
         $scope.overviewChartshow = false;
         $scope.componentData = [];
-
-
-
         $scope.toasts = function (msg) {
             $scope.msg = msg;
             $scope.toast = $ionicPopup.show({
@@ -479,34 +476,25 @@ angular.module('starter.controllers', ['starter.services', 'ngCordova', 'highcha
             console.log("filter", formData);
             $scope.filterCriteria = {};
             if (angular.isObject(formData.pab)) {
-                // $scope.filterCriteria.pab = formData.pab._id;
                 $scope.dropDownData.pab = formData.pab._id;
             }
             if (angular.isObject(formData.state)) {
                 $scope.dropDownData.state = formData.state._id;
             }
             if (angular.isObject(formData.institute)) {
-                // $scope.filterCriteria.institute = formData.institute._id;
                 $scope.dropDownData.institute = formData.institute._id;
             }
             if (angular.isObject(formData.components)) {
-                // $scope.filterCriteria.components = formData.components._id;
                 $scope.dropDownData.components = formData.components._id;
             }
             if (formData.status) {
-                // $scope.filterCriteria.componentStatus = formData.status;
                 $scope.dropDownData.componentStatus = formData.status;
             }
             $scope.filter.close();
             console.log("filter", $scope.dropDownData);
 
             $scope.loadData();
-            //  MyServices.getProjectReport($scope.filterCriteria,function(data) {
-            //      console.log("filtered data",data);
-            //      if(data){
-            //     $scope.filter.close();
-            //      }
-            //  });
+
         };
         //filter api end
         $scope.filters = function () {
@@ -529,103 +517,6 @@ angular.module('starter.controllers', ['starter.services', 'ngCordova', 'highcha
             $scope.filter.close();
         }
 
-        $scope.options = {
-            segmentShowStroke: false
-        };
-        $scope.colors = ["#4b64ff", "#91a4af", "#d8dcde"];
-        $scope.override = {
-            borderColor: ['#4b64ff', '#91a4af', '#d8dcde']
-        };
-        $scope.card = {};
-        $scope.cardopen = function (index, flag) {
-            $scope.card[index] = flag;
-        };
-        $scope.showtab = true;
-        // $scope.colors = ['#4b64ff', '#91a4af', '#d8dcde'];
-        // $scope.override = {
-        //   borderColor: ['#4b64ff', '#91a4af', '#d8dcde']
-        // };
-        $scope.options1 = {
-            segmentShowStroke: false
-        };
-        $scope.colors0 = ["#003366", "#0099cc", "#ffffff"];
-        $scope.override0 = {
-            borderColor: ["#003366", "#0099cc", "#ffffff"]
-        };
-        $scope.colors1 = ["#6d5303", "#c3ad6a", "#ffffff"];
-        $scope.override1 = {
-            borderColor: ["#6d5303", "#c3ad6a", "#ffffff"]
-        };
-        $scope.colors2 = ["#525050", "#ada8a8", "#ffffff"];
-        $scope.override2 = {
-            borderColor: ["#525050", "#ada8a8", "#ffffff"]
-        };
-        $scope.labels1 = ["", "", ""];
-        $scope.data1 = [30, 55, 15];
-        $scope.options = {
-            segmentShowStroke: false
-        };
-        $scope.funds = {
-            utilized: 50,
-            received: 40,
-        };
-        $scope.fundInstitutes = [{
-            pab: 'PAB 8',
-            utilized: '50',
-            received: '40',
-            classStatus: 'bg-sky-blue',
-            funddot: 'bg-sky-blue',
-            status: 'Active',
-            data1: [30, 55, 15],
-            grant: '75,00,000',
-            colors1: ["#003366", "#0099cc", "#ffffff"],
-            override1: {
-                borderColor: ["#003366", "#0099cc", "#ffffff"]
-            },
-            dot1: 'blue-dark',
-            dot2: 'blue-light',
-            name: 'Sports facilities',
-            classcommerce: 'ecommerce-green',
-            fundRecieved: ' 40,00,000',
-
-        }, {
-            pab: 'PAB7',
-            utilized: '50',
-            received: '40',
-            status: 'On-hold',
-            classStatus: 'bg-yellow',
-            grant: '75,00,000',
-            data1: [50, 35, 15],
-            dot1: 'yellow-dark',
-            dot2: 'yellow-light',
-            colors1: ["#6d5303", "#c3ad6a", "#ffffff"],
-            override1: {
-                borderColor: ["#6d5303", "#c3ad6a", "#ffffff"]
-            },
-            funddot: 'bg-yellow',
-            classcommerce: 'ecommerce-green',
-            name: 'Sports facilities',
-            fundRecieved: ' 40,00,000',
-        }, {
-            pab: 'PAB7',
-            utilized: '50',
-            received: '40',
-            status: 'Completed',
-            date: '15.06.2016',
-            classStatus: 'bg-greylight',
-            funddot: 'bg-greylight',
-            data1: [40, 45, 15],
-            dot1: 'grey-dark',
-            dot2: 'grey-light',
-            colors1: ["#525050", "#ada8a8", "#ffffff"],
-            override1: {
-                borderColor: ["#525050", "#ada8a8", "#ffffff"]
-            },
-            classcommerce: 'ecommerce-orange',
-            grant: '45,00,000',
-            name: 'Contruction of boys hostel',
-            fundRecieved: ' 40,00,000',
-        }];
 
 
         $rootScope.overviewChart = {
@@ -780,11 +671,6 @@ angular.module('starter.controllers', ['starter.services', 'ngCordova', 'highcha
             borderColor: ['#88c057', '#d8dcde']
         };
 
-        $scope.funds = {
-            allocated: 100,
-            received: 60,
-            value: 30
-        };
     })
 
     .controller('FundFlowCtrl', function ($scope, $filter, $stateParams, MyServices, $ionicModal) {
@@ -827,12 +713,6 @@ angular.module('starter.controllers', ['starter.services', 'ngCordova', 'highcha
             $scope.fundflow = data.data;
         });
 
-        // $scope.getCenterToState = function(obj) {
-        //     return obj["Center To State"];
-        // };
-        // $scope.getStateToInstitute = function(obj) {
-        //     return obj["State To Institute"];
-        // };
 
         $ionicModal.fromTemplateUrl('templates/modal/remark.html', {
             scope: $scope,
@@ -882,12 +762,14 @@ angular.module('starter.controllers', ['starter.services', 'ngCordova', 'highcha
 
     })
 
-    .controller('ProjetctCtrl', function ($scope, $stateParams, $filter, MyServices, $rootScope, $ionicModal, $ionicActionSheet, $cordovaCamera, $ionicLoading, $cordovaFileTransfer, $cordovaImagePicker) {
+    .controller('ProjetctCtrl', function ($scope, $stateParams, $ionicPopup, $filter, MyServices, $rootScope, $ionicModal, $ionicActionSheet, $cordovaCamera, $ionicLoading, $cordovaFileTransfer, $cordovaImagePicker) {
         $scope.projectNotInProExpense = {};
-        console.log("$scope.componentId   " + $stateParams.componentId);
         $scope.componentId = $stateParams.componentId;
         $scope.allocationData = {};
-        $scope.componentId = $stateParams.componentId;
+        $scope.workOrder = {};
+        $scope.gettrans = {};
+        $scope.transactionEdit = {};
+        $rootScope.projectID = "";
         var dropDownData = {
             pab: "",
             state: "",
@@ -896,42 +778,37 @@ angular.module('starter.controllers', ['starter.services', 'ngCordova', 'highcha
             keyComponents: "",
             page: 1
         };
+
+        $scope.options = {
+            currency: {
+                numeral: true,
+                numeralThousandsGroupStyle: 'lakh'
+            }
+        };
+        dropDownData.component = $stateParams.componentId;
         MyServices.componentData(dropDownData, function (data) {
             $scope.overview = data.data.compList[0];
         });
         var options = "location=no,toolbar=yes";
         var target = "_blank";
         var url = "";
-        $scope.workOrder = {};
-        $scope.gettrans = {};
-
-        $scope.transactionEdit = {};
         $scope.openPDF = function (link) {
-            // url = $filter('serverimage')(link);
             $scope.pdfURL = $filter('uploadpath')(link);
             $scope.finalURL = 'http://docs.google.com/gview?url=' + $scope.pdfURL + '&embedded=true';
             var ref = cordova.InAppBrowser.open($scope.finalURL, target, options);
         };
-        dropDownData.component = $stateParams.componentId;
-
-
-
         $scope.getProject = function () {
-
             MyServices.componentProjects($scope.componentId, function (data) {
                 if (data.value && data.data != 'noDataFound') {
                     $scope.fundUtil = 0;
                     $scope.totalamt = 0;
                     $scope.componentProjects = data.data;
-
                     _.forEach($scope.componentProjects, function (value) {
-
                         $scope.fundUtil = $scope.fundUtil + value.totalAmountReleased;
                         $scope.totalamt = $scope.totalamt + value.totalValue;
                     });
                     console.log($scope.componentProjects);
                 }
-
             });
         }
         $scope.getProject();
@@ -949,7 +826,6 @@ angular.module('starter.controllers', ['starter.services', 'ngCordova', 'highcha
         $scope.formData.type = $.jStorage.get('filter').Access;
         $scope.formData.type_id = $.jStorage.get('filter')._id;
         MyServices.getAllVendorList($scope.formData, function (data) {
-            console.log("****** inside getAllVendorList *****", data);
             if (data.value) {
                 $scope.vendorlist = data.data.vendor;
             }
@@ -960,7 +836,6 @@ angular.module('starter.controllers', ['starter.services', 'ngCordova', 'highcha
             $scope.viewData.projectId = id;
             $scope.viewData.componentId = $stateParams.componentId;
             MyServices.getProjectAllNotes($scope.viewData, function (data) {
-                console.log(data);
                 $scope.AllNotes = data.data.notes;
                 $scope.openComment();
             });
@@ -974,23 +849,96 @@ angular.module('starter.controllers', ['starter.services', 'ngCordova', 'highcha
             });
         }
 
-        $scope.addAllocation = function (formData) {
-            console.log("pro", $rootScope.projectID)
-            formData.project = $rootScope.projectID;
-            formData.vendor = formData.vendorid._id;
-            delete formData.vendorid;
-            // formData.vendorid = null;
+        $ionicModal.fromTemplateUrl('templates/modal/milestone-edit.html', {
+            scope: $scope,
+            animation: 'slide-in-up'
+        }).then(function (modal) {
+            $scope.modaledit = modal;
+        });
+        $scope.closeMilestoneEdit = function () {
+            $scope.modaledit.hide();
+        };
+        $ionicModal.fromTemplateUrl('templates/modal/payment-edit.html', {
+            scope: $scope,
+            animation: 'slide-in-up'
+        }).then(function (modal) {
+            $scope.paymentEditModal = modal;
+        });
+        $scope.closePaymentEdit = function () {
+            $scope.paymentEditModal.hide();
+        };
 
-            MyServices.vendorAllocation(formData, function (data) {
+        $scope.openPaymentEdit = function (id, data, modalheader) {
+            $scope.closeMilestoneEdit();
+            console.log("id get", id);
+            $scope.allocationData = data;
+            $scope.modalheader = modalheader;
+            $rootScope.projectID = id;
+            if (data != null) {
+                $scope.allocationData.orderIssueDate = new Date($scope.allocationData.orderIssueDate);
+                $scope.allocationData.orderDueDate = new Date($scope.allocationData.orderDueDate);
+            }
+            $scope.paymentEditModal.show();
+        };
+
+        $scope.workOrderID = {};
+
+        $scope.openMilestoneEdit = function (proEx, project, institute) {
+            console.log("id get", project);
+            var data = {};
+            $scope.workOrder = {};
+            $scope.gettrans = {};
+            $scope.workOrderID._id = proEx._id;
+            $scope.gettrans.vendorId = proEx.vendor._id;
+            $scope.gettrans.projectId = project;
+            $scope.workOrder = proEx;
+            $scope.workOrder.institute = institute.institute;
+            MyServices.getWorkOrderToEdit($scope.workOrderID, function (data) {
                 if (data.value) {
-                    $scope.allocationData = {};
-                    $scope.getProject();
-                    $scope.closePaymentEdit();
+                    $scope.singleWorkOrder = data.data[0];
                 }
-                console.log(data);
-                // $scope.AllNotes=data.data.notes;
             });
+            MyServices.getWorkOrderTransactions($scope.gettrans, function (data) {
+                if (data.value) {
+                    $scope.WorkOrderTransactions = data.data[0].transactions;
+                    $scope.modaledit.show();
+                    $scope.project = data.data;
+                }
+            });
+        };
+
+        $scope.addAllocation = function (formData) {
+            console.log(formData);
+            var allocationform = formData;
+            allocationform.vendor = formData.vendor._id;
+            if (formData.project != "") {
+                allocationform.project = $rootScope.projectID;
+            }
+            var issueDate = new Date(allocationform.orderIssueDate);
+            var dueDate = new Date(allocationform.orderDueDate);
+
+            if (issueDate < dueDate) {
+                MyServices.vendorAllocation(allocationform, function (data) {
+                    if (data.value) {
+                        // $scope.allocationData = {};
+                        $scope.getProject();
+                        MyServices.getWorkOrderToEdit($scope.workOrderID, function (data) {
+                            if (data.value) {
+                                $scope.singleWorkOrder = data.data[0];
+                            }
+                        });
+                    }
+                    $scope.closePaymentEdit();
+                });
+            } else {
+                var alertPopup = $ionicPopup.alert({
+                    title: 'oops!',
+                    template: 'Due date is must be greater than issue date '
+                });
+                alertPopup.then(function (res) {});
+            }
         }
+
         $scope.commentData = {};
         $scope.commentNotes = function (id, comment) {
             $scope.commentData.projectId = id;
@@ -998,9 +946,6 @@ angular.module('starter.controllers', ['starter.services', 'ngCordova', 'highcha
             $scope.commentData.componentId = $stateParams.componentId;
             $scope.commentData.added_by = $.jStorage.get('filter')._id;
             $scope.commentData.from = $.jStorage.get('filter').name;
-
-            console.log("*** commentNotes ***", $scope.commentData);
-
             MyServices.addProjectNotes($scope.commentData, function (data) {
                 if (data.value) {
                     $scope.commentData = {};
@@ -1027,8 +972,9 @@ angular.module('starter.controllers', ['starter.services', 'ngCordova', 'highcha
         $scope.EditprojectFun = function (project) {
             $scope.project = project;
             $scope.project.components = $scope.componentId;
-            $scope.project._id = $rootScope.id;
-            console.log("***** EditprojectFun *********", project);
+            $scope.project._id = $rootScope.projectID;
+            $scope.project.assetType = $scope.project.assetType._id;
+            $scope.project.projectType = $scope.project.projectType._id;
             MyServices.updateProject($scope.project, function (data) {
                 $scope.project = data.data;
                 console.log($scope.project);
@@ -1062,8 +1008,6 @@ angular.module('starter.controllers', ['starter.services', 'ngCordova', 'highcha
                 }
             });
         }
-
-
         $scope.addProjectImages = function () {
             MyServices.showActionsheet(20, function (Images) {
                 console.log("hi", Images)
@@ -1075,7 +1019,6 @@ angular.module('starter.controllers', ['starter.services', 'ngCordova', 'highcha
                         "photo": value
                     });
                 });
-
                 $scope.dataPhoto.componentId = $stateParams.componentId;
                 $scope.dataPhoto.projectId = $rootScope.id;
                 MyServices.addProjectPhotos($scope.dataPhoto, function (data) {
@@ -1095,9 +1038,6 @@ angular.module('starter.controllers', ['starter.services', 'ngCordova', 'highcha
                     }
                 });
             });
-
-
-
         };
 
         $ionicModal.fromTemplateUrl('templates/modal/photos.html', {
@@ -1148,8 +1088,8 @@ angular.module('starter.controllers', ['starter.services', 'ngCordova', 'highcha
         });
         $scope.addInstallmentProof = function (maxImage) {
             MyServices.showActionsheet(maxImage, function (Images) {
-                $scope.transactionEdit.file = "";
-                $scope.transactionEdit.file = Images[0];
+                $scope.transactionData.file = "";
+                $scope.transactionData.file = Images[0];
 
             });
         };
@@ -1157,6 +1097,7 @@ angular.module('starter.controllers', ['starter.services', 'ngCordova', 'highcha
             $scope.id = {};
             $scope.id = id;
             $scope.transactionData = {};
+            $scope.allocationData = {};
             MyServices.getTransactions($scope.id, function (data) {
                 if (data.value) {
                     $scope.transactionData = data.data;
@@ -1169,6 +1110,7 @@ angular.module('starter.controllers', ['starter.services', 'ngCordova', 'highcha
         $scope.closetransaction = function () {
             $scope.transaction.hide();
         };
+
         $scope.saveTransaction = function (transactionData, id) {
             console.log("transactionData", transactionData);
             $scope.transactionEdit = {};
@@ -1215,79 +1157,14 @@ angular.module('starter.controllers', ['starter.services', 'ngCordova', 'highcha
         };
         $scope.priceSlider = 150;
         $scope.payment = {};
-
         $scope.showPayment = function (index, flag) {
             console.log(index, flag);
             $scope.payment[index] = flag;
         }
-        // $scope.hidePayment = function () {
-        //   $scope.payment = false;
-        // }
+        $scope.hidePayment = function () {
+            $scope.payment = false;
+        }
 
-        $ionicModal.fromTemplateUrl('templates/modal/milestone-add.html', {
-            scope: $scope,
-            animation: 'slide-in-up'
-        }).then(function (modal) {
-            $scope.modaladd = modal;
-        });
-        $scope.openMilestoneAdd = function () {
-            $scope.modaladd.show();
-        };
-        $scope.closeMilestoneAdd = function () {
-            $scope.modaladd.hide();
-        };
-        $scope.complete = {
-            value: 40
-        };
-        $scope.user = {
-            min: 0,
-            max: 100,
-            value: 0
-        };
-
-        $ionicModal.fromTemplateUrl('templates/modal/milestone-edit.html', {
-            scope: $scope,
-            animation: 'slide-in-up'
-        }).then(function (modal) {
-            $scope.modaledit = modal;
-        });
-        $scope.openMilestoneEdit = function (proEx, project, institute) {
-            var data = {};
-            $scope.workOrder = {};
-            $scope.gettrans = {};
-
-            $scope.gettrans.vendorId = proEx.vendor._id;
-            $scope.gettrans.projectId = project;
-            $scope.workOrder = proEx;
-            $scope.workOrder.institute = institute.institute;
-
-            MyServices.getWorkOrderTransactions($scope.gettrans, function (data) {
-                if (data.value) {
-                    $scope.WorkOrderTransactions = data.data[0].transactions;
-                    $scope.modaledit.show();
-                    $scope.project = data.data;
-                }
-            });
-        };
-        $scope.closeMilestoneEdit = function () {
-            $scope.modaledit.hide();
-        };
-
-        $ionicModal.fromTemplateUrl('templates/modal/payment-edit.html', {
-            scope: $scope,
-            animation: 'slide-in-up'
-        }).then(function (modal) {
-            $scope.modalpayment = modal;
-        });
-        $scope.openPaymentEdit = function (id) {
-            console.log("id", id)
-            $rootScope.projectID = id;
-            $scope.allocationData = {};
-            $scope.modalpayment.show();
-        };
-        $scope.closePaymentEdit = function () {
-            $scope.modalpayment.hide();
-        };
 
         $ionicModal.fromTemplateUrl('templates/modal/createproject.html', {
             scope: $scope,
@@ -1316,6 +1193,7 @@ angular.module('starter.controllers', ['starter.services', 'ngCordova', 'highcha
         $scope.closeUtilizationEdit = function () {
             $scope.modalutil.hide();
         };
+
         $ionicModal.fromTemplateUrl('templates/modal/callmodal.html', {
             scope: $scope,
             animation: 'slide-in-up'
@@ -1329,6 +1207,7 @@ angular.module('starter.controllers', ['starter.services', 'ngCordova', 'highcha
         $scope.closecallmodal = function () {
             $scope.callmodal.hide();
         };
+
         $ionicModal.fromTemplateUrl('templates/modal/editproject.html', {
             scope: $scope,
             // animation: 'slide-in-up'
@@ -1337,12 +1216,12 @@ angular.module('starter.controllers', ['starter.services', 'ngCordova', 'highcha
         });
         $scope.openEdit = function () {
             $scope.show();
-            MyServices.ProjectGetOne($rootScope.id, function (data) {
+            MyServices.ProjectGetOne($rootScope.projectID, function (data) {
                 $scope.show();
                 if (data.value) {
                     $scope.hide();
                     $scope.project = data.data;
-                    console.log("**** inside project openEdit *****", $scope.project);
+                    $scope.project.dueDate = new Date($scope.project.dueDate);
                 }
             });
             $scope.Editproject.show();
@@ -1350,18 +1229,15 @@ angular.module('starter.controllers', ['starter.services', 'ngCordova', 'highcha
         $scope.closeEdit = function () {
             $scope.Editproject.hide();
         };
+
         $scope.show = function () {
             $ionicLoading.show({
                 template: 'Loading...',
                 duration: 3000
-            }).then(function () {
-                console.log("The loading indicator is now displayed");
-            });
+            }).then(function () {});
         };
         $scope.hide = function () {
-            $ionicLoading.hide().then(function () {
-                console.log("The loading indicator is now hidden");
-            });
+            $ionicLoading.hide().then(function () {});
         };
     })
 
@@ -1375,7 +1251,12 @@ angular.module('starter.controllers', ['starter.services', 'ngCordova', 'highcha
         var options = "location=no,toolbar=yes";
         var target = "_blank";
         var url = "";
-
+        $scope.options = {
+            currency: {
+                numeral: true,
+                numeralThousandsGroupStyle: 'lakh'
+            }
+        };
         $scope.openPDF = function (link) {
             // url = $filter('serverimage')(link);
             $scope.pdfURL = $filter('uploadpath')(link);
@@ -1404,26 +1285,36 @@ angular.module('starter.controllers', ['starter.services', 'ngCordova', 'highcha
         // $scope.photos.component = $stateParams.componentId;
 
         $scope.componentId = $stateParams.componentId;
+        $scope.componentDataget = function () {
+            MyServices.componentData($scope.photos, function (data) {
+                $scope.projectPhotos = data.data;
+                $scope.overview = data.data.compList[0];
 
-        MyServices.componentData($scope.photos, function (data) {
-            $scope.projectPhotos = data.data;
-            $scope.overview = data.data.compList[0];
+                $scope.projects = data.data.compList[0].project;
+                _.each($scope.projects, function (n) {
+                    var photos = [];
+                    _.each(n.photos, function (n1) {
+                        if (n1.photo != "") {
+                            photos.push(n1);
+                        }
+                    });
+                    n.photos = _.chunk(photos, 4);
+                });
+                $scope.transaction = data.data.compList[0].transaction;
+                $scope.transaction = _.groupBy($scope.transaction, 'transactionType');
+                $scope.CenterToState = _.chunk($scope.transaction["Center To State"], 4);
+                $scope.InstituteToVendor = _.chunk($scope.transaction["Institute To Vendor"], 4);
+                $scope.StateToInstitute = _.chunk($scope.transaction["State To Institute"], 4);
 
-            $scope.projects = data.data.compList[0].project;
-            _.each($scope.projects, function (n) {
-                n.photos = _.chunk(n.photos, 4);
+                $scope.utilizationCertificates = data.data.compList[0].utilizationCertificates;
+                console.log($scope.transaction, $scope.InstituteToVendor);
+
+                console.log("photos", $scope.fundflow);
             });
-            $scope.transaction = data.data.compList[0].transaction;
-            $scope.transaction = _.groupBy($scope.transaction, 'transactionType');
-            $scope.CenterToState = _.chunk($scope.transaction["Center To State"], 4);
-            $scope.InstituteToVendor = _.chunk($scope.transaction["Institute To Vendor"], 4);
-            $scope.StateToInstitute = _.chunk($scope.transaction["State To Institute"], 4);
+        }
 
-            $scope.utilizationCertificates = data.data.compList[0].utilizationCertificates;
-            console.log($scope.transaction, $scope.InstituteToVendor);
+        $scope.componentDataget();
 
-            console.log("photos", $scope.fundflow);
-        });
 
         MyServices.getComponentAllPhotos($scope.componentId, function (data) {
             if (data.value) {
@@ -1446,27 +1337,22 @@ angular.module('starter.controllers', ['starter.services', 'ngCordova', 'highcha
         $scope.closeImage = function () {
             $scope.imageView.hide();
         };
+
         $scope.ucAdd = function (formData) {
             formData._id = $scope.componentId;
             MyServices.addUcToComponent(formData, function (data) {
                 if (data.value) {
-                    MyServices.componentData($scope.photos, function (data) {
-                        $scope.projectPhotos = data.data;
-                        $scope.projects = data.data.compList[0].project;
-                        _.each($scope.projects, function (n) {
-                            n.photos = _.chunk(n.photos, 4);
-                        });
-                        $scope.transaction = data.data.compList[0].transaction;
-                        $scope.transaction = _.groupBy($scope.transaction, 'transactionType');
-                        $scope.CenterToState = _.chunk($scope.transaction["Center To State"], 4);
-                        $scope.InstituteToVendor = _.chunk($scope.transaction["Institute To Vendor"], 4);
-                        $scope.StateToInstitute = _.chunk($scope.transaction["State To Institute"], 4);
-
-                        $scope.utilizationCertificates = data.data.compList[0].utilizationCertificates;
-                        console.log($scope.transaction, $scope.InstituteToVendor);
-
-                        console.log("photos", $scope.fundflow);
-                    });
+                    $scope.componentDataget();
+                    $scope.closeUcForm();
+                }
+            });
+        };
+        $scope.edituc = function (formData) {
+            formData._ucId = formData._id;
+            formData._id = $scope.componentId;
+            MyServices.updateUcOfComponent(formData, function (data) {
+                if (data.value) {
+                    $scope.componentDataget();
                     $scope.closeUcForm();
                 }
             });
@@ -1476,122 +1362,29 @@ angular.module('starter.controllers', ['starter.services', 'ngCordova', 'highcha
             console.log($scope.filename);
 
         }
-
-
         $ionicModal.fromTemplateUrl('templates/modal/create-ucform.html', {
             scope: $scope,
             animation: 'slide-in-up'
         }).then(function (modal) {
             $scope.modaladd = modal;
         });
-        $scope.openUcForm = function () {
-
-            $scope.formData = {};
+        $scope.openUcForm = function (modal, formData) {
+            $scope.modalHeader = modal;
+            $scope.formData = formData;
+            $scope.formData.date = new Date($scope.formData.date);
             $scope.modaladd.show();
         };
         $scope.closeUcForm = function () {
             $scope.modaladd.hide();
         };
-        //picture upload action sheet popup--------------------------------------------
-        $scope.showActionsheet = function () {
-            $ionicActionSheet.show({
-                //  titleText: 'choose option',
-                buttons: [{
-                    text: '<i class="icon ion-ios-camera-outline"></i> Choose from gallery'
-                }, {
-                    text: '<i class="icon ion-images"></i> Take from camera'
-                }, {
-                    text: '<input type="file" value="" accept="application/pdf,application/vnd.ms-excel">'
-                }],
-                //  destructiveText: 'Delete',
-                cancelText: 'Cancel',
-                cancel: function () {
-                    console.log('CANCELLED');
-                },
-                buttonClicked: function (index) {
-                    console.log('BUTTON CLICKED', index);
-                    if (index === 0) {
-                        $scope.getImageSaveContact();
-                    } else if (index === 1) {
-                        $scope.openCamera();
+        $scope.adducimage = function (maxImage) {
+            MyServices.showActionsheet(maxImage, function (Images) {
+                console.log(Images);
+                $scope.formData.images = Images[0];
 
-                    } else {
-                        console.log("hello pdf");
-                    }
-                    return true;
-                },
-                destructiveButtonClicked: function () {
-                    console.log('DESTRUCT');
-                    return true;
-                }
             });
-        };
-        //take image from camera --------------------------------------------------------
-        $scope.openCamera = function () {
+        }
 
-            var cameraOptions = {
-                quality: 90,
-                destinationType: Camera.DestinationType.DATA_URL,
-                sourceType: Camera.PictureSourceType.CAMERA,
-                allowEdit: false,
-                encodingType: 0,
-                targetWidth: 1200,
-                popoverOptions: CameraPopoverOptions,
-                saveToPhotoAlbum: true,
-                correctOrientation: true
-            };
-            $cordovaCamera.getPicture(cameraOptions).then(function (imageData) {
-                $scope.imageSrc = "data:image/jpeg;base64," + imageData;
-                $scope.uploadImage($scope.imageSrc);
-
-
-
-            }, function (err) {
-
-                console.log(err);
-            });
-        };
-
-        //cordovaImagePicker function------------------------------------------------------
-        $scope.getImageSaveContact = function () {
-            // Image picker will load images according to these settings
-            var options = {
-                maximumImagesCount: 1, // Max number of selected images
-                width: 800,
-                height: 800,
-                quality: 80 // Higher is better
-            };
-            $cordovaImagePicker.getPictures(options).then(function (results) {
-                console.log(results);
-                _.forEach(results, function (value) {
-                    $scope.uploadImage(value);
-                });
-
-
-
-            }, function (error) {
-                console.log('Error: ' + JSON.stringify(error)); // In case of error
-            });
-        };
-
-        //upload image----------------------------------------------------------------
-        $scope.uploadImage = function (imageURI) {
-            console.log('imageURI', imageURI);
-            // $scope.showLoading('Uploading Image...', 10000);
-            $cordovaFileTransfer.upload(adminurl + 'upload', imageURI)
-                .then(function (result) {
-                    // Success!
-                    result.response = JSON.parse(result.response);
-                    console.log(result.response.data[0]);
-                    $scope.formData.image = result.response.data[0];
-
-
-                }, function (err) {
-                    // Error
-                }, function (progress) {
-                    // constant progress updates
-                });
-        };
     })
 
     //unwanted controller

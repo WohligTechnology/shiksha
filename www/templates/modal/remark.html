@@ -7,12 +7,16 @@
     </ion-header-bar>
     <ion-content>
         <div class="list" >
-            <div class="item" >
+            <div class="remarkmodal" ng-if="remark">
                 <!-- <img src="img/venkman.jpg"> -->
-                <h3 class="remark"><span class="title">Remark</span> : <span class="value">{{remark}}</span></h3>
+                <h4 class=""><span class="title">Remark</span> : </h4>
+                <p class="value">{{remark}}</p>
                 <!--<p class="remark"><span class="title">By</span> : <span class="value">{{type}}</span></p>
                 <p class="remark"><span class="title">Installment No.</span> : <span class="value">{{installment}}</span></p>-->
                 <!-- <p>Date : {{notes.timestamp | date}}</p> -->
+            </div>
+            <div class="remarkmodal" ng-if="!remark">
+                <p class="value">No remark</p>
             </div>
         </div>
     </ion-content>

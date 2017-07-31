@@ -16,16 +16,17 @@
     <div class="pb50" ng-if="fundflow">
       <div class="card top-card">
         <div class="item item-text-wrap">
-          <span class="item-note custom-radio">
+           <span class="item-note custom-radio">
                   <label class=" item-toggle">
                     <label class="toggle toggle-energized">
-                        <input type="checkbox">
+                            <input type="checkbox" ng-checked="fundflow.status == 'Completed'" disabled>
                         <div class="track">
                         <div class="handle icon-lock"></div>
                         </div>
                     </label>
                   </label>
-          </span>
+          </span> 
+                
           <div class="infra-div">
             <div class="infra-project bold">{{fundflow.keycomponents.name}}</div>
             <!--<div>

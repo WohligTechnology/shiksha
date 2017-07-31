@@ -30,8 +30,8 @@
                 </ion-item>
                 <ion-item>
                     <div class="input-label">Due Date</div>
-                    <input placeholder="Due Date" class="textbox-n" type="text" onfocus="(this.type='date')" onfocusout="(this.type='text')"
-                        id="date" ng-model="project.dueDate">
+                    <input placeholder="Due Date" class="textbox-n duedate" type="date" 
+                        id="date" ng-model="project.dueDate" min="{{project.createdAt | date:'dd-MM-yyyy'}}">
                 </ion-item>
             </ion-list>
             <div class="padding">

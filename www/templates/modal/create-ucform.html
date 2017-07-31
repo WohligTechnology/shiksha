@@ -1,6 +1,6 @@
 <ion-modal-view>
     <ion-header-bar class="bar-positive bar bar-header">
-        <h1 class="title">Create UC </h1>
+        <h1 class="title">{{modalHeader}} UC </h1>
         <div class="buttons">
             <button class="button button-clear ion-close" ng-click="closeUcForm();"></button>
         </div>
@@ -13,26 +13,29 @@
 
                     <li class="item item-input item-stacked-label">
                         <span class="input-label">Installment no</span>
-                        <input type="text" placeholder="Installment no" ng-model="formData.installmentNo">
+                        <input type="number" placeholder="Installment no" ng-model="formData.installmentNo">
                     </li>
                     <li class="item item-input item-stacked-label">
                         <span class="input-label">Date of UC</span>
-                        <input type="text" onfocus="(this.type='date')" onfocusout="(this.type='text')" id="date" placeholder="Date of UC" ng-model="formData.date">
+                        <input type="date" ng-model="formData.date">
                     </li>
                     <li class="item item-input item-stacked-label">
                         <span class="input-label">Value (in INR)</span>
-                        <input type="number" placeholder="Value (in INR)" ng-model="formData.amount">
+                        <input type="text" placeholder="Value (in INR)" cleave="options.currency" only-digit ng-model="formData.amount">
                     </li>
                     <li class="item item-input item-stacked-label">
-                        <span class="input-label">Upload payment Proof : <button type="button" name="button" ng-click="showActionsheet()">Upload Photos</button></span>
-                        <div>
+                        <span class="input-label">Upload payment Proof : <button type="button" name="button" ng-click="adducimage(1)">Upload Photos</button></span>
+                        <!-- <div>
                             <input type="file" value="" accept="application/pdf,application/vnd.ms-excel" id="myFile" class="hw100">
-                        </div>
+                        </div> -->
                         <!--<button ng-click="getfile()">Try it</button>-->
 
                         <div class="row" ng-if="formData.images">
                             <div class="col-25">
-                                <div class="image-grid">
+                                <div class="image-grid" ng-if="formData.images.slice(formData.images.length-3, formData.images.length) =='pdf'  " ng-click="openPDF(formData.images)">
+                                    <img src="http://www.freeiconspng.com/uploads/pdf-icon-png-17.png" alt="">
+                                </div>
+                                <div class="image-grid" ng-if="formData.images.slice(formData.images.length-3, formData.images.length) !='pdf'" ng-click="openImage(formData.images)">
                                     <img ng-src="{{formData.images | uploadpath}}">
                                 </div>
                             </div>
@@ -42,9 +45,12 @@
                 </ul>
             </div>
             <div class="padding">
-                <button class="button button-positive button-block" type="submit">
-                    <!-- <button class="button button-positive button-block" ng-click="closeCreate();"> -->
+                <!-- <button class="button button-positive button-block" type="submit"> -->
+                <button class="button button-positive button-block" ng-click="ucAdd(formData)" ng-if="modalHeader!= 'Edit'">  
                     Create
+                </button>
+                <button class="button button-positive button-block" ng-click="edituc(formData)" ng-if="modalHeader== 'Edit'"> 
+                    Edit
                 </button>
             </div>
         </form>

@@ -1,36 +1,37 @@
 <ion-modal-view>
   <ion-header-bar class="bar-positive bar bar-header">
-    <h1 class="title">Add Work Order Detail</h1>
+    <h1 class="title">{{modalheader}} Work Order Detail</h1>
     <div class="buttons">
       <button class="button button-clear ion-close" ng-click="closePaymentEdit();"></button>
     </div>
   </ion-header-bar>
   <ion-content class="">
     <form class="" ng-submit="addAllocation(allocationData);">
-
       <ul class="list">
         <li>
           <label class="item item-input item-stacked-label">
             <span class="input-label">Choose Vendor</span>
-            <select class="work-order " ng-model="allocationData.vendorid" ng-options="centers.name for centers in vendorlist track by centers._id" >
+            <select class="work-order " ng-model="allocationData.vendor" ng-options="centers.name for centers in vendorlist track by centers._id" ng-if="modalheader !='Edit'" >
                   <option selected="true" value="" disabled></option>
               </select>
+                <label for="" ng-if="modalheader =='Edit'">{{allocationData.vendor.name}}</label>
+                <!-- <input type="text" ng-model="allocationData.vendor.name"  disabled  ng-if="modalheader =='Edit'" >  -->
            </label>
         </li>
         <li>
 
           <label class="item item-input item-stacked-label">
           <span class="input-label">Value Allocated</span>
-          <input type="number" placeholder="Value Allocated" required ng-model="allocationData.allocatedAmount">
+          <input type="text" placeholder="Value Allocated" cleave="options.currency" only-digit required ng-model="allocationData.allocatedAmount">
         </label>
           <label class="item item-input item-stacked-label">
           <span class="input-label">Issue Date</span>
-          <input placeholder="Issue Date" class="textbox-n" type="text"  onfocus="(this.type='date')" onfocusout="(this.type='text')" required id="date"  ng-model="allocationData.orderIssueDate">
+          <input  class="textbox-n" type="date"  required   ng-model="allocationData.orderIssueDate">
 
         </label>
           <label class="item item-input item-stacked-label">
           <span class="input-label">Due Date</span>
-          <input placeholder="Due Date" class="textbox-n" type="text" onfocus="(this.type='date')" onfocusout="(this.type='text')" required id="date"  ng-model="allocationData.orderDueDate">
+          <input  class="textbox-n" type="date"  required   ng-model="allocationData.orderDueDate">
         </label>
           <!--<label class="item item-input item-stacked-label">
           <span class="input-label">Description</span>
@@ -42,9 +43,12 @@
         </label>
           <div class="row" ng-if="allocationData.orderFile">
             <div class="col">
-              <div class="image-grid">
-                <img ng-src="{{allocationData.orderFile | uploadpath}}" alt="">
-              </div>
+               <div class="image-grid" ng-if="allocationData.orderFile.slice(allocationData.orderFile.length-3, allocationData.orderFile.length) =='pdf'  " ng-click="openPDF(allocationData.orderFile)">
+                <img src="http://www.freeiconspng.com/uploads/pdf-icon-png-17.png" alt="">
+            </div>
+            <div class="image-grid" ng-if="allocationData.orderFile.slice(allocationData.orderFile.length-3, allocationData.orderFile.length) !='pdf'" ng-click="openImage(allocationData.orderFile)">
+                <img ng-src="{{allocationData.orderFile | uploadpath}}">
+            </div>
             </div>
           </div>
         </li>
@@ -52,7 +56,7 @@
 
 
       <div class="setting-down text-center">
-        <button class="button  button-assertive uppercase submit-pop" type="submit" ng-disabled="!allocationData ">submit</button>
+        <button class="button  button-assertive uppercase submit-pop" type="submit" ng-disabled="!allocationData ">Submit</button>
       </div>
     </form>
 
