@@ -255,6 +255,10 @@ angular.module('starter.controllers', ['starter.services', 'ngCordova', 'highcha
                 data: rnd
             })
         }
+        $scope.card = {};
+        $scope.cardopen = function (index, flag) {
+            $scope.card[index] = flag;
+        };
         $scope.pieChart = {
             chart: {
                 type: 'solidgauge',
