@@ -10,7 +10,7 @@ var imgpath = imgurl + "readFile?file=";
 
 
 angular.module('starter.services', [])
-  .factory('MyServices', function ($http, $ionicActionSheet, $ionicActionSheet, $cordovaCamera, $ionicLoading, $cordovaFileTransfer, $cordovaImagePicker) {
+  .factory('MyServices', function ($http, $ionicActionSheet, $cordovaCamera, $ionicLoading, $cordovaFileTransfer, $cordovaImagePicker) {
     return {
       login: function (formData, callback) {
         return $http({
@@ -393,8 +393,7 @@ angular.module('starter.services', [])
                           $ionicLoading.show({
                             template: 'Loading...',
                             duration: 3000
-                          }).then(function () {
-                          });
+                          }).then(function () {});
                           _.forEach(results, function (value) {
 
                             $cordovaFileTransfer.upload(adminurl + 'upload', value)
@@ -431,14 +430,12 @@ angular.module('starter.services', [])
                       $ionicLoading.show({
                         template: 'Loading...',
                         duration: 3000
-                      }).then(function () {
-                      });
+                      }).then(function () {});
                       _.forEach(results, function (value) {
 
                         $cordovaFileTransfer.upload(adminurl + 'upload', value)
                           .then(function (result) {
-                            $ionicLoading.hide().then(function () {
-                            });
+                            $ionicLoading.hide().then(function () {});
                             result.response = JSON.parse(result.response);
                             actionsheet.push(result.response.data[0]);
                             i++;
