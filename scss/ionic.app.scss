@@ -863,6 +863,11 @@ button.button.button-icon.button-clear {
                     line-height: 0;
                     min-height: 0;
                 }
+                .button-icon.ion-android-textsms {
+                    line-height: 0;
+                    min-height: 0;
+                    color: white;
+                }
                 .badge-one {
                     top: -6px;
                     right: -2px;
@@ -1230,7 +1235,7 @@ input[type=range]:focus::-webkit-slider-runnable-track {
         background: $positive;
         margin-top: -8px;
     }
-    .milestone-add{
+    .milestone-add {
         margin: 0 10px;
     }
     .mark-make {
@@ -3012,7 +3017,12 @@ input:-webkit-autofill {
 .lastitem {
     margin-bottom: 20%;
 }
-    input[disabled], select[disabled], textarea[disabled], input[readonly]:not(.cloned-text-input), textarea[readonly]:not(.cloned-text-input), select[readonly]{
-    background-color: transparent!important;
 
-    }
+input[disabled],
+select[disabled],
+textarea[disabled],
+input[readonly]:not(.cloned-text-input),
+textarea[readonly]:not(.cloned-text-input),
+select[readonly] {
+    background-color: transparent!important;
+}

@@ -226,7 +226,7 @@ angular.module('starter.controllers', ['starter.services', 'ngCordova', 'highcha
 
     })
 
-    .controller('HomeCtrl', function ($scope, $stateParams, $rootScope, MyServices, $filter, $timeout, $ionicPopup, $state, $ionicTabsDelegate, $ionicPopover) {
+    .controller('HomeCtrl', function ($scope, $stateParams, $ionicModal, $rootScope, MyServices, $filter, $timeout, $ionicPopup, $state, $ionicTabsDelegate, $ionicPopover) {
         $rootScope.overviewChart = {};
         $scope.temp = 0;
         $scope.items = 0;
@@ -244,6 +244,22 @@ angular.module('starter.controllers', ['starter.services', 'ngCordova', 'highcha
                 $scope.closePopuptoast();
             }, 5000);
         }
+        $ionicModal.fromTemplateUrl('templates/modal/remark.html', {
+            scope: $scope,
+            animation: 'slide-in-up'
+        }).then(function (modal) {
+            $scope.remarkModal = modal;
+        });
+        $scope.openRemark = function (remark) {
+            console.log("**** openRemark ****", remark);
+            $scope.remark = remark;
+            // $scope.type = type;
+            // $scope.installment = installment;
+            $scope.remarkModal.show();
+        };
+        $scope.closeRemark = function () {
+            $scope.remarkModal.hide();
+        };
         console.log($.jStorage.get('filter'));
         $scope.acceslevel = $.jStorage.get('filter');
         $scope.addSeries = function () {

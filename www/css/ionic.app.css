@@ -10428,6 +10428,10 @@ button.button.button-icon.button-clear.settings-btn:before {
     .card-institue .card-institute-detail .ecommerce .for-badge .button-icon.ion-custom-ecommerce {
       line-height: 0;
       min-height: 0; }
+    .card-institue .card-institute-detail .ecommerce .for-badge .button-icon.ion-android-textsms {
+      line-height: 0;
+      min-height: 0;
+      color: white; }
     .card-institue .card-institute-detail .ecommerce .for-badge .badge-one {
       top: -6px;
       right: -2px; }
@@ -11876,5 +11880,10 @@ input:-webkit-autofill {
 .lastitem {
   margin-bottom: 20%; }
 
-input[disabled], select[disabled], textarea[disabled], input[readonly]:not(.cloned-text-input), textarea[readonly]:not(.cloned-text-input), select[readonly] {
+input[disabled],
+select[disabled],
+textarea[disabled],
+input[readonly]:not(.cloned-text-input),
+textarea[readonly]:not(.cloned-text-input),
+select[readonly] {
   background-color: transparent !important; }
