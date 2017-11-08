@@ -61,10 +61,14 @@ angular.module('starter.controllers', ['starter.services', 'ngCordova', 'highcha
             MyServices.login(formData, function (data) {
                 console.log("login", data);
                 if (data.value) {
-                    $scope.filter = data.data;
-                    $.jStorage.set('user', data.data.userDetail);
-                    $scope.loginAccess();
-                    // $state.go('app.home');
+                    if (data.data.length == 0) {
+                        $scope.showAlert();
+                    } else {
+                        $scope.filter = data.data;
+                        $.jStorage.set('user', data.data.userDetail);
+                        $scope.loginAccess();
+                        // $state.go('app.home');
+                    }
                 } else {
                     $scope.showAlert();
                 }
@@ -768,6 +772,7 @@ angular.module('starter.controllers', ['starter.services', 'ngCordova', 'highcha
             $scope.imageView = modal;
         });
         $scope.openImage = function (image) {
+            console.log(image);
             $scope.image = image;
             $scope.imageView.show();
         };
@@ -1351,6 +1356,7 @@ angular.module('starter.controllers', ['starter.services', 'ngCordova', 'highcha
             $scope.imageView = modal;
         });
         $scope.openImage = function (image) {
+            console.log(image);
             $scope.image = image;
             $scope.imageView.show();
         };
@@ -1426,6 +1432,7 @@ angular.module('starter.controllers', ['starter.services', 'ngCordova', 'highcha
             $scope.imageView = modal;
         });
         $scope.openImage = function (image) {
+            console.log(image);
             $scope.image = image;
             $scope.imageView.show();
         };
