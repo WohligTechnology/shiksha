@@ -7,21 +7,26 @@
     </ion-header-bar>
     <ion-content>
         <!-- <pre>{{formData | json}}</pre> -->
-        <form class="" ng-submit="ucAdd(formData)">
+        <form class="" ng-submit="ucAdd(formData)" name="ucForm">
             <div class="milestone-add">
                 <ul class="list">
 
                     <li class="item item-input item-stacked-label">
                         <span class="input-label">Installment no</span>
-                        <input type="number" placeholder="Installment no" ng-model="formData.installmentNo">
+                        <input type="number" placeholder="Installment no" ng-model="formData.installmentNo" required name="installmentNo">
+                        <p class="errorRed" ng-if="ucForm.installmentNo.$error.required && ucForm.installmentNo.$touched">Please enter Installment no</p>
                     </li>
                     <li class="item item-input item-stacked-label">
                         <span class="input-label">Date of UC</span>
-                        <input type="date" ng-model="formData.date">
+                        <input type="date" ng-model="formData.date" required name="date">
+                        <p class="errorRed" ng-if="ucForm.date.$error.required && ucForm.date.$touched">Please enter Date of UC</p>
                     </li>
                     <li class="item item-input item-stacked-label">
                         <span class="input-label">Value (in INR)</span>
-                        <input type="text" placeholder="Value (in INR)" cleave="options.currency" only-digit ng-model="formData.amount">
+                        <input type="text" placeholder="Value (in INR)" cleave="options.currency" only-digit ng-model="formData.amount" required
+                            name="amount">
+                        <p class="errorRed" ng-if="ucForm.amount.$error.required && ucForm.amount.$touched">Please enter Value (in INR)</p>
+
                     </li>
                     <li class="item item-input item-stacked-label">
                         <span class="input-label">Upload payment Proof : <button type="button" name="button" ng-click="adducimage(1)">Upload Photos</button></span>
@@ -46,11 +51,9 @@
             </div>
             <div class="padding">
                 <!-- <button class="button button-positive button-block" type="submit"> -->
-                <button class="button button-positive button-block" ng-click="ucAdd(formData)" ng-if="modalHeader!= 'Edit'">  
-                    Create
-                </button>
-                <button class="button button-positive button-block" ng-click="edituc(formData)" ng-if="modalHeader== 'Edit'"> 
-                    Edit
+                <button class="button button-positive button-block" ng-click="ucAdd(formData)">  
+                    <span ng-if="modalHeader!= 'Edit'">Save</span>
+                    <span ng-if="modalHeader== 'Edit'">Update</span>
                 </button>
             </div>
         </form>

@@ -25,8 +25,8 @@
             <ion-content class="work-ion has-tabs-top">
                 <div class="card" ng-repeat="wO in WorkOrderTransactions">
                     <a class="button button-icon icon ion-edit item-note edit-btn" ng-click="opentransaction(wO._id)" ng-if="overview.status != 'Completed'"></a>
-                    <div class="clearfix">
-                    </div>
+                    <!--<div class="clearfix">
+                    </div>-->
                     <ul class="list">
                         <div class="milestone-add">
                             <div class="">Installment : {{wO.installment}}</div>
@@ -55,27 +55,26 @@
                     <div class="card">
                         <a class="button button-icon icon ion-edit item-note edit-btn" ng-click="openPaymentEdit(projectID,singleWorkOrder,'Edit')"
                             ng-if="overview.status != 'Completed'"></a>
-                        <div class="clearfix">
-                        </div>
+
                         <ul class="">
                             <div class="milestone-add">
                                 <div class="">Vendor name : {{singleWorkOrder.vendor.name}}</div>
-                                <div class="">Allocated Amount : {{singleWorkOrder.allocatedAmount | number}}</div>
+                                <div class="">Allocated Amount : {{singleWorkOrder.allocatedAmount | number:2}}</div>
                                 <div class="">Vendor Release Amount : {{singleWorkOrder.VendorReleaseAmount | number:2}}</div>
                                 <div class="">Issue Date: {{singleWorkOrder.orderIssueDate | date}}</div>
                                 <div class="">Due Date : {{singleWorkOrder.orderDueDate | date}}</div>
                             </div>
                         </ul>
-                        </div>
+                    </div>
                 </ion-content>
-                </div>
             </div>
-            <ion-footer>
-                <div class="float-button" ng-click="opentransaction(null);" ng-if="show==0 && overview.status != Completed">
-                    <a class="content ">
+        </div>
+        <ion-footer>
+            <div class="float-button" ng-click="opentransaction(null);" ng-if="show==0 && overview.status != Completed">
+                <a class="content ">
                 <i class="ion ion-plus "> </i>
             </a>
-                </div>
-            </ion-footer>
-        </div>
+            </div>
+        </ion-footer>
     </div>
+</div>

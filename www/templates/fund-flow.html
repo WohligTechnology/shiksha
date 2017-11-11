@@ -47,15 +47,15 @@
               </div>
               <div class="custom-slide-flow">
                 <div class="complete"></div>
-                <div class="begin-state" ng-class="{'ng-zind': {{(fundflow.totalFundDetail.totalFundReleased/fundflow.allocationAmount*100 |indianCurrency)}}<{{(fundflow.totalFundDetail.totalCenterReleased/fundflow.allocationAmount*100 |indianCurrency)}}}"
-                  style="width:{{(fundflow.totalFundDetail.totalFundReleased/fundflow.allocationAmount*100 |indianCurrency)}}%"></div>
-                <div class="begin-center" ng-class="{'ng-zind': {{(fundflow.totalFundDetail.totalFundReleased/fundflow.allocationAmount*100 |indianCurrency)}}>{{(fundflow.totalFundDetail.totalCenterReleased/fundflow.allocationAmount*100 |indianCurrency)}}}"
-                  style="width:{{(fundflow.totalFundDetail.totalCenterReleased/fundflow.allocationAmount*100 |indianCurrency)}}%"></div>
+                <div class="begin-state textRight" ng-class="{'ng-zind': {{(fundflow.totalFundDetail.totalFundReleased/fundflow.allocationAmount*100 |indianCurrency)}}<{{(fundflow.totalFundDetail.totalCenterReleased/fundflow.allocationAmount*100 |indianCurrency)}}}"
+                  style="width:{{(fundflow.totalFundDetail.totalFundReleased/fundflow.allocationAmount*100 |indianCurrency)}}%">{{(fundflow.totalFundDetail.totalFundReleased/fundflow.allocationAmount*100 |indianCurrency)}}</div>
+                <div class="begin-center textRight" ng-class="{'ng-zind': {{(fundflow.totalFundDetail.totalFundReleased/fundflow.allocationAmount*100 |indianCurrency)}}>{{(fundflow.totalFundDetail.totalCenterReleased/fundflow.allocationAmount*100 |indianCurrency)}}}"
+                  style="width:{{(fundflow.totalFundDetail.totalCenterReleased/fundflow.allocationAmount*100 |indianCurrency)}}%">{{(fundflow.totalFundDetail.totalCenterReleased/fundflow.allocationAmount*100 |indianCurrency)}}</div>
               </div>
               <div class="">
                 <div class="rectangle" style="width:calc({{(fundflow.totalFundDetail.totalFundUtilized/fundflow.allocationAmount*100 |indianCurrency)}}% );display: inline-block;"></div>
                 <!-- <div class="rectangle" style="width:calc({{(fundflow.totalFundAllocationReleaseUlitize.totalUtilizedFund/fundflow.totalFundAllocationReleaseUlitize.totalAllocation*100 |indianCurrency)}}% - 20px);display: inline-block;"></div> -->
-                <label for="" class="balanced">{{(fundflow.totalFundDetail.totalFundUtilized/fundflow.allocationAmount*100 |indianCurrency)}}%</label>
+                <label for="" class="balanced">{{(fundflow.totalFundDetail.totalFundUtilized/fundflow.totalFundDetail.totalFundReleased*100 |indianCurrency)}}%</label>
               </div>
             </div>
             <div class="col-33">
@@ -71,6 +71,7 @@
               <li> <i class="ion ion-record royal"></i>State share</li>
               <li> <i class="ion ion-record balanced"></i>Utilization by Institue</li>
             </ul>
+            <div class="allinpercent">all in (%)</div>
           </div>
           <div class="table-amount" ng-repeat="(key, value) in fundflow.transaction">
             <div class="card">
@@ -186,14 +187,20 @@
                 </div>
                 <div class="row btmamt">
                   <div class="col text-center">
-                    <label class="tbl-btm " ng-class="{'redText': fundflow.allocationAmount < 0}">Expected: <br><span class="bold">₹{{((value['Center To State'][0].amount + ((value['Center To State'][0].amount * fundflow.state.stateShare)/fundflow.state.centerShare))/100000) | number : 3}}</span></label>
+                    <!--<label class="tbl-btm " ng-class="{'redText': fundflow.allocationAmount < 0}">Expected: <br><span class="bold">₹{{((value['Center To State'][0].amount + ((value['Center To State'][0].amount * fundflow.state.stateShare)/fundflow.state.centerShare))/100000) | number : 3}}</span></label>-->
+                    <label class="tbl-btm ">Expected: <br><span class="bold">₹{{value.expectedAmount/100000 | number : 3}}</span></label>
                   </div>
                   <div class="col text-center">
-                    <label class="tbl-btm " ng-class="{'redText': value['State To Institute'][0].amount < 0}">Actual: <br><span class="bold">₹{{(value['State To Institute'][0].amount/100000)  | number : 3}}</span></label>
+                    <label class="tbl-btm " ng-if="(value['State To Institute'][0].amount-value['Center To State'][0].amount)>=0">Actual: <br><span class="bold">₹{{value['State To Institute'][0].amount/100000  | number : 3}}</span></label>
+                    <label class="tbl-btm " ng-if="(value['State To Institute'][0].amount-value['Center To State'][0].amount)<0">Actual: <br><span class="bold">₹{{(value['State To Institute'][0].amount)/100000  | number : 3}}</span></label>
                   </div>
                   <div class="col text-center">
 
-                    <label class="tbl-btm " ng-class="{'redText': getRedDate(value['Center To State'][0].transactionSent) && ((value['Center To State'][0].amount + ((value['Center To State'][0].amount * fundflow.state.stateShare)/fundflow.state.centerShare)) - value['State To Institute'][0].amount) <0}">Pending: <br><span class="bold">₹{{(((value['Center To State'][0].amount + ((value['Center To State'][0].amount * fundflow.state.stateShare)/fundflow.state.centerShare)) - value['State To Institute'][0].amount)/ 100000) | number : 3}}</span></label>
+                    <!--<label class="tbl-btm " ng-class="{'redText': getRedDate(value['Center To State'][0].transactionSent) && ((value['Center To State'][0].amount + ((value['Center To State'][0].amount * fundflow.state.stateShare)/fundflow.state.centerShare)) - value['State To Institute'][0].amount) <0}">Pending: <br><span class="bold">₹{{(((value['Center To State'][0].amount + ((value['Center To State'][0].amount * fundflow.state.stateShare)/fundflow.state.centerShare)) - value['State To Institute'][0].amount)/ 100000) | number : 3}}</span></label>-->
+
+                    <label class="tbl-btm ">Pending: <br><span class="bold ">₹{{((value.expectedAmount-value['State To Institute'][0].amount)/ 100000) | number : 3}}</span></label>
+                    <!--<label class="tbl-btm " ng-if="(value['State To Institute'][0].amount-value['Center To State'][0].amount)<0">Pending: <br><span class="bold ">₹{{value.expectedAmount/ 100000 | number : 3}}</span></label>-->
+
                   </div>
                 </div>
               </div>
@@ -205,22 +212,22 @@
   </ion-content>
 
   <ion-footer>
-    <div class="tabs-custom">
-      <div class="tabs tabs-icon-top">
-        <a class="tab-item" ui-sref="app.overview({ componentId: componentId})">
-          <i class="ion ion-ios-timer"></i> Overview
+    <div class="tabs-custom ">
+      <div class="tabs tabs-icon-top ">
+        <a class="tab-item " ui-sref="app.overview({ componentId: componentId}) ">
+          <i class="ion ion-ios-timer "></i> Overview
         </a>
-        <a class="tab-item calm">
-          <i class="ion ion-shuffle"></i> Fund Flow
+        <a class="tab-item calm ">
+          <i class="ion ion-shuffle "></i> Fund Flow
         </a>
-        <a class="tab-item" ui-sref="app.project({ componentId: componentId})">
-          <i class="ion ion-social-buffer"></i> Projects
+        <a class="tab-item " ui-sref="app.project({ componentId: componentId}) ">
+          <i class="ion ion-social-buffer "></i> Projects
         </a>
-        <!-- <a class="tab-item" ui-sref="app.utilization">
-          <i class="ion ion-bag"></i> Utilization
+        <!-- <a class="tab-item " ui-sref="app.utilization ">
+          <i class="ion ion-bag "></i> Utilization
         </a> -->
-        <a class="tab-item" ui-sref="app.projectPhotos({ componentId: componentId})">
-          <i class="ion  ion-android-camera"></i> Media
+        <a class="tab-item " ui-sref="app.projectPhotos({ componentId: componentId}) ">
+          <i class="ion ion-android-camera "></i> Media
         </a>
       </div>
     </div>

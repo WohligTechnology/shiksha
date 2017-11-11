@@ -88,31 +88,34 @@
                 <p class="text-center energized bold f16 uppercase bold">Work Completed</p>
             </div>
             <div class="fund-date">
-                <div class="row">
-                    <div class="col">
-
-                        <p class="bold"><i class="ion-record fund-util-purple"></i> Funds Utilized To Date </p>
-                    </div>
-                    <div class="col">
-                        <div class="">
-                            <i class="ion-record grey"></i>
-                            <label for="">Received</label>
-                            <i class="ion-record light-grey"></i>
-                            <label for="">Allocated</label>
-                        </div>
-                    </div>
-                </div>
+                <div class="allinpercent">all in (%)</div>
                 <div class="padding-horizontal">
                     <div class="custom-slide-projects">
                         <div class="allocated-bar" style="width:100%"></div>
-                        <div class="received-bar" style="width:{{(overview.retVal.FundReleased/overview.allocationAmount*100)||0}}%"></div>
+                        <div class="received-bar textRight" style="width:{{(overview.retVal.FundReleased/overview.allocationAmount*100)||0}}%">{{(overview.retVal.FundReleased/overview.allocationAmount*100 | number:0) || 0}}</div>
                         <div class="made-bar" style="width:{{(overview.retVal.getFundUtilized/overview.allocationAmount*100) || 0}}%">
-                            {{(overview.retVal.getFundUtilized/overview.retVal.FundReleased*100 | number:0) || 0}}%</div>
+                            {{(overview.retVal.getFundUtilized/overview.retVal.FundReleased*100 | number:0) || 0}}</div>
                     </div>
                 </div>
             </div>
-            <div class="bar-line">
+            <div class="row fund-date">
+                <div class="col">
+
+                    <p class="bold"><i class="ion-record fund-util-purple"></i> Funds Utilized To Date</p>
+                </div>
+                <div class="col">
+                    <div class="">
+                        <i class="ion-record grey"></i>
+                        <label for="">Received</label>
+                        <i class="ion-record light-grey"></i>
+                        <label for="">Allocated</label>
+                    </div>
+                </div>
             </div>
+
+        </div>
+        <div class="bar-line">
+        </div>
         </div>
     </ion-content>
     <ion-footer>

@@ -11887,3 +11887,21 @@ input[readonly]:not(.cloned-text-input),
 textarea[readonly]:not(.cloned-text-input),
 select[readonly] {
   background-color: transparent !important; }
+
+.textRight {
+  text-align: right;
+  color: white; }
+
+.allinpercent {
+  text-align: center;
+  font-size: 12px; }
+
+.errorRed {
+  color: red !important; }
+
+.disabledOP .button.disabled,
+.disabledOP .button[disabled] {
+  opacity: 0.4 !important; }
+
+.milestone-add {
+  padding: 10px; }

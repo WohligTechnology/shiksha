@@ -37,8 +37,7 @@
                                         <i class="ion-record release col2"></i> TOTAL ALLOCATION
                                     </h5>
                                     <h3 class="text-center bold f16 home-data">
-                                        {{DashboardAllData.getTotalFundAllocation[0].totalFundAllocation/10000000 | indianCurrency }} Cr
-                                        <!--{{getProjectReport.data.totalComponentsFundAllocation.totalFundAllocation}} Lacs-->
+                                        {{DashboardAllData.getTotalFundAllocation[0].totalFundAllocation/10000000 | number }} Cr
                                     </h3>
                                 </div>
                             </div>
@@ -48,8 +47,7 @@
                                         <p class="stable f12 text-center"><i class="ion-record release col1"></i>FUNDS RELEASED</p>
 
                                         <div class="text-center ">
-                                            <!-- <p class="f16 bold">{{getTransactionReport.data.totalReleaseAndUtilization.totalFundRelease1/10000000 | indianCurrency }} Cr</p> -->
-                                            <p class="f16 bold">{{DashboardAllData.getTotalFundReleased[0].totalFundReleased/10000000 | indianCurrency
+                                            <p class="f16 bold">{{DashboardAllData.getTotalFundReleased[0].totalFundReleased/10000000 | number
                                                 }} Cr</p>
                                         </div>
                                     </div>
@@ -60,8 +58,7 @@
 
                                     <div class="text-center ">
 
-                                        <p class="f16 bold ">{{DashboardAllData.getFundUtilized[0].totalFundUtilized/10000000 | indianCurrency
-                                            }} Cr</p>
+                                        <p class="f16 bold ">{{DashboardAllData.getFundUtilized[0].totalFundUtilized/10000000 | number }} Cr</p>
                                     </div>
                                 </div>
                             </div>
@@ -179,7 +176,7 @@
                                                     <div class="upgrade">
                                                         <div class="text-center allocation-made project-right">₹ (in lacs)
                                                             <!-- <h4 class="bold">{{fundInstitute._id.totalComponentAllocation/100000 | number:0}}</h4> Allocation -->
-                                                            <h4 class="bold">{{fundInstitute.allocationAmount/100000 | indianCurrency}}</h4>
+                                                            <h4 class="bold">{{fundInstitute.allocationAmount/100000 | number}}</h4>
                                                             Allocation
 
                                                         </div>
@@ -230,7 +227,7 @@
                                                                 <canvas id="doughnut" ng-if="$index%3===2" class="chart chart-doughnut" chart-data="data1" chart-labels="labels1" chart-colors="colors2"
                                                                   chart-dataset-override="override2"></canvas> -->
                                                             <h5 class="f16 bold card-50">
-                                                                {{(fundInstitute.retVal.getFundUtilized/fundInstitute.retVal.FundReleased *100 | indianCurrency )|| 0}}%
+                                                                {{(fundInstitute.retVal.getFundUtilized/fundInstitute.retVal.FundReleased *100 | number )|| 0}}%
                                                             </h5>
                                                         </div>
                                                         <div class="fund-dot">
@@ -243,15 +240,15 @@
                                                                 </li>
                                                                 <li class="project-right ma10"> Centre share released: {{(fundInstitute.retVal.centerShare/100000
                                                                     | number: 2)||0}} / {{(fundInstitute.centerShare )/100000
-                                                                    | indianCurrency}}</li>
+                                                                    | number}}</li>
                                                                 <li class="project-right ma10"> State share released: {{((fundInstitute.retVal.FundReleased
                                                                     /100000) -(fundInstitute.retVal.centerShare/100000) |
                                                                     number: 2) || 0}} / {{(fundInstitute.stateShare)/100000
-                                                                    | indianCurrency}}</li>
+                                                                    | number}}</li>
                                                                 <li class="project-right"> <i class="ion-record fund-dot3"></i>
                                                                     <span class="item-note"></span>Fund utilization: {{(fundInstitute.retVal.getFundUtilized/100000
                                                                     | number: 2) ||0}} / {{(fundInstitute.retVal.FundReleased)/100000
-                                                                    | indianCurrency}} </li>
+                                                                    | number}} </li>
                                                             </ul>
                                                         </div>
                                                     </div>

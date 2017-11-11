@@ -6,32 +6,39 @@
     </div>
   </ion-header-bar>
   <ion-content class="">
-    <form class="" ng-submit="addAllocation(allocationData);">
+    <form class="" ng-submit="addAllocation(allocationData);" name="allocationForm">
       <ul class="list">
         <li>
           <label class="item item-input item-stacked-label">
             <span class="input-label">Choose Vendor</span>
-            <select class="work-order " ng-model="allocationData.vendor" ng-options="centers.name for centers in vendorlist track by centers._id" ng-if="modalheader !='Edit'" >
-                  <option selected="true" value="" disabled></option>
-              </select>
+               <select class="work-order" ng-model="allocationData.vendor" required ng-options="i.name for i in vendorlist track by i._id" >
+                             
+                           </select>
+            <p class="errorRed" ng-if="allocationForm.vendor.$error.required && allocationForm.vendor.$touched">Please select Vendor</p>
+
                 <label for="" ng-if="modalheader =='Edit'">{{allocationData.vendor.name}}</label>
-                <!-- <input type="text" ng-model="allocationData.vendor.name"  disabled  ng-if="modalheader =='Edit'" >  -->
-           </label>
+          <!-- <input type="text" ng-model="allocationData.vendor.name"  disabled  ng-if="modalheader =='Edit'" >  -->
+          </label>
         </li>
-        <li>
+        <ul>
 
           <label class="item item-input item-stacked-label">
           <span class="input-label">Value Allocated</span>
-          <input type="text" placeholder="Value Allocated" cleave="options.currency" only-digit required ng-model="allocationData.allocatedAmount">
+          <input type="text" placeholder="Value Allocated" cleave="options.currency" name="allocatedAmount" only-digit required ng-model="allocationData.allocatedAmount">
+         <p class="errorRed" ng-if="allocationForm.allocatedAmount.$error.required && allocationForm.allocatedAmount.$touched">Please enter Allocated Amount</p>
+
         </label>
           <label class="item item-input item-stacked-label">
           <span class="input-label">Issue Date</span>
-          <input  class="textbox-n" type="date"  required   ng-model="allocationData.orderIssueDate">
+          <input  class="textbox-n" type="date"  required   name="orderIssueDate" ng-model="allocationData.orderIssueDate">
+         <p class="errorRed" ng-if="allocationForm.orderIssueDate.$error.required && allocationForm.orderIssueDate.$touched">Please enter Issue Date</p>
 
         </label>
           <label class="item item-input item-stacked-label">
           <span class="input-label">Due Date</span>
-          <input  class="textbox-n" type="date"  required   ng-model="allocationData.orderDueDate">
+          <input  class="textbox-n" type="date"  required name="orderDueDate" ng-model="allocationData.orderDueDate">
+          <p class="errorRed" ng-if="allocationForm.orderDueDate.$error.required && allocationForm.orderDueDate.$touched">Please enter Due Date</p>
+
         </label>
           <!--<label class="item item-input item-stacked-label">
           <span class="input-label">Description</span>
@@ -43,21 +50,21 @@
         </label>
           <div class="row" ng-if="allocationData.orderFile">
             <div class="col">
-               <div class="image-grid" ng-if="allocationData.orderFile.slice(allocationData.orderFile.length-3, allocationData.orderFile.length) =='pdf'  " ng-click="openPDF(allocationData.orderFile)">
+              <div class="image-grid" ng-if="allocationData.orderFile.slice(allocationData.orderFile.length-3, allocationData.orderFile.length) =='pdf'  "
+                ng-click="openPDF(allocationData.orderFile)">
                 <img src="http://www.freeiconspng.com/uploads/pdf-icon-png-17.png" alt="">
-            </div>
-            <div class="image-grid" ng-if="allocationData.orderFile.slice(allocationData.orderFile.length-3, allocationData.orderFile.length) !='pdf'" ng-click="openImage(allocationData.orderFile)">
+              </div>
+              <div class="image-grid" ng-if="allocationData.orderFile.slice(allocationData.orderFile.length-3, allocationData.orderFile.length) !='pdf'"
+                ng-click="openImage(allocationData.orderFile)">
                 <img ng-src="{{allocationData.orderFile | uploadpath}}">
-            </div>
+              </div>
             </div>
           </div>
-        </li>
-      </ul>
 
 
-      <div class="setting-down text-center">
-        <button class="button  button-assertive uppercase submit-pop" type="submit" ng-disabled="!allocationData ">Submit</button>
-      </div>
+          <div class="setting-down text-center">
+            <button class="button  button-assertive uppercase submit-pop" type="submit" ng-disabled="!allocationData ">Submit</button>
+          </div>
     </form>
 
   </ion-content>

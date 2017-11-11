@@ -46,10 +46,10 @@ angular.module('starter.controllers', ['starter.services', 'ngCordova', 'highcha
         if ($.jStorage.get('filter') != null) {
             $state.go('app.home');
         }
-        $scope.showAlert = function () {
+        $scope.showAlert = function (text) {
             var alertPopup = $ionicPopup.alert({
                 title: 'oops!',
-                template: 'Sorry You have entered wrong username & password '
+                template: text
 
             });
 
@@ -62,7 +62,9 @@ angular.module('starter.controllers', ['starter.services', 'ngCordova', 'highcha
                 console.log("login", data);
                 if (data.value) {
                     if (data.data.length == 0) {
-                        $scope.showAlert();
+                        $scope.showAlert('Sorry You have entered wrong username & password');
+                    } else if (_.isEmpty(data.data.center) && _.isEmpty(data.data.state) && _.isEmpty(data.data.institute)) {
+                        $scope.showAlert("Sorry you don't have access");
                     } else {
                         $scope.filter = data.data;
                         $.jStorage.set('user', data.data.userDetail);
@@ -895,7 +897,7 @@ angular.module('starter.controllers', ['starter.services', 'ngCordova', 'highcha
 
         $scope.openPaymentEdit = function (id, data, modalheader) {
             $scope.closeMilestoneEdit();
-            console.log("id get", id);
+            console.log("id get", id, data);
             $scope.allocationData = data;
             $scope.modalheader = modalheader;
             $rootScope.projectID = id;
@@ -913,17 +915,20 @@ angular.module('starter.controllers', ['starter.services', 'ngCordova', 'highcha
             var data = {};
             $scope.workOrder = {};
             $scope.gettrans = {};
+            $scope.WorkOrderTransactions = {};
             $scope.workOrderID._id = proEx._id;
             $scope.gettrans.vendorId = proEx.vendor._id;
             $scope.gettrans.projectId = project;
+            $scope.gettrans._id = proEx._id;
             $scope.workOrder = proEx;
             $scope.workOrder.institute = institute.institute;
             MyServices.getWorkOrderToEdit($scope.workOrderID, function (data) {
                 if (data.value) {
-                    $scope.singleWorkOrder = data.data[0];
+                    $scope.singleWorkOrder = data.data;
+                    console.log($scope.singleWorkOrder);
                 }
             });
-            MyServices.getWorkOrderTransactions($scope.gettrans, function (data) {
+            MyServices.getWorkOrderData($scope.gettrans, function (data) {
                 if (data.value) {
                     $scope.WorkOrderTransactions = data.data[0].transactions;
                     $scope.modaledit.show();
@@ -941,17 +946,16 @@ angular.module('starter.controllers', ['starter.services', 'ngCordova', 'highcha
             }
             var issueDate = new Date(allocationform.orderIssueDate);
             var dueDate = new Date(allocationform.orderDueDate);
-
             if (issueDate < dueDate) {
                 MyServices.vendorAllocation(allocationform, function (data) {
                     if (data.value) {
                         // $scope.allocationData = {};
                         $scope.getProject();
-                        MyServices.getWorkOrderToEdit($scope.workOrderID, function (data) {
-                            if (data.value) {
-                                $scope.singleWorkOrder = data.data[0];
-                            }
-                        });
+                        // MyServices.getWorkOrderToEdit($scope.workOrderID, function (data) {
+                        //     if (data.value) {
+                        //         $scope.singleWorkOrder = data.data;
+                        //     }
+                        // });
                     }
                     $scope.closePaymentEdit();
                 });
@@ -1155,7 +1159,7 @@ angular.module('starter.controllers', ['starter.services', 'ngCordova', 'highcha
                     if (data.value) {
                         $scope.closetransaction();
                         console.log(data.data);
-                        MyServices.getWorkOrderTransactions($scope.gettrans, function (data) {
+                        MyServices.getWorkOrderData($scope.gettrans, function (data) {
                             if (data.value) {
                                 $scope.WorkOrderTransactions = data.data[0].transactions;
                                 $scope.modaledit.show();
@@ -1169,7 +1173,7 @@ angular.module('starter.controllers', ['starter.services', 'ngCordova', 'highcha
                     if (data.value) {
                         $scope.closetransaction();
                         console.log(data.data);
-                        MyServices.getWorkOrderTransactions($scope.gettrans, function (data) {
+                        MyServices.getWorkOrderData($scope.gettrans, function (data) {
                             if (data.value) {
                                 $scope.WorkOrderTransactions = data.data[0].transactions;
                                 $scope.modaledit.show();
@@ -1365,23 +1369,25 @@ angular.module('starter.controllers', ['starter.services', 'ngCordova', 'highcha
         };
 
         $scope.ucAdd = function (formData) {
-            formData._id = $scope.componentId;
-            MyServices.addUcToComponent(formData, function (data) {
-                if (data.value) {
-                    $scope.componentDataget();
-                    $scope.closeUcForm();
-                }
-            });
-        };
-        $scope.edituc = function (formData) {
-            formData._ucId = formData._id;
-            formData._id = $scope.componentId;
-            MyServices.updateUcOfComponent(formData, function (data) {
-                if (data.value) {
-                    $scope.componentDataget();
-                    $scope.closeUcForm();
-                }
-            });
+            if (formData._id) {
+                formData._ucId = formData._id;
+                formData._id = $scope.componentId;
+                MyServices.updateUcOfComponent(formData, function (data) {
+                    if (data.value) {
+                        $scope.componentDataget();
+                        $scope.closeUcForm();
+                    }
+                });
+            } else {
+                formData._id = $scope.componentId;
+                MyServices.addUcToComponent(formData, function (data) {
+                    if (data.value) {
+                        $scope.componentDataget();
+                        $scope.closeUcForm();
+                    }
+                });
+            }
+
         };
         $scope.getfile = function () {
             $scope.filename = document.getElementById("myFile").value;

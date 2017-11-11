@@ -6,37 +6,43 @@
         </div>
     </ion-header-bar>
     <ion-content>
-        <form class="" ng-submit="EditprojectFun(project)">
+        <form class="" name="projectForm" ng-submit="EditprojectFun(project)">
             <ion-list>
                 <ion-item>
                     <div class="input-label">Project Type</div>
-                    <select class="projecttype work-order" ng-model="project.projectType" ng-options="p.name for p in findAllProjectType track by p._id">
-                        <option selected="true" value="" disabled>{{project.projectType}}</option>
+                    <select class="projecttype work-order" ng-model="project.projectType" name="projectType" ng-options="p.name for p in findAllProjectType track by p._id">
+                        <!--<option selected="true" value="" disabled>{{project.projectType}}</option>-->
                     </select>
+                    <p class="errorRed" ng-if="projectForm.projectType.$error.required && projectForm.projectType.$touched">Please Enter Project Type</p>
                 </ion-item>
                 <ion-item>
                     <div class="input-label">Asset type</div>
-                    <select class="projecttype work-order" ng-model="project.assetType" ng-options="p.name for p in findAllAssetType track by p._id">
-                    <option selected="true" value="" disabled>{{project.assetType}}</option>
+                    <select class="projecttype work-order" ng-model="project.assetType" name="assetType" ng-options="p.name for p in findAllAssetType track by p._id">
+                    <!--<option selected="true" value="" disabled>{{proj/ect.assetType}}</option>-->
                   </select>
+                    <p class="errorRed" ng-if="projectForm.assetType.$error.required && projectForm.assetType.$touched">Please Enter Asset type</p>
                 </ion-item>
                 <ion-item>
                     <div class="input-label">Total Value (In Rs)</div>
-                    <input type="text" placeholder=" Total Value (In Rs)" ng-model="project.valueOfProject">
+                    <input type="text" placeholder=" Total Value (In Rs)" only-digits required cleave="options.currency" name="valueOfProject"
+                        ng-model="project.valueOfProject">
+                    <p class="errorRed" ng-if="projectForm.valueOfProject.$error.required && projectForm.valueOfProject.$touched">Please Enter Total Value</p>
                 </ion-item>
                 <ion-item>
                     <div class="input-label">Amount of Work (In %) </div>
-                    <input type="text" placeholder="Amount of Work (In %)" ng-model="project.allocationAmountOfWork">
+                    <input type="text" placeholder="Amount of Work (In %)" ng-model="project.allocationAmountOfWork" required name="allocationAmountOfWork"
+                        required>
+                    <p class="errorRed" ng-if="projectForm.allocationAmountOfWork.$error.required && projectForm.allocationAmountOfWork.$touched">Please Enter Amount of Work</p>
                 </ion-item>
                 <ion-item>
                     <div class="input-label">Due Date</div>
-                    <input placeholder="Due Date" class="textbox-n duedate" type="date" 
-                        id="date" ng-model="project.dueDate" min="{{project.createdAt | date:'dd-MM-yyyy'}}">
+                    <input placeholder="Due Date" class="textbox-n duedate" type="date" id="date" required name="dueDate" ng-model="project.dueDate"
+                        min="{{project.createdAt | date:'dd-MM-yyyy'}}">
+                    <p class="errorRed" ng-if="projectForm.dueDate.$error.required && projectForm.dueDate.$touched">Please Enter Due Date</p>
                 </ion-item>
             </ion-list>
             <div class="padding">
                 <button class="button button-positive button-block" type="submit">
-                    <!-- <button class="button button-positive button-block" ng-click="closeCreate();"> -->
                 Update
               </button>
             </div>
