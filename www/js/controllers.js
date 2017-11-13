@@ -895,17 +895,27 @@ angular.module('starter.controllers', ['starter.services', 'ngCordova', 'highcha
             $scope.paymentEditModal.hide();
         };
 
-        $scope.openPaymentEdit = function (id, data, modalheader) {
+        $scope.openPaymentEdit = function (id, expId, modalheader) {
             $scope.closeMilestoneEdit();
-            console.log("id get", id, data);
-            $scope.allocationData = data;
-            $scope.modalheader = modalheader;
             $rootScope.projectID = id;
-            if (data != null) {
-                $scope.allocationData.orderIssueDate = new Date($scope.allocationData.orderIssueDate);
-                $scope.allocationData.orderDueDate = new Date($scope.allocationData.orderDueDate);
+            if (expId) {
+                $scope.workOrderID = {
+                    _id: expId
+                };
+                MyServices.getWorkOrderToEdit($scope.workOrderID, function (data) {
+                    if (data.value) {
+                        $scope.allocationData = data.data;
+                        $scope.modalheader = modalheader;
+                        $scope.allocationData.orderIssueDate = new Date($scope.allocationData.orderIssueDate);
+                        $scope.allocationData.orderDueDate = new Date($scope.allocationData.orderDueDate);
+                        $scope.paymentEditModal.show();
+
+                    }
+                });
+            } else {
+                $scope.allocationData = {};
+                $scope.paymentEditModal.show();
             }
-            $scope.paymentEditModal.show();
         };
 
         $scope.workOrderID = {};
@@ -951,11 +961,11 @@ angular.module('starter.controllers', ['starter.services', 'ngCordova', 'highcha
                     if (data.value) {
                         // $scope.allocationData = {};
                         $scope.getProject();
-                        // MyServices.getWorkOrderToEdit($scope.workOrderID, function (data) {
-                        //     if (data.value) {
-                        //         $scope.singleWorkOrder = data.data;
-                        //     }
-                        // });
+                        MyServices.getWorkOrderToEdit($scope.workOrderID, function (data) {
+                            if (data.value) {
+                                $scope.singleWorkOrder = data.data;
+                            }
+                        });
                     }
                     $scope.closePaymentEdit();
                 });
@@ -1400,10 +1410,15 @@ angular.module('starter.controllers', ['starter.services', 'ngCordova', 'highcha
         }).then(function (modal) {
             $scope.modaladd = modal;
         });
-        $scope.openUcForm = function (modal, formData) {
+        $scope.openUcForm = function (modal, UCData) {
+
             $scope.modalHeader = modal;
-            $scope.formData = formData;
-            $scope.formData.date = new Date($scope.formData.date);
+            if (!_.isEmpty(UCData)) {
+                $scope.UCData = UCData;
+                $scope.UCData.date = new Date($scope.UCData.date);
+            } else {
+                $scope.UCData = {};
+            }
             $scope.modaladd.show();
         };
         $scope.closeUcForm = function () {

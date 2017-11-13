@@ -2,29 +2,28 @@
     <ion-header-bar class="bar-positive bar bar-header">
         <h1 class="title">{{modalHeader}} UC </h1>
         <div class="buttons">
-            <button class="button button-clear ion-close" ng-click="closeUcForm();"></button>
+            <button class="button button-clear ion-close" ng-click="modaladd.hide();"></button>
         </div>
     </ion-header-bar>
     <ion-content>
-        <!-- <pre>{{formData | json}}</pre> -->
-        <form class="" ng-submit="ucAdd(formData)" name="ucForm">
+        <!-- <pre>{{UCData | json}}</pre> -->
+        <form class="" name="ucForm" ng-submit="ucAdd(formData)">
             <div class="milestone-add">
                 <ul class="list">
 
                     <li class="item item-input item-stacked-label">
                         <span class="input-label">Installment no</span>
-                        <input type="number" placeholder="Installment no" ng-model="formData.installmentNo" required name="installmentNo">
+                        <input type="number" placeholder="Installment no" ng-model="UCData.installmentNo" required name="installmentNo">
                         <p class="errorRed" ng-if="ucForm.installmentNo.$error.required && ucForm.installmentNo.$touched">Please enter Installment no</p>
                     </li>
                     <li class="item item-input item-stacked-label">
                         <span class="input-label">Date of UC</span>
-                        <input type="date" ng-model="formData.date" required name="date">
+                        <input type="date" ng-model="UCData.date" required name="date">
                         <p class="errorRed" ng-if="ucForm.date.$error.required && ucForm.date.$touched">Please enter Date of UC</p>
                     </li>
                     <li class="item item-input item-stacked-label">
                         <span class="input-label">Value (in INR)</span>
-                        <input type="text" placeholder="Value (in INR)" cleave="options.currency" only-digit ng-model="formData.amount" required
-                            name="amount">
+                        <input type="text" placeholder="Value (in INR)" cleave="options.currency" only-digit ng-model="UCData.amount" required name="amount">
                         <p class="errorRed" ng-if="ucForm.amount.$error.required && ucForm.amount.$touched">Please enter Value (in INR)</p>
 
                     </li>
@@ -35,13 +34,13 @@
                         </div> -->
                         <!--<button ng-click="getfile()">Try it</button>-->
 
-                        <div class="row" ng-if="formData.images">
+                        <div class="row" ng-if="UCData.images">
                             <div class="col-25">
-                                <div class="image-grid" ng-if="formData.images.slice(formData.images.length-3, formData.images.length) =='pdf'  " ng-click="openPDF(formData.images)">
+                                <div class="image-grid" ng-if="UCData.images.slice(UCData.images.length-3, UCData.images.length) =='pdf'  " ng-click="openPDF(UCData.images)">
                                     <img src="http://www.freeiconspng.com/uploads/pdf-icon-png-17.png" alt="">
                                 </div>
-                                <div class="image-grid" ng-if="formData.images.slice(formData.images.length-3, formData.images.length) !='pdf'" ng-click="openImage(formData.images)">
-                                    <img ng-src="{{formData.images | uploadpath}}">
+                                <div class="image-grid" ng-if="UCData.images.slice(UCData.images.length-3, UCData.images.length) !='pdf'" ng-click="openImage(UCData.images)">
+                                    <img ng-src="{{UCData.images | uploadpath}}">
                                 </div>
                             </div>
                         </div>
@@ -51,7 +50,7 @@
             </div>
             <div class="padding">
                 <!-- <button class="button button-positive button-block" type="submit"> -->
-                <button class="button button-positive button-block" ng-click="ucAdd(formData)">  
+                <button class="button button-positive button-block" type="submit">  
                     <span ng-if="modalHeader!= 'Edit'">Save</span>
                     <span ng-if="modalHeader== 'Edit'">Update</span>
                 </button>
