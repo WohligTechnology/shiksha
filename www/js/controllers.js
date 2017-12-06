@@ -789,7 +789,7 @@ angular.module('starter.controllers', ['starter.services', 'ngCordova', 'highcha
 
     })
 
-    .controller('ProjetctCtrl', function ($scope, $stateParams, $ionicPopup, $filter, MyServices, $rootScope, $ionicModal, $ionicActionSheet, $cordovaCamera, $ionicLoading, $cordovaFileTransfer, $cordovaImagePicker) {
+    .controller('ProjectCtrl', function ($scope, $stateParams, $ionicPopup, $filter, MyServices, $rootScope, $ionicModal, $ionicActionSheet, $cordovaCamera, $ionicLoading, $cordovaFileTransfer, $cordovaImagePicker) {
         $scope.projectNotInProExpense = {};
         $scope.componentId = $stateParams.componentId;
         $scope.allocationData = {};
@@ -812,6 +812,20 @@ angular.module('starter.controllers', ['starter.services', 'ngCordova', 'highcha
                 numeralThousandsGroupStyle: 'lakh'
             }
         };
+        $ionicModal.fromTemplateUrl('templates/modal/imageViewer.html', {
+            scope: $scope,
+            animation: 'slide-in-up'
+        }).then(function (modal) {
+            $scope.imageView = modal;
+        });
+        $scope.openImage = function (image) {
+            console.log(image);
+            $scope.image = image;
+            $scope.imageView.show();
+        };
+        $scope.closeImage = function () {
+            $scope.imageView.hide();
+        };
         dropDownData.component = $stateParams.componentId;
         MyServices.componentData(dropDownData, function (data) {
             $scope.overview = data.data.compList[0];
@@ -825,19 +839,29 @@ angular.module('starter.controllers', ['starter.services', 'ngCordova', 'highcha
             var ref = cordova.InAppBrowser.open($scope.finalURL, target, options);
         };
         $scope.getProject = function () {
+            $scope.$broadcast('scroll.refreshComplete');
+
             MyServices.componentProjects($scope.componentId, function (data) {
                 if (data.value && data.data != 'noDataFound') {
                     $scope.fundUtil = 0;
                     $scope.totalamt = 0;
                     $scope.componentProjects = data.data;
+
                     _.forEach($scope.componentProjects, function (value) {
-                        $scope.fundUtil = $scope.fundUtil + value.totalAmountReleased;
-                        $scope.totalamt = $scope.totalamt + value.totalValue;
+                        _.forEach(value.projectExpense, function (value1) {
+                            $scope.fundUtil = $scope.fundUtil + value1.VendorReleaseAmount;
+                            $scope.totalamt = $scope.totalamt + value1.allocatedAmount;
+                        });
+                        // $scope.fundUtil = $scope.fundUtil + value.totalAmountReleased;
+                        // $scope.totalamt = $scope.totalamt + value.totalValue;
                     });
-                    console.log($scope.componentProjects);
+
+                    console.log(" *** fundUtil **** ", $scope.fundUtil);
+                    console.log(" *** totalamt **** ", $scope.totalamt);
+
                 }
             });
-        }
+        };
         $scope.getProject();
 
         MyServices.findAllProjectType(function (data) {
@@ -880,10 +904,10 @@ angular.module('starter.controllers', ['starter.services', 'ngCordova', 'highcha
             scope: $scope,
             animation: 'slide-in-up'
         }).then(function (modal) {
-            $scope.modaledit = modal;
+            $scope.modalWorkOrderDetail = modal;
         });
         $scope.closeMilestoneEdit = function () {
-            $scope.modaledit.hide();
+            $scope.modalWorkOrderDetail.hide();
         };
         $ionicModal.fromTemplateUrl('templates/modal/payment-edit.html', {
             scope: $scope,
@@ -941,7 +965,7 @@ angular.module('starter.controllers', ['starter.services', 'ngCordova', 'highcha
             MyServices.getWorkOrderData($scope.gettrans, function (data) {
                 if (data.value) {
                     $scope.WorkOrderTransactions = data.data[0].transactions;
-                    $scope.modaledit.show();
+                    $scope.modalWorkOrderDetail.show();
                     $scope.project = data.data;
                 }
             });
@@ -999,6 +1023,8 @@ angular.module('starter.controllers', ['starter.services', 'ngCordova', 'highcha
         $scope.createprojectFun = function (project) {
             $scope.project = project;
             $scope.project.components = $scope.componentId;
+            $scope.project.dueDate = new Date($scope.project.dueDate);
+
             MyServices.createProject($scope.project, function (data) {
                 $scope.project = data.data;
                 console.log($scope.project);
@@ -1132,18 +1158,20 @@ angular.module('starter.controllers', ['starter.services', 'ngCordova', 'highcha
 
             });
         };
-        $scope.opentransaction = function (id) {
-            $scope.id = {};
-            $scope.id = id;
+        $scope.opentransaction = function (transaction) {
             $scope.transactionData = {};
             $scope.allocationData = {};
-            MyServices.getTransactions($scope.id, function (data) {
-                if (data.value) {
-                    $scope.transactionData = data.data;
-                    $scope.transactionData.transactionSent = new Date($scope.transactionData.transactionSent);
-                    $scope.transactionData.transactionReceived = new Date($scope.transactionData.transactionReceived);
-                }
-            });
+            if (transaction) {
+                $scope.transactionReq = {};
+                $scope.transactionReq._id = transaction._id;
+                MyServices.getTransactions($scope.transactionReq, function (data) {
+                    if (data.value) {
+                        $scope.transactionData = data.data;
+                        $scope.transactionData.transactionSent = new Date($scope.transactionData.transactionSent);
+                        $scope.transactionData.transactionReceived = new Date($scope.transactionData.transactionReceived);
+                    }
+                });
+            }
             $scope.transaction.show();
         };
         $scope.closetransaction = function () {
@@ -1172,7 +1200,7 @@ angular.module('starter.controllers', ['starter.services', 'ngCordova', 'highcha
                         MyServices.getWorkOrderData($scope.gettrans, function (data) {
                             if (data.value) {
                                 $scope.WorkOrderTransactions = data.data[0].transactions;
-                                $scope.modaledit.show();
+                                // $scope.modalWorkOrderDetail.show();
                                 $scope.project = data.data;
                             }
                         });
@@ -1186,7 +1214,7 @@ angular.module('starter.controllers', ['starter.services', 'ngCordova', 'highcha
                         MyServices.getWorkOrderData($scope.gettrans, function (data) {
                             if (data.value) {
                                 $scope.WorkOrderTransactions = data.data[0].transactions;
-                                $scope.modaledit.show();
+                                // $scope.modalWorkOrderDetail.show();
                                 $scope.project = data.data;
                             }
                         });
@@ -1365,7 +1393,8 @@ angular.module('starter.controllers', ['starter.services', 'ngCordova', 'highcha
         });
         $ionicModal.fromTemplateUrl('templates/modal/imageViewer.html', {
             scope: $scope,
-            animation: 'slide-in-up'
+            animation: 'slide-in-up',
+            focusFirstInput: true
         }).then(function (modal) {
             $scope.imageView = modal;
         });
@@ -1382,6 +1411,7 @@ angular.module('starter.controllers', ['starter.services', 'ngCordova', 'highcha
             if (formData._id) {
                 formData._ucId = formData._id;
                 formData._id = $scope.componentId;
+                formData.image = formData.images;
                 MyServices.updateUcOfComponent(formData, function (data) {
                     if (data.value) {
                         $scope.componentDataget();
@@ -1427,7 +1457,7 @@ angular.module('starter.controllers', ['starter.services', 'ngCordova', 'highcha
         $scope.adducimage = function (maxImage) {
             MyServices.showActionsheet(maxImage, function (Images) {
                 console.log(Images);
-                $scope.formData.images = Images[0];
+                $scope.UCData.images = Images[0];
 
             });
         }

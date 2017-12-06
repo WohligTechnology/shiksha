@@ -3,29 +3,31 @@
 
         <ion-nav-buttons side="left hamburger">
             <button class="button button-icon button-clear ion-navicon " menu-toggle="left">
-        </button>
+            </button>
         </ion-nav-buttons>
         <ion-nav-buttons side="right ">
 
             <button class="button button-icon  search-btn ion-ios-telephone padings" ng-click="opencallmodal(overview.contact)">
-        </button>
+            </button>
 
         </ion-nav-buttons>
     </ion-nav-bar>
     <ion-content class="bg-light-blue  has-tabs has-footer">
+        <ion-refresher on-refresh="getProject()">
+        </ion-refresher>
         <div class="">
             <div class="card top-card">
                 <div class="item item-text-wrap">
                     <span class="item-note custom-radio">
-                  <label class=" item-toggle">
-                    <label class="toggle toggle-energized">
-                            <input type="checkbox" ng-checked="overview.status == 'Completed'" disabled>
-                        <div class="track">
-                        <div class="handle icon-lock"></div>
-                        </div>
-                    </label>
-                  </label>
-          </span>
+                        <label class=" item-toggle">
+                            <label class="toggle toggle-energized">
+                                <input type="checkbox" ng-checked="overview.status == 'Completed'" disabled>
+                                <div class="track">
+                                    <div class="handle icon-lock"></div>
+                                </div>
+                            </label>
+                        </label>
+                    </span>
                     <div class="infra-div">
                         <div class="infra-project bold">{{overview.keycomponents.name}}</div>
 
@@ -39,16 +41,23 @@
             <div class="progress-div">
                 <div class="">
                     <label for="" class="bold"> Fund Utilization for Work Orders</label>
-                    <label for="" class="rupee bold" ng-if="">₹ {{ (componentProjects[0].totalAmountReleased/100000 | number:2) ||  0}}Lacs</label>
+                    <label for="" class="rupee bold" ng-if="">₹ {{ (fundUtil/100000 | number:2) || 0}}Lacs</label>
                 </div>
                 <div class="custom-slide-miles utilization-margn">
                     <div class="complete"></div>
-                    <div class="begin-complete" style="width:{{componentProjects[0].totalAmountReleased/componentProjects[0].components.allocationAmount*100}}%"
-                        ng-if="totalamt!=0"></div>
-                    <div class="mark-make" style="left: calc({{componentProjects[0].totalAmountReleased/componentProjects[0].components.allocationAmount*100}}% - 25px);"
-                        ng-if="totalamt!=0">{{componentProjects[0].totalAmountReleased/componentProjects[0].components.allocationAmount*100| number:2
-                        }}%
+                    <div ng-if="totalamt!=0 && (fundUtil/totalamt*100)<=100">
+                        <div class="begin-complete" style="width:{{fundUtil/totalamt*100}}%"></div>
+
+                        <div class="mark-make" style="left: calc({{fundUtil/totalamt*100}}% - 25px);" ng-if="totalamt!=0">{{fundUtil/totalamt*100| number:2 }}%
+                        </div>
                     </div>
+
+                    <div ng-if="(fundUtil/totalamt*100)>100">
+                        <div class="begin-complete" style="width:100%"></div>
+                        <div class="mark-make" style="left: calc(100% - 25px);" ng-if="totalamt!=0">{{fundUtil/totalamt*100| number:2 }}%
+                        </div>
+                    </div>
+
                     <div class="mark-make" style="left: calc(0% - 10px);" ng-if="totalamt==0">0%</div>
                 </div>
             </div>
@@ -57,7 +66,9 @@
                     <div class="">
                         <div class="row ">
                             <div class="col util-header pdb0">Project Type</div>
-                            <div class="col util-header pdb0" ng-if="project.status">Status : <span class="util-content bold">{{project.status}}</span></div>
+                            <div class="col util-header pdb0" ng-if="project.status">Status :
+                                <span class="util-content bold">{{project.status}}</span>
+                            </div>
 
                         </div>
                         <div class="row">
@@ -90,12 +101,12 @@
                         <div class="row">
                             <div class="col-50 util-content bold pd5">₹ {{project.valueOfProject/100000|number:2}} Lacs</div>
 
-                            <div class="col-50 util-content bold pd5">
+                            <!-- <div class="col-50 util-content bold pd5">
 
                                 <p class="bold">
-                                    {{project.completedAmountOfWork}}%
+                                    {{project.allocationAmountOfWork}}%
                                 </p>
-                            </div>
+                            </div> -->
                         </div>
                         <div class="row">
                             <div class="col-50 util-header pd5">Remark</div>
@@ -129,10 +140,13 @@
                                     <div class="col-25 util-content bold fs12 vendor-name" ng-click="openMilestoneEdit(proEx,project._id,project.components)">{{proEx.vendor.name}}</div>
                                     <div class="col-25 util-content bold text-center fs12" ng-click="openMilestoneEdit(proEx,project._id,project.components)">₹ {{proEx.allocatedAmount/100000|number:2}}Lacs</div>
                                     <div class="col-25 util-content bold text-center fs12" ng-click="openMilestoneEdit(proEx,project._id,project.components)">₹ {{proEx.VendorReleaseAmount/100000|number:2}}Lacs</div>
-                                    <div class="col-25 util-content bold text-center fs26" ng-click="openPDF(proEx.orderFile)">
+                                    <div class="col-25 util-content bold text-center fs26" ng-click="openPDF(proEx.orderFile)" ng-if=" proEx.orderFile.slice(proEx.orderFile.length-3, proEx.orderFile.length) =='pdf'  ">
                                         <i class="icon ion-document-text"></i>
-
                                     </div>
+                                    <div class="col-25 util-content bold text-center fs26" ng-click="openImage(proEx.orderFile)" ng-if=" proEx.orderFile.slice(proEx.orderFile.length-3, proEx.orderFile.length) !='pdf'  ">
+                                        <i class="icon ion-document-text"></i>
+                                    </div>
+
                                 </div>
 
                             </div>

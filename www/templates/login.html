@@ -9,7 +9,7 @@
           <span class="input-label login-text" >Username:</span>
           <input type="text" class="input-text" ng-model="formdata.username"  name="uname" required>
         </label>
-       <p class="error-msg" ng-show="formLogin.uname.$error.required && formLogin.uname.$touched">Please Enter Your Username.</p>
+        <p class="error-msg" ng-show="formLogin.uname.$error.required && formLogin.uname.$touched">Please Enter Your Username.</p>
         <label class="item item-input login">
           <span class="input-label login-text">Password:</span>
           <input type="password" class="input-text" ng-model="formdata.password" name="password" required>
@@ -18,14 +18,14 @@
 
       </div>
       <div class="text-center">
-         <button class="button button-stable text-center login-button " type="submit">
+        <button class="button button-stable text-center login-button " type="submit">
           Login
-        </button> 
+        </button>
         <!--<button class="button button-stable text-center login-button " ui-sref="app.home">
           Login
         </button>-->
       </div>
     </form>
-    <h5 class="text-center forget" ui-serf="forgot">Forgot password?</h5>
+    <!--<h5 class="text-center forget" ui-serf="forgot">Forgot password?</h5>-->
   </ion-content>
 </ion-view>

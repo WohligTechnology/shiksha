@@ -1,60 +1,64 @@
 <ion-modal-view>
   <ion-header-bar class="bar-positive bar bar-header">
-    <h1 class="title" ng-if="id != null">Edit Transaction </h1>
-    <h1 class="title" ng-if="id ==null">Add Transaction </h1>
+    <h1 class="title" ng-if="transactionData._id ">Edit Transaction </h1>
+    <h1 class="title" ng-if="!transactionData._id">Add Transaction </h1>
 
     <div class="buttons">
       <button class="button button-clear ion-close" ng-click="closetransaction()"></button>
     </div>
   </ion-header-bar>
   <ion-content>
-    <form name="transactionForm" ng-submit="saveTransaction(transactionData,id);">
+    <form name="transactionForm" ng-submit="saveTransaction(transactionData,transactionData._id);">
       <div class="list vendordetails">
         <div class="list">
 
           <label class="item item-input item-stacked-label">
-          <span class="input-label">Installment No.</span>
-          <input type="number"  placeholder="Installment No." ng-model="transactionData.installment" required name="installment">
-          <p class="errorRed" ng-if="transactionForm.installment.$error.required && transactionForm.installment.$touched">Please enter Installment No</p>
+            <span class="input-label">Installment No.</span>
+            <input type="number" placeholder="Installment No." ng-model="transactionData.installment" required name="installment">
+            <p class="errorRed" ng-if="transactionForm.installment.$error.required && transactionForm.installment.$touched">Please enter Installment No</p>
 
-        </label>
+          </label>
           <label class="item item-input item-stacked-label">
-          <span class="input-label">Payment Sent Date</span>
-          <input type="date" id="date" placeholder="Payment Sent Date" ng-model="transactionData.transactionSent" required name="transactionSent">
-        <p class="errorRed" ng-if="transactionForm.transactionSent.$error.required && transactionForm.transactionSent.$touched">Please enter Payment Sent Date</p>
+            <span class="input-label">Payment Sent Date</span>
+            <input type="date" id="date" placeholder="Payment Sent Date" ng-model="transactionData.transactionSent" required name="transactionSent">
+            <p class="errorRed" ng-if="transactionForm.transactionSent.$error.required && transactionForm.transactionSent.$touched">Please enter Payment Sent Date</p>
 
-        </label>
+          </label>
           <label class="item item-input item-stacked-label">
-          <span class="input-label">Payment Received Date</span>
-          <input type="date" id="date" placeholder="Payment Received Date" ng-model="transactionData.transactionReceived" required name="transactionReceived">        
-          <p class="errorRed" ng-if="transactionForm.transactionReceived.$error.required && transactionForm.transactionReceived.$touched">Please enter Payment Received Date</p>
-          <!-- readonly make it -->
-        </label>
+            <span class="input-label">Payment Received Date</span>
+            <input type="date" id="date" placeholder="Payment Received Date" ng-model="transactionData.transactionReceived" required
+              name="transactionReceived">
+            <p class="errorRed" ng-if="transactionForm.transactionReceived.$error.required && transactionForm.transactionReceived.$touched">Please enter Payment Received Date</p>
+            <!-- readonly make it -->
+          </label>
 
           <label class="item item-input item-stacked-label">
-          <span class="input-label">Value Released (INR) :</span>
-          <input type="text" placeholder="Value Released" cleave="options.currency" only-digit ng-model="transactionData.amount"  required name="amount">
-          <p class="errorRed" ng-if="transactionForm.amount.$error.required && transactionForm.amount.$touched">Please enter Value Released (INR)</p>
+            <span class="input-label">Value Released (INR) :</span>
+            <input type="text" placeholder="Value Released" cleave="options.currency" only-digit ng-model="transactionData.amount" required
+              name="amount">
+            <p class="errorRed" ng-if="transactionForm.amount.$error.required && transactionForm.amount.$touched">Please enter Value Released (INR)</p>
 
-        </label>
+          </label>
           <label class="item item-input item-stacked-label">
-          <span class="input-label">Description :</span>
-          <textarea placeholder="Description" ng-model="transactionData.remarks" required name="remarks"></textarea>
-          <p class="errorRed" ng-if="transactionForm.remarks.$error.required && transactionForm.remarks.$touched">Please enter Description</p>
-        </label>
+            <span class="input-label">Description :</span>
+            <textarea placeholder="Description" ng-model="transactionData.remarks" required name="remarks"></textarea>
+            <p class="errorRed" ng-if="transactionForm.remarks.$error.required && transactionForm.remarks.$touched">Please enter Description</p>
+          </label>
           <label class="item item-input item-stacked-label">
-          <span class="input-label">Upload payment Proof : <button type="button" name="button" ng-click="addInstallmentProof(1)">Upload Photos</button></span>
-          <div class="row" ng-if="transactionData.file">
-         <div class="col-25">
-            <div class="image-grid" ng-if=" transactionData.file.slice(transactionData.file.length-3, transactionData.file.length) =='pdf'  " ng-click="openPDF(transactionData.file)">
-                <img src="http://www.freeiconspng.com/uploads/pdf-icon-png-17.png" alt="">
+            <span class="input-label">Upload payment Proof :
+              <button type="button" name="button" ng-click="addInstallmentProof(1)">Upload Photos</button>
+            </span>
+            <div class="row" ng-if="transactionData.file">
+              <div class="col-25">
+                <div class="image-grid" ng-if=" transactionData.file.slice(transactionData.file.length-3, transactionData.file.length) =='pdf'  ">
+                  <img src="http://www.freeiconspng.com/uploads/pdf-icon-png-17.png" alt="">
+                </div>
+                <div class="image-grid" ng-if=" transactionData.file.slice(transactionData.file.length-3, transactionData.file.length) !='pdf'">
+                  <img ng-src="{{transactionData.file | uploadpath}}">
+                </div>
+              </div>
             </div>
-            <div class="image-grid" ng-if=" transactionData.file.slice(transactionData.file.length-3, transactionData.file.length) !='pdf'" ng-click="openImage(transactionData.file)">
-                <img ng-src="{{transactionData.file | uploadpath}}">
-            </div>
-         </div>
-     </div> 
-        </label>
+          </label>
 
         </div>
       </div>

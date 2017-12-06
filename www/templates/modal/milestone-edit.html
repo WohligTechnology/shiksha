@@ -23,16 +23,16 @@
 
         <div class="hasorder-foot" ng-if="show==0">
             <ion-content class="work-ion has-tabs-top">
-                <div class="card" ng-repeat="wO in WorkOrderTransactions">
-                    <a class="button button-icon icon ion-edit item-note edit-btn" ng-click="opentransaction(wO._id)" ng-if="overview.status != 'Completed'"></a>
+                <div class="card" ng-repeat="WorkTransaction in WorkOrderTransactions">
+                    <a class="button button-icon icon ion-edit item-note edit-btn" ng-click="opentransaction(WorkTransaction)" ng-if="overview.status != 'Completed'"></a>
                     <!--<div class="clearfix">
                     </div>-->
                     <ul class="list">
                         <div class="milestone-add">
-                            <div class="">Installment : {{wO.installment}}</div>
-                            <div class="">Value Released : {{wO.amount | number}}</div>
-                            <div class="">Payment Received Date : {{wO.transactionReceived | date}}</div>
-                            <div class="">Payment Sent Date : {{wO.transactionSent | date}}</div>
+                            <div class="">Installment : {{WorkTransaction.installment}}</div>
+                            <div class="">Value Released : {{WorkTransaction.amount | number}}</div>
+                            <div class="">Payment Received Date : {{WorkTransaction.transactionReceived | date}}</div>
+                            <div class="">Payment Sent Date : {{WorkTransaction.transactionSent | date}}</div>
                             <!-- <div class="">Description</div>
                             <textarea type="text" placeholder="Description" ng-model="wO.remarks"> </textarea>
                             <div class="">Payment Proof : </div>

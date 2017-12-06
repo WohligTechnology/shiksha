@@ -10,7 +10,7 @@
             <ion-list>
                 <ion-item>
                     <div class="input-label">Project Type</div>
-                    <select class="projecttype work-order" ng-model="formData.projectType" ng-options="p.name as p.name for p in findAllProjectType track by p._id"
+                    <select class="projecttype work-order" ng-model="formData.projectType" ng-options="p._id as p.name for p in findAllProjectType track by p._id"
                         required name="projectType">
                          <option selected="true" value="" disabled>Project Type</option>
                     </select>
@@ -18,7 +18,7 @@
                 </ion-item>
                 <ion-item>
                     <div class="input-label">Asset type</div>
-                    <select class="projecttype work-order" ng-model="formData.assetType" ng-options="p.name for p in findAllAssetType track by p._id"
+                    <select class="projecttype work-order" ng-model="formData.assetType" ng-options="p._id as p.name for p in findAllAssetType track by p._id"
                         required name="assetType">
                     <option selected="true" value="" disabled>Asset type</option>
                   </select>
@@ -28,7 +28,7 @@
                     <div class="input-label">Total Value (In Rs)</div>
                     <input type="text" placeholder=" Total Value (In Rs)" only-digits required cleave="options.currency" name="valueOfProject"
                         ng-model="formData.valueOfProject">
-                    <p class="errorRed" ng-if="projectForm.valueOfProject.$error.required && projectForm.valueOfProject.$touched">Please Enter Total Value</p>
+                    <p class="errorRed" ng-if="projectForm.valueOfProject.$error.required && projectForm.valueOfProject.$touched">Please Enter Value of Project</p>
                 </ion-item>
                 <ion-item>
                     <div class="input-label">Amount of Work (In %)</div>
@@ -37,8 +37,7 @@
                 </ion-item>
                 <ion-item>
                     <div class="input-label">Due Date</div>
-                    <input placeholder="Due Date" class="textbox-n" type="text" onfocus="(this.type='date')" onfocusout="(this.type='text')"
-                        id="date" required ng-model="formData.dueDate" name="dueDate">
+                    <input class="textbox-n" type="date" id="date" required ng-model="formData.dueDate" name="dueDate">
                     <p class="errorRed" ng-if="projectForm.dueDate.$error.required && projectForm.dueDate.$touched">Please Enter Due Date</p>
                 </ion-item>
             </ion-list>

@@ -1214,6 +1214,8 @@ input[type=range]:focus::-webkit-slider-runnable-track {
     &.utilization-margn {
         margin-bottom: 30px;
         margin-top: 6px;
+        margin-left: 15px;
+        margin-right: 15px;
     }
     &.pt7 {
         padding-top: 7px;
@@ -1237,6 +1239,7 @@ input[type=range]:focus::-webkit-slider-runnable-track {
     }
     .milestone-add {
         margin: 0 10px;
+        padding: 10px;
     }
     .mark-make {
         width: 40px;
@@ -2520,6 +2523,7 @@ select[readonly] {
 }
 
 .edit-btn {
+    z-index: 5;
     &:before {
         font-size: 18px!important;
     }
@@ -3046,8 +3050,4 @@ select[readonly] {
     .button[disabled] {
         opacity: 0.4!important;
     }
-}
-
-.milestone-add {
-    padding: 10px;
 }

@@ -7,7 +7,7 @@
     </ion-header-bar>
     <ion-content>
         <!-- <pre>{{UCData | json}}</pre> -->
-        <form class="" name="ucForm" ng-submit="ucAdd(formData)">
+        <form class="" name="ucForm" ng-submit="ucAdd(UCData)">
             <div class="milestone-add">
                 <ul class="list">
 
@@ -28,20 +28,20 @@
 
                     </li>
                     <li class="item item-input item-stacked-label">
-                        <span class="input-label">Upload payment Proof : <button type="button" name="button" ng-click="adducimage(1)">Upload Photos</button></span>
+                        <span class="input-label">Upload payment Proof :
+                            <button type="button" name="button" ng-click="adducimage(1)">Upload Photos</button>
+                        </span>
                         <!-- <div>
                             <input type="file" value="" accept="application/pdf,application/vnd.ms-excel" id="myFile" class="hw100">
                         </div> -->
                         <!--<button ng-click="getfile()">Try it</button>-->
 
-                        <div class="row" ng-if="UCData.images">
-                            <div class="col-25">
-                                <div class="image-grid" ng-if="UCData.images.slice(UCData.images.length-3, UCData.images.length) =='pdf'  " ng-click="openPDF(UCData.images)">
-                                    <img src="http://www.freeiconspng.com/uploads/pdf-icon-png-17.png" alt="">
-                                </div>
-                                <div class="image-grid" ng-if="UCData.images.slice(UCData.images.length-3, UCData.images.length) !='pdf'" ng-click="openImage(UCData.images)">
-                                    <img ng-src="{{UCData.images | uploadpath}}">
-                                </div>
+                        <div ng-if="UCData.images">
+                            <div class="image-grid" ng-if="UCData.images.slice(UCData.images.length-3, UCData.images.length) =='pdf'  ">
+                                <img src="http://www.freeiconspng.com/uploads/pdf-icon-png-17.png" alt="">
+                            </div>
+                            <div class="image-grid" ng-if="UCData.images.slice(UCData.images.length-3, UCData.images.length) !='pdf'">
+                                <img ng-src="{{UCData.images | uploadpath}}">
                             </div>
                         </div>
 
@@ -50,7 +50,7 @@
             </div>
             <div class="padding">
                 <!-- <button class="button button-positive button-block" type="submit"> -->
-                <button class="button button-positive button-block" type="submit">  
+                <button class="button button-positive button-block" type="submit">
                     <span ng-if="modalHeader!= 'Edit'">Save</span>
                     <span ng-if="modalHeader== 'Edit'">Update</span>
                 </button>

@@ -18,19 +18,19 @@
                 <ion-item>
                     <div class="input-label">Asset type</div>
                     <select class="projecttype work-order" ng-model="project.assetType" name="assetType" ng-options="p.name for p in findAllAssetType track by p._id">
-                    <!--<option selected="true" value="" disabled>{{proj/ect.assetType}}</option>-->
-                  </select>
+                        <!--<option selected="true" value="" disabled>{{proj/ect.assetType}}</option>-->
+                    </select>
                     <p class="errorRed" ng-if="projectForm.assetType.$error.required && projectForm.assetType.$touched">Please Enter Asset type</p>
                 </ion-item>
                 <ion-item>
                     <div class="input-label">Total Value (In Rs)</div>
                     <input type="text" placeholder=" Total Value (In Rs)" only-digits required cleave="options.currency" name="valueOfProject"
                         ng-model="project.valueOfProject">
-                    <p class="errorRed" ng-if="projectForm.valueOfProject.$error.required && projectForm.valueOfProject.$touched">Please Enter Total Value</p>
+                    <p class="errorRed" ng-if="projectForm.valueOfProject.$error.required && projectForm.valueOfProject.$touched">Please Enter Value of Project</p>
                 </ion-item>
                 <ion-item>
                     <div class="input-label">Amount of Work (In %) </div>
-                    <input type="text" placeholder="Amount of Work (In %)" ng-model="project.allocationAmountOfWork" required name="allocationAmountOfWork"
+                    <input type="number" placeholder="Amount of Work (In %)" ng-model="project.allocationAmountOfWork" required name="allocationAmountOfWork"
                         required>
                     <p class="errorRed" ng-if="projectForm.allocationAmountOfWork.$error.required && projectForm.allocationAmountOfWork.$touched">Please Enter Amount of Work</p>
                 </ion-item>
@@ -43,8 +43,8 @@
             </ion-list>
             <div class="padding">
                 <button class="button button-positive button-block" type="submit">
-                Update
-              </button>
+                    Update
+                </button>
             </div>
         </form>
     </ion-content>

@@ -118,7 +118,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
                 views: {
                     'menuContent': {
                         templateUrl: 'templates/project.html',
-                        controller: 'ProjetctCtrl'
+                        controller: 'ProjectCtrl'
                     }
                 }
             })

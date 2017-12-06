@@ -1,4 +1,4 @@
-// var adminurl = "http://192.168.0.22/api/";
+// var adminurl = "http://192.168.0.102:81/api/";
 // var adminurl = "http://wohlig.io/api/";
 // var adminurl = "http://rusa.wohlig.co.in/api/";//server
 // var adminurl = "http://rusabeta.wohlig.com/api/";//server
@@ -82,10 +82,8 @@ angular.module('starter.services', [])
           data: data
         }).success(callback);
       },
-      getTransactions: function (id, callback) {
-        var data = {
-          _id: id
-        }
+      getTransactions: function (data, callback) {
+
         return $http({
           url: adminurl + 'Transaction/getOne',
           method: "POST",
